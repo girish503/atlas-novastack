@@ -1,0 +1,553 @@
+{
+  "version": "0.1.0",
+  "seed": 20260909,
+  "count": 29,
+  "security_fixtures": [
+    {
+      "fixture_id": "FIX-SEC-0001",
+      "security_scenario": "role_based",
+      "target_document_id": "DOC-SEC-ROLE-0003",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [
+        "engineer"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Authorized engineer has role 'engineer' matching document allowed_roles.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0002",
+      "security_scenario": "role_based",
+      "target_document_id": "DOC-SEC-ROLE-0003",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0067",
+      "test_user_role": "sales_engineer",
+      "test_user_department": "Sales",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [
+        "engineer"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Sales user lacks required 'engineer' role for engineering document.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0003",
+      "security_scenario": "department",
+      "target_document_id": "DOC-SEC-DPT-0001",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "finance",
+      "test_user_department": "Finance",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "confidential",
+      "required_roles": [],
+      "required_department": "Finance",
+      "allowed_user_ids": [],
+      "security_reason": "Finance department member accessing confidential Finance tax document.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0004",
+      "security_scenario": "department",
+      "target_document_id": "DOC-SEC-DPT-0001",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "confidential",
+      "required_roles": [],
+      "required_department": "Finance",
+      "allowed_user_ids": [],
+      "security_reason": "Engineering user denied access to Finance confidential document.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0005",
+      "security_scenario": "department",
+      "target_document_id": "DOC-SEC-DPT-0004",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0002",
+      "test_user_role": "hr",
+      "test_user_department": "HR",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "confidential",
+      "required_roles": [],
+      "required_department": "HR",
+      "allowed_user_ids": [],
+      "security_reason": "HR department member authorized to access confidential HR PIP framework.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0005-DENY",
+      "security_scenario": "department",
+      "target_document_id": "DOC-SEC-DPT-0004",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "confidential",
+      "required_roles": [],
+      "required_department": "HR",
+      "allowed_user_ids": [],
+      "security_reason": "Engineering user denied access to confidential HR PIP documentation.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0006",
+      "security_scenario": "document_permission",
+      "target_document_id": "DOC-SEC-ACL-0001",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0053",
+      "test_user_role": "security_admin",
+      "test_user_department": "Security",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [
+        "security_admin"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Security administrator possesses required 'security_admin' role claim.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0006-DENY",
+      "security_scenario": "document_permission",
+      "target_document_id": "DOC-SEC-ACL-0001",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [
+        "security_admin"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "General engineer denied access to document requiring explicit 'security_admin' role.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0007",
+      "security_scenario": "cross_tenant",
+      "target_document_id": "DOC-SEC-TENT-0002",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-ORBITAL",
+      "classification": "internal",
+      "required_roles": [],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Cross-tenant breach prevented: NovaStack employee denied Orbital internal document.",
+      "related_document_ids": [
+        "DOC-SEC-TENT-0001"
+      ]
+    },
+    {
+      "fixture_id": "FIX-SEC-0007-ALLOW",
+      "security_scenario": "cross_tenant",
+      "target_document_id": "DOC-SEC-TENT-0002",
+      "expected_access": "allow",
+      "test_user_id": "USR-OR-0001",
+      "test_user_role": "engineering_manager",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-ORBITAL",
+      "expected_tenant": "TENANT-ORBITAL",
+      "classification": "internal",
+      "required_roles": [],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Orbital employee authorized to access Orbital's own internal specification.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0007-PC-DENY",
+      "security_scenario": "cross_tenant",
+      "target_document_id": "DOC-SEC-TENT-0003",
+      "expected_access": "deny",
+      "test_user_id": "USR-OR-0007",
+      "test_user_role": "sales_manager",
+      "test_user_department": "Sales",
+      "test_user_tenant": "TENANT-ORBITAL",
+      "expected_tenant": "TENANT-PINECONE",
+      "classification": "internal",
+      "required_roles": [],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Cross-tenant breach prevented: Orbital user denied Pinecone internal document.",
+      "related_document_ids": [
+        "DOC-SEC-TENT-0003"
+      ]
+    },
+    {
+      "fixture_id": "FIX-SEC-0008-ALLOW",
+      "security_scenario": "duplicate_acl",
+      "target_document_id": "DOC-SEC-DUP-0001",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [
+        "engineer",
+        "employee"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Engineer authorized to access sanitized public/internal postmortem copy.",
+      "related_document_ids": [
+        "DOC-SEC-DUP-0002"
+      ]
+    },
+    {
+      "fixture_id": "FIX-SEC-0008-DENY",
+      "security_scenario": "duplicate_acl",
+      "target_document_id": "DOC-SEC-DUP-0002",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "restricted",
+      "required_roles": [
+        "security_admin"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Engineer denied access to restricted unredacted audit duplicate requiring 'security_admin'.",
+      "related_document_ids": [
+        "DOC-SEC-DUP-0001"
+      ]
+    },
+    {
+      "fixture_id": "FIX-SEC-0009",
+      "security_scenario": "superseded_restricted",
+      "target_document_id": "DOC-SEC-SUP-0001",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "restricted",
+      "required_roles": [
+        "security_admin"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "General engineer denied access to superseded restricted key document; status='superseded' does NOT grant public access.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0009-ALLOW",
+      "security_scenario": "superseded_restricted",
+      "target_document_id": "DOC-SEC-SUP-0001",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0053",
+      "test_user_role": "security_admin",
+      "test_user_department": "Security",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "restricted",
+      "required_roles": [
+        "security_admin"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Security administrator authorized to view archived master encryption key manual.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0010-V1-ALLOW",
+      "security_scenario": "version_specific",
+      "target_document_id": "DOC-SEC-VACL-01-V1",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [
+        "engineer"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Engineer authorized to access version 1.0 which had 'internal' classification.",
+      "related_document_ids": [
+        "DOC-SEC-VACL-01-V2",
+        "DOC-SEC-VACL-01-V3"
+      ]
+    },
+    {
+      "fixture_id": "FIX-SEC-0010-V3-DENY",
+      "security_scenario": "version_specific",
+      "target_document_id": "DOC-SEC-VACL-01-V3",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "restricted",
+      "required_roles": [
+        "security_admin"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Engineer denied version 3.0 because specification escalated from 'internal' to 'restricted'.",
+      "related_document_ids": [
+        "DOC-SEC-VACL-01-V1",
+        "DOC-SEC-VACL-01-V2"
+      ]
+    },
+    {
+      "fixture_id": "FIX-SEC-0011-ALLOW",
+      "security_scenario": "document_permission",
+      "target_document_id": "DOC-SEC-USR-0001",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0065",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "confidential",
+      "required_roles": [],
+      "required_department": null,
+      "allowed_user_ids": [
+        "USR-NS-0065",
+        "USR-NS-0062"
+      ],
+      "security_reason": "User explicitly listed in document-level allowed_user_ids access list.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0011-DENY",
+      "security_scenario": "document_permission",
+      "target_document_id": "DOC-SEC-USR-0001",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineering_manager",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "confidential",
+      "required_roles": [],
+      "required_department": null,
+      "allowed_user_ids": [
+        "USR-NS-0065",
+        "USR-NS-0062"
+      ],
+      "security_reason": "User omitted from explicit document-level allowed_user_ids list.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0012",
+      "security_scenario": "classification_and_permission",
+      "target_document_id": "DOC-SEC-ACL-0002",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [
+        "security_admin"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "User has 'internal' classification clearance, but document-level permission requires 'security_admin' role.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0012-ALLOW",
+      "security_scenario": "classification_and_permission",
+      "target_document_id": "DOC-SEC-ACL-0002",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0053",
+      "test_user_role": "security_admin",
+      "test_user_department": "Security",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [
+        "security_admin"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "User satisfies both 'internal' classification clearance and required 'security_admin' role.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-CLS-PUB-01",
+      "security_scenario": "classification",
+      "target_document_id": "DOC-SEC-CLS-0001",
+      "expected_access": "allow",
+      "test_user_id": "USR-OR-0001",
+      "test_user_role": "engineering_manager",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-ORBITAL",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "public",
+      "required_roles": [],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Public documents are universally accessible across tenants and roles.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-CLS-RES-01",
+      "security_scenario": "classification",
+      "target_document_id": "DOC-SEC-CLS-0013",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "restricted",
+      "required_roles": [
+        "security_admin"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "General engineer denied access to Restricted cryptographic master key documentation.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0007-PC-ALLOW",
+      "security_scenario": "cross_tenant",
+      "target_document_id": "DOC-SEC-TENT-0003",
+      "expected_access": "allow",
+      "test_user_id": "USR-PC-0001",
+      "test_user_role": "engineering_manager",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-PINECONE",
+      "expected_tenant": "TENANT-PINECONE",
+      "classification": "internal",
+      "required_roles": [],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Pinecone engineer authorized to access Pinecone internal document.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-0007-NS-DENY",
+      "security_scenario": "cross_tenant",
+      "target_document_id": "DOC-SEC-TENT-0001",
+      "expected_access": "deny",
+      "test_user_id": "USR-PC-0001",
+      "test_user_role": "engineering_manager",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-PINECONE",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Cross-tenant isolation: Pinecone employee denied NovaStack internal document.",
+      "related_document_ids": [
+        "DOC-SEC-TENT-0003"
+      ]
+    },
+    {
+      "fixture_id": "FIX-SEC-ROLE-SUP-ALLOW",
+      "security_scenario": "role_based",
+      "target_document_id": "DOC-SEC-ROLE-0005",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0003",
+      "test_user_role": "support",
+      "test_user_department": "Customer Support",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [
+        "support"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Support engineer authorized to access customer support escalation SOP.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-ROLE-SUP-DENY",
+      "security_scenario": "role_based",
+      "target_document_id": "DOC-SEC-ROLE-0005",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0001",
+      "test_user_role": "engineer",
+      "test_user_department": "Engineering",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "internal",
+      "required_roles": [
+        "support"
+      ],
+      "required_department": null,
+      "allowed_user_ids": [],
+      "security_reason": "Engineer denied access to document requiring role='support'.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-DPT-LGL-ALLOW",
+      "security_scenario": "department",
+      "target_document_id": "DOC-SEC-DPT-0010",
+      "expected_access": "allow",
+      "test_user_id": "USR-NS-0004",
+      "test_user_role": "legal_counsel",
+      "test_user_department": "Legal",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "confidential",
+      "required_roles": [],
+      "required_department": "Legal",
+      "allowed_user_ids": [],
+      "security_reason": "Legal department personnel authorized to access litigation hold notice.",
+      "related_document_ids": []
+    },
+    {
+      "fixture_id": "FIX-SEC-DPT-LGL-DENY",
+      "security_scenario": "department",
+      "target_document_id": "DOC-SEC-DPT-0010",
+      "expected_access": "deny",
+      "test_user_id": "USR-NS-0067",
+      "test_user_role": "sales_engineer",
+      "test_user_department": "Sales",
+      "test_user_tenant": "TENANT-NOVASTACK",
+      "expected_tenant": "TENANT-NOVASTACK",
+      "classification": "confidential",
+      "required_roles": [],
+      "required_department": "Legal",
+      "allowed_user_ids": [],
+      "security_reason": "Sales user denied access to Legal department litigation hold notice.",
+      "related_document_ids": []
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "version": "0.1.0",
+  "seed": 20260909,
+  "count": 9,
+  "deployments": [
+    {
+      "deployment_id": "DEP-NS-0001",
+      "tenant_id": "TENANT-NOVASTACK",
+      "service_id": "SVC-NS-0005",
+      "deployed_by": "USR-NS-0006",
+      "team_id": "TEAM-NS-0001",
+      "version": "2.4.1",
+      "status": "succeeded",
+      "deployed_at": "2025-03-09T18:57:00",
+      "description": "Update checkout-service connection pool configuration"
+    },
+    {
+      "deployment_id": "DEP-NS-0002",
+      "tenant_id": "TENANT-NOVASTACK",
+      "service_id": "SVC-NS-0001",
+      "deployed_by": "USR-NS-0032",
+      "team_id": "TEAM-NS-0004",
+      "version": "1.8.0",
+      "status": "succeeded",
+      "deployed_at": "2025-04-23T07:08:00",
+      "description": "Roll out gradual-login-redesign feature flag to 50% of users"
+    },
+    {
+      "deployment_id": "DEP-NS-0003",
+      "tenant_id": "TENANT-NOVASTACK",
+      "service_id": "SVC-NS-0007",
+      "deployed_by": "USR-NS-0012",
+      "team_id": "TEAM-NS-0002",
+      "version": "3.1.2",
+      "status": "rolled_back",
+      "deployed_at": "2025-06-07T18:34:00",
+      "description": "Update payment gateway configuration endpoints for PCI compliance credential rotation"
+    },
+    {
+      "deployment_id": "DEP-NS-0004",
+      "tenant_id": "TENANT-NOVASTACK",
+      "service_id": "SVC-NS-0011",
+      "deployed_by": "USR-NS-0048",
+      "team_id": "TEAM-NS-0007",
+      "version": "4.2.0",
+      "status": "succeeded",
+      "deployed_at": "2025-10-24T12:45:00",
+      "description": "Scale notification-service from 3 to 6 replicas for holiday traffic preparation"
+    },
+    {
+      "deployment_id": "DEP-NS-0005",
+      "tenant_id": "TENANT-NOVASTACK",
+      "service_id": "SVC-NS-0003",
+      "deployed_by": "USR-NS-0063",
+      "team_id": "TEAM-NS-0008",
+      "version": "1.45.0",
+      "status": "failed",
+      "deployed_at": "2025-12-16T16:34:00",
+      "description": "Apply schema migration v45 to add compliance audit columns to data-warehouse"
+    },
+    {
+      "deployment_id": "DEP-NS-0006",
+      "tenant_id": "TENANT-NOVASTACK",
+      "service_id": "SVC-NS-0010",
+      "deployed_by": "USR-NS-0052",
+      "team_id": "TEAM-NS-0007",
+      "version": "2.1.0",
+      "status": "succeeded",
+      "deployed_at": "2026-02-23T16:33:00",
+      "description": "Update rate-limiter thresholds for new API tier pricing"
+    },
+    {
+      "deployment_id": "DEP-NS-0007",
+      "tenant_id": "TENANT-NOVASTACK",
+      "service_id": "SVC-NS-0006",
+      "deployed_by": "USR-NS-0034",
+      "team_id": "TEAM-NS-0005",
+      "version": "3.0.0",
+      "status": "rolled_back",
+      "deployed_at": "2026-06-14T04:35:00",
+      "description": "Deploy media-service v3.0.0 with new image processing API"
+    },
+    {
+      "deployment_id": "DEP-NS-0008",
+      "tenant_id": "TENANT-NOVASTACK",
+      "service_id": "SVC-NS-0006",
+      "deployed_by": "USR-NS-0034",
+      "team_id": "TEAM-NS-0005",
+      "version": "2.9.5",
+      "status": "succeeded",
+      "deployed_at": "2026-06-14T06:49:00",
+      "description": "Emergency rollback media-service to v2.9.5"
+    },
+    {
+      "deployment_id": "DEP-NS-0009",
+      "tenant_id": "TENANT-NOVASTACK",
+      "service_id": "SVC-NS-0006",
+      "deployed_by": "USR-NS-0037",
+      "team_id": "TEAM-NS-0005",
+      "version": "3.1.0",
+      "status": "succeeded",
+      "deployed_at": "2026-09-24T19:40:00",
+      "description": "Deploy media-service concurrent upload optimization"
+    }
+  ]
+}

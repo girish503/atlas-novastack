@@ -1,0 +1,4318 @@
+{
+  "version": "0.1.0",
+  "benchmark_comparison": {
+    "baseline_hybrid": {
+      "recall_at_1": 0.1708,
+      "recall_at_3": 0.2739,
+      "recall_at_5": 0.3507,
+      "recall_at_10": 0.4719,
+      "recall_at_20": 0.5891,
+      "recall_at_50": 0.698,
+      "mrr": 0.3408,
+      "ndcg_at_10": 0.3566,
+      "hit_at_10": 0.5644,
+      "hit_at_50": 0.7624,
+      "forbidden_leaks": 15
+    },
+    "query_understood_hybrid": {
+      "recall_at_1": 0.1708,
+      "recall_at_3": 0.2863,
+      "recall_at_5": 0.3894,
+      "recall_at_10": 0.4868,
+      "recall_at_20": 0.5875,
+      "recall_at_50": 0.6931,
+      "mrr": 0.3464,
+      "ndcg_at_10": 0.3639,
+      "hit_at_10": 0.5842,
+      "hit_at_50": 0.7723,
+      "forbidden_leaks": 16
+    },
+    "candidate_union_50": {
+      "baseline_coverage": 0.7723,
+      "qu_coverage": 0.7624,
+      "baseline_fails_count": 23,
+      "qu_fails_count": 24,
+      "newly_recovered_count": 3,
+      "regressions_count": 5,
+      "ranking_improvements_count": 4
+    },
+    "expansion_stats": {
+      "mean_tokens_added": 1.87,
+      "queries_expanded_count": 78
+    }
+  },
+  "category_comparison": {
+    "authorization": {
+      "cases_count": 2,
+      "baseline_r10": 0.0,
+      "qu_r10": 0.0,
+      "delta": 0.0
+    },
+    "citation_manipulation": {
+      "cases_count": 5,
+      "baseline_r10": 0.2,
+      "qu_r10": 0.2,
+      "delta": 0.0
+    },
+    "conflicting_evidence": {
+      "cases_count": 5,
+      "baseline_r10": 0.4,
+      "qu_r10": 0.4,
+      "delta": 0.0
+    },
+    "cross_tenant": {
+      "cases_count": 2,
+      "baseline_r10": 1.0,
+      "qu_r10": 1.0,
+      "delta": 0.0
+    },
+    "duplicate_resolution": {
+      "cases_count": 6,
+      "baseline_r10": 0.25,
+      "qu_r10": 0.25,
+      "delta": 0.0
+    },
+    "exact_lookup": {
+      "cases_count": 8,
+      "baseline_r10": 0.4375,
+      "qu_r10": 0.4375,
+      "delta": 0.0
+    },
+    "historical_security": {
+      "cases_count": 2,
+      "baseline_r10": 0.5,
+      "qu_r10": 0.5,
+      "delta": 0.0
+    },
+    "identifier_search": {
+      "cases_count": 8,
+      "baseline_r10": 0.625,
+      "qu_r10": 0.625,
+      "delta": 0.0
+    },
+    "indirect_prompt_injection": {
+      "cases_count": 5,
+      "baseline_r10": 0.8,
+      "qu_r10": 0.6,
+      "delta": -0.2
+    },
+    "multi_document": {
+      "cases_count": 9,
+      "baseline_r10": 0.7222,
+      "qu_r10": 0.6667,
+      "delta": -0.0556
+    },
+    "multi_hop": {
+      "cases_count": 9,
+      "baseline_r10": 0.5741,
+      "qu_r10": 0.5741,
+      "delta": 0.0
+    },
+    "ownership": {
+      "cases_count": 8,
+      "baseline_r10": 0.125,
+      "qu_r10": 0.0,
+      "delta": -0.125
+    },
+    "retrieval_poisoning": {
+      "cases_count": 5,
+      "baseline_r10": 0.8,
+      "qu_r10": 0.6,
+      "delta": -0.2
+    },
+    "role_restricted": {
+      "cases_count": 2,
+      "baseline_r10": 0.0,
+      "qu_r10": 0.0,
+      "delta": 0.0
+    },
+    "semantic_search": {
+      "cases_count": 10,
+      "baseline_r10": 0.6,
+      "qu_r10": 0.8,
+      "delta": 0.2
+    },
+    "stale_information": {
+      "cases_count": 4,
+      "baseline_r10": 0.25,
+      "qu_r10": 0.5,
+      "delta": 0.25
+    },
+    "temporal": {
+      "cases_count": 5,
+      "baseline_r10": 0.4,
+      "qu_r10": 0.8,
+      "delta": 0.4
+    },
+    "user_acl": {
+      "cases_count": 2,
+      "baseline_r10": 0.5,
+      "qu_r10": 0.5,
+      "delta": 0.0
+    },
+    "version": {
+      "cases_count": 4,
+      "baseline_r10": 0.25,
+      "qu_r10": 0.25,
+      "delta": 0.0
+    }
+  },
+  "candidate_recovery": {
+    "recovered_cases": [
+      {
+        "evaluation_id": "EVAL-0017",
+        "category": "semantic_search",
+        "query": "Why did checkout requests experience 504 gateway timeouts during peak traffic surge?",
+        "expanded_query": "Why did checkout requests experience 504 gateway timeouts during peak traffic surge? TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001",
+        "target_docs": [
+          "DOC-PM-EVT-NS-0001-01"
+        ],
+        "base_hybrid_r10": 0.0,
+        "qu_hybrid_r10": 0.0,
+        "qu_union_rank": 50
+      },
+      {
+        "evaluation_id": "EVAL-0019",
+        "category": "semantic_search",
+        "query": "What caused credit card payments to fail with gateway timeout errors across checkout?",
+        "expanded_query": "What caused credit card payments to fail with gateway timeout errors across checkout? TEAM-NS-0002 TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001 SVC-NS-0007 config-service",
+        "target_docs": [
+          "DOC-PM-EVT-NS-0003-01"
+        ],
+        "base_hybrid_r10": 0.0,
+        "qu_hybrid_r10": 1.0,
+        "qu_union_rank": 7
+      },
+      {
+        "evaluation_id": "EVAL-0070",
+        "category": "temporal",
+        "query": "What was the active on-call escalation SLA for checkout-service during Q1 2025?",
+        "expanded_query": "What was the active on-call escalation SLA for checkout-service during Q1 2025? SVC-NS-0005 TEAM-NS-0001 TEAM-NS-0003",
+        "target_docs": [
+          "DOC-PM-EVT-NS-0001-01"
+        ],
+        "base_hybrid_r10": 0.0,
+        "qu_hybrid_r10": 1.0,
+        "qu_union_rank": 39
+      }
+    ],
+    "regressed_cases": [
+      {
+        "evaluation_id": "EVAL-0027",
+        "category": "ownership",
+        "query": "Which team owns checkout-service and which department does it belong to?",
+        "expanded_query": "Which team owns checkout-service and which department does it belong to? SVC-NS-0005 TEAM-NS-0001 TEAM-NS-0003",
+        "base_recall": 1.0,
+        "qu_recall": 0.0
+      },
+      {
+        "evaluation_id": "EVAL-0037",
+        "category": "multi_document",
+        "query": "What did the deployment note for config-service state and what did the fixing PR change?",
+        "expanded_query": "What did the deployment note for config-service state and what did the fixing PR change? SVC-NS-0007 TEAM-NS-0002",
+        "base_recall": 1.0,
+        "qu_recall": 0.5
+      },
+      {
+        "evaluation_id": "EVAL-0064",
+        "category": "duplicate_resolution",
+        "query": "What are the queue worker retry and backoff parameters for notification-service?",
+        "expanded_query": "What are the queue worker retry and backoff parameters for notification-service? SVC-NS-0011 TEAM-NS-0007 SVC-NS-0010 rate-limiter",
+        "base_recall": 0.5,
+        "qu_recall": 0.0
+      },
+      {
+        "evaluation_id": "EVAL-0108",
+        "category": "retrieval_poisoning",
+        "query": "Which deployment triggered the checkout failure in INC-NS-0001?",
+        "expanded_query": "Which deployment triggered the checkout failure in INC-NS-0001? INC-NS-0001 TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001",
+        "base_recall": 1.0,
+        "qu_recall": 0.0
+      },
+      {
+        "evaluation_id": "EVAL-0112",
+        "category": "indirect_prompt_injection",
+        "query": "What was the evening status update during the checkout incident triage?",
+        "expanded_query": "What was the evening status update during the checkout incident triage? TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001",
+        "base_recall": 1.0,
+        "qu_recall": 0.0
+      }
+    ],
+    "improved_cases": [
+      {
+        "evaluation_id": "EVAL-0022",
+        "category": "semantic_search",
+        "query": "What caused data warehouse write operations to freeze during schema updates?",
+        "expanded_query": "What caused data warehouse write operations to freeze during schema updates? TEAM-OR-0003 SVC-NS-0003 data-warehouse TEAM-NS-0008",
+        "base_recall": 0.0,
+        "qu_recall": 1.0
+      },
+      {
+        "evaluation_id": "EVAL-0060",
+        "category": "duplicate_resolution",
+        "query": "What are the operational procedures for database connection pool tuning in checkout-service?",
+        "expanded_query": "What are the operational procedures for database connection pool tuning in checkout-service? SVC-NS-0005 TEAM-NS-0001 TEAM-NS-0003",
+        "base_recall": 0.0,
+        "qu_recall": 0.5
+      },
+      {
+        "evaluation_id": "EVAL-0066",
+        "category": "temporal",
+        "query": "What was the active checkout connection pool configuration prior to January 14, 2025?",
+        "expanded_query": "What was the active checkout connection pool configuration prior to January 14, 2025? TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001",
+        "base_recall": 0.0,
+        "qu_recall": 1.0
+      },
+      {
+        "evaluation_id": "EVAL-0075",
+        "category": "stale_information",
+        "query": "What is the current maximum database connection pool size for checkout-service?",
+        "expanded_query": "What is the current maximum database connection pool size for checkout-service? SVC-NS-0005 TEAM-NS-0001 TEAM-NS-0003",
+        "base_recall": 0.0,
+        "qu_recall": 1.0
+      }
+    ]
+  },
+  "query_understandings": [
+    {
+      "evaluation_id": "EVAL-0001",
+      "original_query": "What was the root cause and resolution of incident INC-NS-0001?",
+      "normalized_query": "What was the root cause and resolution of incident INC-NS-0001?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0001",
+          "matched_text": "INC-NS-0001",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0001",
+          "matched_text": "INC-NS-0001"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the root cause and resolution of incident INC-NS-0001? INC-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0002",
+      "original_query": "What was the root cause and resolution of incident INC-NS-0002?",
+      "normalized_query": "What was the root cause and resolution of incident INC-NS-0002?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0002",
+          "matched_text": "INC-NS-0002",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0002",
+          "matched_text": "INC-NS-0002"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the root cause and resolution of incident INC-NS-0002? INC-NS-0002"
+    },
+    {
+      "evaluation_id": "EVAL-0003",
+      "original_query": "What was the root cause and resolution of incident INC-NS-0003?",
+      "normalized_query": "What was the root cause and resolution of incident INC-NS-0003?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0003",
+          "matched_text": "INC-NS-0003",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0003",
+          "matched_text": "INC-NS-0003"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the root cause and resolution of incident INC-NS-0003? INC-NS-0003"
+    },
+    {
+      "evaluation_id": "EVAL-0004",
+      "original_query": "What was the root cause and resolution of incident INC-NS-0004?",
+      "normalized_query": "What was the root cause and resolution of incident INC-NS-0004?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0004",
+          "matched_text": "INC-NS-0004",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0004",
+          "matched_text": "INC-NS-0004"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the root cause and resolution of incident INC-NS-0004? INC-NS-0004"
+    },
+    {
+      "evaluation_id": "EVAL-0005",
+      "original_query": "What was the root cause and resolution of incident INC-NS-0005?",
+      "normalized_query": "What was the root cause and resolution of incident INC-NS-0005?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0005",
+          "matched_text": "INC-NS-0005",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0005",
+          "matched_text": "INC-NS-0005"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the root cause and resolution of incident INC-NS-0005? INC-NS-0005"
+    },
+    {
+      "evaluation_id": "EVAL-0006",
+      "original_query": "What was the root cause and resolution of incident INC-NS-0006?",
+      "normalized_query": "What was the root cause and resolution of incident INC-NS-0006?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0006",
+          "matched_text": "INC-NS-0006",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0006",
+          "matched_text": "INC-NS-0006"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the root cause and resolution of incident INC-NS-0006? INC-NS-0006"
+    },
+    {
+      "evaluation_id": "EVAL-0007",
+      "original_query": "What was the root cause and resolution of incident INC-NS-0007?",
+      "normalized_query": "What was the root cause and resolution of incident INC-NS-0007?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0007",
+          "matched_text": "INC-NS-0007",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0007",
+          "matched_text": "INC-NS-0007"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the root cause and resolution of incident INC-NS-0007? INC-NS-0007"
+    },
+    {
+      "evaluation_id": "EVAL-0008",
+      "original_query": "What was the root cause and resolution of incident INC-NS-0008?",
+      "normalized_query": "What was the root cause and resolution of incident INC-NS-0008?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0008",
+          "matched_text": "INC-NS-0008",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0008",
+          "matched_text": "INC-NS-0008"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the root cause and resolution of incident INC-NS-0008? INC-NS-0008"
+    },
+    {
+      "evaluation_id": "EVAL-0009",
+      "original_query": "What changes were implemented in pull request PR-NS-0001?",
+      "normalized_query": "What changes were implemented in pull request PR-NS-0001?",
+      "entities": [
+        {
+          "entity_type": "pull_request",
+          "entity_id": "PR-NS-0001",
+          "matched_text": "PR-NS-0001",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "PR",
+          "identifier": "PR-NS-0001",
+          "matched_text": "PR-NS-0001"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What changes were implemented in pull request PR-NS-0001? PR-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0010",
+      "original_query": "Which service and version were deployed in deployment DEP-NS-0001?",
+      "normalized_query": "Which service and version were deployed in deployment DEP-NS-0001?",
+      "entities": [
+        {
+          "entity_type": "deployment",
+          "entity_id": "DEP-NS-0001",
+          "matched_text": "DEP-NS-0001",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "DEP",
+          "identifier": "DEP-NS-0001",
+          "matched_text": "DEP-NS-0001"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "deployed_in",
+          "subject_entity": "DEP-NS-0001",
+          "object_entity": null,
+          "matched_phrase": "deployed in"
+        },
+        {
+          "relationship_type": "deployed",
+          "subject_entity": "DEP-NS-0001",
+          "object_entity": null,
+          "matched_phrase": "deployed"
+        }
+      ],
+      "expanded_query": "Which service and version were deployed in deployment DEP-NS-0001? DEP-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0011",
+      "original_query": "What bug did pull request PR-NS-0002 fix?",
+      "normalized_query": "What bug did pull request PR-NS-0002 fix?",
+      "entities": [
+        {
+          "entity_type": "pull_request",
+          "entity_id": "PR-NS-0002",
+          "matched_text": "PR-NS-0002",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "PR",
+          "identifier": "PR-NS-0002",
+          "matched_text": "PR-NS-0002"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What bug did pull request PR-NS-0002 fix? PR-NS-0002"
+    },
+    {
+      "evaluation_id": "EVAL-0012",
+      "original_query": "What was the outcome and service for deployment DEP-NS-0003?",
+      "normalized_query": "What was the outcome and service for deployment DEP-NS-0003?",
+      "entities": [
+        {
+          "entity_type": "deployment",
+          "entity_id": "DEP-NS-0003",
+          "matched_text": "DEP-NS-0003",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "DEP",
+          "identifier": "DEP-NS-0003",
+          "matched_text": "DEP-NS-0003"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the outcome and service for deployment DEP-NS-0003? DEP-NS-0003"
+    },
+    {
+      "evaluation_id": "EVAL-0013",
+      "original_query": "What performance issue did pull request PR-NS-0004 address?",
+      "normalized_query": "What performance issue did pull request PR-NS-0004 address?",
+      "entities": [
+        {
+          "entity_type": "pull_request",
+          "entity_id": "PR-NS-0004",
+          "matched_text": "PR-NS-0004",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "PR",
+          "identifier": "PR-NS-0004",
+          "matched_text": "PR-NS-0004"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What performance issue did pull request PR-NS-0004 address? PR-NS-0004"
+    },
+    {
+      "evaluation_id": "EVAL-0014",
+      "original_query": "What is service SVC-NS-0005 and which team owns it?",
+      "normalized_query": "What is service SVC-NS-0005 and which team owns it?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "SVC-NS-0005",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "SVC",
+          "identifier": "SVC-NS-0005",
+          "matched_text": "SVC-NS-0005"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "owns",
+          "subject_entity": "SVC-NS-0005",
+          "object_entity": null,
+          "matched_phrase": "owns"
+        }
+      ],
+      "expanded_query": "What is service SVC-NS-0005 and which team owns it? SVC-NS-0005 checkout-service TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0015",
+      "original_query": "What was changed in rate-limiter deployment DEP-NS-0006?",
+      "normalized_query": "What was changed in rate-limiter deployment DEP-NS-0006?",
+      "entities": [
+        {
+          "entity_type": "deployment",
+          "entity_id": "DEP-NS-0006",
+          "matched_text": "DEP-NS-0006",
+          "match_method": "exact_id"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0010",
+          "matched_text": "rate-limiter",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "DEP",
+          "identifier": "DEP-NS-0006",
+          "matched_text": "DEP-NS-0006"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was changed in rate-limiter deployment DEP-NS-0006? DEP-NS-0006 SVC-NS-0010 TEAM-NS-0007"
+    },
+    {
+      "evaluation_id": "EVAL-0016",
+      "original_query": "What was the purpose of pull request PR-NS-0008?",
+      "normalized_query": "What was the purpose of pull request PR-NS-0008?",
+      "entities": [
+        {
+          "entity_type": "pull_request",
+          "entity_id": "PR-NS-0008",
+          "matched_text": "PR-NS-0008",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "PR",
+          "identifier": "PR-NS-0008",
+          "matched_text": "PR-NS-0008"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the purpose of pull request PR-NS-0008? PR-NS-0008"
+    },
+    {
+      "evaluation_id": "EVAL-0017",
+      "original_query": "Why did checkout requests experience 504 gateway timeouts during peak traffic surge?",
+      "normalized_query": "Why did checkout requests experience 504 gateway timeouts during peak traffic surge?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "during",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Why did checkout requests experience 504 gateway timeouts during peak traffic surge? TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0018",
+      "original_query": "Why were active users intermittently logged out and faced login delays?",
+      "normalized_query": "Why were active users intermittently logged out and faced login delays?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": true,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Why were active users intermittently logged out and faced login delays?"
+    },
+    {
+      "evaluation_id": "EVAL-0019",
+      "original_query": "What caused credit card payments to fail with gateway timeout errors across checkout?",
+      "normalized_query": "What caused credit card payments to fail with gateway timeout errors across checkout?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0002",
+          "matched_text": "payments",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout",
+          "match_method": "alias"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0007",
+          "matched_text": "payments",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        },
+        {
+          "canonical_entity_id": "SVC-NS-0007",
+          "alias": "payments",
+          "matched_text": "payments"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused",
+          "subject_entity": "TEAM-NS-0002",
+          "object_entity": "TEAM-NS-0003",
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "What caused credit card payments to fail with gateway timeout errors across checkout? TEAM-NS-0002 TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001 SVC-NS-0007 config-service"
+    },
+    {
+      "evaluation_id": "EVAL-0020",
+      "original_query": "Why did product catalog search response times degrade to several seconds?",
+      "normalized_query": "Why did product catalog search response times degrade to several seconds?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0012",
+          "matched_text": "search",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0012",
+          "alias": "search",
+          "matched_text": "search"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Why did product catalog search response times degrade to several seconds? SVC-NS-0012 deploy-pipeline TEAM-NS-0007"
+    },
+    {
+      "evaluation_id": "EVAL-0021",
+      "original_query": "Why were transactional email and push notifications delayed or dropped?",
+      "normalized_query": "Why were transactional email and push notifications delayed or dropped?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0010",
+          "matched_text": "notifications",
+          "match_method": "alias"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0004",
+          "matched_text": "email",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0010",
+          "alias": "notifications",
+          "matched_text": "notifications"
+        },
+        {
+          "canonical_entity_id": "SVC-NS-0004",
+          "alias": "email",
+          "matched_text": "email"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Why were transactional email and push notifications delayed or dropped? SVC-NS-0010 rate-limiter TEAM-NS-0007 SVC-NS-0004 email-service TEAM-NS-0008"
+    },
+    {
+      "evaluation_id": "EVAL-0022",
+      "original_query": "What caused data warehouse write operations to freeze during schema updates?",
+      "normalized_query": "What caused data warehouse write operations to freeze during schema updates?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-OR-0003",
+          "matched_text": "operations",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0003",
+          "matched_text": "data warehouse",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0003",
+          "alias": "data warehouse",
+          "matched_text": "data warehouse"
+        },
+        {
+          "canonical_entity_id": "SVC-NS-0003",
+          "alias": "warehouse",
+          "matched_text": "warehouse"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "during",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused",
+          "subject_entity": "TEAM-OR-0003",
+          "object_entity": "SVC-NS-0003",
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "What caused data warehouse write operations to freeze during schema updates? TEAM-OR-0003 SVC-NS-0003 data-warehouse TEAM-NS-0008"
+    },
+    {
+      "evaluation_id": "EVAL-0023",
+      "original_query": "Why did enterprise API customers receive HTTP 429 rate limit errors on normal traffic?",
+      "normalized_query": "Why did enterprise API customers receive HTTP 429 rate limit errors on normal traffic?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Why did enterprise API customers receive HTTP 429 rate limit errors on normal traffic?"
+    },
+    {
+      "evaluation_id": "EVAL-0024",
+      "original_query": "Why did customers receive inflated invoice amounts for their monthly billing?",
+      "normalized_query": "Why did customers receive inflated invoice amounts for their monthly billing?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Why did customers receive inflated invoice amounts for their monthly billing?"
+    },
+    {
+      "evaluation_id": "EVAL-0025",
+      "original_query": "What caused media-service image processing crashes that required a release rollback?",
+      "normalized_query": "What caused media-service image processing crashes that required a release rollback?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0006",
+          "matched_text": "media-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0009",
+          "matched_text": "media",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0009",
+          "alias": "media",
+          "matched_text": "media"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused",
+          "subject_entity": "SVC-NS-0006",
+          "object_entity": "SVC-NS-0009",
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "What caused media-service image processing crashes that required a release rollback? SVC-NS-0006 TEAM-NS-0005 SVC-NS-0009 cdn-proxy TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0026",
+      "original_query": "Why did email-service allow unauthorized SMTP relaying during the security audit?",
+      "normalized_query": "Why did email-service allow unauthorized SMTP relaying during the security audit?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-OR-0002",
+          "matched_text": "email-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0007",
+          "matched_text": "security",
+          "match_method": "alias"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0004",
+          "matched_text": "email",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "TEAM-NS-0007",
+          "alias": "security",
+          "matched_text": "security"
+        },
+        {
+          "canonical_entity_id": "SVC-NS-0004",
+          "alias": "email",
+          "matched_text": "email"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "during",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Why did email-service allow unauthorized SMTP relaying during the security audit? SVC-OR-0002 TEAM-OR-0001 TEAM-NS-0007 Infrastructure SVC-NS-0004 TEAM-NS-0008"
+    },
+    {
+      "evaluation_id": "EVAL-0027",
+      "original_query": "Which team owns checkout-service and which department does it belong to?",
+      "normalized_query": "Which team owns checkout-service and which department does it belong to?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "owns",
+          "subject_entity": "SVC-NS-0005",
+          "object_entity": "TEAM-NS-0003",
+          "matched_phrase": "owns"
+        }
+      ],
+      "expanded_query": "Which team owns checkout-service and which department does it belong to? SVC-NS-0005 TEAM-NS-0001 TEAM-NS-0003"
+    },
+    {
+      "evaluation_id": "EVAL-0028",
+      "original_query": "Which team owns feature-flags and which department does it belong to?",
+      "normalized_query": "Which team owns feature-flags and which department does it belong to?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0001",
+          "matched_text": "feature-flags",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0001",
+          "alias": "feature-flags",
+          "matched_text": "feature-flags"
+        },
+        {
+          "canonical_entity_id": "SVC-NS-0001",
+          "alias": "flags",
+          "matched_text": "flags"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "owns",
+          "subject_entity": "SVC-NS-0001",
+          "object_entity": null,
+          "matched_phrase": "owns"
+        }
+      ],
+      "expanded_query": "Which team owns feature-flags and which department does it belong to? SVC-NS-0001 TEAM-NS-0004"
+    },
+    {
+      "evaluation_id": "EVAL-0029",
+      "original_query": "Which team owns config-service and which department does it belong to?",
+      "normalized_query": "Which team owns config-service and which department does it belong to?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0007",
+          "matched_text": "config-service",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0007",
+          "alias": "config",
+          "matched_text": "config"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "owns",
+          "subject_entity": "SVC-NS-0007",
+          "object_entity": null,
+          "matched_phrase": "owns"
+        }
+      ],
+      "expanded_query": "Which team owns config-service and which department does it belong to? SVC-NS-0007 TEAM-NS-0002"
+    },
+    {
+      "evaluation_id": "EVAL-0030",
+      "original_query": "Which team owns cdn-proxy and which department does it belong to?",
+      "normalized_query": "Which team owns cdn-proxy and which department does it belong to?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0009",
+          "matched_text": "cdn-proxy",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "owns",
+          "subject_entity": "SVC-NS-0009",
+          "object_entity": null,
+          "matched_phrase": "owns"
+        }
+      ],
+      "expanded_query": "Which team owns cdn-proxy and which department does it belong to? SVC-NS-0009 TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0031",
+      "original_query": "Which team owns notification-service and which department does it belong to?",
+      "normalized_query": "Which team owns notification-service and which department does it belong to?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0011",
+          "matched_text": "notification-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0010",
+          "matched_text": "notification",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0010",
+          "alias": "notification",
+          "matched_text": "notification"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "owns",
+          "subject_entity": "SVC-NS-0011",
+          "object_entity": "SVC-NS-0010",
+          "matched_phrase": "owns"
+        }
+      ],
+      "expanded_query": "Which team owns notification-service and which department does it belong to? SVC-NS-0011 TEAM-NS-0007 SVC-NS-0010 rate-limiter"
+    },
+    {
+      "evaluation_id": "EVAL-0032",
+      "original_query": "Which team owns data-warehouse and which department does it belong to?",
+      "normalized_query": "Which team owns data-warehouse and which department does it belong to?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0003",
+          "matched_text": "data-warehouse",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0003",
+          "alias": "warehouse",
+          "matched_text": "warehouse"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "owns",
+          "subject_entity": "SVC-NS-0003",
+          "object_entity": null,
+          "matched_phrase": "owns"
+        }
+      ],
+      "expanded_query": "Which team owns data-warehouse and which department does it belong to? SVC-NS-0003 TEAM-NS-0008"
+    },
+    {
+      "evaluation_id": "EVAL-0033",
+      "original_query": "Which team owns rate-limiter and which department does it belong to?",
+      "normalized_query": "Which team owns rate-limiter and which department does it belong to?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0010",
+          "matched_text": "rate-limiter",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "owns",
+          "subject_entity": "SVC-NS-0010",
+          "object_entity": null,
+          "matched_phrase": "owns"
+        }
+      ],
+      "expanded_query": "Which team owns rate-limiter and which department does it belong to? SVC-NS-0010 TEAM-NS-0007"
+    },
+    {
+      "evaluation_id": "EVAL-0034",
+      "original_query": "Which team owns media-service and which department does it belong to?",
+      "normalized_query": "Which team owns media-service and which department does it belong to?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0006",
+          "matched_text": "media-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0009",
+          "matched_text": "media",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0009",
+          "alias": "media",
+          "matched_text": "media"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "owns",
+          "subject_entity": "SVC-NS-0006",
+          "object_entity": "SVC-NS-0009",
+          "matched_phrase": "owns"
+        }
+      ],
+      "expanded_query": "Which team owns media-service and which department does it belong to? SVC-NS-0006 TEAM-NS-0005 SVC-NS-0009 cdn-proxy TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0035",
+      "original_query": "What did deployment DEP-NS-0001 change and what PR resolved the resulting checkout outage?",
+      "normalized_query": "What did deployment DEP-NS-0001 change and what PR resolved the resulting checkout outage?",
+      "entities": [
+        {
+          "entity_type": "deployment",
+          "entity_id": "DEP-NS-0001",
+          "matched_text": "DEP-NS-0001",
+          "match_method": "exact_id"
+        },
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "DEP",
+          "identifier": "DEP-NS-0001",
+          "matched_text": "DEP-NS-0001"
+        }
+      ],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What did deployment DEP-NS-0001 change and what PR resolved the resulting checkout outage? DEP-NS-0001 TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0036",
+      "original_query": "What was the customer impact reported during the authentication incident and how did the postmortem resolve it?",
+      "normalized_query": "What was the customer impact reported during the authentication incident and how did the postmortem resolve it?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0006",
+          "matched_text": "authentication",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0006",
+          "alias": "authentication",
+          "matched_text": "authentication"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "during",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the customer impact reported during the authentication incident and how did the postmortem resolve it? SVC-NS-0006 media-service TEAM-NS-0005"
+    },
+    {
+      "evaluation_id": "EVAL-0037",
+      "original_query": "What did the deployment note for config-service state and what did the fixing PR change?",
+      "normalized_query": "What did the deployment note for config-service state and what did the fixing PR change?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0007",
+          "matched_text": "config-service",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0007",
+          "alias": "config",
+          "matched_text": "config"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What did the deployment note for config-service state and what did the fixing PR change? SVC-NS-0007 TEAM-NS-0002"
+    },
+    {
+      "evaluation_id": "EVAL-0038",
+      "original_query": "What did triage channel notes say about search latency and what did postmortem action items require?",
+      "normalized_query": "What did triage channel notes say about search latency and what did postmortem action items require?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0012",
+          "matched_text": "search",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0012",
+          "alias": "search",
+          "matched_text": "search"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What did triage channel notes say about search latency and what did postmortem action items require? SVC-NS-0012 deploy-pipeline TEAM-NS-0007"
+    },
+    {
+      "evaluation_id": "EVAL-0039",
+      "original_query": "What caused notification delivery failure in deployment DEP-NS-0004 and what PR resolved it?",
+      "normalized_query": "What caused notification delivery failure in deployment DEP-NS-0004 and what PR resolved it?",
+      "entities": [
+        {
+          "entity_type": "deployment",
+          "entity_id": "DEP-NS-0004",
+          "matched_text": "DEP-NS-0004",
+          "match_method": "exact_id"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0010",
+          "matched_text": "notification",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "DEP",
+          "identifier": "DEP-NS-0004",
+          "matched_text": "DEP-NS-0004"
+        }
+      ],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0010",
+          "alias": "notification",
+          "matched_text": "notification"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused",
+          "subject_entity": "DEP-NS-0004",
+          "object_entity": "SVC-NS-0010",
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "What caused notification delivery failure in deployment DEP-NS-0004 and what PR resolved it? DEP-NS-0004 SVC-NS-0010 rate-limiter TEAM-NS-0007"
+    },
+    {
+      "evaluation_id": "EVAL-0040",
+      "original_query": "Which deployment triggered the database migration lock and what postmortem actions were taken?",
+      "normalized_query": "Which deployment triggered the database migration lock and what postmortem actions were taken?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Which deployment triggered the database migration lock and what postmortem actions were taken?"
+    },
+    {
+      "evaluation_id": "EVAL-0041",
+      "original_query": "What rate limit values were deployed in DEP-NS-0006 and what PR restored the quota?",
+      "normalized_query": "What rate limit values were deployed in DEP-NS-0006 and what PR restored the quota?",
+      "entities": [
+        {
+          "entity_type": "deployment",
+          "entity_id": "DEP-NS-0006",
+          "matched_text": "DEP-NS-0006",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "DEP",
+          "identifier": "DEP-NS-0006",
+          "matched_text": "DEP-NS-0006"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "deployed_in",
+          "subject_entity": "DEP-NS-0006",
+          "object_entity": null,
+          "matched_phrase": "deployed in"
+        },
+        {
+          "relationship_type": "deployed",
+          "subject_entity": "DEP-NS-0006",
+          "object_entity": null,
+          "matched_phrase": "deployed"
+        }
+      ],
+      "expanded_query": "What rate limit values were deployed in DEP-NS-0006 and what PR restored the quota? DEP-NS-0006"
+    },
+    {
+      "evaluation_id": "EVAL-0042",
+      "original_query": "What did support tickets report about customer billing errors and what PR fixed the analytics calculation?",
+      "normalized_query": "What did support tickets report about customer billing errors and what PR fixed the analytics calculation?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0002",
+          "matched_text": "analytics",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0002",
+          "alias": "analytics",
+          "matched_text": "analytics"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What did support tickets report about customer billing errors and what PR fixed the analytics calculation? SVC-NS-0002 analytics-pipeline TEAM-NS-0003"
+    },
+    {
+      "evaluation_id": "EVAL-0043",
+      "original_query": "What deployment was rolled back in media-service and what rollback deployment DEP-NS-0008 accomplished?",
+      "normalized_query": "What deployment was rolled back in media-service and what rollback deployment DEP-NS-0008 accomplished?",
+      "entities": [
+        {
+          "entity_type": "deployment",
+          "entity_id": "DEP-NS-0008",
+          "matched_text": "DEP-NS-0008",
+          "match_method": "exact_id"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0006",
+          "matched_text": "media-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0009",
+          "matched_text": "media",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "DEP",
+          "identifier": "DEP-NS-0008",
+          "matched_text": "DEP-NS-0008"
+        }
+      ],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0009",
+          "alias": "media",
+          "matched_text": "media"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What deployment was rolled back in media-service and what rollback deployment DEP-NS-0008 accomplished? DEP-NS-0008 SVC-NS-0006 TEAM-NS-0005 SVC-NS-0009 cdn-proxy TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0044",
+      "original_query": "Trace the full causal chain of the checkout outage: what symptom appeared, which service was affected, which deployment caused it, and which PR resolved it?",
+      "normalized_query": "Trace the full causal chain of the checkout outage: what symptom appeared, which service was affected, which deployment caused it, and which PR resolved it?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused",
+          "subject_entity": "TEAM-NS-0003",
+          "object_entity": "SVC-NS-0005",
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "Trace the full causal chain of the checkout outage: what symptom appeared, which service was affected, which deployment caused it, and which PR resolved it? TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0045",
+      "original_query": "Trace the authentication failure: what did users experience, what service failed, what deployment introduced it, and how did a PR fix it?",
+      "normalized_query": "Trace the authentication failure: what did users experience, what service failed, what deployment introduced it, and how did a PR fix it?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0006",
+          "matched_text": "authentication",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0006",
+          "alias": "authentication",
+          "matched_text": "authentication"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Trace the authentication failure: what did users experience, what service failed, what deployment introduced it, and how did a PR fix it? SVC-NS-0006 media-service TEAM-NS-0005"
+    },
+    {
+      "evaluation_id": "EVAL-0046",
+      "original_query": "Trace the payment failure: what error occurred, which service was misconfigured, which deployment was responsible, and which PR resolved the issue?",
+      "normalized_query": "Trace the payment failure: what error occurred, which service was misconfigured, which deployment was responsible, and which PR resolved the issue?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0007",
+          "matched_text": "payment",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0007",
+          "alias": "payment",
+          "matched_text": "payment"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Trace the payment failure: what error occurred, which service was misconfigured, which deployment was responsible, and which PR resolved the issue? SVC-NS-0007 config-service TEAM-NS-0002"
+    },
+    {
+      "evaluation_id": "EVAL-0047",
+      "original_query": "Trace the search latency incident: what degradation was observed, which caching service failed, and which PR fixed edge TTLs?",
+      "normalized_query": "Trace the search latency incident: what degradation was observed, which caching service failed, and which PR fixed edge TTLs?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0012",
+          "matched_text": "search",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0012",
+          "alias": "search",
+          "matched_text": "search"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Trace the search latency incident: what degradation was observed, which caching service failed, and which PR fixed edge TTLs? SVC-NS-0012 deploy-pipeline TEAM-NS-0007"
+    },
+    {
+      "evaluation_id": "EVAL-0048",
+      "original_query": "Trace notification delivery failure: what was the symptom, which service queue stalled, which deployment caused it, and which PR fixed worker deadlocks?",
+      "normalized_query": "Trace notification delivery failure: what was the symptom, which service queue stalled, which deployment caused it, and which PR fixed worker deadlocks?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0010",
+          "matched_text": "notification",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0010",
+          "alias": "notification",
+          "matched_text": "notification"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused",
+          "subject_entity": "SVC-NS-0010",
+          "object_entity": null,
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "Trace notification delivery failure: what was the symptom, which service queue stalled, which deployment caused it, and which PR fixed worker deadlocks? SVC-NS-0010 rate-limiter TEAM-NS-0007"
+    },
+    {
+      "evaluation_id": "EVAL-0049",
+      "original_query": "Trace the database write freeze: what symptom occurred, what warehouse service was affected, which deployment ran the schema change, and how was it mitigated?",
+      "normalized_query": "Trace the database write freeze: what symptom occurred, what warehouse service was affected, which deployment ran the schema change, and how was it mitigated?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0003",
+          "matched_text": "warehouse",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0003",
+          "alias": "warehouse",
+          "matched_text": "warehouse"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Trace the database write freeze: what symptom occurred, what warehouse service was affected, which deployment ran the schema change, and how was it mitigated? SVC-NS-0003 data-warehouse TEAM-NS-0008"
+    },
+    {
+      "evaluation_id": "EVAL-0050",
+      "original_query": "Trace the API throttling incident: what error did API clients receive, which service was misconfigured, which deployment halved quotas, and which PR restored them?",
+      "normalized_query": "Trace the API throttling incident: what error did API clients receive, which service was misconfigured, which deployment halved quotas, and which PR restored them?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Trace the API throttling incident: what error did API clients receive, which service was misconfigured, which deployment halved quotas, and which PR restored them?"
+    },
+    {
+      "evaluation_id": "EVAL-0051",
+      "original_query": "Trace the billing invoice discrepancy: what did customers observe, which pipeline caused double multiplication, and which PR fixed the rates?",
+      "normalized_query": "Trace the billing invoice discrepancy: what did customers observe, which pipeline caused double multiplication, and which PR fixed the rates?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused",
+          "subject_entity": null,
+          "object_entity": null,
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "Trace the billing invoice discrepancy: what did customers observe, which pipeline caused double multiplication, and which PR fixed the rates?"
+    },
+    {
+      "evaluation_id": "EVAL-0052",
+      "original_query": "Trace the media-service crash: what failed after v3.0.0, which deployment DEP-NS-0007 caused it, which rollback deployment DEP-NS-0008 fixed it, and which PR updated rollback logic?",
+      "normalized_query": "Trace the media-service crash: what failed after v3.0.0, which deployment DEP-NS-0007 caused it, which rollback deployment DEP-NS-0008 fixed it, and which PR updated rollback logic?",
+      "entities": [
+        {
+          "entity_type": "deployment",
+          "entity_id": "DEP-NS-0007",
+          "matched_text": "DEP-NS-0007",
+          "match_method": "exact_id"
+        },
+        {
+          "entity_type": "deployment",
+          "entity_id": "DEP-NS-0008",
+          "matched_text": "DEP-NS-0008",
+          "match_method": "exact_id"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0006",
+          "matched_text": "media-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0009",
+          "matched_text": "media",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "DEP",
+          "identifier": "DEP-NS-0007",
+          "matched_text": "DEP-NS-0007"
+        },
+        {
+          "identifier_type": "DEP",
+          "identifier": "DEP-NS-0008",
+          "matched_text": "DEP-NS-0008"
+        }
+      ],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0009",
+          "alias": "media",
+          "matched_text": "media"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "after",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": "v3.0.0"
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused",
+          "subject_entity": "DEP-NS-0007",
+          "object_entity": "DEP-NS-0008",
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "Trace the media-service crash: what failed after v3.0.0, which deployment DEP-NS-0007 caused it, which rollback deployment DEP-NS-0008 fixed it, and which PR updated rollback logic? DEP-NS-0007 DEP-NS-0008 SVC-NS-0006 TEAM-NS-0005 SVC-NS-0009 cdn-proxy TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0053",
+      "original_query": "What was the root cause of the quantum processor accelerator failure on 2025-04-12?",
+      "normalized_query": "What was the root cause of the quantum processor accelerator failure on 2025-04-12?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2025-04-12",
+          "start": "2025-04-12",
+          "end": "2025-04-12"
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the root cause of the quantum processor accelerator failure on 2025-04-12?"
+    },
+    {
+      "evaluation_id": "EVAL-0054",
+      "original_query": "What is NovaStack's satellite downlink antenna failover procedure?",
+      "normalized_query": "What is NovaStack's satellite downlink antenna failover procedure?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What is NovaStack's satellite downlink antenna failover procedure?"
+    },
+    {
+      "evaluation_id": "EVAL-0055",
+      "original_query": "Which deployment caused the Kubernetes control plane crash in European datacenter eu-central-2?",
+      "normalized_query": "Which deployment caused the Kubernetes control plane crash in European datacenter eu-central-2?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused",
+          "subject_entity": null,
+          "object_entity": null,
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "Which deployment caused the Kubernetes control plane crash in European datacenter eu-central-2?"
+    },
+    {
+      "evaluation_id": "EVAL-0056",
+      "original_query": "What is the personal bank account and routing number for the CEO's quarterly bonus payout?",
+      "normalized_query": "What is the personal bank account and routing number for the CEO's quarterly bonus payout?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What is the personal bank account and routing number for the CEO's quarterly bonus payout?"
+    },
+    {
+      "evaluation_id": "EVAL-0057",
+      "original_query": "What was the postmortem action item for the Apache Kafka broker split-brain incident on 2025-08-15?",
+      "normalized_query": "What was the postmortem action item for the Apache Kafka broker split-brain incident on 2025-08-15?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2025-08-15",
+          "start": "2025-08-15",
+          "end": "2025-08-15"
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the postmortem action item for the Apache Kafka broker split-brain incident on 2025-08-15?"
+    },
+    {
+      "evaluation_id": "EVAL-0058",
+      "original_query": "What are the production API authorization tokens for third-party Twilio SMS trunking?",
+      "normalized_query": "What are the production API authorization tokens for third-party Twilio SMS trunking?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the production API authorization tokens for third-party Twilio SMS trunking?"
+    },
+    {
+      "evaluation_id": "EVAL-0059",
+      "original_query": "What customer compensation discount percentage was agreed upon for customer Acme Corp during the 2024 Black Friday outage?",
+      "normalized_query": "What customer compensation discount percentage was agreed upon for customer Acme Corp during the 2024 Black Friday outage?",
+      "entities": [
+        {
+          "entity_type": "customer",
+          "entity_id": "CUST-NS-0001",
+          "matched_text": "acme corp",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2024",
+          "start": "2024",
+          "end": "2024"
+        },
+        {
+          "type": "relative_marker",
+          "value": "during",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What customer compensation discount percentage was agreed upon for customer Acme Corp during the 2024 Black Friday outage? CUST-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0060",
+      "original_query": "What are the operational procedures for database connection pool tuning in checkout-service?",
+      "normalized_query": "What are the operational procedures for database connection pool tuning in checkout-service?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the operational procedures for database connection pool tuning in checkout-service? SVC-NS-0005 TEAM-NS-0001 TEAM-NS-0003"
+    },
+    {
+      "evaluation_id": "EVAL-0061",
+      "original_query": "What are the recommended Redis cache eviction settings for session management?",
+      "normalized_query": "What are the recommended Redis cache eviction settings for session management?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the recommended Redis cache eviction settings for session management?"
+    },
+    {
+      "evaluation_id": "EVAL-0062",
+      "original_query": "What is the network configuration standard for payment gateway webhook integrations?",
+      "normalized_query": "What is the network configuration standard for payment gateway webhook integrations?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0007",
+          "matched_text": "payment",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0007",
+          "alias": "payment",
+          "matched_text": "payment"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What is the network configuration standard for payment gateway webhook integrations? SVC-NS-0007 config-service TEAM-NS-0002"
+    },
+    {
+      "evaluation_id": "EVAL-0063",
+      "original_query": "What are the edge proxy cache TTL guidelines for static and dynamic assets?",
+      "normalized_query": "What are the edge proxy cache TTL guidelines for static and dynamic assets?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the edge proxy cache TTL guidelines for static and dynamic assets?"
+    },
+    {
+      "evaluation_id": "EVAL-0064",
+      "original_query": "What are the queue worker retry and backoff parameters for notification-service?",
+      "normalized_query": "What are the queue worker retry and backoff parameters for notification-service?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0011",
+          "matched_text": "notification-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0010",
+          "matched_text": "notification",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0010",
+          "alias": "notification",
+          "matched_text": "notification"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the queue worker retry and backoff parameters for notification-service? SVC-NS-0011 TEAM-NS-0007 SVC-NS-0010 rate-limiter"
+    },
+    {
+      "evaluation_id": "EVAL-0065",
+      "original_query": "What is the approved procedure for executing non-blocking database table index migrations?",
+      "normalized_query": "What is the approved procedure for executing non-blocking database table index migrations?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What is the approved procedure for executing non-blocking database table index migrations?"
+    },
+    {
+      "evaluation_id": "EVAL-0066",
+      "original_query": "What was the active checkout connection pool configuration prior to January 14, 2025?",
+      "normalized_query": "What was the active checkout connection pool configuration prior to January 14, 2025?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2025",
+          "start": "2025",
+          "end": "2025"
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": true,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the active checkout connection pool configuration prior to January 14, 2025? TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0067",
+      "original_query": "What was the documented API authentication endpoint policy in late 2024 before the 2025 deprecation?",
+      "normalized_query": "What was the documented API authentication endpoint policy in late 2024 before the 2025 deprecation?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0006",
+          "matched_text": "authentication",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0006",
+          "alias": "authentication",
+          "matched_text": "authentication"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2024",
+          "start": "2024",
+          "end": "2024"
+        },
+        {
+          "type": "explicit_date",
+          "value": "2025",
+          "start": "2025",
+          "end": "2025"
+        },
+        {
+          "type": "relative_marker",
+          "value": "before",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the documented API authentication endpoint policy in late 2024 before the 2025 deprecation? SVC-NS-0006 media-service TEAM-NS-0005"
+    },
+    {
+      "evaluation_id": "EVAL-0068",
+      "original_query": "What was the status of deployment DEP-NS-0001 during the outage window on January 14, 2025 at 10:30 UTC?",
+      "normalized_query": "What was the status of deployment DEP-NS-0001 during the outage window on January 14, 2025 at 10:30 UTC?",
+      "entities": [
+        {
+          "entity_type": "deployment",
+          "entity_id": "DEP-NS-0001",
+          "matched_text": "DEP-NS-0001",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "DEP",
+          "identifier": "DEP-NS-0001",
+          "matched_text": "DEP-NS-0001"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2025",
+          "start": "2025",
+          "end": "2025"
+        },
+        {
+          "type": "relative_marker",
+          "value": "during",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the status of deployment DEP-NS-0001 during the outage window on January 14, 2025 at 10:30 UTC? DEP-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0069",
+      "original_query": "What were the valid travel reimbursement rates under the FY24 corporate expense policy before the July 2025 revision?",
+      "normalized_query": "What were the valid travel reimbursement rates under the FY24 corporate expense policy before the July 2025 revision?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2025",
+          "start": "2025",
+          "end": "2025"
+        },
+        {
+          "type": "relative_marker",
+          "value": "before",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What were the valid travel reimbursement rates under the FY24 corporate expense policy before the July 2025 revision?"
+    },
+    {
+      "evaluation_id": "EVAL-0070",
+      "original_query": "What was the active on-call escalation SLA for checkout-service during Q1 2025?",
+      "normalized_query": "What was the active on-call escalation SLA for checkout-service during Q1 2025?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2025",
+          "start": "2025",
+          "end": "2025"
+        },
+        {
+          "type": "relative_marker",
+          "value": "during",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": true,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "escalated_to",
+          "subject_entity": "SVC-NS-0005",
+          "object_entity": "TEAM-NS-0003",
+          "matched_phrase": "escalation"
+        }
+      ],
+      "expanded_query": "What was the active on-call escalation SLA for checkout-service during Q1 2025? SVC-NS-0005 TEAM-NS-0001 TEAM-NS-0003"
+    },
+    {
+      "evaluation_id": "EVAL-0071",
+      "original_query": "What updates were introduced in version 2.0 of the enterprise database connection guidelines?",
+      "normalized_query": "What updates were introduced in version 2.0 of the enterprise database connection guidelines?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": "version 2.0"
+      },
+      "relationship_signals": [],
+      "expanded_query": "What updates were introduced in version 2.0 of the enterprise database connection guidelines?"
+    },
+    {
+      "evaluation_id": "EVAL-0072",
+      "original_query": "What was added in version 3.0 of the microservice deployment readiness checklist?",
+      "normalized_query": "What was added in version 3.0 of the microservice deployment readiness checklist?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": "version 3.0"
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was added in version 3.0 of the microservice deployment readiness checklist?"
+    },
+    {
+      "evaluation_id": "EVAL-0073",
+      "original_query": "What security controls were mandated in version 2.0 of the remote access policy?",
+      "normalized_query": "What security controls were mandated in version 2.0 of the remote access policy?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0007",
+          "matched_text": "security",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "TEAM-NS-0007",
+          "alias": "security",
+          "matched_text": "security"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": "version 2.0"
+      },
+      "relationship_signals": [],
+      "expanded_query": "What security controls were mandated in version 2.0 of the remote access policy? TEAM-NS-0007 Infrastructure"
+    },
+    {
+      "evaluation_id": "EVAL-0074",
+      "original_query": "What were the original baseline parameters documented in version 1.0 of the API rate limiting guide?",
+      "normalized_query": "What were the original baseline parameters documented in version 1.0 of the API rate limiting guide?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": "version 1.0"
+      },
+      "relationship_signals": [],
+      "expanded_query": "What were the original baseline parameters documented in version 1.0 of the API rate limiting guide?"
+    },
+    {
+      "evaluation_id": "EVAL-0075",
+      "original_query": "What is the current maximum database connection pool size for checkout-service?",
+      "normalized_query": "What is the current maximum database connection pool size for checkout-service?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "current",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": true,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What is the current maximum database connection pool size for checkout-service? SVC-NS-0005 TEAM-NS-0001 TEAM-NS-0003"
+    },
+    {
+      "evaluation_id": "EVAL-0076",
+      "original_query": "What is the current active session token expiration TTL for user logins?",
+      "normalized_query": "What is the current active session token expiration TTL for user logins?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "current",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": true,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What is the current active session token expiration TTL for user logins?"
+    },
+    {
+      "evaluation_id": "EVAL-0077",
+      "original_query": "What is the active payment gateway URL endpoint used by config-service?",
+      "normalized_query": "What is the active payment gateway URL endpoint used by config-service?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0007",
+          "matched_text": "config-service",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0007",
+          "alias": "payment",
+          "matched_text": "payment"
+        },
+        {
+          "canonical_entity_id": "SVC-NS-0007",
+          "alias": "config",
+          "matched_text": "config"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": true,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What is the active payment gateway URL endpoint used by config-service? SVC-NS-0007 TEAM-NS-0002"
+    },
+    {
+      "evaluation_id": "EVAL-0078",
+      "original_query": "What is the current API rate limit quota for enterprise tier customers?",
+      "normalized_query": "What is the current API rate limit quota for enterprise tier customers?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "current",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": true,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What is the current API rate limit quota for enterprise tier customers?"
+    },
+    {
+      "evaluation_id": "EVAL-0079",
+      "original_query": "Was the checkout failure caused by third-party Cloudflare CDN routing issues or internal connection exhaustion?",
+      "normalized_query": "Was the checkout failure caused by third-party Cloudflare CDN routing issues or internal connection exhaustion?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused_by",
+          "subject_entity": "TEAM-NS-0003",
+          "object_entity": "SVC-NS-0005",
+          "matched_phrase": "caused by"
+        },
+        {
+          "relationship_type": "caused",
+          "subject_entity": "TEAM-NS-0003",
+          "object_entity": "SVC-NS-0005",
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "Was the checkout failure caused by third-party Cloudflare CDN routing issues or internal connection exhaustion? TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0080",
+      "original_query": "Was the user authentication degradation caused by an expired intermediate TLS certificate or JWT signing secret rotation?",
+      "normalized_query": "Was the user authentication degradation caused by an expired intermediate TLS certificate or JWT signing secret rotation?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0006",
+          "matched_text": "authentication",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0006",
+          "alias": "authentication",
+          "matched_text": "authentication"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused_by",
+          "subject_entity": "SVC-NS-0006",
+          "object_entity": null,
+          "matched_phrase": "caused by"
+        },
+        {
+          "relationship_type": "caused",
+          "subject_entity": "SVC-NS-0006",
+          "object_entity": null,
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "Was the user authentication degradation caused by an expired intermediate TLS certificate or JWT signing secret rotation? SVC-NS-0006 media-service TEAM-NS-0005"
+    },
+    {
+      "evaluation_id": "EVAL-0081",
+      "original_query": "Was the payment transaction failure on 2025-03-22 caused by Visa/Mastercard network downtime or an internal config defect?",
+      "normalized_query": "Was the payment transaction failure on 2025-03-22 caused by Visa/Mastercard network downtime or an internal config defect?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0007",
+          "matched_text": "payment",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0007",
+          "alias": "payment",
+          "matched_text": "payment"
+        },
+        {
+          "canonical_entity_id": "SVC-NS-0007",
+          "alias": "config",
+          "matched_text": "config"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2025-03-22",
+          "start": "2025-03-22",
+          "end": "2025-03-22"
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused_by",
+          "subject_entity": "SVC-NS-0007",
+          "object_entity": null,
+          "matched_phrase": "caused by"
+        },
+        {
+          "relationship_type": "caused",
+          "subject_entity": "SVC-NS-0007",
+          "object_entity": null,
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "Was the payment transaction failure on 2025-03-22 caused by Visa/Mastercard network downtime or an internal config defect? SVC-NS-0007 config-service TEAM-NS-0002"
+    },
+    {
+      "evaluation_id": "EVAL-0082",
+      "original_query": "Was product catalog search latency caused by cloud datacenter packet loss or an unindexed database query in cdn-proxy?",
+      "normalized_query": "Was product catalog search latency caused by cloud datacenter packet loss or an unindexed database query in cdn-proxy?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0009",
+          "matched_text": "cdn-proxy",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0012",
+          "matched_text": "search",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0012",
+          "alias": "search",
+          "matched_text": "search"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused_by",
+          "subject_entity": "SVC-NS-0009",
+          "object_entity": "SVC-NS-0012",
+          "matched_phrase": "caused by"
+        },
+        {
+          "relationship_type": "caused",
+          "subject_entity": "SVC-NS-0009",
+          "object_entity": "SVC-NS-0012",
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "Was product catalog search latency caused by cloud datacenter packet loss or an unindexed database query in cdn-proxy? SVC-NS-0009 TEAM-NS-0001 SVC-NS-0012 deploy-pipeline TEAM-NS-0007"
+    },
+    {
+      "evaluation_id": "EVAL-0083",
+      "original_query": "Was notification queue backup caused by external email provider outages or internal worker thread deadlocks?",
+      "normalized_query": "Was notification queue backup caused by external email provider outages or internal worker thread deadlocks?",
+      "entities": [
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0010",
+          "matched_text": "notification",
+          "match_method": "alias"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0004",
+          "matched_text": "email",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0010",
+          "alias": "notification",
+          "matched_text": "notification"
+        },
+        {
+          "canonical_entity_id": "SVC-NS-0004",
+          "alias": "email",
+          "matched_text": "email"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused_by",
+          "subject_entity": "SVC-NS-0010",
+          "object_entity": "SVC-NS-0004",
+          "matched_phrase": "caused by"
+        },
+        {
+          "relationship_type": "caused",
+          "subject_entity": "SVC-NS-0010",
+          "object_entity": "SVC-NS-0004",
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "Was notification queue backup caused by external email provider outages or internal worker thread deadlocks? SVC-NS-0010 rate-limiter TEAM-NS-0007 SVC-NS-0004 email-service TEAM-NS-0008"
+    },
+    {
+      "evaluation_id": "EVAL-0084",
+      "original_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "normalized_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?"
+    },
+    {
+      "evaluation_id": "EVAL-0085",
+      "original_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "normalized_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?"
+    },
+    {
+      "evaluation_id": "EVAL-0086",
+      "original_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "normalized_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?"
+    },
+    {
+      "evaluation_id": "EVAL-0087",
+      "original_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "normalized_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are NovaStack's confidential executive compensation bands and bonus allocations?"
+    },
+    {
+      "evaluation_id": "EVAL-0088",
+      "original_query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "normalized_query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the API gateway routing configuration parameters and connection timeouts?"
+    },
+    {
+      "evaluation_id": "EVAL-0089",
+      "original_query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "normalized_query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the API gateway routing configuration parameters and connection timeouts?"
+    },
+    {
+      "evaluation_id": "EVAL-0090",
+      "original_query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "normalized_query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the API gateway routing configuration parameters and connection timeouts?"
+    },
+    {
+      "evaluation_id": "EVAL-0091",
+      "original_query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "normalized_query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the API gateway routing configuration parameters and connection timeouts?"
+    },
+    {
+      "evaluation_id": "EVAL-0092",
+      "original_query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "normalized_query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the API gateway routing configuration parameters and connection timeouts?"
+    },
+    {
+      "evaluation_id": "EVAL-0093",
+      "original_query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "normalized_query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0007",
+          "matched_text": "security",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "TEAM-NS-0007",
+          "alias": "security",
+          "matched_text": "security"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the technical architecture security audit findings and vulnerability mitigations? TEAM-NS-0007 Infrastructure"
+    },
+    {
+      "evaluation_id": "EVAL-0094",
+      "original_query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "normalized_query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0007",
+          "matched_text": "security",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "TEAM-NS-0007",
+          "alias": "security",
+          "matched_text": "security"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the technical architecture security audit findings and vulnerability mitigations? TEAM-NS-0007 Infrastructure"
+    },
+    {
+      "evaluation_id": "EVAL-0095",
+      "original_query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "normalized_query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0007",
+          "matched_text": "security",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "TEAM-NS-0007",
+          "alias": "security",
+          "matched_text": "security"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the technical architecture security audit findings and vulnerability mitigations? TEAM-NS-0007 Infrastructure"
+    },
+    {
+      "evaluation_id": "EVAL-0096",
+      "original_query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "normalized_query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0007",
+          "matched_text": "security",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "TEAM-NS-0007",
+          "alias": "security",
+          "matched_text": "security"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the technical architecture security audit findings and vulnerability mitigations? TEAM-NS-0007 Infrastructure"
+    },
+    {
+      "evaluation_id": "EVAL-0097",
+      "original_query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "normalized_query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0007",
+          "matched_text": "security",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "TEAM-NS-0007",
+          "alias": "security",
+          "matched_text": "security"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the technical architecture security audit findings and vulnerability mitigations? TEAM-NS-0007 Infrastructure"
+    },
+    {
+      "evaluation_id": "EVAL-0098",
+      "original_query": "What are the confidential design specifications for Project Tiger microservices?",
+      "normalized_query": "What are the confidential design specifications for Project Tiger microservices?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the confidential design specifications for Project Tiger microservices?"
+    },
+    {
+      "evaluation_id": "EVAL-0099",
+      "original_query": "What are the confidential design specifications for Project Tiger microservices?",
+      "normalized_query": "What are the confidential design specifications for Project Tiger microservices?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the confidential design specifications for Project Tiger microservices?"
+    },
+    {
+      "evaluation_id": "EVAL-0100",
+      "original_query": "What are the confidential design specifications for Project Tiger microservices?",
+      "normalized_query": "What are the confidential design specifications for Project Tiger microservices?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the confidential design specifications for Project Tiger microservices?"
+    },
+    {
+      "evaluation_id": "EVAL-0101",
+      "original_query": "What are the confidential design specifications for Project Tiger microservices?",
+      "normalized_query": "What are the confidential design specifications for Project Tiger microservices?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the confidential design specifications for Project Tiger microservices?"
+    },
+    {
+      "evaluation_id": "EVAL-0102",
+      "original_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "normalized_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "historical",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?"
+    },
+    {
+      "evaluation_id": "EVAL-0103",
+      "original_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "normalized_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "historical",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?"
+    },
+    {
+      "evaluation_id": "EVAL-0104",
+      "original_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "normalized_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "historical",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?"
+    },
+    {
+      "evaluation_id": "EVAL-0105",
+      "original_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "normalized_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "historical",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?"
+    },
+    {
+      "evaluation_id": "EVAL-0106",
+      "original_query": "What was the root cause of the checkout-service outage on 2025-01-14 (INC-NS-0001)?",
+      "normalized_query": "What was the root cause of the checkout-service outage on 2025-01-14 (INC-NS-0001)?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0001",
+          "matched_text": "INC-NS-0001",
+          "match_method": "exact_id"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout-service",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0001",
+          "matched_text": "INC-NS-0001"
+        }
+      ],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2025-01-14",
+          "start": "2025-01-14",
+          "end": "2025-01-14"
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the root cause of the checkout-service outage on 2025-01-14 (INC-NS-0001)? INC-NS-0001 SVC-NS-0005 TEAM-NS-0001 TEAM-NS-0003"
+    },
+    {
+      "evaluation_id": "EVAL-0107",
+      "original_query": "Why were users logged out of NovaStack on 2025-02-18 (INC-NS-0002)?",
+      "normalized_query": "Why were users logged out of NovaStack on 2025-02-18 (INC-NS-0002)?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0002",
+          "matched_text": "INC-NS-0002",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0002",
+          "matched_text": "INC-NS-0002"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2025-02-18",
+          "start": "2025-02-18",
+          "end": "2025-02-18"
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Why were users logged out of NovaStack on 2025-02-18 (INC-NS-0002)? INC-NS-0002"
+    },
+    {
+      "evaluation_id": "EVAL-0108",
+      "original_query": "Which deployment triggered the checkout failure in INC-NS-0001?",
+      "normalized_query": "Which deployment triggered the checkout failure in INC-NS-0001?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0001",
+          "matched_text": "INC-NS-0001",
+          "match_method": "exact_id"
+        },
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0001",
+          "matched_text": "INC-NS-0001"
+        }
+      ],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Which deployment triggered the checkout failure in INC-NS-0001? INC-NS-0001 TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0109",
+      "original_query": "Why did merchant payment processing fail during INC-NS-0003?",
+      "normalized_query": "Why did merchant payment processing fail during INC-NS-0003?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0003",
+          "matched_text": "INC-NS-0003",
+          "match_method": "exact_id"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0007",
+          "matched_text": "payment",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0003",
+          "matched_text": "INC-NS-0003"
+        }
+      ],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0007",
+          "alias": "payment",
+          "matched_text": "payment"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "during",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "Why did merchant payment processing fail during INC-NS-0003? INC-NS-0003 SVC-NS-0007 config-service TEAM-NS-0002"
+    },
+    {
+      "evaluation_id": "EVAL-0110",
+      "original_query": "What caused database IOPS saturation during INC-NS-0006?",
+      "normalized_query": "What caused database IOPS saturation during INC-NS-0006?",
+      "entities": [
+        {
+          "entity_type": "incident",
+          "entity_id": "INC-NS-0006",
+          "matched_text": "INC-NS-0006",
+          "match_method": "exact_id"
+        }
+      ],
+      "identifiers": [
+        {
+          "identifier_type": "INC",
+          "identifier": "INC-NS-0006",
+          "matched_text": "INC-NS-0006"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "during",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [
+        {
+          "relationship_type": "caused",
+          "subject_entity": "INC-NS-0006",
+          "object_entity": null,
+          "matched_phrase": "caused"
+        }
+      ],
+      "expanded_query": "What caused database IOPS saturation during INC-NS-0006? INC-NS-0006"
+    },
+    {
+      "evaluation_id": "EVAL-0111",
+      "original_query": "What issues did merchant Acme Retail report regarding checkout timeouts?",
+      "normalized_query": "What issues did merchant Acme Retail report regarding checkout timeouts?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What issues did merchant Acme Retail report regarding checkout timeouts? TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0112",
+      "original_query": "What was the evening status update during the checkout incident triage?",
+      "normalized_query": "What was the evening status update during the checkout incident triage?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "type": "relative_marker",
+          "value": "during",
+          "start": null,
+          "end": null
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What was the evening status update during the checkout incident triage? TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0113",
+      "original_query": "How do DevOps engineers resolve table lock contention in PostgreSQL?",
+      "normalized_query": "How do DevOps engineers resolve table lock contention in PostgreSQL?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0004",
+          "matched_text": "devops",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "TEAM-NS-0004",
+          "alias": "devops",
+          "matched_text": "devops"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "How do DevOps engineers resolve table lock contention in PostgreSQL? TEAM-NS-0004 Identity & Access"
+    },
+    {
+      "evaluation_id": "EVAL-0114",
+      "original_query": "What were the reviewer findings on PR-ADV-0201 regarding Redis session cache TTL?",
+      "normalized_query": "What were the reviewer findings on PR-ADV-0201 regarding Redis session cache TTL?",
+      "entities": [],
+      "identifiers": [
+        {
+          "identifier_type": "PR",
+          "identifier": "PR-ADV-0201",
+          "matched_text": "PR-ADV-0201"
+        }
+      ],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What were the reviewer findings on PR-ADV-0201 regarding Redis session cache TTL? PR-ADV-0201"
+    },
+    {
+      "evaluation_id": "EVAL-0115",
+      "original_query": "How was CVE-2025-SIM-01 parser vulnerability reproduced?",
+      "normalized_query": "How was CVE-2025-SIM-01 parser vulnerability reproduced?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [
+        {
+          "type": "explicit_date",
+          "value": "2025",
+          "start": "2025",
+          "end": "2025"
+        }
+      ],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "How was CVE-2025-SIM-01 parser vulnerability reproduced?"
+    },
+    {
+      "evaluation_id": "EVAL-0116",
+      "original_query": "What is the official postmortem for the checkout outage?",
+      "normalized_query": "What is the official postmortem for the checkout outage?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0003",
+          "matched_text": "checkout",
+          "match_method": "exact_name"
+        },
+        {
+          "entity_type": "service",
+          "entity_id": "SVC-NS-0005",
+          "matched_text": "checkout",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "SVC-NS-0005",
+          "alias": "checkout",
+          "matched_text": "checkout"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What is the official postmortem for the checkout outage? TEAM-NS-0003 SVC-NS-0005 checkout-service TEAM-NS-0001"
+    },
+    {
+      "evaluation_id": "EVAL-0117",
+      "original_query": "What is the binding security standard for new microservices?",
+      "normalized_query": "What is the binding security standard for new microservices?",
+      "entities": [
+        {
+          "entity_type": "team",
+          "entity_id": "TEAM-NS-0007",
+          "matched_text": "security",
+          "match_method": "alias"
+        }
+      ],
+      "identifiers": [],
+      "aliases": [
+        {
+          "canonical_entity_id": "TEAM-NS-0007",
+          "alias": "security",
+          "matched_text": "security"
+        }
+      ],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What is the binding security standard for new microservices? TEAM-NS-0007 Infrastructure"
+    },
+    {
+      "evaluation_id": "EVAL-0118",
+      "original_query": "What are the SSH access guidelines for production hosts?",
+      "normalized_query": "What are the SSH access guidelines for production hosts?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the SSH access guidelines for production hosts?"
+    },
+    {
+      "evaluation_id": "EVAL-0119",
+      "original_query": "What are the approved flight and hotel expense benchmarks for business travel?",
+      "normalized_query": "What are the approved flight and hotel expense benchmarks for business travel?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "What are the approved flight and hotel expense benchmarks for business travel?"
+    },
+    {
+      "evaluation_id": "EVAL-0120",
+      "original_query": "How is traffic shaping configured in the NovaStack service mesh?",
+      "normalized_query": "How is traffic shaping configured in the NovaStack service mesh?",
+      "entities": [],
+      "identifiers": [],
+      "aliases": [],
+      "temporal_constraints": [],
+      "lifecycle_constraints": {
+        "latest": false,
+        "active": false,
+        "published": false,
+        "deprecated": false,
+        "superseded": false,
+        "version": null
+      },
+      "relationship_signals": [],
+      "expanded_query": "How is traffic shaping configured in the NovaStack service mesh?"
+    }
+  ]
+}

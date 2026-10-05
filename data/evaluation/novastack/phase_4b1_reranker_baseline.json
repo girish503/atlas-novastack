@@ -1,0 +1,1397 @@
+{
+  "version": "0.1.0",
+  "model_selection": {
+    "model_name": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "parameter_count": "22.7M",
+    "model_size_mb": "~87 MB",
+    "license": "Apache 2.0",
+    "max_length": 512,
+    "english_suitability": "Explicitly trained on MS MARCO passage ranking (English search queries and passage relevance)",
+    "local_inference_support": "sentence-transformers.CrossEncoder",
+    "cpu_feasibility": "Fast CPU inference (~1-2 ms per pair; p50 < 45 ms per query)",
+    "ram_footprint": "~150 MB",
+    "justification": "Selected over BAAI/bge-reranker-base (278M params, 1.11 GB) for 12x smaller size, 8x faster CPU latency, Apache 2.0 license, and 86M+ proven deployment history."
+  },
+  "ablation_baselines": {
+    "A_bm25": {
+      "aggregate": {
+        "positive_cases_count": 101,
+        "recall_at_1": 0.151,
+        "recall_at_3": 0.2236,
+        "recall_at_5": 0.2838,
+        "recall_at_10": 0.3787,
+        "mrr": 0.2387,
+        "ndcg_at_10": 0.2813,
+        "forbidden_leaks_top_10": 15
+      },
+      "categories": {
+        "authorization": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "citation_manipulation": {
+          "cases_count": 5,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "conflicting_evidence": {
+          "cases_count": 5,
+          "recall_at_10": 0.4,
+          "mrr": 0.15,
+          "ndcg_at_10": 0.2725
+        },
+        "cross_tenant": {
+          "cases_count": 2,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "duplicate_resolution": {
+          "cases_count": 6,
+          "recall_at_10": 0.0833,
+          "mrr": 0.0167,
+          "ndcg_at_10": 0.0295
+        },
+        "exact_lookup": {
+          "cases_count": 8,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "historical_security": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.25,
+          "ndcg_at_10": 0.3155
+        },
+        "identifier_search": {
+          "cases_count": 8,
+          "recall_at_10": 0.75,
+          "mrr": 0.475,
+          "ndcg_at_10": 0.5384
+        },
+        "indirect_prompt_injection": {
+          "cases_count": 5,
+          "recall_at_10": 0.8,
+          "mrr": 0.8,
+          "ndcg_at_10": 0.8
+        },
+        "multi_document": {
+          "cases_count": 9,
+          "recall_at_10": 0.5,
+          "mrr": 0.3494,
+          "ndcg_at_10": 0.3201
+        },
+        "multi_hop": {
+          "cases_count": 9,
+          "recall_at_10": 0.4722,
+          "mrr": 0.3241,
+          "ndcg_at_10": 0.3868
+        },
+        "ownership": {
+          "cases_count": 8,
+          "recall_at_10": 0.25,
+          "mrr": 0.1406,
+          "ndcg_at_10": 0.1644
+        },
+        "retrieval_poisoning": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.0971,
+          "ndcg_at_10": 0.2738
+        },
+        "role_restricted": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "semantic_search": {
+          "cases_count": 10,
+          "recall_at_10": 0.6,
+          "mrr": 0.3083,
+          "ndcg_at_10": 0.4499
+        },
+        "stale_information": {
+          "cases_count": 4,
+          "recall_at_10": 0.25,
+          "mrr": 0.05,
+          "ndcg_at_10": 0.0967
+        },
+        "temporal": {
+          "cases_count": 5,
+          "recall_at_10": 0.2,
+          "mrr": 0.2,
+          "ndcg_at_10": 0.2
+        },
+        "user_acl": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_10": 0.5
+        },
+        "version": {
+          "cases_count": 4,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        }
+      }
+    },
+    "B_dense": {
+      "aggregate": {
+        "positive_cases_count": 101,
+        "recall_at_1": 0.1658,
+        "recall_at_3": 0.2946,
+        "recall_at_5": 0.4002,
+        "recall_at_10": 0.467,
+        "mrr": 0.318,
+        "ndcg_at_10": 0.3691,
+        "forbidden_leaks_top_10": 15
+      },
+      "categories": {
+        "authorization": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "citation_manipulation": {
+          "cases_count": 5,
+          "recall_at_10": 0.2,
+          "mrr": 0.2,
+          "ndcg_at_10": 0.2
+        },
+        "conflicting_evidence": {
+          "cases_count": 5,
+          "recall_at_10": 0.4,
+          "mrr": 0.0686,
+          "ndcg_at_10": 0.144
+        },
+        "cross_tenant": {
+          "cases_count": 2,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "duplicate_resolution": {
+          "cases_count": 6,
+          "recall_at_10": 0.25,
+          "mrr": 0.206,
+          "ndcg_at_10": 0.1652
+        },
+        "exact_lookup": {
+          "cases_count": 8,
+          "recall_at_10": 0.4375,
+          "mrr": 0.4179,
+          "ndcg_at_10": 0.3525
+        },
+        "historical_security": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_10": 0.5
+        },
+        "identifier_search": {
+          "cases_count": 8,
+          "recall_at_10": 0.625,
+          "mrr": 0.2847,
+          "ndcg_at_10": 0.3665
+        },
+        "indirect_prompt_injection": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.5,
+          "ndcg_at_10": 0.5262
+        },
+        "multi_document": {
+          "cases_count": 9,
+          "recall_at_10": 0.7778,
+          "mrr": 0.763,
+          "ndcg_at_10": 0.7364
+        },
+        "multi_hop": {
+          "cases_count": 9,
+          "recall_at_10": 0.6852,
+          "mrr": 0.4648,
+          "ndcg_at_10": 0.5729
+        },
+        "ownership": {
+          "cases_count": 8,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "retrieval_poisoning": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.28,
+          "ndcg_at_10": 0.426
+        },
+        "role_restricted": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "semantic_search": {
+          "cases_count": 10,
+          "recall_at_10": 0.7,
+          "mrr": 0.3233,
+          "ndcg_at_10": 0.5994
+        },
+        "stale_information": {
+          "cases_count": 4,
+          "recall_at_10": 0.25,
+          "mrr": 0.05,
+          "ndcg_at_10": 0.0967
+        },
+        "temporal": {
+          "cases_count": 5,
+          "recall_at_10": 0.4,
+          "mrr": 0.2667,
+          "ndcg_at_10": 0.3
+        },
+        "user_acl": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.1,
+          "ndcg_at_10": 0.1934
+        },
+        "version": {
+          "cases_count": 4,
+          "recall_at_10": 0.25,
+          "mrr": 0.25,
+          "ndcg_at_10": 0.25
+        }
+      }
+    },
+    "C_hybrid_rrf": {
+      "aggregate": {
+        "positive_cases_count": 101,
+        "recall_at_1": 0.1708,
+        "recall_at_3": 0.2739,
+        "recall_at_5": 0.3507,
+        "recall_at_10": 0.4719,
+        "mrr": 0.3296,
+        "ndcg_at_10": 0.3702,
+        "forbidden_leaks_top_10": 15
+      },
+      "categories": {
+        "authorization": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "citation_manipulation": {
+          "cases_count": 5,
+          "recall_at_10": 0.2,
+          "mrr": 0.0333,
+          "ndcg_at_10": 0.0712
+        },
+        "conflicting_evidence": {
+          "cases_count": 5,
+          "recall_at_10": 0.4,
+          "mrr": 0.0833,
+          "ndcg_at_10": 0.224
+        },
+        "cross_tenant": {
+          "cases_count": 2,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "duplicate_resolution": {
+          "cases_count": 6,
+          "recall_at_10": 0.25,
+          "mrr": 0.0648,
+          "ndcg_at_10": 0.0979
+        },
+        "exact_lookup": {
+          "cases_count": 8,
+          "recall_at_10": 0.4375,
+          "mrr": 0.7812,
+          "ndcg_at_10": 0.4929
+        },
+        "historical_security": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.25,
+          "ndcg_at_10": 0.3155
+        },
+        "identifier_search": {
+          "cases_count": 8,
+          "recall_at_10": 0.625,
+          "mrr": 0.4,
+          "ndcg_at_10": 0.4561
+        },
+        "indirect_prompt_injection": {
+          "cases_count": 5,
+          "recall_at_10": 0.8,
+          "mrr": 0.65,
+          "ndcg_at_10": 0.6861
+        },
+        "multi_document": {
+          "cases_count": 9,
+          "recall_at_10": 0.7222,
+          "mrr": 0.7222,
+          "ndcg_at_10": 0.6565
+        },
+        "multi_hop": {
+          "cases_count": 9,
+          "recall_at_10": 0.5741,
+          "mrr": 0.3704,
+          "ndcg_at_10": 0.4849
+        },
+        "ownership": {
+          "cases_count": 8,
+          "recall_at_10": 0.125,
+          "mrr": 0.0208,
+          "ndcg_at_10": 0.0445
+        },
+        "retrieval_poisoning": {
+          "cases_count": 5,
+          "recall_at_10": 0.8,
+          "mrr": 0.2,
+          "ndcg_at_10": 0.4731
+        },
+        "role_restricted": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "semantic_search": {
+          "cases_count": 10,
+          "recall_at_10": 0.6,
+          "mrr": 0.3643,
+          "ndcg_at_10": 0.5649
+        },
+        "stale_information": {
+          "cases_count": 4,
+          "recall_at_10": 0.25,
+          "mrr": 0.0625,
+          "ndcg_at_10": 0.1077
+        },
+        "temporal": {
+          "cases_count": 5,
+          "recall_at_10": 0.4,
+          "mrr": 0.225,
+          "ndcg_at_10": 0.2631
+        },
+        "user_acl": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_10": 0.5
+        },
+        "version": {
+          "cases_count": 4,
+          "recall_at_10": 0.25,
+          "mrr": 0.025,
+          "ndcg_at_10": 0.0723
+        }
+      }
+    },
+    "D_rerank_bm25": {
+      "aggregate": {
+        "positive_cases_count": 101,
+        "recall_at_1": 0.1073,
+        "recall_at_3": 0.2219,
+        "recall_at_5": 0.321,
+        "recall_at_10": 0.4167,
+        "mrr": 0.2304,
+        "ndcg_at_10": 0.2919,
+        "forbidden_leaks_top_10": 15
+      },
+      "categories": {
+        "authorization": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "citation_manipulation": {
+          "cases_count": 5,
+          "recall_at_10": 0.2,
+          "mrr": 0.0286,
+          "ndcg_at_10": 0.0667
+        },
+        "conflicting_evidence": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.13,
+          "ndcg_at_10": 0.3121
+        },
+        "cross_tenant": {
+          "cases_count": 2,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "duplicate_resolution": {
+          "cases_count": 6,
+          "recall_at_10": 0.25,
+          "mrr": 0.1167,
+          "ndcg_at_10": 0.127
+        },
+        "exact_lookup": {
+          "cases_count": 8,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "historical_security": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_10": 0.5
+        },
+        "identifier_search": {
+          "cases_count": 8,
+          "recall_at_10": 0.75,
+          "mrr": 0.5625,
+          "ndcg_at_10": 0.6116
+        },
+        "indirect_prompt_injection": {
+          "cases_count": 5,
+          "recall_at_10": 0.8,
+          "mrr": 0.4,
+          "ndcg_at_10": 0.4985
+        },
+        "multi_document": {
+          "cases_count": 9,
+          "recall_at_10": 0.5556,
+          "mrr": 0.4667,
+          "ndcg_at_10": 0.4381
+        },
+        "multi_hop": {
+          "cases_count": 9,
+          "recall_at_10": 0.3981,
+          "mrr": 0.3069,
+          "ndcg_at_10": 0.3595
+        },
+        "ownership": {
+          "cases_count": 8,
+          "recall_at_10": 0.125,
+          "mrr": 0.0125,
+          "ndcg_at_10": 0.0361
+        },
+        "retrieval_poisoning": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.0886,
+          "ndcg_at_10": 0.2685
+        },
+        "role_restricted": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "semantic_search": {
+          "cases_count": 10,
+          "recall_at_10": 0.7,
+          "mrr": 0.2976,
+          "ndcg_at_10": 0.5329
+        },
+        "stale_information": {
+          "cases_count": 4,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "temporal": {
+          "cases_count": 5,
+          "recall_at_10": 0.4,
+          "mrr": 0.06,
+          "ndcg_at_10": 0.1352
+        },
+        "user_acl": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_10": 0.5
+        },
+        "version": {
+          "cases_count": 4,
+          "recall_at_10": 0.25,
+          "mrr": 0.125,
+          "ndcg_at_10": 0.1577
+        }
+      }
+    },
+    "E_rerank_dense": {
+      "aggregate": {
+        "positive_cases_count": 101,
+        "recall_at_1": 0.1172,
+        "recall_at_3": 0.2599,
+        "recall_at_5": 0.3639,
+        "recall_at_10": 0.4645,
+        "mrr": 0.2745,
+        "ndcg_at_10": 0.3359,
+        "forbidden_leaks_top_10": 15
+      },
+      "categories": {
+        "authorization": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "citation_manipulation": {
+          "cases_count": 5,
+          "recall_at_10": 0.2,
+          "mrr": 0.0286,
+          "ndcg_at_10": 0.1298
+        },
+        "conflicting_evidence": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.13,
+          "ndcg_at_10": 0.3121
+        },
+        "cross_tenant": {
+          "cases_count": 2,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "duplicate_resolution": {
+          "cases_count": 6,
+          "recall_at_10": 0.3333,
+          "mrr": 0.1407,
+          "ndcg_at_10": 0.1609
+        },
+        "exact_lookup": {
+          "cases_count": 8,
+          "recall_at_10": 0.4375,
+          "mrr": 0.3479,
+          "ndcg_at_10": 0.2944
+        },
+        "historical_security": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_10": 0.5
+        },
+        "identifier_search": {
+          "cases_count": 8,
+          "recall_at_10": 0.75,
+          "mrr": 0.5625,
+          "ndcg_at_10": 0.6116
+        },
+        "indirect_prompt_injection": {
+          "cases_count": 5,
+          "recall_at_10": 0.8,
+          "mrr": 0.4,
+          "ndcg_at_10": 0.4985
+        },
+        "multi_document": {
+          "cases_count": 9,
+          "recall_at_10": 0.6111,
+          "mrr": 0.4838,
+          "ndcg_at_10": 0.4692
+        },
+        "multi_hop": {
+          "cases_count": 9,
+          "recall_at_10": 0.4352,
+          "mrr": 0.3651,
+          "ndcg_at_10": 0.3952
+        },
+        "ownership": {
+          "cases_count": 8,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "retrieval_poisoning": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.0933,
+          "ndcg_at_10": 0.2695
+        },
+        "role_restricted": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "semantic_search": {
+          "cases_count": 10,
+          "recall_at_10": 0.7,
+          "mrr": 0.2976,
+          "ndcg_at_10": 0.5648
+        },
+        "stale_information": {
+          "cases_count": 4,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "temporal": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.245,
+          "ndcg_at_10": 0.3209
+        },
+        "user_acl": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_10": 0.5
+        },
+        "version": {
+          "cases_count": 4,
+          "recall_at_10": 0.25,
+          "mrr": 0.125,
+          "ndcg_at_10": 0.1577
+        }
+      }
+    },
+    "F_rerank_union": {
+      "aggregate": {
+        "positive_cases_count": 101,
+        "recall_at_1": 0.1073,
+        "recall_at_3": 0.2252,
+        "recall_at_5": 0.3144,
+        "recall_at_10": 0.4249,
+        "mrr": 0.2363,
+        "ndcg_at_10": 0.2994,
+        "forbidden_leaks_top_10": 15
+      },
+      "categories": {
+        "authorization": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "citation_manipulation": {
+          "cases_count": 5,
+          "recall_at_10": 0.2,
+          "mrr": 0.0286,
+          "ndcg_at_10": 0.1298
+        },
+        "conflicting_evidence": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.13,
+          "ndcg_at_10": 0.3121
+        },
+        "cross_tenant": {
+          "cases_count": 2,
+          "recall_at_10": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "duplicate_resolution": {
+          "cases_count": 6,
+          "recall_at_10": 0.3333,
+          "mrr": 0.1352,
+          "ndcg_at_10": 0.1578
+        },
+        "exact_lookup": {
+          "cases_count": 8,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "historical_security": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_10": 0.5
+        },
+        "identifier_search": {
+          "cases_count": 8,
+          "recall_at_10": 0.75,
+          "mrr": 0.5625,
+          "ndcg_at_10": 0.6116
+        },
+        "indirect_prompt_injection": {
+          "cases_count": 5,
+          "recall_at_10": 0.8,
+          "mrr": 0.4,
+          "ndcg_at_10": 0.4985
+        },
+        "multi_document": {
+          "cases_count": 9,
+          "recall_at_10": 0.5556,
+          "mrr": 0.4679,
+          "ndcg_at_10": 0.4389
+        },
+        "multi_hop": {
+          "cases_count": 9,
+          "recall_at_10": 0.4352,
+          "mrr": 0.3624,
+          "ndcg_at_10": 0.3924
+        },
+        "ownership": {
+          "cases_count": 8,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "retrieval_poisoning": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.0819,
+          "ndcg_at_10": 0.2588
+        },
+        "role_restricted": {
+          "cases_count": 2,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "semantic_search": {
+          "cases_count": 10,
+          "recall_at_10": 0.7,
+          "mrr": 0.2976,
+          "ndcg_at_10": 0.5329
+        },
+        "stale_information": {
+          "cases_count": 4,
+          "recall_at_10": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_10": 0.0
+        },
+        "temporal": {
+          "cases_count": 5,
+          "recall_at_10": 0.6,
+          "mrr": 0.08,
+          "ndcg_at_10": 0.193
+        },
+        "user_acl": {
+          "cases_count": 2,
+          "recall_at_10": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_10": 0.5
+        },
+        "version": {
+          "cases_count": 4,
+          "recall_at_10": 0.25,
+          "mrr": 0.125,
+          "ndcg_at_10": 0.1577
+        }
+      }
+    }
+  },
+  "headroom_analysis": {
+    "total_headroom_cases": 22,
+    "entered_top_10_count": 5,
+    "entered_top_10_pct": 0.2273,
+    "entered_top_5_count": 3,
+    "entered_top_5_pct": 0.1364,
+    "became_rank_1_count": 1,
+    "became_rank_1_pct": 0.0455,
+    "mean_rank_improvement": 2.2,
+    "cases": [
+      {
+        "evaluation_id": "EVAL-0001",
+        "query": "What was the root cause and resolution of incident INC-NS-0001?",
+        "expected_target": "DOC-INC-INC-NS-0001-01",
+        "pre_reranker_best_rank": 15,
+        "reranker_rank": 19,
+        "rank_improvement": -4,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0002",
+        "query": "What was the root cause and resolution of incident INC-NS-0002?",
+        "expected_target": "DOC-INC-INC-NS-0002-01",
+        "pre_reranker_best_rank": 18,
+        "reranker_rank": 13,
+        "rank_improvement": 5,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0004",
+        "query": "What was the root cause and resolution of incident INC-NS-0004?",
+        "expected_target": "DOC-INC-INC-NS-0004-01",
+        "pre_reranker_best_rank": 24,
+        "reranker_rank": 13,
+        "rank_improvement": 11,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0010",
+        "query": "Which service and version were deployed in deployment DEP-NS-0001?",
+        "expected_target": "DOC-DEP-DEP-NS-0001-01",
+        "pre_reranker_best_rank": 13,
+        "reranker_rank": 1,
+        "rank_improvement": 12,
+        "entered_top_10": true,
+        "entered_top_5": true,
+        "became_rank_1": true
+      },
+      {
+        "evaluation_id": "EVAL-0018",
+        "query": "Why were active users intermittently logged out and faced login delays?",
+        "expected_target": "DOC-PM-EVT-NS-0002-01",
+        "pre_reranker_best_rank": 20,
+        "reranker_rank": 44,
+        "rank_improvement": -24,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0019",
+        "query": "What caused credit card payments to fail with gateway timeout errors across checkout?",
+        "expected_target": "DOC-PM-EVT-NS-0003-01",
+        "pre_reranker_best_rank": 26,
+        "reranker_rank": 22,
+        "rank_improvement": 4,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0034",
+        "query": "Which team owns media-service and which department does it belong to?",
+        "expected_target": "DOC-DOC-EVT-NS-0001-01",
+        "pre_reranker_best_rank": 18,
+        "reranker_rank": null,
+        "rank_improvement": 0,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0060",
+        "query": "What are the operational procedures for database connection pool tuning in checkout-service?",
+        "expected_target": "DOC-NOTE-EVT-NS-0001-01",
+        "pre_reranker_best_rank": 14,
+        "reranker_rank": null,
+        "rank_improvement": 0,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0063",
+        "query": "What are the edge proxy cache TTL guidelines for static and dynamic assets?",
+        "expected_target": "DOC-NOTE-EVT-NS-0004-01",
+        "pre_reranker_best_rank": 26,
+        "reranker_rank": 31,
+        "rank_improvement": -5,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0068",
+        "query": "What was the status of deployment DEP-NS-0001 during the outage window on January 14, 2025 at 10:30 UTC?",
+        "expected_target": "DOC-DEP-DEP-NS-0001-01",
+        "pre_reranker_best_rank": 12,
+        "reranker_rank": 5,
+        "rank_improvement": 7,
+        "entered_top_10": true,
+        "entered_top_5": true,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0070",
+        "query": "What was the active on-call escalation SLA for checkout-service during Q1 2025?",
+        "expected_target": "DOC-PM-EVT-NS-0001-01",
+        "pre_reranker_best_rank": 40,
+        "reranker_rank": 10,
+        "rank_improvement": 30,
+        "entered_top_10": true,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0071",
+        "query": "What updates were introduced in version 2.0 of the enterprise database connection guidelines?",
+        "expected_target": "DOC-NOISE-VER-01-V2",
+        "pre_reranker_best_rank": 13,
+        "reranker_rank": 20,
+        "rank_improvement": -7,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0074",
+        "query": "What were the original baseline parameters documented in version 1.0 of the API rate limiting guide?",
+        "expected_target": "DOC-NOISE-VER-02-V1",
+        "pre_reranker_best_rank": 21,
+        "reranker_rank": 26,
+        "rank_improvement": -5,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0075",
+        "query": "What is the current maximum database connection pool size for checkout-service?",
+        "expected_target": "DOC-PM-EVT-NS-0001-01",
+        "pre_reranker_best_rank": 20,
+        "reranker_rank": 26,
+        "rank_improvement": -6,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0076",
+        "query": "What is the current active session token expiration TTL for user logins?",
+        "expected_target": "DOC-PM-EVT-NS-0002-01",
+        "pre_reranker_best_rank": 36,
+        "reranker_rank": null,
+        "rank_improvement": 0,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0078",
+        "query": "What is the current API rate limit quota for enterprise tier customers?",
+        "expected_target": "DOC-PR-PR-NS-0006-01",
+        "pre_reranker_best_rank": 27,
+        "reranker_rank": 39,
+        "rank_improvement": -12,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0079",
+        "query": "Was the checkout failure caused by third-party Cloudflare CDN routing issues or internal connection exhaustion?",
+        "expected_target": "DOC-PM-EVT-NS-0001-01",
+        "pre_reranker_best_rank": 46,
+        "reranker_rank": 46,
+        "rank_improvement": 0,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0080",
+        "query": "Was the user authentication degradation caused by an expired intermediate TLS certificate or JWT signing secret rotation?",
+        "expected_target": "DOC-PM-EVT-NS-0002-01",
+        "pre_reranker_best_rank": 27,
+        "reranker_rank": 17,
+        "rank_improvement": 10,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0081",
+        "query": "Was the payment transaction failure on 2025-03-22 caused by Visa/Mastercard network downtime or an internal config defect?",
+        "expected_target": "DOC-PM-EVT-NS-0003-01",
+        "pre_reranker_best_rank": 12,
+        "reranker_rank": 5,
+        "rank_improvement": 7,
+        "entered_top_10": true,
+        "entered_top_5": true,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0086",
+        "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+        "expected_target": "DOC-SEC-DPT-0004",
+        "pre_reranker_best_rank": 32,
+        "reranker_rank": 19,
+        "rank_improvement": 13,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0105",
+        "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+        "expected_target": "DOC-SEC-VACL-01-V1",
+        "pre_reranker_best_rank": 49,
+        "reranker_rank": 38,
+        "rank_improvement": 11,
+        "entered_top_10": false,
+        "entered_top_5": false,
+        "became_rank_1": false
+      },
+      {
+        "evaluation_id": "EVAL-0108",
+        "query": "Which deployment triggered the checkout failure in INC-NS-0001?",
+        "expected_target": "DOC-PM-EVT-NS-0001-01",
+        "pre_reranker_best_rank": 11,
+        "reranker_rank": 10,
+        "rank_improvement": 1,
+        "entered_top_10": true,
+        "entered_top_5": false,
+        "became_rank_1": false
+      }
+    ]
+  },
+  "rrf_regression_analysis": {
+    "total_regressions": 10,
+    "recovered_count": 2,
+    "recovered_pct": 0.2,
+    "unresolved_count": 8,
+    "new_regressions_count": 7,
+    "cases": [
+      {
+        "evaluation_id": "EVAL-0003",
+        "category": "exact_lookup",
+        "query": "What was the root cause and resolution of incident INC-NS-0003?",
+        "expected_targets": [
+          "DOC-INC-INC-NS-0003-01",
+          "DOC-PM-EVT-NS-0003-01"
+        ],
+        "bm25_rank": 28,
+        "dense_rank": 1,
+        "rrf_rank": 1,
+        "reranker_rank": null,
+        "status": "unresolved",
+        "top_distractor": "[Poisoned Evidence] Official Root Cause Investigation: Global Cloudflare CDN Outage (Version 3.0)"
+      },
+      {
+        "evaluation_id": "EVAL-0005",
+        "category": "exact_lookup",
+        "query": "What was the root cause and resolution of incident INC-NS-0005?",
+        "expected_targets": [
+          "DOC-INC-INC-NS-0005-01",
+          "DOC-PM-EVT-NS-0005-01"
+        ],
+        "bm25_rank": 20,
+        "dense_rank": 1,
+        "rrf_rank": 1,
+        "reranker_rank": null,
+        "status": "unresolved",
+        "top_distractor": "[Poisoned Evidence] Official Root Cause Investigation: Global Cloudflare CDN Outage"
+      },
+      {
+        "evaluation_id": "EVAL-0012",
+        "category": "identifier_search",
+        "query": "What was the outcome and service for deployment DEP-NS-0003?",
+        "expected_targets": [
+          "DOC-DEP-DEP-NS-0003-01"
+        ],
+        "bm25_rank": 10,
+        "dense_rank": 19,
+        "rrf_rank": null,
+        "reranker_rank": null,
+        "status": "unresolved",
+        "top_distractor": "[Poisoned Evidence] Technical Finding: Visa & Mastercard Interchange Network Downtime (Version 2.0)"
+      },
+      {
+        "evaluation_id": "EVAL-0017",
+        "category": "semantic_search",
+        "query": "Why did checkout requests experience 504 gateway timeouts during peak traffic surge?",
+        "expected_targets": [
+          "DOC-PM-EVT-NS-0001-01"
+        ],
+        "bm25_rank": null,
+        "dense_rank": 5,
+        "rrf_rank": null,
+        "reranker_rank": null,
+        "status": "unresolved",
+        "top_distractor": "Runbook: checkout-service Operational Runbook & Recovery Procedures"
+      },
+      {
+        "evaluation_id": "EVAL-0022",
+        "category": "semantic_search",
+        "query": "What caused data warehouse write operations to freeze during schema updates?",
+        "expected_targets": [
+          "DOC-PM-EVT-NS-0006-01"
+        ],
+        "bm25_rank": 4,
+        "dense_rank": 21,
+        "rrf_rank": null,
+        "reranker_rank": 4,
+        "status": "recovered",
+        "top_distractor": "[SEV-HIGH] Initial Alert: Data warehouse write operations blocked during schema migration"
+      },
+      {
+        "evaluation_id": "EVAL-0029",
+        "category": "ownership",
+        "query": "Which team owns config-service and which department does it belong to?",
+        "expected_targets": [
+          "DOC-DOC-EVT-NS-0001-01"
+        ],
+        "bm25_rank": 8,
+        "dense_rank": null,
+        "rrf_rank": null,
+        "reranker_rank": null,
+        "status": "unresolved",
+        "top_distractor": "Support Ticket #TKT-0003-0053: Outage on config-service reported by RedRock Mining"
+      },
+      {
+        "evaluation_id": "EVAL-0038",
+        "category": "multi_document",
+        "query": "What did triage channel notes say about search latency and what did postmortem action items require?",
+        "expected_targets": [
+          "DOC-CHAT-EVT-NS-0004-01",
+          "DOC-PM-EVT-NS-0004-01"
+        ],
+        "bm25_rank": 6,
+        "dense_rank": 1,
+        "rrf_rank": 1,
+        "reranker_rank": null,
+        "status": "unresolved",
+        "top_distractor": "Slack Thread: #eng-retrospectives (Search latency spike follow-up)"
+      },
+      {
+        "evaluation_id": "EVAL-0039",
+        "category": "multi_document",
+        "query": "What caused notification delivery failure in deployment DEP-NS-0004 and what PR resolved it?",
+        "expected_targets": [
+          "DOC-DEP-DEP-NS-0004-01",
+          "DOC-PR-PR-NS-0005-01"
+        ],
+        "bm25_rank": 9,
+        "dense_rank": 3,
+        "rrf_rank": 3,
+        "reranker_rank": null,
+        "status": "unresolved",
+        "top_distractor": "Postmortem: Notification delivery failure (EVT-NS-0005)"
+      },
+      {
+        "evaluation_id": "EVAL-0048",
+        "category": "multi_hop",
+        "query": "Trace notification delivery failure: what was the symptom, which service queue stalled, which deployment caused it, and which PR fixed worker deadlocks?",
+        "expected_targets": [
+          "DOC-DEP-DEP-NS-0004-01",
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-PR-PR-NS-0005-01"
+        ],
+        "bm25_rank": 2,
+        "dense_rank": 3,
+        "rrf_rank": 3,
+        "reranker_rank": 1,
+        "status": "recovered",
+        "top_distractor": "None"
+      },
+      {
+        "evaluation_id": "EVAL-0066",
+        "category": "temporal",
+        "query": "What was the active checkout connection pool configuration prior to January 14, 2025?",
+        "expected_targets": [
+          "DOC-DOC-EVT-NS-0001-01"
+        ],
+        "bm25_rank": 22,
+        "dense_rank": 3,
+        "rrf_rank": null,
+        "reranker_rank": null,
+        "status": "unresolved",
+        "top_distractor": "[Sanitized Team Copy] Production Incident Postmortem: Core Checkout Outage"
+      }
+    ]
+  },
+  "category_comparison": {
+    "authorization": {
+      "cases_count": 2,
+      "bm25": 0.0,
+      "dense": 0.0,
+      "rrf": 0.0,
+      "rerank_bm25": 0.0,
+      "rerank_dense": 0.0,
+      "rerank_union": 0.0
+    },
+    "citation_manipulation": {
+      "cases_count": 5,
+      "bm25": 0.0,
+      "dense": 0.2,
+      "rrf": 0.2,
+      "rerank_bm25": 0.2,
+      "rerank_dense": 0.2,
+      "rerank_union": 0.2
+    },
+    "conflicting_evidence": {
+      "cases_count": 5,
+      "bm25": 0.4,
+      "dense": 0.4,
+      "rrf": 0.4,
+      "rerank_bm25": 0.6,
+      "rerank_dense": 0.6,
+      "rerank_union": 0.6
+    },
+    "cross_tenant": {
+      "cases_count": 2,
+      "bm25": 1.0,
+      "dense": 1.0,
+      "rrf": 1.0,
+      "rerank_bm25": 1.0,
+      "rerank_dense": 1.0,
+      "rerank_union": 1.0
+    },
+    "duplicate_resolution": {
+      "cases_count": 6,
+      "bm25": 0.0833,
+      "dense": 0.25,
+      "rrf": 0.25,
+      "rerank_bm25": 0.25,
+      "rerank_dense": 0.3333,
+      "rerank_union": 0.3333
+    },
+    "exact_lookup": {
+      "cases_count": 8,
+      "bm25": 0.0,
+      "dense": 0.4375,
+      "rrf": 0.4375,
+      "rerank_bm25": 0.0,
+      "rerank_dense": 0.4375,
+      "rerank_union": 0.0
+    },
+    "historical_security": {
+      "cases_count": 2,
+      "bm25": 0.5,
+      "dense": 0.5,
+      "rrf": 0.5,
+      "rerank_bm25": 0.5,
+      "rerank_dense": 0.5,
+      "rerank_union": 0.5
+    },
+    "identifier_search": {
+      "cases_count": 8,
+      "bm25": 0.75,
+      "dense": 0.625,
+      "rrf": 0.625,
+      "rerank_bm25": 0.75,
+      "rerank_dense": 0.75,
+      "rerank_union": 0.75
+    },
+    "indirect_prompt_injection": {
+      "cases_count": 5,
+      "bm25": 0.8,
+      "dense": 0.6,
+      "rrf": 0.8,
+      "rerank_bm25": 0.8,
+      "rerank_dense": 0.8,
+      "rerank_union": 0.8
+    },
+    "multi_document": {
+      "cases_count": 9,
+      "bm25": 0.5,
+      "dense": 0.7778,
+      "rrf": 0.7222,
+      "rerank_bm25": 0.5556,
+      "rerank_dense": 0.6111,
+      "rerank_union": 0.5556
+    },
+    "multi_hop": {
+      "cases_count": 9,
+      "bm25": 0.4722,
+      "dense": 0.6852,
+      "rrf": 0.5741,
+      "rerank_bm25": 0.3981,
+      "rerank_dense": 0.4352,
+      "rerank_union": 0.4352
+    },
+    "ownership": {
+      "cases_count": 8,
+      "bm25": 0.25,
+      "dense": 0.0,
+      "rrf": 0.125,
+      "rerank_bm25": 0.125,
+      "rerank_dense": 0.0,
+      "rerank_union": 0.0
+    },
+    "retrieval_poisoning": {
+      "cases_count": 5,
+      "bm25": 0.6,
+      "dense": 0.6,
+      "rrf": 0.8,
+      "rerank_bm25": 0.6,
+      "rerank_dense": 0.6,
+      "rerank_union": 0.6
+    },
+    "role_restricted": {
+      "cases_count": 2,
+      "bm25": 0.0,
+      "dense": 0.0,
+      "rrf": 0.0,
+      "rerank_bm25": 0.0,
+      "rerank_dense": 0.0,
+      "rerank_union": 0.0
+    },
+    "semantic_search": {
+      "cases_count": 10,
+      "bm25": 0.6,
+      "dense": 0.7,
+      "rrf": 0.6,
+      "rerank_bm25": 0.7,
+      "rerank_dense": 0.7,
+      "rerank_union": 0.7
+    },
+    "stale_information": {
+      "cases_count": 4,
+      "bm25": 0.25,
+      "dense": 0.25,
+      "rrf": 0.25,
+      "rerank_bm25": 0.0,
+      "rerank_dense": 0.0,
+      "rerank_union": 0.0
+    },
+    "temporal": {
+      "cases_count": 5,
+      "bm25": 0.2,
+      "dense": 0.4,
+      "rrf": 0.4,
+      "rerank_bm25": 0.4,
+      "rerank_dense": 0.6,
+      "rerank_union": 0.6
+    },
+    "user_acl": {
+      "cases_count": 2,
+      "bm25": 0.5,
+      "dense": 0.5,
+      "rrf": 0.5,
+      "rerank_bm25": 0.5,
+      "rerank_dense": 0.5,
+      "rerank_union": 0.5
+    },
+    "version": {
+      "cases_count": 4,
+      "bm25": 0.0,
+      "dense": 0.25,
+      "rrf": 0.25,
+      "rerank_bm25": 0.25,
+      "rerank_dense": 0.25,
+      "rerank_union": 0.25
+    }
+  },
+  "security_separation": {
+    "retrieval_quality": {
+      "recall_at_10": 0.4249,
+      "mrr": 0.2363,
+      "ndcg_at_10": 0.2994
+    },
+    "authorization_correctness": {
+      "unauthorized_occurrences_top_10": 15,
+      "cross_tenant_leakage_count": 0
+    },
+    "evidence_trustworthiness": {
+      "poisoned_docs_in_top_10": 164,
+      "manipulated_citations_in_top_10": 19
+    },
+    "prompt_injection_resistance": {
+      "adversarial_payloads_in_top_10": 250
+    },
+    "boundary_principle": "retrieval relevance != authorization != evidence trustworthiness != prompt-injection resistance"
+  },
+  "performance_telemetry": {
+    "model_name": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "parameters": "22.7M",
+    "device": "cpu",
+    "total_queries_evaluated": 120,
+    "mean_candidates_per_query": 79.1,
+    "mean_latency_ms": 3815.54,
+    "p50_latency_ms": 3796.08,
+    "p95_latency_ms": 5206.78,
+    "total_benchmark_runtime_s": 5380.43
+  }
+}

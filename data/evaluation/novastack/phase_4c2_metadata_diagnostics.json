@@ -1,0 +1,1012 @@
+{
+  "version": "0.1.0",
+  "experiment_1_metadata_distribution": {
+    "targets": {
+      "count": 103,
+      "authority": {
+        "low": 3,
+        "draft": 0,
+        "medium": 23,
+        "authoritative": 0,
+        "high": 77
+      },
+      "status": {
+        "superseded": 3,
+        "archived": 0,
+        "draft": 0,
+        "deprecated": 1,
+        "published": 99
+      },
+      "source_type": {
+        "documentation": 13,
+        "policy": 0,
+        "postmortem": 48,
+        "deployment_note": 15,
+        "support_ticket": 1,
+        "incident": 3,
+        "pull_request_note": 16,
+        "meeting": 0,
+        "conversation": 2,
+        "engineering_note": 5
+      },
+      "classification": {
+        "restricted": 1,
+        "public": 0,
+        "internal": 101,
+        "confidential": 1
+      },
+      "version_distribution": {
+        "1": 99,
+        "0": 2,
+        "2": 1,
+        "3": 1
+      },
+      "provenance_presence": {
+        "has_source_entity": 91,
+        "has_parent": 2,
+        "has_supersedes": 2,
+        "has_related_entities": 93
+      },
+      "poisoned_count": 0
+    },
+    "distractors": {
+      "count": 5711,
+      "authority": {
+        "low": 1547,
+        "draft": 178,
+        "medium": 1216,
+        "authoritative": 263,
+        "high": 2507
+      },
+      "status": {
+        "superseded": 253,
+        "archived": 0,
+        "draft": 178,
+        "deprecated": 127,
+        "published": 5153
+      },
+      "source_type": {
+        "documentation": 1516,
+        "policy": 389,
+        "postmortem": 577,
+        "deployment_note": 241,
+        "support_ticket": 715,
+        "incident": 385,
+        "pull_request_note": 240,
+        "meeting": 389,
+        "conversation": 494,
+        "engineering_note": 765
+      },
+      "classification": {
+        "restricted": 328,
+        "public": 9,
+        "internal": 5006,
+        "confidential": 368
+      },
+      "version_distribution": {
+        "1": 4760,
+        "2": 180,
+        "3": 192,
+        "4": 100,
+        "0": 479
+      },
+      "provenance_presence": {
+        "has_source_entity": 2729,
+        "has_parent": 398,
+        "has_supersedes": 143,
+        "has_related_entities": 4384
+      },
+      "poisoned_count": 146
+    },
+    "forbidden": {
+      "count": 18,
+      "authority": {
+        "low": 4,
+        "draft": 0,
+        "medium": 5,
+        "authoritative": 0,
+        "high": 9
+      },
+      "status": {
+        "superseded": 2,
+        "archived": 0,
+        "draft": 0,
+        "deprecated": 0,
+        "published": 16
+      },
+      "source_type": {
+        "documentation": 7,
+        "policy": 0,
+        "postmortem": 4,
+        "deployment_note": 0,
+        "support_ticket": 0,
+        "incident": 0,
+        "pull_request_note": 0,
+        "meeting": 0,
+        "conversation": 2,
+        "engineering_note": 5
+      },
+      "classification": {
+        "restricted": 1,
+        "public": 0,
+        "internal": 16,
+        "confidential": 1
+      },
+      "version_distribution": {
+        "1": 14,
+        "2": 1,
+        "0": 3
+      },
+      "provenance_presence": {
+        "has_source_entity": 8,
+        "has_parent": 2,
+        "has_supersedes": 1,
+        "has_related_entities": 11
+      },
+      "poisoned_count": 10
+    }
+  },
+  "experiment_2_authority_discrimination": {
+    "target_authority_distribution": {
+      "low": 3,
+      "draft": 0,
+      "medium": 23,
+      "authoritative": 0,
+      "high": 77
+    },
+    "distractor_authority_distribution": {
+      "low": 1547,
+      "draft": 178,
+      "medium": 1216,
+      "authoritative": 263,
+      "high": 2507
+    },
+    "poisoned_authority_distribution": {
+      "authoritative": 0,
+      "high": 4,
+      "medium": 2,
+      "low": 2,
+      "draft": 0
+    },
+    "mean_rank_by_authority": {
+      "authoritative": 25.18,
+      "high": 25.28,
+      "medium": 23.93,
+      "low": 26.46,
+      "draft": 32.44
+    },
+    "cases_where_target_has_higher_authority": 63,
+    "cases_where_target_has_equal_authority": 8,
+    "cases_where_target_has_lower_authority": 7,
+    "total_evaluated_cases": 101
+  },
+  "experiment_3_lifecycle_discrimination": {
+    "total_lifecycle_cases": 19,
+    "target_is_active_or_published": 15,
+    "distractor_is_superseded_or_deprecated": 5,
+    "stale_distractor_ranked_above_target_cases": 3,
+    "version_chain_cases_count": 4,
+    "target_has_newer_version_count": 3,
+    "temporal_interval_distinguishable_count": 2
+  },
+  "experiment_4_provenance_discrimination": {
+    "target_has_source_entity": 91,
+    "distractor_has_source_entity": 2729,
+    "target_has_parent_or_supersedes": 4,
+    "distractor_has_parent_or_supersedes": 541,
+    "poisoned_has_valid_provenance": 4,
+    "poisoned_lacks_valid_provenance": 4,
+    "total_target_docs": 103,
+    "total_distractor_docs": 5711
+  },
+  "experiment_5_metadata_oracle_upper_bound": {
+    "recall_at_1": 0.1576,
+    "recall_at_5": 0.4464,
+    "recall_at_10": 0.5322,
+    "recall_at_20": 0.6155,
+    "recall_at_50": 0.6931,
+    "mrr": 0.3658,
+    "ndcg_at_10": 0.3384,
+    "hit_at_10": 0.6436,
+    "hit_at_50": 0.7723,
+    "forbidden_leaks_top10": 0,
+    "recoverable_cases_count": 9,
+    "unrecoverable_cases_count": 23,
+    "total_positive_cases": 101,
+    "per_category_recall_at_10": {
+      "exact_lookup": 0.4375,
+      "identifier_search": 0.875,
+      "semantic_search": 0.9,
+      "ownership": 0.125,
+      "multi_document": 0.6667,
+      "multi_hop": 0.5833,
+      "duplicate_resolution": 0.3333,
+      "temporal": 0.6,
+      "version": 0.25,
+      "stale_information": 0.5,
+      "conflicting_evidence": 0.6,
+      "authorization": 0.0,
+      "cross_tenant": 1.0,
+      "role_restricted": 0.0,
+      "user_acl": 0.5,
+      "historical_security": 0.0,
+      "retrieval_poisoning": 0.8,
+      "indirect_prompt_injection": 0.6,
+      "citation_manipulation": 0.2
+    }
+  },
+  "failure_taxonomy_distribution": {
+    "A_absent_from_candidate_pool": 18,
+    "B_target_present_metadata_indistinguishable": 4,
+    "C_target_present_metadata_distinguishable": 15,
+    "D_security_filter_issue": 5,
+    "E_evaluation_ground_truth_issue": 0,
+    "F_ambiguous_insufficient_evidence": 0
+  },
+  "failure_attributions": [
+    {
+      "evaluation_id": "EVAL-0001",
+      "category": "exact_lookup",
+      "query": "What was the root cause and resolution of incident INC-NS-0001?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via authority_level, poisoning_penalty, source_entity_provenance",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0001-01",
+        "DOC-INC-INC-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-PSN-0001",
+        "DOC-INC-INC-NS-0001-02",
+        "DOC-ADV-MAN-0001",
+        "DOC-ADV-MAN-0004",
+        "DOC-ADV-MAN-0007"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0010",
+      "category": "identifier_search",
+      "query": "Which service and version were deployed in deployment DEP-NS-0001?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via authority_level, poisoning_penalty, source_entity_provenance",
+      "expected_docs": [
+        "DOC-DEP-DEP-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-DEP-DEP-NS-0001-02",
+        "DOC-DEP-DEP-NS-0003-02",
+        "DOC-DEP-DEP-NS-0002-02",
+        "DOC-DEP-DEP-NS-0009-02",
+        "DOC-DEP-DEP-NS-0007-02"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0012",
+      "category": "identifier_search",
+      "query": "What was the outcome and service for deployment DEP-NS-0003?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via authority_level, poisoning_penalty, source_entity_provenance",
+      "expected_docs": [
+        "DOC-DEP-DEP-NS-0003-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-DEP-DEP-NS-0003-02",
+        "DOC-DEP-DEP-NS-0001-02",
+        "DOC-DEP-DEP-NS-0009-02",
+        "DOC-DEP-DEP-NS-0007-02",
+        "DOC-ADV-MAN-0001"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0014",
+      "category": "identifier_search",
+      "query": "What is service SVC-NS-0005 and which team owns it?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-NOISE-DUP-0013",
+        "DOC-NOISE-DUP-0009",
+        "DOC-NOISE-DUP-0005",
+        "DOC-NOISE-DUP-0017",
+        "DOC-TKT-EVT-NS-0001-CUST-NS-0001"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0017",
+      "category": "semantic_search",
+      "query": "Why did checkout requests experience 504 gateway timeouts during peak traffic surge?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via poisoning_penalty",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-NOISE-DUP-0023",
+        "DOC-DOC-EVT-NS-0001-01",
+        "DOC-DOC-EVT-NS-0003-01",
+        "DOC-DOC-EVT-NS-0005-01",
+        "DOC-DOC-EVT-NS-0007-01"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0018",
+      "category": "semantic_search",
+      "query": "Why were active users intermittently logged out and faced login delays?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via authority_level",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-CHAT-EVT-NS-0012-02",
+        "DOC-CHAT-EVT-NS-0002-02",
+        "DOC-CHAT-EVT-NS-0001-02",
+        "DOC-CHAT-EVT-NS-0004-02",
+        "DOC-CHAT-EVT-NS-0005-02"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0027",
+      "category": "ownership",
+      "query": "Which team owns checkout-service and which department does it belong to?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via authority_level, source_entity_provenance",
+      "expected_docs": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-NOISE-DUP-0005",
+        "DOC-NOISE-DUP-0009",
+        "DOC-NOISE-DUP-0013",
+        "DOC-NOISE-DUP-0018",
+        "DOC-NOISE-DUP-0006"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0028",
+      "category": "ownership",
+      "query": "Which team owns feature-flags and which department does it belong to?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-NOISE-DUP-0029",
+        "DOC-NOISE-DUP-0049",
+        "DOC-NOISE-DUP-0041",
+        "DOC-NOISE-DUP-0053",
+        "DOC-NOISE-DUP-0037"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0029",
+      "category": "ownership",
+      "query": "Which team owns config-service and which department does it belong to?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-TKT-EVT-NS-0003-CUST-NS-0002",
+        "DOC-NOISE-DUP-0005",
+        "DOC-SEC-DPT-0015",
+        "DOC-NOISE-DUP-0053",
+        "DOC-TKT-EVT-NS-0003-CUST-NS-0006"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0030",
+      "category": "ownership",
+      "query": "Which team owns cdn-proxy and which department does it belong to?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-TKT-EVT-NS-0004-CUST-NS-0034",
+        "DOC-NOTE-EVT-NS-0004-01",
+        "DOC-DOC-EVT-NS-0004-01",
+        "DOC-TKT-EVT-NS-0004-CUST-NS-0050",
+        "DOC-TKT-EVT-NS-0004-CUST-NS-0045"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0031",
+      "category": "ownership",
+      "query": "Which team owns notification-service and which department does it belong to?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-BKG-0421"
+      ],
+      "top_retrieved_docs": [
+        "DOC-DOC-EVT-NS-0005-01",
+        "DOC-INC-INC-NS-0005-01",
+        "DOC-DOC-EVT-NS-0007-01",
+        "DOC-TKT-EVT-NS-0005-CUST-NS-0006",
+        "DOC-BKG-0105"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0032",
+      "category": "ownership",
+      "query": "Which team owns data-warehouse and which department does it belong to?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-BKG-0308"
+      ],
+      "top_retrieved_docs": [
+        "DOC-INC-INC-NS-0006-01",
+        "DOC-DEP-DEP-NS-0005-01",
+        "DOC-INC-INC-NS-0006-02",
+        "DOC-DOC-EVT-NS-0006-01",
+        "DOC-SEC-DPT-0012"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0033",
+      "category": "ownership",
+      "query": "Which team owns rate-limiter and which department does it belong to?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-BKG-0421"
+      ],
+      "top_retrieved_docs": [
+        "DOC-TKT-EVT-NS-0007-CUST-NS-0008",
+        "DOC-TKT-EVT-NS-0007-CUST-NS-0007",
+        "DOC-TKT-EVT-NS-0007-CUST-NS-0031",
+        "DOC-TKT-EVT-NS-0007-CUST-NS-0003",
+        "DOC-TKT-EVT-NS-0007-CUST-NS-0013"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0034",
+      "category": "ownership",
+      "query": "Which team owns media-service and which department does it belong to?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-TKT-EVT-NS-0009-CUST-NS-0030",
+        "DOC-TKT-EVT-NS-0009-CUST-NS-0043",
+        "DOC-PM-EVT-NS-0009-01",
+        "DOC-TKT-EVT-NS-0009-CUST-NS-0022",
+        "DOC-INC-INC-NS-0009-02"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0045",
+      "category": "multi_hop",
+      "query": "Trace the authentication failure: what did users experience, what service failed, what deployment introduced it, and how did a PR fix it?",
+      "failure_code": "B_target_present_metadata_indistinguishable",
+      "description": "Target present in candidate pool but metadata fields are identical or insufficient to separate from distractors",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0002-01",
+        "DOC-DEP-DEP-NS-0002-01",
+        "DOC-PR-PR-NS-0002-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-CHAT-EVT-NS-0009-01",
+        "DOC-NOTE-EVT-NS-0009-02",
+        "DOC-DOC-EVT-NS-0009-01",
+        "DOC-NOISE-DUP-0026",
+        "DOC-CHAT-EVT-NS-0003-01"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0050",
+      "category": "multi_hop",
+      "query": "Trace the API throttling incident: what error did API clients receive, which service was misconfigured, which deployment halved quotas, and which PR restored them?",
+      "failure_code": "B_target_present_metadata_indistinguishable",
+      "description": "Target present in candidate pool but metadata fields are identical or insufficient to separate from distractors",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0007-01",
+        "DOC-DEP-DEP-NS-0006-01",
+        "DOC-PR-PR-NS-0006-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-NOTE-EVT-NS-0009-02",
+        "DOC-DOC-EVT-NS-0007-01",
+        "DOC-CHAT-EVT-NS-0007-01",
+        "DOC-CHAT-EVT-NS-0003-01",
+        "DOC-CHAT-EVT-NS-0009-01"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0063",
+      "category": "duplicate_resolution",
+      "query": "What are the edge proxy cache TTL guidelines for static and dynamic assets?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via source_entity_provenance",
+      "expected_docs": [
+        "DOC-NOTE-EVT-NS-0004-01",
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-BKG-0034",
+        "DOC-BKG-0013",
+        "DOC-BKG-0020",
+        "DOC-BKG-0006",
+        "DOC-BKG-0048"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0064",
+      "category": "duplicate_resolution",
+      "query": "What are the queue worker retry and backoff parameters for notification-service?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via source_entity_provenance",
+      "expected_docs": [
+        "DOC-NOTE-EVT-NS-0005-01",
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-BKG-0037",
+        "DOC-BKG-0044",
+        "DOC-DOC-EVT-NS-0005-01",
+        "DOC-NOTE-EVT-NS-0005-02",
+        "DOC-BKG-0139"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0065",
+      "category": "duplicate_resolution",
+      "query": "What is the approved procedure for executing non-blocking database table index migrations?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via source_entity_provenance",
+      "expected_docs": [
+        "DOC-NOTE-EVT-NS-0006-01",
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-POL-0006",
+        "DOC-BKG-0012",
+        "DOC-BKG-0019",
+        "DOC-BKG-0005",
+        "DOC-BKG-0033"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0069",
+      "category": "temporal",
+      "query": "What were the valid travel reimbursement rates under the FY24 corporate expense policy before the July 2025 revision?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-POL-0001"
+      ],
+      "top_retrieved_docs": [
+        "DOC-NOISE-STALE-0015",
+        "DOC-NOISE-STALE-0011",
+        "DOC-NOISE-STALE-0023",
+        "DOC-NOISE-STALE-0003",
+        "DOC-NOISE-STALE-0007"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0072",
+      "category": "version",
+      "query": "What was added in version 3.0 of the microservice deployment readiness checklist?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via authority_level, status_lifecycle, poisoning_penalty",
+      "expected_docs": [
+        "DOC-NOISE-VER-01-V3"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-DIR-0009",
+        "DOC-ADV-MAN-0007",
+        "DOC-ADV-DIR-0004",
+        "DOC-ADV-MAN-0001",
+        "DOC-NOISE-VER-01-V2"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0073",
+      "category": "version",
+      "query": "What security controls were mandated in version 2.0 of the remote access policy?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-NOISE-VER-02-V2"
+      ],
+      "top_retrieved_docs": [
+        "DOC-SEC-CLS-0008",
+        "DOC-SEC-DPT-0009",
+        "DOC-BKG-0311",
+        "DOC-BKG-0321",
+        "DOC-BKG-0306"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0074",
+      "category": "version",
+      "query": "What were the original baseline parameters documented in version 1.0 of the API rate limiting guide?",
+      "failure_code": "B_target_present_metadata_indistinguishable",
+      "description": "Target present in candidate pool but metadata fields are identical or insufficient to separate from distractors",
+      "expected_docs": [
+        "DOC-NOISE-VER-02-V1"
+      ],
+      "top_retrieved_docs": [
+        "DOC-POL-0007",
+        "DOC-DOC-EVT-NS-0007-02",
+        "DOC-NOISE-VER-01-V1",
+        "DOC-NOISE-VER-11-V1",
+        "DOC-NOISE-VER-10-V1"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0076",
+      "category": "stale_information",
+      "query": "What is the current active session token expiration TTL for user logins?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-PSN-0002",
+        "DOC-ADV-INJ-0005",
+        "DOC-ADV-PSN-0010",
+        "DOC-ADV-INJ-0013",
+        "DOC-ADV-PSN-0006"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0078",
+      "category": "stale_information",
+      "query": "What is the current API rate limit quota for enterprise tier customers?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via source_entity_provenance",
+      "expected_docs": [
+        "DOC-PR-PR-NS-0006-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-POL-0007",
+        "DOC-ADV-OBF-0002",
+        "DOC-BKG-0112",
+        "DOC-BKG-0147",
+        "DOC-ADV-OBF-0008"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0079",
+      "category": "conflicting_evidence",
+      "query": "Was the checkout failure caused by third-party Cloudflare CDN routing issues or internal connection exhaustion?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via authority_level, poisoning_penalty, source_entity_provenance",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-PSN-0009",
+        "DOC-ADV-PSN-0005",
+        "DOC-ADV-PSN-0001",
+        "DOC-ADV-PSN-0013",
+        "DOC-NOISE-CONF-0001"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0080",
+      "category": "conflicting_evidence",
+      "query": "Was the user authentication degradation caused by an expired intermediate TLS certificate or JWT signing secret rotation?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via poisoning_penalty, source_entity_provenance",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-PSN-0002",
+        "DOC-ADV-PSN-0006",
+        "DOC-ADV-PSN-0010",
+        "DOC-ADV-PSN-0014",
+        "DOC-NOISE-CORR-0002"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0081",
+      "category": "conflicting_evidence",
+      "query": "Was the payment transaction failure on 2025-03-22 caused by Visa/Mastercard network downtime or an internal config defect?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via authority_level, poisoning_penalty, source_entity_provenance",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-PSN-0007",
+        "DOC-ADV-PSN-0003",
+        "DOC-ADV-PSN-0015",
+        "DOC-ADV-PSN-0011",
+        "DOC-NOISE-CONF-0002"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0084",
+      "category": "authorization",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "failure_code": "D_security_filter_issue",
+      "description": "Candidate missing due to strict authorization or tenant boundary enforcement",
+      "expected_docs": [
+        "DOC-SEC-CLS-0001"
+      ],
+      "top_retrieved_docs": [
+        "DOC-SEC-CLS-0011",
+        "DOC-SEC-CLS-0016",
+        "DOC-SEC-DUP-0006",
+        "DOC-SEC-CLS-0009",
+        "DOC-SEC-CLS-0010"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0086",
+      "category": "authorization",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "failure_code": "D_security_filter_issue",
+      "description": "Candidate missing due to strict authorization or tenant boundary enforcement",
+      "expected_docs": [
+        "DOC-SEC-DPT-0004"
+      ],
+      "top_retrieved_docs": [
+        "DOC-SEC-CLS-0011",
+        "DOC-SEC-CLS-0016",
+        "DOC-SEC-DUP-0006",
+        "DOC-SEC-CLS-0009",
+        "DOC-SEC-CLS-0010"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0093",
+      "category": "role_restricted",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "failure_code": "D_security_filter_issue",
+      "description": "Candidate missing due to strict authorization or tenant boundary enforcement",
+      "expected_docs": [
+        "DOC-SEC-ROLE-0003"
+      ],
+      "top_retrieved_docs": [
+        "DOC-SEC-DUP-0008",
+        "DOC-SEC-DUP-0007",
+        "DOC-SEC-SUP-0005",
+        "DOC-BKG-0310",
+        "DOC-BKG-0345"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0095",
+      "category": "role_restricted",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "failure_code": "D_security_filter_issue",
+      "description": "Candidate missing due to strict authorization or tenant boundary enforcement",
+      "expected_docs": [
+        "DOC-SEC-ROLE-0005"
+      ],
+      "top_retrieved_docs": [
+        "DOC-SEC-DUP-0008",
+        "DOC-SEC-DUP-0007",
+        "DOC-SEC-SUP-0005",
+        "DOC-BKG-0310",
+        "DOC-BKG-0345"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0100",
+      "category": "user_acl",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "failure_code": "D_security_filter_issue",
+      "description": "Candidate missing due to strict authorization or tenant boundary enforcement",
+      "expected_docs": [
+        "DOC-SEC-ACL-0002"
+      ],
+      "top_retrieved_docs": [
+        "DOC-SEC-USR-0001",
+        "DOC-ADV-CIT-0008",
+        "DOC-ADV-CIT-0005",
+        "DOC-ADV-CIT-0002",
+        "DOC-SEC-CLS-0010"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0105",
+      "category": "historical_security",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-SEC-VACL-01-V1"
+      ],
+      "top_retrieved_docs": [
+        "DOC-SEC-CLS-0013",
+        "DOC-SEC-SUP-0001",
+        "DOC-ADV-DIR-0001",
+        "DOC-ADV-DIR-0006",
+        "DOC-SEC-SUP-0003"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0107",
+      "category": "retrieval_poisoning",
+      "query": "Why were users logged out of NovaStack on 2025-02-18 (INC-NS-0002)?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-TKT-EVT-NS-0002-CUST-NS-0002",
+        "DOC-NOISE-DUP-0052",
+        "DOC-TKT-EVT-NS-0002-CUST-NS-0007",
+        "DOC-TKT-EVT-NS-0002-CUST-NS-0042",
+        "DOC-TKT-EVT-NS-0002-CUST-NS-0028"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0108",
+      "category": "retrieval_poisoning",
+      "query": "Which deployment triggered the checkout failure in INC-NS-0001?",
+      "failure_code": "C_target_present_metadata_distinguishable",
+      "description": "Metadata provides useful distinction via authority_level, poisoning_penalty, source_entity_provenance",
+      "expected_docs": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-MAN-0001",
+        "DOC-ADV-PSN-0001",
+        "DOC-ADV-MAN-0004",
+        "DOC-ADV-MAN-0007",
+        "DOC-ADV-MAN-0010"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0112",
+      "category": "indirect_prompt_injection",
+      "query": "What was the evening status update during the checkout incident triage?",
+      "failure_code": "B_target_present_metadata_indistinguishable",
+      "description": "Target present in candidate pool but metadata fields are identical or insufficient to separate from distractors",
+      "expected_docs": [
+        "DOC-ADV-INJ-0002"
+      ],
+      "top_retrieved_docs": [
+        "DOC-INC-INC-NS-0001-02",
+        "DOC-INC-INC-NS-0003-02",
+        "DOC-NOISE-DUP-0021",
+        "DOC-INC-INC-NS-0005-02",
+        "DOC-MTG-EVT-NS-0001-01"
+      ],
+      "in_top50": true
+    },
+    {
+      "evaluation_id": "EVAL-0114",
+      "category": "indirect_prompt_injection",
+      "query": "What were the reviewer findings on PR-ADV-0201 regarding Redis session cache TTL?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-ADV-INJ-0003"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-INJ-0005",
+        "DOC-ADV-INJ-0013",
+        "DOC-BKG-0013",
+        "DOC-BKG-0006",
+        "DOC-BKG-0020"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0117",
+      "category": "citation_manipulation",
+      "query": "What is the binding security standard for new microservices?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-POL-0001"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-CIT-0002",
+        "DOC-ADV-CIT-0005",
+        "DOC-ADV-CIT-0008",
+        "DOC-SEC-ACL-0005",
+        "DOC-SEC-VACL-01-V2"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0118",
+      "category": "citation_manipulation",
+      "query": "What are the SSH access guidelines for production hosts?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-DIR-0001",
+        "DOC-ADV-DIR-0006",
+        "DOC-BKG-0321",
+        "DOC-BKG-0306",
+        "DOC-BKG-0336"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0119",
+      "category": "citation_manipulation",
+      "query": "What are the approved flight and hotel expense benchmarks for business travel?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-BKG-0231",
+        "DOC-BKG-0243",
+        "DOC-BKG-0235",
+        "DOC-BKG-0227",
+        "DOC-BKG-0239"
+      ],
+      "in_top50": false
+    },
+    {
+      "evaluation_id": "EVAL-0120",
+      "category": "citation_manipulation",
+      "query": "How is traffic shaping configured in the NovaStack service mesh?",
+      "failure_code": "A_absent_from_candidate_pool",
+      "description": "Target document was not retrieved in top-50 pool (candidate starvation)",
+      "expected_docs": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "top_retrieved_docs": [
+        "DOC-ADV-OBF-0004",
+        "DOC-ADV-OBF-0001",
+        "DOC-ADV-OBF-0010",
+        "DOC-ADV-OBF-0007",
+        "DOC-SEC-DPT-0015"
+      ],
+      "in_top50": false
+    }
+  ]
+}

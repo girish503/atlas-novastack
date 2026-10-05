@@ -1,0 +1,835 @@
+{
+  "version": "0.1.0",
+  "seed": 20260909,
+  "count": 92,
+  "event_relationships": [
+    {
+      "relationship_id": "REL-NS-0001",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "deployment",
+      "source_id": "DEP-NS-0001",
+      "target_type": "service",
+      "target_id": "SVC-NS-0005",
+      "relationship_type": "targets"
+    },
+    {
+      "relationship_id": "REL-NS-0002",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0001",
+      "target_type": "deployment",
+      "target_id": "DEP-NS-0001",
+      "relationship_type": "caused_by"
+    },
+    {
+      "relationship_id": "REL-NS-0003",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0001",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0001",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0004",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0001",
+      "target_type": "service",
+      "target_id": "SVC-NS-0005",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0005",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0001",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0001",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0006",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0001",
+      "target_type": "event",
+      "target_id": "EVT-NS-0001",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0007",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0001",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0001",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0008",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0001",
+      "target_type": "event",
+      "target_id": "EVT-NS-0001",
+      "relationship_type": "fixes"
+    },
+    {
+      "relationship_id": "REL-NS-0009",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "deployment",
+      "source_id": "DEP-NS-0002",
+      "target_type": "service",
+      "target_id": "SVC-NS-0001",
+      "relationship_type": "targets"
+    },
+    {
+      "relationship_id": "REL-NS-0010",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0002",
+      "target_type": "deployment",
+      "target_id": "DEP-NS-0002",
+      "relationship_type": "caused_by"
+    },
+    {
+      "relationship_id": "REL-NS-0011",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0002",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0002",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0012",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0002",
+      "target_type": "service",
+      "target_id": "SVC-NS-0001",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0013",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0002",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0004",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0014",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0002",
+      "target_type": "event",
+      "target_id": "EVT-NS-0002",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0015",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0002",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0004",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0016",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0002",
+      "target_type": "event",
+      "target_id": "EVT-NS-0002",
+      "relationship_type": "fixes"
+    },
+    {
+      "relationship_id": "REL-NS-0017",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "deployment",
+      "source_id": "DEP-NS-0003",
+      "target_type": "service",
+      "target_id": "SVC-NS-0007",
+      "relationship_type": "targets"
+    },
+    {
+      "relationship_id": "REL-NS-0018",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0003",
+      "target_type": "deployment",
+      "target_id": "DEP-NS-0003",
+      "relationship_type": "caused_by"
+    },
+    {
+      "relationship_id": "REL-NS-0019",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0003",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0003",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0020",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0003",
+      "target_type": "service",
+      "target_id": "SVC-NS-0007",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0021",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0003",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0002",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0022",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0003",
+      "target_type": "event",
+      "target_id": "EVT-NS-0003",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0023",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0003",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0002",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0024",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0003",
+      "target_type": "event",
+      "target_id": "EVT-NS-0003",
+      "relationship_type": "fixes"
+    },
+    {
+      "relationship_id": "REL-NS-0025",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0004",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0004",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0026",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0004",
+      "target_type": "service",
+      "target_id": "SVC-NS-0009",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0027",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0004",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0001",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0028",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0004",
+      "target_type": "event",
+      "target_id": "EVT-NS-0004",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0029",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0004",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0001",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0030",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0004",
+      "target_type": "event",
+      "target_id": "EVT-NS-0004",
+      "relationship_type": "fixes"
+    },
+    {
+      "relationship_id": "REL-NS-0031",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "deployment",
+      "source_id": "DEP-NS-0004",
+      "target_type": "service",
+      "target_id": "SVC-NS-0011",
+      "relationship_type": "targets"
+    },
+    {
+      "relationship_id": "REL-NS-0032",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0005",
+      "target_type": "deployment",
+      "target_id": "DEP-NS-0004",
+      "relationship_type": "caused_by"
+    },
+    {
+      "relationship_id": "REL-NS-0033",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0005",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0005",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0034",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0005",
+      "target_type": "service",
+      "target_id": "SVC-NS-0011",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0035",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0005",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0007",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0036",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0005",
+      "target_type": "event",
+      "target_id": "EVT-NS-0005",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0037",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0005",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0007",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0038",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0005",
+      "target_type": "event",
+      "target_id": "EVT-NS-0005",
+      "relationship_type": "fixes"
+    },
+    {
+      "relationship_id": "REL-NS-0039",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "deployment",
+      "source_id": "DEP-NS-0005",
+      "target_type": "service",
+      "target_id": "SVC-NS-0003",
+      "relationship_type": "targets"
+    },
+    {
+      "relationship_id": "REL-NS-0040",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0006",
+      "target_type": "deployment",
+      "target_id": "DEP-NS-0005",
+      "relationship_type": "caused_by"
+    },
+    {
+      "relationship_id": "REL-NS-0041",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0006",
+      "target_type": "service",
+      "target_id": "SVC-NS-0003",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0042",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0006",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0008",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0043",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0006",
+      "target_type": "event",
+      "target_id": "EVT-NS-0006",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0044",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0006",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0008",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0045",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "deployment",
+      "source_id": "DEP-NS-0006",
+      "target_type": "service",
+      "target_id": "SVC-NS-0010",
+      "relationship_type": "targets"
+    },
+    {
+      "relationship_id": "REL-NS-0046",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0007",
+      "target_type": "deployment",
+      "target_id": "DEP-NS-0006",
+      "relationship_type": "caused_by"
+    },
+    {
+      "relationship_id": "REL-NS-0047",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0007",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0006",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0048",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0007",
+      "target_type": "service",
+      "target_id": "SVC-NS-0010",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0049",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0007",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0007",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0050",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0007",
+      "target_type": "event",
+      "target_id": "EVT-NS-0007",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0051",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0007",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0007",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0052",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0006",
+      "target_type": "event",
+      "target_id": "EVT-NS-0007",
+      "relationship_type": "fixes"
+    },
+    {
+      "relationship_id": "REL-NS-0053",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0008",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0007",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0054",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0008",
+      "target_type": "service",
+      "target_id": "SVC-NS-0002",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0055",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0008",
+      "target_type": "service",
+      "target_id": "SVC-NS-0005",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0056",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0008",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0003",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0057",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0008",
+      "target_type": "event",
+      "target_id": "EVT-NS-0008",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0058",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0008",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0003",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0059",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0007",
+      "target_type": "event",
+      "target_id": "EVT-NS-0008",
+      "relationship_type": "fixes"
+    },
+    {
+      "relationship_id": "REL-NS-0060",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "deployment",
+      "source_id": "DEP-NS-0007",
+      "target_type": "service",
+      "target_id": "SVC-NS-0006",
+      "relationship_type": "targets"
+    },
+    {
+      "relationship_id": "REL-NS-0061",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "deployment",
+      "source_id": "DEP-NS-0008",
+      "target_type": "service",
+      "target_id": "SVC-NS-0006",
+      "relationship_type": "targets"
+    },
+    {
+      "relationship_id": "REL-NS-0062",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0009",
+      "target_type": "deployment",
+      "target_id": "DEP-NS-0008",
+      "relationship_type": "rolled_back_by"
+    },
+    {
+      "relationship_id": "REL-NS-0063",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0009",
+      "target_type": "deployment",
+      "target_id": "DEP-NS-0007",
+      "relationship_type": "caused_by"
+    },
+    {
+      "relationship_id": "REL-NS-0064",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0009",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0008",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0065",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0009",
+      "target_type": "service",
+      "target_id": "SVC-NS-0006",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0066",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0009",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0005",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0067",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0009",
+      "target_type": "event",
+      "target_id": "EVT-NS-0009",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0068",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0009",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0005",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0069",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0008",
+      "target_type": "event",
+      "target_id": "EVT-NS-0009",
+      "relationship_type": "fixes"
+    },
+    {
+      "relationship_id": "REL-NS-0070",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0010",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0009",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0071",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0010",
+      "target_type": "service",
+      "target_id": "SVC-NS-0004",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0072",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0010",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0008",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0073",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0010",
+      "target_type": "event",
+      "target_id": "EVT-NS-0010",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0074",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0010",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0008",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0075",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0009",
+      "target_type": "event",
+      "target_id": "EVT-NS-0010",
+      "relationship_type": "fixes"
+    },
+    {
+      "relationship_id": "REL-NS-0076",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "deployment",
+      "source_id": "DEP-NS-0009",
+      "target_type": "service",
+      "target_id": "SVC-NS-0006",
+      "relationship_type": "targets"
+    },
+    {
+      "relationship_id": "REL-NS-0077",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0011",
+      "target_type": "deployment",
+      "target_id": "DEP-NS-0009",
+      "relationship_type": "caused_by"
+    },
+    {
+      "relationship_id": "REL-NS-0078",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0011",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0010",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0079",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0011",
+      "target_type": "service",
+      "target_id": "SVC-NS-0006",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0080",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0011",
+      "target_type": "service",
+      "target_id": "SVC-NS-0002",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0081",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0011",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0005",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0082",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0011",
+      "target_type": "event",
+      "target_id": "EVT-NS-0011",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0083",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0011",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0005",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0084",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0010",
+      "target_type": "event",
+      "target_id": "EVT-NS-0011",
+      "relationship_type": "fixes"
+    },
+    {
+      "relationship_id": "REL-NS-0085",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0012",
+      "target_type": "pull_request",
+      "target_id": "PR-NS-0011",
+      "relationship_type": "resolved_by"
+    },
+    {
+      "relationship_id": "REL-NS-0086",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0012",
+      "target_type": "service",
+      "target_id": "SVC-NS-0008",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0087",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0012",
+      "target_type": "service",
+      "target_id": "SVC-NS-0009",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0088",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0012",
+      "target_type": "service",
+      "target_id": "SVC-NS-0011",
+      "relationship_type": "affects"
+    },
+    {
+      "relationship_id": "REL-NS-0089",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "event",
+      "source_id": "EVT-NS-0012",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0006",
+      "relationship_type": "owned_by"
+    },
+    {
+      "relationship_id": "REL-NS-0090",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0012",
+      "target_type": "event",
+      "target_id": "EVT-NS-0012",
+      "relationship_type": "reports"
+    },
+    {
+      "relationship_id": "REL-NS-0091",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "incident",
+      "source_id": "INC-NS-0012",
+      "target_type": "team",
+      "target_id": "TEAM-NS-0006",
+      "relationship_type": "assigned_to"
+    },
+    {
+      "relationship_id": "REL-NS-0092",
+      "tenant_id": "TENANT-NOVASTACK",
+      "source_type": "pull_request",
+      "source_id": "PR-NS-0011",
+      "target_type": "event",
+      "target_id": "EVT-NS-0012",
+      "relationship_type": "fixes"
+    }
+  ]
+}

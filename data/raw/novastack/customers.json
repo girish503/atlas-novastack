@@ -1,0 +1,757 @@
+{
+  "version": "0.1.0",
+  "seed": 20260909,
+  "count": 75,
+  "customers": [
+    {
+      "customer_id": "CUST-NS-0001",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Acme Corp",
+      "segment": "startup",
+      "industry": "Agriculture",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2024-09-08T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0002",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Horizon Capital",
+      "segment": "smb",
+      "industry": "Energy",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2024-04-28T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0003",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Rosewood Hotels",
+      "segment": "smb",
+      "industry": "Retail",
+      "account_owner_id": "USR-NS-0066",
+      "status": "active",
+      "created_at": "2026-03-23T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0004",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Ember Robotics",
+      "segment": "startup",
+      "industry": "Healthcare",
+      "account_owner_id": "USR-NS-0069",
+      "status": "active",
+      "created_at": "2024-03-28T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0005",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Onyx Energy",
+      "segment": "startup",
+      "industry": "Telecommunications",
+      "account_owner_id": "USR-NS-0071",
+      "status": "active",
+      "created_at": "2024-05-18T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0006",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "GridIron Security",
+      "segment": "mid_market",
+      "industry": "Finance",
+      "account_owner_id": "USR-NS-0065",
+      "status": "active",
+      "created_at": "2024-07-16T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0007",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Sentinel Defense",
+      "segment": "smb",
+      "industry": "Government",
+      "account_owner_id": "USR-NS-0069",
+      "status": "active",
+      "created_at": "2025-03-29T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0008",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Harborview Properties",
+      "segment": "enterprise",
+      "industry": "Hospitality",
+      "account_owner_id": "USR-NS-0067",
+      "status": "active",
+      "created_at": "2025-11-13T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0009",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "FluxPoint",
+      "segment": "enterprise",
+      "industry": "Media",
+      "account_owner_id": "USR-NS-0071",
+      "status": "churned",
+      "created_at": "2024-08-09T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0010",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Firestone Manufacturing",
+      "segment": "startup",
+      "industry": "Non-profit",
+      "account_owner_id": "USR-NS-0068",
+      "status": "active",
+      "created_at": "2025-09-13T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0011",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "SilverLine Transit",
+      "segment": "startup",
+      "industry": "Finance",
+      "account_owner_id": "USR-NS-0065",
+      "status": "active",
+      "created_at": "2025-05-02T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0012",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Jade Commerce",
+      "segment": "mid_market",
+      "industry": "Non-profit",
+      "account_owner_id": "USR-NS-0071",
+      "status": "active",
+      "created_at": "2024-01-21T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0013",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Palladium Group",
+      "segment": "mid_market",
+      "industry": "Manufacturing",
+      "account_owner_id": "USR-NS-0071",
+      "status": "active",
+      "created_at": "2025-08-02T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0014",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Cedar Education",
+      "segment": "mid_market",
+      "industry": "Retail",
+      "account_owner_id": "USR-NS-0065",
+      "status": "active",
+      "created_at": "2024-06-06T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0015",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Dune Energy",
+      "segment": "enterprise",
+      "industry": "Transportation",
+      "account_owner_id": "USR-NS-0071",
+      "status": "active",
+      "created_at": "2025-01-26T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0016",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "WindChime Music",
+      "segment": "mid_market",
+      "industry": "Education",
+      "account_owner_id": "USR-NS-0070",
+      "status": "churned",
+      "created_at": "2025-02-06T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0017",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Mistral AI Solutions",
+      "segment": "mid_market",
+      "industry": "Education",
+      "account_owner_id": "USR-NS-0071",
+      "status": "active",
+      "created_at": "2026-05-26T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0018",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Unity Healthcare",
+      "segment": "startup",
+      "industry": "Government",
+      "account_owner_id": "USR-NS-0067",
+      "status": "active",
+      "created_at": "2024-12-26T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0019",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Vanguard Capital",
+      "segment": "enterprise",
+      "industry": "Healthcare",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2024-07-25T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0020",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Trident Shipping",
+      "segment": "mid_market",
+      "industry": "Healthcare",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2024-10-30T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0021",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Lantern Health",
+      "segment": "mid_market",
+      "industry": "Non-profit",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2024-07-04T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0022",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Bamboo Software",
+      "segment": "mid_market",
+      "industry": "Media",
+      "account_owner_id": "USR-NS-0069",
+      "status": "active",
+      "created_at": "2025-07-10T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0023",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Starlight Entertainment",
+      "segment": "mid_market",
+      "industry": "Agriculture",
+      "account_owner_id": "USR-NS-0070",
+      "status": "prospect",
+      "created_at": "2026-06-01T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0024",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Sapphire Technologies",
+      "segment": "smb",
+      "industry": "Telecommunications",
+      "account_owner_id": "USR-NS-0066",
+      "status": "churned",
+      "created_at": "2025-05-02T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0025",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Vertex Engineering",
+      "segment": "mid_market",
+      "industry": "Education",
+      "account_owner_id": "USR-NS-0066",
+      "status": "churned",
+      "created_at": "2024-11-19T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0026",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Summit Financial",
+      "segment": "smb",
+      "industry": "Hospitality",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2025-06-03T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0027",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Quartz Semiconductors",
+      "segment": "smb",
+      "industry": "Media",
+      "account_owner_id": "USR-NS-0068",
+      "status": "active",
+      "created_at": "2025-03-10T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0028",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Obsidian Data",
+      "segment": "startup",
+      "industry": "Media",
+      "account_owner_id": "USR-NS-0066",
+      "status": "active",
+      "created_at": "2026-02-04T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0029",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Umbra Security",
+      "segment": "enterprise",
+      "industry": "Real Estate",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2024-11-15T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0030",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Brightwave Digital",
+      "segment": "smb",
+      "industry": "Energy",
+      "account_owner_id": "USR-NS-0066",
+      "status": "prospect",
+      "created_at": "2024-11-12T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0031",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Pinnacle Ventures",
+      "segment": "mid_market",
+      "industry": "Finance",
+      "account_owner_id": "USR-NS-0066",
+      "status": "active",
+      "created_at": "2026-01-19T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0032",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Northwind Traders",
+      "segment": "mid_market",
+      "industry": "Non-profit",
+      "account_owner_id": "USR-NS-0065",
+      "status": "active",
+      "created_at": "2025-08-06T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0033",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Lighthouse Partners",
+      "segment": "mid_market",
+      "industry": "Retail",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2025-01-13T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0034",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Crescent Financial",
+      "segment": "smb",
+      "industry": "Education",
+      "account_owner_id": "USR-NS-0066",
+      "status": "active",
+      "created_at": "2024-10-20T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0035",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Zenith Global",
+      "segment": "mid_market",
+      "industry": "Agriculture",
+      "account_owner_id": "USR-NS-0068",
+      "status": "active",
+      "created_at": "2024-02-23T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0036",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Mosaic Learning",
+      "segment": "smb",
+      "industry": "Media",
+      "account_owner_id": "USR-NS-0069",
+      "status": "active",
+      "created_at": "2024-01-22T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0037",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Evergreen Consulting",
+      "segment": "enterprise",
+      "industry": "Finance",
+      "account_owner_id": "USR-NS-0068",
+      "status": "churned",
+      "created_at": "2025-11-19T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0038",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Spectrum Communications",
+      "segment": "startup",
+      "industry": "Education",
+      "account_owner_id": "USR-NS-0066",
+      "status": "active",
+      "created_at": "2025-07-29T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0039",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "CyanTech",
+      "segment": "enterprise",
+      "industry": "Finance",
+      "account_owner_id": "USR-NS-0066",
+      "status": "active",
+      "created_at": "2024-10-30T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0040",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Titanium Aerospace",
+      "segment": "smb",
+      "industry": "Retail",
+      "account_owner_id": "USR-NS-0071",
+      "status": "churned",
+      "created_at": "2024-06-25T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0041",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Tidal Wave Sports",
+      "segment": "smb",
+      "industry": "Technology",
+      "account_owner_id": "USR-NS-0071",
+      "status": "active",
+      "created_at": "2024-04-06T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0042",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Aurora Technologies",
+      "segment": "startup",
+      "industry": "Hospitality",
+      "account_owner_id": "USR-NS-0069",
+      "status": "active",
+      "created_at": "2026-04-19T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0043",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "IronClad Insurance",
+      "segment": "mid_market",
+      "industry": "Government",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2024-02-27T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0044",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Beacon Systems",
+      "segment": "enterprise",
+      "industry": "Agriculture",
+      "account_owner_id": "USR-NS-0066",
+      "status": "active",
+      "created_at": "2025-06-17T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0045",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Cascade Networks",
+      "segment": "enterprise",
+      "industry": "Retail",
+      "account_owner_id": "USR-NS-0065",
+      "status": "active",
+      "created_at": "2025-07-12T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0046",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Helix Biotech",
+      "segment": "enterprise",
+      "industry": "Finance",
+      "account_owner_id": "USR-NS-0069",
+      "status": "active",
+      "created_at": "2025-12-19T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0047",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Skyward Aviation",
+      "segment": "enterprise",
+      "industry": "Finance",
+      "account_owner_id": "USR-NS-0067",
+      "status": "active",
+      "created_at": "2026-01-26T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0048",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "FalconEdge",
+      "segment": "mid_market",
+      "industry": "Technology",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2024-01-15T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0049",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "EchoVault",
+      "segment": "startup",
+      "industry": "Manufacturing",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2024-06-27T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0050",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Magnolia Retail",
+      "segment": "startup",
+      "industry": "Hospitality",
+      "account_owner_id": "USR-NS-0066",
+      "status": "active",
+      "created_at": "2026-05-18T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0051",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Zephyr Logistics",
+      "segment": "smb",
+      "industry": "Manufacturing",
+      "account_owner_id": "USR-NS-0070",
+      "status": "active",
+      "created_at": "2024-06-28T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0052",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "CrystalBridge",
+      "segment": "smb",
+      "industry": "Retail",
+      "account_owner_id": "USR-NS-0065",
+      "status": "active",
+      "created_at": "2025-11-28T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0053",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "RedRock Mining",
+      "segment": "startup",
+      "industry": "Energy",
+      "account_owner_id": "USR-NS-0066",
+      "status": "active",
+      "created_at": "2025-01-31T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0054",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Radiant Solar",
+      "segment": "mid_market",
+      "industry": "Energy",
+      "account_owner_id": "USR-NS-0069",
+      "status": "active",
+      "created_at": "2024-07-17T00:00:00"
+    },
+    {
+      "customer_id": "CUST-NS-0055",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Coral Health",
+      "segment": "startup",
+      "industry": "Education",
+      "account_owner_id": "USR-NS-0071",
+      "status": "active",
+      "created_at": "2025-05-17T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0001",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Horizon Capital",
+      "segment": "enterprise",
+      "industry": "Real Estate",
+      "account_owner_id": "USR-OR-0008",
+      "status": "active",
+      "created_at": "2025-01-08T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0002",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Pinnacle Ventures",
+      "segment": "smb",
+      "industry": "Hospitality",
+      "account_owner_id": "USR-OR-0006",
+      "status": "prospect",
+      "created_at": "2025-04-01T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0003",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Vertex Engineering",
+      "segment": "smb",
+      "industry": "Retail",
+      "account_owner_id": "USR-OR-0006",
+      "status": "active",
+      "created_at": "2025-11-03T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0004",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Solstice Wellness",
+      "segment": "smb",
+      "industry": "Retail",
+      "account_owner_id": "USR-OR-0008",
+      "status": "active",
+      "created_at": "2025-03-28T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0005",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Bamboo Software",
+      "segment": "smb",
+      "industry": "Hospitality",
+      "account_owner_id": "USR-OR-0008",
+      "status": "active",
+      "created_at": "2025-12-07T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0006",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Yellowstone Outdoors",
+      "segment": "mid_market",
+      "industry": "Real Estate",
+      "account_owner_id": "USR-OR-0009",
+      "status": "active",
+      "created_at": "2024-08-11T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0007",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "WindChime Music",
+      "segment": "enterprise",
+      "industry": "Media",
+      "account_owner_id": "USR-OR-0008",
+      "status": "active",
+      "created_at": "2025-11-06T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0008",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "OakBridge Ventures",
+      "segment": "mid_market",
+      "industry": "Agriculture",
+      "account_owner_id": "USR-OR-0010",
+      "status": "active",
+      "created_at": "2024-03-11T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0009",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "FluxPoint",
+      "segment": "mid_market",
+      "industry": "Hospitality",
+      "account_owner_id": "USR-OR-0008",
+      "status": "active",
+      "created_at": "2025-06-23T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0010",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Radiant Solar",
+      "segment": "smb",
+      "industry": "Finance",
+      "account_owner_id": "USR-OR-0009",
+      "status": "active",
+      "created_at": "2024-03-24T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0011",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "EchoVault",
+      "segment": "smb",
+      "industry": "Retail",
+      "account_owner_id": "USR-OR-0006",
+      "status": "active",
+      "created_at": "2025-05-02T00:00:00"
+    },
+    {
+      "customer_id": "CUST-OR-0012",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Starlight Entertainment",
+      "segment": "enterprise",
+      "industry": "Agriculture",
+      "account_owner_id": "USR-OR-0010",
+      "status": "active",
+      "created_at": "2025-04-29T00:00:00"
+    },
+    {
+      "customer_id": "CUST-PC-0001",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Titanium Aerospace",
+      "segment": "mid_market",
+      "industry": "Education",
+      "account_owner_id": "USR-PC-0007",
+      "status": "active",
+      "created_at": "2025-02-20T00:00:00"
+    },
+    {
+      "customer_id": "CUST-PC-0002",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Crescent Financial",
+      "segment": "smb",
+      "industry": "Non-profit",
+      "account_owner_id": "USR-PC-0006",
+      "status": "active",
+      "created_at": "2024-04-07T00:00:00"
+    },
+    {
+      "customer_id": "CUST-PC-0003",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Cobalt Solutions",
+      "segment": "smb",
+      "industry": "Technology",
+      "account_owner_id": "USR-PC-0008",
+      "status": "active",
+      "created_at": "2026-03-19T00:00:00"
+    },
+    {
+      "customer_id": "CUST-PC-0004",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Zenith Global",
+      "segment": "mid_market",
+      "industry": "Non-profit",
+      "account_owner_id": "USR-PC-0007",
+      "status": "active",
+      "created_at": "2026-02-18T00:00:00"
+    },
+    {
+      "customer_id": "CUST-PC-0005",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Starlight Entertainment",
+      "segment": "enterprise",
+      "industry": "Energy",
+      "account_owner_id": "USR-PC-0008",
+      "status": "active",
+      "created_at": "2025-05-14T00:00:00"
+    },
+    {
+      "customer_id": "CUST-PC-0006",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Tidal Wave Sports",
+      "segment": "startup",
+      "industry": "Telecommunications",
+      "account_owner_id": "USR-PC-0006",
+      "status": "churned",
+      "created_at": "2025-06-23T00:00:00"
+    },
+    {
+      "customer_id": "CUST-PC-0007",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Onyx Energy",
+      "segment": "mid_market",
+      "industry": "Finance",
+      "account_owner_id": "USR-PC-0007",
+      "status": "active",
+      "created_at": "2025-01-03T00:00:00"
+    },
+    {
+      "customer_id": "CUST-PC-0008",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Harborview Properties",
+      "segment": "enterprise",
+      "industry": "Technology",
+      "account_owner_id": "USR-PC-0007",
+      "status": "active",
+      "created_at": "2025-04-07T00:00:00"
+    }
+  ]
+}

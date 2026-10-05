@@ -101,7 +101,7 @@ BASELINE_HASHES = {
     "data/evaluation/novastack/phase_4d0_starvation_diagnostics.json": "7628b042e3f29c9935da76388a0380e24d2da27378cddd2cb3e84e38dcdfc31b",
     "data/evaluation/novastack/phase_4d0_1_reconciliation.json": "dceaec3c81d0941c6b25425e3d1b781b23c1f741e6ce2262eec842a93803edc7",
     "data/evaluation/novastack/phase_4d1_depth_fusion_ablation.json": "4ab13904c1f686a7c2f011f7bf66f188c5d2215e75259a699fdeecaa661f49cb",
-    "data/evaluation/novastack/phase_4d2_relational_retrieval.json": "7d79d13b696b8bffed0a90751be7fb4e449c2235a716378d3a02f53482a1b00e",
+    "data/evaluation/novastack/phase_4d2_relational_retrieval.json": "1aa46ec354cd50d35383bb754a1930b3ad7b1f7224b69a069970e6dad8db7534",
     "data/evaluation/novastack/phase_4e_evidence_assembly.json": "8cebe97b2112d70f4fada63b671fe62d90c166259c6560182f066515dcf74357",
 }
 

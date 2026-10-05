@@ -1,0 +1,1307 @@
+{
+  "version": "0.1.0",
+  "seed": 20260909,
+  "count": 100,
+  "users": [
+    {
+      "user_id": "USR-NS-0001",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Xena Reyes",
+      "email": "xena.reyes@novastack.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0001"
+      ],
+      "status": "active",
+      "created_at": "2024-08-10T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0002",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Miguel Park",
+      "email": "miguel.park@novastack.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0001"
+      ],
+      "status": "active",
+      "created_at": "2024-09-28T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0003",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Tara Mitchell",
+      "email": "tara.mitchell@novastack.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0001"
+      ],
+      "status": "active",
+      "created_at": "2024-07-31T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0004",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Quinn Gonzalez",
+      "email": "quinn.gonzalez@novastack.example",
+      "role": "engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0001"
+      ],
+      "status": "active",
+      "created_at": "2025-05-22T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0005",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Uma Ramos",
+      "email": "uma.ramos@novastack.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0001"
+      ],
+      "status": "active",
+      "created_at": "2026-05-04T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0006",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Ben Ramos",
+      "email": "ben.ramos@novastack.example",
+      "role": "tech_lead",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0001"
+      ],
+      "status": "active",
+      "created_at": "2025-09-25T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0007",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Rena Gonzalez",
+      "email": "rena.gonzalez@novastack.example",
+      "role": "engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0001"
+      ],
+      "status": "active",
+      "created_at": "2025-05-16T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0008",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Zara Reyes",
+      "email": "zara.reyes@novastack.example",
+      "role": "engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0001"
+      ],
+      "status": "active",
+      "created_at": "2024-08-16T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0009",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Julia Johnson",
+      "email": "julia.johnson@novastack.example",
+      "role": "engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0001"
+      ],
+      "status": "active",
+      "created_at": "2025-01-05T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0010",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Yuki Harper",
+      "email": "yuki.harper@novastack.example",
+      "role": "tech_lead",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0001"
+      ],
+      "status": "active",
+      "created_at": "2025-05-22T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0011",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Thomas Zhao",
+      "email": "thomas.zhao@novastack.example",
+      "role": "senior_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0002"
+      ],
+      "status": "active",
+      "created_at": "2026-05-13T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0012",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Leo Zhao",
+      "email": "leo.zhao@novastack.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0002"
+      ],
+      "status": "active",
+      "created_at": "2025-04-06T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0013",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Iris Harper",
+      "email": "iris.harper@novastack.example",
+      "role": "senior_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0002"
+      ],
+      "status": "active",
+      "created_at": "2025-04-26T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0014",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Ines Reyes",
+      "email": "ines.reyes@novastack.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0002"
+      ],
+      "status": "active",
+      "created_at": "2024-05-24T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0015",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Kenji Dubois",
+      "email": "kenji.dubois@novastack.example",
+      "role": "engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0002"
+      ],
+      "status": "active",
+      "created_at": "2024-09-28T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0016",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Rena Yamamoto",
+      "email": "rena.yamamoto@novastack.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0003"
+      ],
+      "status": "active",
+      "created_at": "2026-03-31T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0017",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Wei Torres",
+      "email": "wei.torres@novastack.example",
+      "role": "tech_lead",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0003"
+      ],
+      "status": "active",
+      "created_at": "2024-02-04T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0018",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Bella Dalton",
+      "email": "bella.dalton@novastack.example",
+      "role": "senior_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0003"
+      ],
+      "status": "active",
+      "created_at": "2026-04-15T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0019",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Zoe Larsson",
+      "email": "zoe.larsson@novastack.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0003"
+      ],
+      "status": "active",
+      "created_at": "2024-08-11T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0020",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Sana Fischer",
+      "email": "sana.fischer@novastack.example",
+      "role": "senior_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0003"
+      ],
+      "status": "active",
+      "created_at": "2024-02-03T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0021",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Xena Wang",
+      "email": "xena.wang@novastack.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0003"
+      ],
+      "status": "active",
+      "created_at": "2024-03-02T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0022",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Hope Mitchell",
+      "email": "hope.mitchell@novastack.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0003"
+      ],
+      "status": "active",
+      "created_at": "2025-09-15T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0023",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "William Evans",
+      "email": "william.evans@novastack.example",
+      "role": "engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "active",
+      "created_at": "2025-01-19T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0024",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Noah Volkov",
+      "email": "noah.volkov@novastack.example",
+      "role": "engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "on_leave",
+      "created_at": "2025-09-02T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0025",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Kira Abadi",
+      "email": "kira.abadi@novastack.example",
+      "role": "engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "active",
+      "created_at": "2026-05-13T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0026",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Maya Yamamoto",
+      "email": "maya.yamamoto@novastack.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "active",
+      "created_at": "2024-01-28T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0027",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Yuki Yamamoto",
+      "email": "yuki.yamamoto@novastack.example",
+      "role": "tech_lead",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "active",
+      "created_at": "2025-10-02T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0028",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Aiden Gonzalez",
+      "email": "aiden.gonzalez@novastack.example",
+      "role": "engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "active",
+      "created_at": "2024-10-01T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0029",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Yara Becker",
+      "email": "yara.becker@novastack.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "active",
+      "created_at": "2024-03-22T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0030",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Tomas Evans",
+      "email": "tomas.evans@novastack.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "active",
+      "created_at": "2026-03-23T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0031",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Bianca Zhang",
+      "email": "bianca.zhang@novastack.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "active",
+      "created_at": "2024-03-22T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0032",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Rena Novak",
+      "email": "rena.novak@novastack.example",
+      "role": "tech_lead",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "on_leave",
+      "created_at": "2024-12-04T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0033",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Kai Garcia",
+      "email": "kai.garcia@novastack.example",
+      "role": "tech_lead",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0004"
+      ],
+      "status": "active",
+      "created_at": "2024-11-07T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0034",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Iris Singh",
+      "email": "iris.singh@novastack.example",
+      "role": "senior_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0005"
+      ],
+      "status": "inactive",
+      "created_at": "2024-11-14T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0035",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Oscar Adams",
+      "email": "oscar.adams@novastack.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0005"
+      ],
+      "status": "active",
+      "created_at": "2025-12-09T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0036",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Nina Morales",
+      "email": "nina.morales@novastack.example",
+      "role": "tech_lead",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0005"
+      ],
+      "status": "active",
+      "created_at": "2024-10-28T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0037",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Yuki Ibrahim",
+      "email": "yuki.ibrahim@novastack.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0005"
+      ],
+      "status": "active",
+      "created_at": "2026-01-26T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0038",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Hope Abadi",
+      "email": "hope.abadi@novastack.example",
+      "role": "tech_lead",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-NS-0005"
+      ],
+      "status": "active",
+      "created_at": "2025-10-22T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0039",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Victor Zhang",
+      "email": "victor.zhang@novastack.example",
+      "role": "senior_devops_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0006"
+      ],
+      "status": "active",
+      "created_at": "2024-02-09T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0040",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Kenji Fischer",
+      "email": "kenji.fischer@novastack.example",
+      "role": "infrastructure_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0006"
+      ],
+      "status": "active",
+      "created_at": "2025-06-08T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0041",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Miguel Ortiz",
+      "email": "miguel.ortiz@novastack.example",
+      "role": "devops_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0006"
+      ],
+      "status": "active",
+      "created_at": "2025-07-24T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0042",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Raj Garcia",
+      "email": "raj.garcia@novastack.example",
+      "role": "senior_devops_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0006"
+      ],
+      "status": "active",
+      "created_at": "2025-11-03T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0043",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Iris Jensen",
+      "email": "iris.jensen@novastack.example",
+      "role": "senior_devops_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0006"
+      ],
+      "status": "active",
+      "created_at": "2024-04-10T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0044",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Carlos Larsson",
+      "email": "carlos.larsson@novastack.example",
+      "role": "sre",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0006"
+      ],
+      "status": "active",
+      "created_at": "2025-09-18T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0045",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Noah Castellano",
+      "email": "noah.castellano@novastack.example",
+      "role": "infrastructure_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0006"
+      ],
+      "status": "active",
+      "created_at": "2025-02-28T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0046",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Wei Xu",
+      "email": "wei.xu@novastack.example",
+      "role": "devops_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0006"
+      ],
+      "status": "active",
+      "created_at": "2025-04-12T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0047",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Luna Quintero",
+      "email": "luna.quintero@novastack.example",
+      "role": "devops_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0007"
+      ],
+      "status": "active",
+      "created_at": "2025-07-07T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0048",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Ben Torres",
+      "email": "ben.torres@novastack.example",
+      "role": "devops_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0007"
+      ],
+      "status": "active",
+      "created_at": "2024-04-05T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0049",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Petra Zhang",
+      "email": "petra.zhang@novastack.example",
+      "role": "sre",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0007"
+      ],
+      "status": "active",
+      "created_at": "2024-04-23T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0050",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Zain Johnson",
+      "email": "zain.johnson@novastack.example",
+      "role": "infrastructure_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0007"
+      ],
+      "status": "active",
+      "created_at": "2024-01-03T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0051",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Ben Zhao",
+      "email": "ben.zhao@novastack.example",
+      "role": "sre",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0007"
+      ],
+      "status": "active",
+      "created_at": "2025-01-31T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0052",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "William Sullivan",
+      "email": "william.sullivan@novastack.example",
+      "role": "infrastructure_engineer",
+      "department": "DevOps",
+      "team_ids": [
+        "TEAM-NS-0007"
+      ],
+      "status": "active",
+      "created_at": "2025-11-19T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0053",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Yuki Wang",
+      "email": "yuki.wang@novastack.example",
+      "role": "senior_security_engineer",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2026-02-15T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0054",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Luna Dalton",
+      "email": "luna.dalton@novastack.example",
+      "role": "security_analyst",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2025-04-17T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0055",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "William Gonzalez",
+      "email": "william.gonzalez@novastack.example",
+      "role": "security_analyst",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2024-07-16T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0056",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Hana Baker",
+      "email": "hana.baker@novastack.example",
+      "role": "senior_security_engineer",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2024-12-11T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0057",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Maya Zhao",
+      "email": "maya.zhao@novastack.example",
+      "role": "security_engineer",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2024-09-25T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0058",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Marco Garcia",
+      "email": "marco.garcia@novastack.example",
+      "role": "security_analyst",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2025-11-11T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0059",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "William Varma",
+      "email": "william.varma@novastack.example",
+      "role": "senior_security_engineer",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2025-11-09T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0060",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Maya Dubois",
+      "email": "maya.dubois@novastack.example",
+      "role": "security_analyst",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2024-04-03T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0061",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Aiden Wang",
+      "email": "aiden.wang@novastack.example",
+      "role": "senior_security_engineer",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2024-09-16T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0062",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Rafael Novak",
+      "email": "rafael.novak@novastack.example",
+      "role": "senior_security_engineer",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2026-02-14T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0063",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Uri Yamamoto",
+      "email": "uri.yamamoto@novastack.example",
+      "role": "security_engineer",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2025-07-22T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0064",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Ethan Singh",
+      "email": "ethan.singh@novastack.example",
+      "role": "senior_security_engineer",
+      "department": "Security",
+      "team_ids": [
+        "TEAM-NS-0008"
+      ],
+      "status": "active",
+      "created_at": "2025-01-18T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0065",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "George Fernandez",
+      "email": "george.fernandez@novastack.example",
+      "role": "business_development_rep",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-NS-0009"
+      ],
+      "status": "active",
+      "created_at": "2026-02-12T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0066",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Rafael Varma",
+      "email": "rafael.varma@novastack.example",
+      "role": "business_development_rep",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-NS-0009"
+      ],
+      "status": "active",
+      "created_at": "2025-12-03T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0067",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Ines Yamamoto",
+      "email": "ines.yamamoto@novastack.example",
+      "role": "sales_engineer",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-NS-0009"
+      ],
+      "status": "active",
+      "created_at": "2025-07-04T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0068",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Marco Anderson",
+      "email": "marco.anderson@novastack.example",
+      "role": "account_executive",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-NS-0009"
+      ],
+      "status": "active",
+      "created_at": "2025-04-12T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0069",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Owen Varma",
+      "email": "owen.varma@novastack.example",
+      "role": "sales_engineer",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-NS-0009"
+      ],
+      "status": "active",
+      "created_at": "2024-11-21T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0070",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Olivia Sullivan",
+      "email": "olivia.sullivan@novastack.example",
+      "role": "sales_manager",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-NS-0009"
+      ],
+      "status": "active",
+      "created_at": "2024-12-02T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0071",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Petra Baker",
+      "email": "petra.baker@novastack.example",
+      "role": "business_development_rep",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-NS-0009"
+      ],
+      "status": "active",
+      "created_at": "2026-02-06T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0072",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Noah Ito",
+      "email": "noah.ito@novastack.example",
+      "role": "product_manager",
+      "department": "Product",
+      "team_ids": [
+        "TEAM-NS-0010"
+      ],
+      "status": "active",
+      "created_at": "2025-07-04T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0073",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Jakob Fernandez",
+      "email": "jakob.fernandez@novastack.example",
+      "role": "product_analyst",
+      "department": "Product",
+      "team_ids": [
+        "TEAM-NS-0010"
+      ],
+      "status": "active",
+      "created_at": "2025-01-17T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0074",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Yara Quintero",
+      "email": "yara.quintero@novastack.example",
+      "role": "product_manager",
+      "department": "Product",
+      "team_ids": [
+        "TEAM-NS-0010"
+      ],
+      "status": "active",
+      "created_at": "2025-07-05T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0075",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Tomas Huang",
+      "email": "tomas.huang@novastack.example",
+      "role": "product_manager",
+      "department": "Product",
+      "team_ids": [
+        "TEAM-NS-0010"
+      ],
+      "status": "active",
+      "created_at": "2026-06-02T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0076",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Carmen Huang",
+      "email": "carmen.huang@novastack.example",
+      "role": "senior_product_manager",
+      "department": "Product",
+      "team_ids": [
+        "TEAM-NS-0010"
+      ],
+      "status": "active",
+      "created_at": "2025-02-03T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0077",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "George Torres",
+      "email": "george.torres@novastack.example",
+      "role": "senior_product_manager",
+      "department": "Product",
+      "team_ids": [
+        "TEAM-NS-0010"
+      ],
+      "status": "active",
+      "created_at": "2025-09-23T00:00:00"
+    },
+    {
+      "user_id": "USR-NS-0078",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "David Ibrahim",
+      "email": "david.ibrahim@novastack.example",
+      "role": "senior_product_manager",
+      "department": "Product",
+      "team_ids": [
+        "TEAM-NS-0010"
+      ],
+      "status": "active",
+      "created_at": "2025-06-12T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0001",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Xena Lopez",
+      "email": "xena.lopez@orbital.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-OR-0001"
+      ],
+      "status": "active",
+      "created_at": "2025-08-26T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0002",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Fiona Larsson",
+      "email": "fiona.larsson@orbital.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-OR-0001"
+      ],
+      "status": "active",
+      "created_at": "2024-02-26T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0003",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Wyatt Xu",
+      "email": "wyatt.xu@orbital.example",
+      "role": "senior_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-OR-0001"
+      ],
+      "status": "active",
+      "created_at": "2026-01-14T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0004",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Sam Johnson",
+      "email": "sam.johnson@orbital.example",
+      "role": "tech_lead",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-OR-0001"
+      ],
+      "status": "active",
+      "created_at": "2026-04-12T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0005",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Kira Volkov",
+      "email": "kira.volkov@orbital.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-OR-0001"
+      ],
+      "status": "active",
+      "created_at": "2024-12-06T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0006",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Carmen O'Brien",
+      "email": "carmen.obrien@orbital.example",
+      "role": "business_development_rep",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-OR-0002"
+      ],
+      "status": "active",
+      "created_at": "2025-06-28T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0007",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Bianca Yang",
+      "email": "bianca.yang@orbital.example",
+      "role": "sales_manager",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-OR-0002"
+      ],
+      "status": "active",
+      "created_at": "2025-07-09T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0008",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Yuki Sullivan",
+      "email": "yuki.sullivan@orbital.example",
+      "role": "account_executive",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-OR-0002"
+      ],
+      "status": "active",
+      "created_at": "2025-11-30T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0009",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "James Ito",
+      "email": "james.ito@orbital.example",
+      "role": "business_development_rep",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-OR-0002"
+      ],
+      "status": "active",
+      "created_at": "2026-04-23T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0010",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Kai Dalton",
+      "email": "kai.dalton@orbital.example",
+      "role": "sales_engineer",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-OR-0002"
+      ],
+      "status": "active",
+      "created_at": "2025-03-28T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0011",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Owen O'Brien",
+      "email": "owen.obrien@orbital.example",
+      "role": "project_manager",
+      "department": "Operations",
+      "team_ids": [
+        "TEAM-OR-0003"
+      ],
+      "status": "active",
+      "created_at": "2026-05-06T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0012",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Rafael Singh",
+      "email": "rafael.singh@orbital.example",
+      "role": "operations_manager",
+      "department": "Operations",
+      "team_ids": [
+        "TEAM-OR-0003"
+      ],
+      "status": "on_leave",
+      "created_at": "2025-07-14T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0013",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Emil Castellano",
+      "email": "emil.castellano@orbital.example",
+      "role": "operations_manager",
+      "department": "Operations",
+      "team_ids": [
+        "TEAM-OR-0003"
+      ],
+      "status": "active",
+      "created_at": "2024-11-17T00:00:00"
+    },
+    {
+      "user_id": "USR-OR-0014",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Raj Fischer",
+      "email": "raj.fischer@orbital.example",
+      "role": "project_manager",
+      "department": "Operations",
+      "team_ids": [
+        "TEAM-OR-0003"
+      ],
+      "status": "inactive",
+      "created_at": "2026-03-11T00:00:00"
+    },
+    {
+      "user_id": "USR-PC-0001",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Zoe Quintero",
+      "email": "zoe.quintero@pinecone.example",
+      "role": "engineering_manager",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-PC-0001"
+      ],
+      "status": "active",
+      "created_at": "2025-06-19T00:00:00"
+    },
+    {
+      "user_id": "USR-PC-0002",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Quinn Yang",
+      "email": "quinn.yang@pinecone.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-PC-0001"
+      ],
+      "status": "active",
+      "created_at": "2024-09-08T00:00:00"
+    },
+    {
+      "user_id": "USR-PC-0003",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Xena Costa",
+      "email": "xena.costa@pinecone.example",
+      "role": "staff_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-PC-0001"
+      ],
+      "status": "active",
+      "created_at": "2024-12-11T00:00:00"
+    },
+    {
+      "user_id": "USR-PC-0004",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Ben Evans",
+      "email": "ben.evans@pinecone.example",
+      "role": "senior_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-PC-0001"
+      ],
+      "status": "on_leave",
+      "created_at": "2025-11-19T00:00:00"
+    },
+    {
+      "user_id": "USR-PC-0005",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Hana Xu",
+      "email": "hana.xu@pinecone.example",
+      "role": "senior_engineer",
+      "department": "Engineering",
+      "team_ids": [
+        "TEAM-PC-0001"
+      ],
+      "status": "active",
+      "created_at": "2025-04-10T00:00:00"
+    },
+    {
+      "user_id": "USR-PC-0006",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Zoe Varma",
+      "email": "zoe.varma@pinecone.example",
+      "role": "business_development_rep",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-PC-0002"
+      ],
+      "status": "active",
+      "created_at": "2025-12-08T00:00:00"
+    },
+    {
+      "user_id": "USR-PC-0007",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "George Dalton",
+      "email": "george.dalton@pinecone.example",
+      "role": "business_development_rep",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-PC-0002"
+      ],
+      "status": "active",
+      "created_at": "2024-04-30T00:00:00"
+    },
+    {
+      "user_id": "USR-PC-0008",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Raj Ellis",
+      "email": "raj.ellis@pinecone.example",
+      "role": "account_executive",
+      "department": "Sales",
+      "team_ids": [
+        "TEAM-PC-0002"
+      ],
+      "status": "active",
+      "created_at": "2024-08-08T00:00:00"
+    }
+  ]
+}

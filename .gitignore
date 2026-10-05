@@ -29,10 +29,54 @@ Thumbs.db
 htmlcov/
 .coverage
 
-# Generated data (tracked separately or regenerated)
-data/raw/
-data/processed/
-data/evaluation/
+# Generated data (tracked separately or regenerated; verified synthetic assets whitelisted)
+data/raw/*
+!data/raw/novastack/
+data/raw/novastack/*
+!data/raw/novastack/adversarial_fixtures.json
+!data/raw/novastack/security_fixtures.json
+!data/raw/novastack/services.json
+!data/raw/novastack/teams.json
+!data/raw/novastack/users.json
+!data/raw/novastack/customers.json
+!data/raw/novastack/incidents.json
+!data/raw/novastack/deployments.json
+!data/raw/novastack/pull_requests.json
+!data/raw/novastack/events.json
+!data/raw/novastack/event_relationships.json
+!data/raw/novastack/source_records.json
+
+data/processed/*
+!data/processed/novastack/
+data/processed/novastack/*
+!data/processed/novastack/search_documents.json
+!data/processed/novastack/search_chunks.json
+!data/processed/novastack/dense_embeddings.npz
+!data/processed/novastack/dense_index_metadata.json
+
+data/evaluation/*
+!data/evaluation/novastack/
+data/evaluation/novastack/*
+!data/evaluation/novastack/evaluation_cases.json
+!data/evaluation/novastack/evaluation_taxonomy.json
+!data/evaluation/novastack/phase_4e_evidence_assembly.json
+!data/evaluation/novastack/bm25_baseline.json
+!data/evaluation/novastack/dense_baseline.json
+!data/evaluation/novastack/hybrid_baseline.json
+!data/evaluation/novastack/phase_4b0_candidate_diagnostics.json
+!data/evaluation/novastack/phase_4b1_reranker_baseline.json
+!data/evaluation/novastack/phase_4c0_query_profiles.json
+!data/evaluation/novastack/phase_4c1_query_understanding.json
+!data/evaluation/novastack/phase_4c2_metadata_diagnostics.json
+!data/evaluation/novastack/phase_4c3_metadata_reranking.json
+!data/evaluation/novastack/phase_4d0_starvation_diagnostics.json
+!data/evaluation/novastack/phase_4d0_1_reconciliation.json
+!data/evaluation/novastack/phase_4d1_depth_fusion_ablation.json
+!data/evaluation/novastack/phase_4h1_prompt_calibration.json
+!data/evaluation/novastack/phase_4d2_relational_retrieval.json
+!data/evaluation/novastack/phase_4f1_remediation.json
+!data/evaluation/novastack/phase_4f2_context_pruning.json
+!data/evaluation/novastack/phase_4f_grounded_generation.json
 
 # Local scratch and diagnostic logs (GH-02 remediation)
 scratch/

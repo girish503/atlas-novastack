@@ -1,0 +1,297 @@
+{
+  "version": "0.1.0",
+  "seed": 20260909,
+  "count": 15,
+  "teams": [
+    {
+      "team_id": "TEAM-NS-0001",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Platform Engineering",
+      "department": "Engineering",
+      "manager_id": "USR-NS-0002",
+      "member_ids": [
+        "USR-NS-0001",
+        "USR-NS-0002",
+        "USR-NS-0003",
+        "USR-NS-0004",
+        "USR-NS-0005",
+        "USR-NS-0006",
+        "USR-NS-0007",
+        "USR-NS-0008",
+        "USR-NS-0009",
+        "USR-NS-0010"
+      ],
+      "service_ids": [
+        "SVC-NS-0005",
+        "SVC-NS-0009"
+      ],
+      "created_at": "2024-04-02T00:00:00"
+    },
+    {
+      "team_id": "TEAM-NS-0002",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Payments",
+      "department": "Engineering",
+      "manager_id": "USR-NS-0011",
+      "member_ids": [
+        "USR-NS-0011",
+        "USR-NS-0012",
+        "USR-NS-0013",
+        "USR-NS-0014",
+        "USR-NS-0015"
+      ],
+      "service_ids": [
+        "SVC-NS-0007"
+      ],
+      "created_at": "2024-03-08T00:00:00"
+    },
+    {
+      "team_id": "TEAM-NS-0003",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Checkout",
+      "department": "Engineering",
+      "manager_id": "USR-NS-0021",
+      "member_ids": [
+        "USR-NS-0016",
+        "USR-NS-0017",
+        "USR-NS-0018",
+        "USR-NS-0019",
+        "USR-NS-0020",
+        "USR-NS-0021",
+        "USR-NS-0022"
+      ],
+      "service_ids": [
+        "SVC-NS-0002"
+      ],
+      "created_at": "2024-06-13T00:00:00"
+    },
+    {
+      "team_id": "TEAM-NS-0004",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Identity & Access",
+      "department": "Engineering",
+      "manager_id": "USR-NS-0027",
+      "member_ids": [
+        "USR-NS-0023",
+        "USR-NS-0024",
+        "USR-NS-0025",
+        "USR-NS-0026",
+        "USR-NS-0027",
+        "USR-NS-0028",
+        "USR-NS-0029",
+        "USR-NS-0030",
+        "USR-NS-0031",
+        "USR-NS-0032",
+        "USR-NS-0033"
+      ],
+      "service_ids": [
+        "SVC-NS-0001"
+      ],
+      "created_at": "2026-03-02T00:00:00"
+    },
+    {
+      "team_id": "TEAM-NS-0005",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Developer Experience",
+      "department": "Engineering",
+      "manager_id": "USR-NS-0037",
+      "member_ids": [
+        "USR-NS-0034",
+        "USR-NS-0035",
+        "USR-NS-0036",
+        "USR-NS-0037",
+        "USR-NS-0038"
+      ],
+      "service_ids": [
+        "SVC-NS-0006"
+      ],
+      "created_at": "2025-07-09T00:00:00"
+    },
+    {
+      "team_id": "TEAM-NS-0006",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "SRE",
+      "department": "DevOps",
+      "manager_id": "USR-NS-0040",
+      "member_ids": [
+        "USR-NS-0039",
+        "USR-NS-0040",
+        "USR-NS-0041",
+        "USR-NS-0042",
+        "USR-NS-0043",
+        "USR-NS-0044",
+        "USR-NS-0045",
+        "USR-NS-0046"
+      ],
+      "service_ids": [
+        "SVC-NS-0008"
+      ],
+      "created_at": "2024-05-07T00:00:00"
+    },
+    {
+      "team_id": "TEAM-NS-0007",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Infrastructure",
+      "department": "DevOps",
+      "manager_id": "USR-NS-0051",
+      "member_ids": [
+        "USR-NS-0047",
+        "USR-NS-0048",
+        "USR-NS-0049",
+        "USR-NS-0050",
+        "USR-NS-0051",
+        "USR-NS-0052"
+      ],
+      "service_ids": [
+        "SVC-NS-0010",
+        "SVC-NS-0011",
+        "SVC-NS-0012"
+      ],
+      "created_at": "2025-04-28T00:00:00"
+    },
+    {
+      "team_id": "TEAM-NS-0008",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Security Engineering",
+      "department": "Security",
+      "manager_id": "USR-NS-0058",
+      "member_ids": [
+        "USR-NS-0053",
+        "USR-NS-0054",
+        "USR-NS-0055",
+        "USR-NS-0056",
+        "USR-NS-0057",
+        "USR-NS-0058",
+        "USR-NS-0059",
+        "USR-NS-0060",
+        "USR-NS-0061",
+        "USR-NS-0062",
+        "USR-NS-0063",
+        "USR-NS-0064"
+      ],
+      "service_ids": [
+        "SVC-NS-0003",
+        "SVC-NS-0004"
+      ],
+      "created_at": "2024-01-14T00:00:00"
+    },
+    {
+      "team_id": "TEAM-NS-0009",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Enterprise Sales",
+      "department": "Sales",
+      "manager_id": "USR-NS-0067",
+      "member_ids": [
+        "USR-NS-0065",
+        "USR-NS-0066",
+        "USR-NS-0067",
+        "USR-NS-0068",
+        "USR-NS-0069",
+        "USR-NS-0070",
+        "USR-NS-0071"
+      ],
+      "service_ids": [],
+      "created_at": "2024-10-23T00:00:00"
+    },
+    {
+      "team_id": "TEAM-NS-0010",
+      "tenant_id": "TENANT-NOVASTACK",
+      "name": "Product Management",
+      "department": "Product",
+      "manager_id": "USR-NS-0075",
+      "member_ids": [
+        "USR-NS-0072",
+        "USR-NS-0073",
+        "USR-NS-0074",
+        "USR-NS-0075",
+        "USR-NS-0076",
+        "USR-NS-0077",
+        "USR-NS-0078"
+      ],
+      "service_ids": [],
+      "created_at": "2025-11-23T00:00:00"
+    },
+    {
+      "team_id": "TEAM-OR-0001",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Engineering",
+      "department": "Engineering",
+      "manager_id": "USR-OR-0004",
+      "member_ids": [
+        "USR-OR-0001",
+        "USR-OR-0002",
+        "USR-OR-0003",
+        "USR-OR-0004",
+        "USR-OR-0005"
+      ],
+      "service_ids": [
+        "SVC-OR-0001",
+        "SVC-OR-0002"
+      ],
+      "created_at": "2024-01-01T00:00:00"
+    },
+    {
+      "team_id": "TEAM-OR-0002",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Sales",
+      "department": "Sales",
+      "manager_id": "USR-OR-0010",
+      "member_ids": [
+        "USR-OR-0006",
+        "USR-OR-0007",
+        "USR-OR-0008",
+        "USR-OR-0009",
+        "USR-OR-0010"
+      ],
+      "service_ids": [],
+      "created_at": "2024-10-18T00:00:00"
+    },
+    {
+      "team_id": "TEAM-OR-0003",
+      "tenant_id": "TENANT-ORBITAL",
+      "name": "Operations",
+      "department": "Operations",
+      "manager_id": "USR-OR-0012",
+      "member_ids": [
+        "USR-OR-0011",
+        "USR-OR-0012",
+        "USR-OR-0013",
+        "USR-OR-0014"
+      ],
+      "service_ids": [],
+      "created_at": "2024-12-17T00:00:00"
+    },
+    {
+      "team_id": "TEAM-PC-0001",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Engineering",
+      "department": "Engineering",
+      "manager_id": "USR-PC-0001",
+      "member_ids": [
+        "USR-PC-0001",
+        "USR-PC-0002",
+        "USR-PC-0003",
+        "USR-PC-0004",
+        "USR-PC-0005"
+      ],
+      "service_ids": [
+        "SVC-PC-0001"
+      ],
+      "created_at": "2024-03-28T00:00:00"
+    },
+    {
+      "team_id": "TEAM-PC-0002",
+      "tenant_id": "TENANT-PINECONE",
+      "name": "Sales",
+      "department": "Sales",
+      "manager_id": "USR-PC-0006",
+      "member_ids": [
+        "USR-PC-0006",
+        "USR-PC-0007",
+        "USR-PC-0008"
+      ],
+      "service_ids": [],
+      "created_at": "2025-11-04T00:00:00"
+    }
+  ]
+}

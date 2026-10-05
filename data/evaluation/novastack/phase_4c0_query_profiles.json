@@ -1,0 +1,5054 @@
+{
+  "version": "0.1.0",
+  "total_cases": 120,
+  "intent_distribution": {
+    "entity_attribute": 47,
+    "exact_identifier": 28,
+    "multi_document": 32,
+    "relationship": 61,
+    "version_lifecycle": 12,
+    "semantic": 96,
+    "temporal": 24,
+    "multi_hop": 10,
+    "missing_information": 19,
+    "ambiguous": 11,
+    "authorization_sensitive": 51,
+    "duplicate_resolution": 6,
+    "authority_sensitive": 19,
+    "adversarial": 18,
+    "conflicting_evidence": 5
+  },
+  "query_profiles": [
+    {
+      "evaluation_id": "EVAL-0001",
+      "category": "exact_lookup",
+      "difficulty": "easy",
+      "query": "What was the root cause and resolution of incident INC-NS-0001?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "multi_document",
+        "relationship"
+      ],
+      "entity_ids": [
+        "INC-NS-0001",
+        "EVT-NS-0001",
+        "SVC-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0001-01",
+        "DOC-INC-INC-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "incident",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0001-01",
+        "DOC-INC-INC-NS-0001-01",
+        "DOC-PM-EVT-NS-0001-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0002",
+      "category": "exact_lookup",
+      "difficulty": "easy",
+      "query": "What was the root cause and resolution of incident INC-NS-0002?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "multi_document",
+        "relationship"
+      ],
+      "entity_ids": [
+        "INC-NS-0002",
+        "EVT-NS-0002",
+        "SVC-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0002-01",
+        "DOC-INC-INC-NS-0002-01"
+      ],
+      "expected_source_types": [
+        "incident",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0002-01",
+        "DOC-INC-INC-NS-0002-01",
+        "DOC-PM-EVT-NS-0002-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0003",
+      "category": "exact_lookup",
+      "difficulty": "easy",
+      "query": "What was the root cause and resolution of incident INC-NS-0003?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "multi_document",
+        "relationship"
+      ],
+      "entity_ids": [
+        "INC-NS-0003",
+        "EVT-NS-0003",
+        "SVC-NS-0007"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0003-01",
+        "DOC-INC-INC-NS-0003-01"
+      ],
+      "expected_source_types": [
+        "incident",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0003-01",
+        "DOC-INC-INC-NS-0003-01",
+        "DOC-PM-EVT-NS-0003-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0004",
+      "category": "exact_lookup",
+      "difficulty": "easy",
+      "query": "What was the root cause and resolution of incident INC-NS-0004?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "multi_document",
+        "relationship"
+      ],
+      "entity_ids": [
+        "INC-NS-0004",
+        "EVT-NS-0004",
+        "SVC-NS-0009"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0004-01",
+        "DOC-INC-INC-NS-0004-01"
+      ],
+      "expected_source_types": [
+        "incident",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0004-01",
+        "DOC-INC-INC-NS-0004-01",
+        "DOC-PM-EVT-NS-0004-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0005",
+      "category": "exact_lookup",
+      "difficulty": "easy",
+      "query": "What was the root cause and resolution of incident INC-NS-0005?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "multi_document",
+        "relationship"
+      ],
+      "entity_ids": [
+        "INC-NS-0005",
+        "EVT-NS-0005",
+        "SVC-NS-0011"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0005-01",
+        "DOC-INC-INC-NS-0005-01"
+      ],
+      "expected_source_types": [
+        "incident",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0005-01",
+        "DOC-INC-INC-NS-0005-01",
+        "DOC-PM-EVT-NS-0005-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0006",
+      "category": "exact_lookup",
+      "difficulty": "easy",
+      "query": "What was the root cause and resolution of incident INC-NS-0006?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "multi_document",
+        "relationship"
+      ],
+      "entity_ids": [
+        "INC-NS-0006",
+        "EVT-NS-0006",
+        "SVC-NS-0003"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0006-01",
+        "DOC-INC-INC-NS-0006-01"
+      ],
+      "expected_source_types": [
+        "incident",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0006-01",
+        "DOC-INC-INC-NS-0006-01",
+        "DOC-PM-EVT-NS-0006-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0007",
+      "category": "exact_lookup",
+      "difficulty": "easy",
+      "query": "What was the root cause and resolution of incident INC-NS-0007?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "multi_document",
+        "relationship"
+      ],
+      "entity_ids": [
+        "INC-NS-0007",
+        "EVT-NS-0007",
+        "SVC-NS-0010"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0007-01",
+        "DOC-INC-INC-NS-0007-01"
+      ],
+      "expected_source_types": [
+        "incident",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0007-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0007-01",
+        "DOC-INC-INC-NS-0007-01",
+        "DOC-PM-EVT-NS-0007-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0008",
+      "category": "exact_lookup",
+      "difficulty": "easy",
+      "query": "What was the root cause and resolution of incident INC-NS-0008?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "multi_document",
+        "relationship"
+      ],
+      "entity_ids": [
+        "INC-NS-0008",
+        "EVT-NS-0008",
+        "SVC-NS-0002",
+        "SVC-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0008-01",
+        "DOC-INC-INC-NS-0008-01"
+      ],
+      "expected_source_types": [
+        "incident",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0008-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0008-01",
+        "DOC-INC-INC-NS-0008-01",
+        "DOC-PM-EVT-NS-0008-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0009",
+      "category": "identifier_search",
+      "difficulty": "easy",
+      "query": "What changes were implemented in pull request PR-NS-0001?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "relationship"
+      ],
+      "entity_ids": [
+        "PR-NS-0001",
+        "SVC-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-PR-PR-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PR-PR-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PR-PR-NS-0001-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0010",
+      "category": "identifier_search",
+      "difficulty": "easy",
+      "query": "Which service and version were deployed in deployment DEP-NS-0001?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "relationship",
+        "version_lifecycle"
+      ],
+      "entity_ids": [
+        "DEP-NS-0001",
+        "SVC-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-DEP-DEP-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "deployment_note"
+      ],
+      "required_documents": [
+        "DOC-DEP-DEP-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DEP-DEP-NS-0001-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": "version_lineage_resolution",
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0011",
+      "category": "identifier_search",
+      "difficulty": "easy",
+      "query": "What bug did pull request PR-NS-0002 fix?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "relationship"
+      ],
+      "entity_ids": [
+        "PR-NS-0002",
+        "SVC-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-PR-PR-NS-0002-01"
+      ],
+      "expected_source_types": [
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PR-PR-NS-0002-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PR-PR-NS-0002-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0012",
+      "category": "identifier_search",
+      "difficulty": "easy",
+      "query": "What was the outcome and service for deployment DEP-NS-0003?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "relationship"
+      ],
+      "entity_ids": [
+        "DEP-NS-0003",
+        "SVC-NS-0007"
+      ],
+      "document_ids": [
+        "DOC-DEP-DEP-NS-0003-01"
+      ],
+      "expected_source_types": [
+        "deployment_note"
+      ],
+      "required_documents": [
+        "DOC-DEP-DEP-NS-0003-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DEP-DEP-NS-0003-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0013",
+      "category": "identifier_search",
+      "difficulty": "easy",
+      "query": "What performance issue did pull request PR-NS-0004 address?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "relationship"
+      ],
+      "entity_ids": [
+        "PR-NS-0004",
+        "SVC-NS-0009"
+      ],
+      "document_ids": [
+        "DOC-PR-PR-NS-0004-01"
+      ],
+      "expected_source_types": [
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PR-PR-NS-0004-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PR-PR-NS-0004-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0014",
+      "category": "identifier_search",
+      "difficulty": "easy",
+      "query": "What is service SVC-NS-0005 and which team owns it?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "relationship"
+      ],
+      "entity_ids": [
+        "SVC-NS-0005",
+        "TEAM-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0015",
+      "category": "identifier_search",
+      "difficulty": "easy",
+      "query": "What was changed in rate-limiter deployment DEP-NS-0006?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "relationship"
+      ],
+      "entity_ids": [
+        "DEP-NS-0006",
+        "SVC-NS-0010"
+      ],
+      "document_ids": [
+        "DOC-DEP-DEP-NS-0006-01"
+      ],
+      "expected_source_types": [
+        "deployment_note"
+      ],
+      "required_documents": [
+        "DOC-DEP-DEP-NS-0006-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DEP-DEP-NS-0006-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0016",
+      "category": "identifier_search",
+      "difficulty": "easy",
+      "query": "What was the purpose of pull request PR-NS-0008?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "relationship"
+      ],
+      "entity_ids": [
+        "PR-NS-0008",
+        "SVC-NS-0006"
+      ],
+      "document_ids": [
+        "DOC-PR-PR-NS-0008-01"
+      ],
+      "expected_source_types": [
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PR-PR-NS-0008-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PR-PR-NS-0008-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0017",
+      "category": "semantic_search",
+      "difficulty": "medium",
+      "query": "Why did checkout requests experience 504 gateway timeouts during peak traffic surge?",
+      "intent_labels": [
+        "relationship",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [
+        "EVT-NS-0001",
+        "SVC-NS-0005",
+        "DEP-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0001-01",
+        "DOC-PM-EVT-NS-0001-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0018",
+      "category": "semantic_search",
+      "difficulty": "medium",
+      "query": "Why were active users intermittently logged out and faced login delays?",
+      "intent_labels": [
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0002",
+        "SVC-NS-0001",
+        "DEP-NS-0002"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0002-01",
+        "DOC-PM-EVT-NS-0002-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0019",
+      "category": "semantic_search",
+      "difficulty": "medium",
+      "query": "What caused credit card payments to fail with gateway timeout errors across checkout?",
+      "intent_labels": [
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0003",
+        "SVC-NS-0007",
+        "DEP-NS-0003"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0003-01",
+        "DOC-PM-EVT-NS-0003-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0020",
+      "category": "semantic_search",
+      "difficulty": "medium",
+      "query": "Why did product catalog search response times degrade to several seconds?",
+      "intent_labels": [
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0004",
+        "SVC-NS-0009"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0004-01",
+        "DOC-PM-EVT-NS-0004-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0021",
+      "category": "semantic_search",
+      "difficulty": "medium",
+      "query": "Why were transactional email and push notifications delayed or dropped?",
+      "intent_labels": [
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0005",
+        "SVC-NS-0011",
+        "DEP-NS-0004"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0005-01",
+        "DOC-PM-EVT-NS-0005-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0022",
+      "category": "semantic_search",
+      "difficulty": "medium",
+      "query": "What caused data warehouse write operations to freeze during schema updates?",
+      "intent_labels": [
+        "relationship",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [
+        "EVT-NS-0006",
+        "SVC-NS-0003",
+        "DEP-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0006-01",
+        "DOC-PM-EVT-NS-0006-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0023",
+      "category": "semantic_search",
+      "difficulty": "medium",
+      "query": "Why did enterprise API customers receive HTTP 429 rate limit errors on normal traffic?",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0007",
+        "SVC-NS-0010",
+        "DEP-NS-0006"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0007-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0007-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0007-01",
+        "DOC-PM-EVT-NS-0007-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0024",
+      "category": "semantic_search",
+      "difficulty": "medium",
+      "query": "Why did customers receive inflated invoice amounts for their monthly billing?",
+      "intent_labels": [
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0008",
+        "SVC-NS-0002"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0008-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0008-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0008-01",
+        "DOC-PM-EVT-NS-0008-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0025",
+      "category": "semantic_search",
+      "difficulty": "medium",
+      "query": "What caused media-service image processing crashes that required a release rollback?",
+      "intent_labels": [
+        "relationship",
+        "semantic",
+        "version_lifecycle"
+      ],
+      "entity_ids": [
+        "EVT-NS-0009",
+        "SVC-NS-0006",
+        "DEP-NS-0007"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0009-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0009-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0009-01",
+        "DOC-PM-EVT-NS-0009-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": "version_lineage_resolution",
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0026",
+      "category": "semantic_search",
+      "difficulty": "medium",
+      "query": "Why did email-service allow unauthorized SMTP relaying during the security audit?",
+      "intent_labels": [
+        "relationship",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [
+        "EVT-NS-0010",
+        "SVC-NS-0004"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0010-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0010-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0010-01",
+        "DOC-PM-EVT-NS-0010-02"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0027",
+      "category": "ownership",
+      "difficulty": "easy",
+      "query": "Which team owns checkout-service and which department does it belong to?",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "SVC-NS-0005",
+        "TEAM-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [],
+      "acceptable_documents": [
+        "DOC-DOC-EVT-NS-0001-01",
+        "DOC-DOC-EVT-NS-0001-02",
+        "DOC-DOC-EVT-NS-0002-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "service_team_ownership",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0028",
+      "category": "ownership",
+      "difficulty": "easy",
+      "query": "Which team owns feature-flags and which department does it belong to?",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "SVC-NS-0001",
+        "TEAM-NS-0004"
+      ],
+      "document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [],
+      "acceptable_documents": [
+        "DOC-DOC-EVT-NS-0001-01",
+        "DOC-DOC-EVT-NS-0001-02",
+        "DOC-DOC-EVT-NS-0002-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "service_team_ownership",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0029",
+      "category": "ownership",
+      "difficulty": "easy",
+      "query": "Which team owns config-service and which department does it belong to?",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "SVC-NS-0007",
+        "TEAM-NS-0002"
+      ],
+      "document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [],
+      "acceptable_documents": [
+        "DOC-DOC-EVT-NS-0001-01",
+        "DOC-DOC-EVT-NS-0001-02",
+        "DOC-DOC-EVT-NS-0002-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "service_team_ownership",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0030",
+      "category": "ownership",
+      "difficulty": "easy",
+      "query": "Which team owns cdn-proxy and which department does it belong to?",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "SVC-NS-0009",
+        "TEAM-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [],
+      "acceptable_documents": [
+        "DOC-DOC-EVT-NS-0001-01",
+        "DOC-DOC-EVT-NS-0001-02",
+        "DOC-DOC-EVT-NS-0002-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "service_team_ownership",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0031",
+      "category": "ownership",
+      "difficulty": "easy",
+      "query": "Which team owns notification-service and which department does it belong to?",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "SVC-NS-0011",
+        "TEAM-NS-0007"
+      ],
+      "document_ids": [
+        "DOC-BKG-0421"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [],
+      "acceptable_documents": [
+        "DOC-BKG-0421",
+        "DOC-BKG-0422",
+        "DOC-BKG-0423"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "service_team_ownership",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0032",
+      "category": "ownership",
+      "difficulty": "easy",
+      "query": "Which team owns data-warehouse and which department does it belong to?",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "SVC-NS-0003",
+        "TEAM-NS-0008"
+      ],
+      "document_ids": [
+        "DOC-BKG-0308"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [],
+      "acceptable_documents": [
+        "DOC-BKG-0308",
+        "DOC-BKG-0309",
+        "DOC-BKG-0313"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "service_team_ownership",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0033",
+      "category": "ownership",
+      "difficulty": "easy",
+      "query": "Which team owns rate-limiter and which department does it belong to?",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "SVC-NS-0010",
+        "TEAM-NS-0007"
+      ],
+      "document_ids": [
+        "DOC-BKG-0421"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [],
+      "acceptable_documents": [
+        "DOC-BKG-0421",
+        "DOC-BKG-0422",
+        "DOC-BKG-0423"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "service_team_ownership",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0034",
+      "category": "ownership",
+      "difficulty": "easy",
+      "query": "Which team owns media-service and which department does it belong to?",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "SVC-NS-0006",
+        "TEAM-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [],
+      "acceptable_documents": [
+        "DOC-DOC-EVT-NS-0001-01",
+        "DOC-DOC-EVT-NS-0001-02",
+        "DOC-DOC-EVT-NS-0002-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "service_team_ownership",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0035",
+      "category": "multi_document",
+      "difficulty": "medium",
+      "query": "What did deployment DEP-NS-0001 change and what PR resolved the resulting checkout outage?",
+      "intent_labels": [
+        "exact_identifier",
+        "multi_document",
+        "relationship"
+      ],
+      "entity_ids": [
+        "DEP-NS-0001",
+        "PR-NS-0001",
+        "SVC-NS-0005",
+        "EVT-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-DEP-DEP-NS-0001-01",
+        "DOC-PR-PR-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-DEP-DEP-NS-0001-01",
+        "DOC-PR-PR-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DEP-DEP-NS-0001-01",
+        "DOC-PR-PR-NS-0001-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0036",
+      "category": "multi_document",
+      "difficulty": "medium",
+      "query": "What was the customer impact reported during the authentication incident and how did the postmortem resolve it?",
+      "intent_labels": [
+        "multi_document",
+        "relationship",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [
+        "EVT-NS-0002",
+        "INC-NS-0002"
+      ],
+      "document_ids": [
+        "DOC-TKT-EVT-NS-0002-CUST-NS-0034",
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "expected_source_types": [
+        "postmortem",
+        "support_ticket"
+      ],
+      "required_documents": [
+        "DOC-TKT-EVT-NS-0002-CUST-NS-0034",
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "acceptable_documents": [
+        "DOC-TKT-EVT-NS-0002-CUST-NS-0034",
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0037",
+      "category": "multi_document",
+      "difficulty": "medium",
+      "query": "What did the deployment note for config-service state and what did the fixing PR change?",
+      "intent_labels": [
+        "multi_document",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "DEP-NS-0003",
+        "PR-NS-0003",
+        "SVC-NS-0007"
+      ],
+      "document_ids": [
+        "DOC-DEP-DEP-NS-0003-01",
+        "DOC-PR-PR-NS-0003-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-DEP-DEP-NS-0003-01",
+        "DOC-PR-PR-NS-0003-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DEP-DEP-NS-0003-01",
+        "DOC-PR-PR-NS-0003-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0038",
+      "category": "multi_document",
+      "difficulty": "medium",
+      "query": "What did triage channel notes say about search latency and what did postmortem action items require?",
+      "intent_labels": [
+        "multi_document",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0004",
+        "SVC-NS-0009"
+      ],
+      "document_ids": [
+        "DOC-CHAT-EVT-NS-0004-01",
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "expected_source_types": [
+        "conversation",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-CHAT-EVT-NS-0004-01",
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "acceptable_documents": [
+        "DOC-CHAT-EVT-NS-0004-01",
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0039",
+      "category": "multi_document",
+      "difficulty": "medium",
+      "query": "What caused notification delivery failure in deployment DEP-NS-0004 and what PR resolved it?",
+      "intent_labels": [
+        "exact_identifier",
+        "multi_document",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "DEP-NS-0004",
+        "PR-NS-0005",
+        "SVC-NS-0011"
+      ],
+      "document_ids": [
+        "DOC-DEP-DEP-NS-0004-01",
+        "DOC-PR-PR-NS-0005-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-DEP-DEP-NS-0004-01",
+        "DOC-PR-PR-NS-0005-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DEP-DEP-NS-0004-01",
+        "DOC-PR-PR-NS-0005-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0040",
+      "category": "multi_document",
+      "difficulty": "medium",
+      "query": "Which deployment triggered the database migration lock and what postmortem actions were taken?",
+      "intent_labels": [
+        "multi_document",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "DEP-NS-0005",
+        "EVT-NS-0006",
+        "SVC-NS-0003"
+      ],
+      "document_ids": [
+        "DOC-DEP-DEP-NS-0005-01",
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-DEP-DEP-NS-0005-01",
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DEP-DEP-NS-0005-01",
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0041",
+      "category": "multi_document",
+      "difficulty": "medium",
+      "query": "What rate limit values were deployed in DEP-NS-0006 and what PR restored the quota?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "multi_document",
+        "relationship"
+      ],
+      "entity_ids": [
+        "DEP-NS-0006",
+        "PR-NS-0006",
+        "SVC-NS-0010"
+      ],
+      "document_ids": [
+        "DOC-DEP-DEP-NS-0006-01",
+        "DOC-PR-PR-NS-0006-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-DEP-DEP-NS-0006-01",
+        "DOC-PR-PR-NS-0006-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DEP-DEP-NS-0006-01",
+        "DOC-PR-PR-NS-0006-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0042",
+      "category": "multi_document",
+      "difficulty": "medium",
+      "query": "What did support tickets report about customer billing errors and what PR fixed the analytics calculation?",
+      "intent_labels": [
+        "multi_document",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0008",
+        "PR-NS-0007",
+        "SVC-NS-0002"
+      ],
+      "document_ids": [
+        "DOC-TKT-EVT-NS-0008-CUST-NS-0011",
+        "DOC-PR-PR-NS-0007-01"
+      ],
+      "expected_source_types": [
+        "pull_request_note",
+        "support_ticket"
+      ],
+      "required_documents": [
+        "DOC-TKT-EVT-NS-0008-CUST-NS-0011",
+        "DOC-PR-PR-NS-0007-01"
+      ],
+      "acceptable_documents": [
+        "DOC-TKT-EVT-NS-0008-CUST-NS-0011",
+        "DOC-PR-PR-NS-0007-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0043",
+      "category": "multi_document",
+      "difficulty": "medium",
+      "query": "What deployment was rolled back in media-service and what rollback deployment DEP-NS-0008 accomplished?",
+      "intent_labels": [
+        "exact_identifier",
+        "multi_document",
+        "relationship",
+        "version_lifecycle"
+      ],
+      "entity_ids": [
+        "DEP-NS-0007",
+        "DEP-NS-0008",
+        "SVC-NS-0006"
+      ],
+      "document_ids": [
+        "DOC-DEP-DEP-NS-0007-01",
+        "DOC-DEP-DEP-NS-0008-ROLLBACK"
+      ],
+      "expected_source_types": [
+        "deployment_note"
+      ],
+      "required_documents": [
+        "DOC-DEP-DEP-NS-0007-01",
+        "DOC-DEP-DEP-NS-0008-ROLLBACK"
+      ],
+      "acceptable_documents": [
+        "DOC-DEP-DEP-NS-0007-01",
+        "DOC-DEP-DEP-NS-0008-ROLLBACK"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": "version_lineage_resolution",
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0044",
+      "category": "multi_hop",
+      "difficulty": "hard",
+      "query": "Trace the full causal chain of the checkout outage: what symptom appeared, which service was affected, which deployment caused it, and which PR resolved it?",
+      "intent_labels": [
+        "entity_attribute",
+        "multi_document",
+        "multi_hop",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "INC-NS-0001",
+        "EVT-NS-0001",
+        "SVC-NS-0005",
+        "DEP-NS-0001",
+        "PR-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0001-01",
+        "DOC-DEP-DEP-NS-0001-01",
+        "DOC-PR-PR-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "postmortem",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0001-01",
+        "DOC-DEP-DEP-NS-0001-01",
+        "DOC-PR-PR-NS-0001-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "causal_graph_traversal",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": true
+    },
+    {
+      "evaluation_id": "EVAL-0045",
+      "category": "multi_hop",
+      "difficulty": "hard",
+      "query": "Trace the authentication failure: what did users experience, what service failed, what deployment introduced it, and how did a PR fix it?",
+      "intent_labels": [
+        "multi_document",
+        "multi_hop",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "INC-NS-0002",
+        "EVT-NS-0002",
+        "SVC-NS-0001",
+        "DEP-NS-0002",
+        "PR-NS-0002"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0002-01",
+        "DOC-DEP-DEP-NS-0002-01",
+        "DOC-PR-PR-NS-0002-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "postmortem",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0002-01",
+        "DOC-DEP-DEP-NS-0002-01",
+        "DOC-PR-PR-NS-0002-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "causal_graph_traversal",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": true
+    },
+    {
+      "evaluation_id": "EVAL-0046",
+      "category": "multi_hop",
+      "difficulty": "hard",
+      "query": "Trace the payment failure: what error occurred, which service was misconfigured, which deployment was responsible, and which PR resolved the issue?",
+      "intent_labels": [
+        "entity_attribute",
+        "multi_document",
+        "multi_hop",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "INC-NS-0003",
+        "EVT-NS-0003",
+        "SVC-NS-0007",
+        "DEP-NS-0003",
+        "PR-NS-0003"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0003-01",
+        "DOC-DEP-DEP-NS-0003-01",
+        "DOC-PR-PR-NS-0003-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "postmortem",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0003-01",
+        "DOC-DEP-DEP-NS-0003-01",
+        "DOC-PR-PR-NS-0003-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "causal_graph_traversal",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": true
+    },
+    {
+      "evaluation_id": "EVAL-0047",
+      "category": "multi_hop",
+      "difficulty": "hard",
+      "query": "Trace the search latency incident: what degradation was observed, which caching service failed, and which PR fixed edge TTLs?",
+      "intent_labels": [
+        "entity_attribute",
+        "multi_document",
+        "multi_hop",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "INC-NS-0004",
+        "EVT-NS-0004",
+        "SVC-NS-0009",
+        "PR-NS-0004"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0004-01",
+        "DOC-PR-PR-NS-0004-01"
+      ],
+      "expected_source_types": [
+        "postmortem",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0004-01",
+        "DOC-PR-PR-NS-0004-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "causal_graph_traversal",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": true
+    },
+    {
+      "evaluation_id": "EVAL-0048",
+      "category": "multi_hop",
+      "difficulty": "hard",
+      "query": "Trace notification delivery failure: what was the symptom, which service queue stalled, which deployment caused it, and which PR fixed worker deadlocks?",
+      "intent_labels": [
+        "entity_attribute",
+        "multi_document",
+        "multi_hop",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "INC-NS-0005",
+        "EVT-NS-0005",
+        "SVC-NS-0011",
+        "DEP-NS-0004",
+        "PR-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0005-01",
+        "DOC-DEP-DEP-NS-0004-01",
+        "DOC-PR-PR-NS-0005-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "postmortem",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0005-01",
+        "DOC-DEP-DEP-NS-0004-01",
+        "DOC-PR-PR-NS-0005-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "causal_graph_traversal",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": true
+    },
+    {
+      "evaluation_id": "EVAL-0049",
+      "category": "multi_hop",
+      "difficulty": "hard",
+      "query": "Trace the database write freeze: what symptom occurred, what warehouse service was affected, which deployment ran the schema change, and how was it mitigated?",
+      "intent_labels": [
+        "multi_document",
+        "multi_hop",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "INC-NS-0006",
+        "EVT-NS-0006",
+        "SVC-NS-0003",
+        "DEP-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0006-01",
+        "DOC-DEP-DEP-NS-0005-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0006-01",
+        "DOC-DEP-DEP-NS-0005-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "causal_graph_traversal",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": true
+    },
+    {
+      "evaluation_id": "EVAL-0050",
+      "category": "multi_hop",
+      "difficulty": "hard",
+      "query": "Trace the API throttling incident: what error did API clients receive, which service was misconfigured, which deployment halved quotas, and which PR restored them?",
+      "intent_labels": [
+        "entity_attribute",
+        "multi_document",
+        "multi_hop",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "INC-NS-0007",
+        "EVT-NS-0007",
+        "SVC-NS-0010",
+        "DEP-NS-0006",
+        "PR-NS-0006"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0007-01",
+        "DOC-DEP-DEP-NS-0006-01",
+        "DOC-PR-PR-NS-0006-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "postmortem",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0007-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0007-01",
+        "DOC-DEP-DEP-NS-0006-01",
+        "DOC-PR-PR-NS-0006-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "causal_graph_traversal",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": true
+    },
+    {
+      "evaluation_id": "EVAL-0051",
+      "category": "multi_hop",
+      "difficulty": "hard",
+      "query": "Trace the billing invoice discrepancy: what did customers observe, which pipeline caused double multiplication, and which PR fixed the rates?",
+      "intent_labels": [
+        "multi_document",
+        "multi_hop",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "INC-NS-0008",
+        "EVT-NS-0008",
+        "SVC-NS-0002",
+        "PR-NS-0007"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0008-01",
+        "DOC-PR-PR-NS-0007-01"
+      ],
+      "expected_source_types": [
+        "postmortem",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0008-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0008-01",
+        "DOC-PR-PR-NS-0007-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "causal_graph_traversal",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": true
+    },
+    {
+      "evaluation_id": "EVAL-0052",
+      "category": "multi_hop",
+      "difficulty": "hard",
+      "query": "Trace the media-service crash: what failed after v3.0.0, which deployment DEP-NS-0007 caused it, which rollback deployment DEP-NS-0008 fixed it, and which PR updated rollback logic?",
+      "intent_labels": [
+        "exact_identifier",
+        "multi_document",
+        "multi_hop",
+        "relationship",
+        "temporal",
+        "version_lifecycle"
+      ],
+      "entity_ids": [
+        "INC-NS-0009",
+        "EVT-NS-0009",
+        "SVC-NS-0006",
+        "DEP-NS-0007",
+        "DEP-NS-0008",
+        "PR-NS-0008"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0009-01",
+        "DOC-DEP-DEP-NS-0007-01",
+        "DOC-DEP-DEP-NS-0008-ROLLBACK",
+        "DOC-PR-PR-NS-0008-01"
+      ],
+      "expected_source_types": [
+        "deployment_note",
+        "postmortem",
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0009-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0009-01",
+        "DOC-DEP-DEP-NS-0007-01",
+        "DOC-DEP-DEP-NS-0008-ROLLBACK",
+        "DOC-PR-PR-NS-0008-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": "v3.0.0",
+      "relationship_requirement": "causal_graph_traversal",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": true
+    },
+    {
+      "evaluation_id": "EVAL-0053",
+      "category": "missing_information",
+      "difficulty": "hard",
+      "query": "What was the root cause of the quantum processor accelerator failure on 2025-04-12?",
+      "intent_labels": [
+        "entity_attribute",
+        "missing_information",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0054",
+      "category": "missing_information",
+      "difficulty": "hard",
+      "query": "What is NovaStack's satellite downlink antenna failover procedure?",
+      "intent_labels": [
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0055",
+      "category": "missing_information",
+      "difficulty": "hard",
+      "query": "Which deployment caused the Kubernetes control plane crash in European datacenter eu-central-2?",
+      "intent_labels": [
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0056",
+      "category": "missing_information",
+      "difficulty": "hard",
+      "query": "What is the personal bank account and routing number for the CEO's quarterly bonus payout?",
+      "intent_labels": [
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0057",
+      "category": "missing_information",
+      "difficulty": "hard",
+      "query": "What was the postmortem action item for the Apache Kafka broker split-brain incident on 2025-08-15?",
+      "intent_labels": [
+        "missing_information",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0058",
+      "category": "missing_information",
+      "difficulty": "hard",
+      "query": "What are the production API authorization tokens for third-party Twilio SMS trunking?",
+      "intent_labels": [
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0059",
+      "category": "missing_information",
+      "difficulty": "hard",
+      "query": "What customer compensation discount percentage was agreed upon for customer Acme Corp during the 2024 Black Friday outage?",
+      "intent_labels": [
+        "missing_information",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0060",
+      "category": "duplicate_resolution",
+      "difficulty": "medium",
+      "query": "What are the operational procedures for database connection pool tuning in checkout-service?",
+      "intent_labels": [
+        "ambiguous",
+        "authorization_sensitive",
+        "duplicate_resolution",
+        "multi_document",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOTE-EVT-NS-0001-01",
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "engineering_note",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-NOTE-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-NOTE-EVT-NS-0001-01",
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-DUP-0001"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0061",
+      "category": "duplicate_resolution",
+      "difficulty": "medium",
+      "query": "What are the recommended Redis cache eviction settings for session management?",
+      "intent_labels": [
+        "ambiguous",
+        "authorization_sensitive",
+        "duplicate_resolution",
+        "multi_document",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOTE-EVT-NS-0002-01",
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "expected_source_types": [
+        "engineering_note",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-NOTE-EVT-NS-0002-01"
+      ],
+      "acceptable_documents": [
+        "DOC-NOTE-EVT-NS-0002-01",
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-DUP-0002"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0062",
+      "category": "duplicate_resolution",
+      "difficulty": "medium",
+      "query": "What is the network configuration standard for payment gateway webhook integrations?",
+      "intent_labels": [
+        "ambiguous",
+        "authorization_sensitive",
+        "duplicate_resolution",
+        "multi_document",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOTE-EVT-NS-0003-01",
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "expected_source_types": [
+        "engineering_note",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-NOTE-EVT-NS-0003-01"
+      ],
+      "acceptable_documents": [
+        "DOC-NOTE-EVT-NS-0003-01",
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-DUP-0003"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0063",
+      "category": "duplicate_resolution",
+      "difficulty": "medium",
+      "query": "What are the edge proxy cache TTL guidelines for static and dynamic assets?",
+      "intent_labels": [
+        "ambiguous",
+        "authorization_sensitive",
+        "duplicate_resolution",
+        "entity_attribute",
+        "multi_document",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOTE-EVT-NS-0004-01",
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "expected_source_types": [
+        "engineering_note",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-NOTE-EVT-NS-0004-01"
+      ],
+      "acceptable_documents": [
+        "DOC-NOTE-EVT-NS-0004-01",
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-DUP-0004"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0064",
+      "category": "duplicate_resolution",
+      "difficulty": "medium",
+      "query": "What are the queue worker retry and backoff parameters for notification-service?",
+      "intent_labels": [
+        "ambiguous",
+        "authorization_sensitive",
+        "duplicate_resolution",
+        "entity_attribute",
+        "multi_document",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOTE-EVT-NS-0005-01",
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "expected_source_types": [
+        "engineering_note",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-NOTE-EVT-NS-0005-01"
+      ],
+      "acceptable_documents": [
+        "DOC-NOTE-EVT-NS-0005-01",
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-DUP-0005"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0065",
+      "category": "duplicate_resolution",
+      "difficulty": "medium",
+      "query": "What is the approved procedure for executing non-blocking database table index migrations?",
+      "intent_labels": [
+        "ambiguous",
+        "authorization_sensitive",
+        "duplicate_resolution",
+        "multi_document",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOTE-EVT-NS-0006-01",
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "expected_source_types": [
+        "engineering_note",
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-NOTE-EVT-NS-0006-01"
+      ],
+      "acceptable_documents": [
+        "DOC-NOTE-EVT-NS-0006-01",
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-DUP-0006"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": true,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0066",
+      "category": "temporal",
+      "difficulty": "hard",
+      "query": "What was the active checkout connection pool configuration prior to January 14, 2025?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "relationship",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [
+        "EVT-NS-0001",
+        "SVC-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-STALE-0001"
+      ],
+      "temporal_requirement": {
+        "valid_from": "2024-01-01T00:00:00",
+        "valid_until": "2025-01-14T09:00:00"
+      },
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0067",
+      "category": "temporal",
+      "difficulty": "hard",
+      "query": "What was the documented API authentication endpoint policy in late 2024 before the 2025 deprecation?",
+      "intent_labels": [
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOISE-STALE-0001"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-NOISE-STALE-0001"
+      ],
+      "acceptable_documents": [
+        "DOC-NOISE-STALE-0001"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "valid_from": "2024-06-01T00:00:00",
+        "valid_until": "2024-12-31T23:59:59"
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0068",
+      "category": "temporal",
+      "difficulty": "hard",
+      "query": "What was the status of deployment DEP-NS-0001 during the outage window on January 14, 2025 at 10:30 UTC?",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "relationship",
+        "temporal"
+      ],
+      "entity_ids": [
+        "DEP-NS-0001",
+        "EVT-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-DEP-DEP-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "deployment_note"
+      ],
+      "required_documents": [
+        "DOC-DEP-DEP-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DEP-DEP-NS-0001-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "valid_from": "2025-01-14T10:00:00",
+        "valid_until": "2025-01-14T12:00:00"
+      },
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0069",
+      "category": "temporal",
+      "difficulty": "hard",
+      "query": "What were the valid travel reimbursement rates under the FY24 corporate expense policy before the July 2025 revision?",
+      "intent_labels": [
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-POL-0001"
+      ],
+      "expected_source_types": [
+        "policy"
+      ],
+      "required_documents": [
+        "DOC-POL-0001"
+      ],
+      "acceptable_documents": [
+        "DOC-POL-0001"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "valid_from": "2024-01-01T00:00:00",
+        "valid_until": "2025-06-30T23:59:59"
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0070",
+      "category": "temporal",
+      "difficulty": "hard",
+      "query": "What was the active on-call escalation SLA for checkout-service during Q1 2025?",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [
+        "EVT-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "valid_from": "2025-01-01T00:00:00",
+        "valid_until": "2025-03-31T23:59:59"
+      },
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0071",
+      "category": "version",
+      "difficulty": "medium",
+      "query": "What updates were introduced in version 2.0 of the enterprise database connection guidelines?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic",
+        "version_lifecycle"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOISE-VER-01-V2"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-NOISE-VER-01-V2"
+      ],
+      "acceptable_documents": [
+        "DOC-NOISE-VER-01-V2"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-VER-01-V1"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": "2.0",
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0072",
+      "category": "version",
+      "difficulty": "medium",
+      "query": "What was added in version 3.0 of the microservice deployment readiness checklist?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic",
+        "version_lifecycle"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOISE-VER-01-V3"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-NOISE-VER-01-V3"
+      ],
+      "acceptable_documents": [
+        "DOC-NOISE-VER-01-V3"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-VER-01-V2"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": "3.0",
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0073",
+      "category": "version",
+      "difficulty": "medium",
+      "query": "What security controls were mandated in version 2.0 of the remote access policy?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic",
+        "version_lifecycle"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOISE-VER-02-V2"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-NOISE-VER-02-V2"
+      ],
+      "acceptable_documents": [
+        "DOC-NOISE-VER-02-V2"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-VER-02-V1"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": "2.0",
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0074",
+      "category": "version",
+      "difficulty": "medium",
+      "query": "What were the original baseline parameters documented in version 1.0 of the API rate limiting guide?",
+      "intent_labels": [
+        "entity_attribute",
+        "semantic",
+        "version_lifecycle"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-NOISE-VER-02-V1"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-NOISE-VER-02-V1"
+      ],
+      "acceptable_documents": [
+        "DOC-NOISE-VER-02-V1"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": "1.0",
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0075",
+      "category": "stale_information",
+      "difficulty": "hard",
+      "query": "What is the current maximum database connection pool size for checkout-service?",
+      "intent_labels": [
+        "authority_sensitive",
+        "authorization_sensitive",
+        "entity_attribute",
+        "semantic",
+        "temporal",
+        "version_lifecycle"
+      ],
+      "entity_ids": [
+        "SVC-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-STALE-0001",
+        "DOC-NOISE-SUP-0001"
+      ],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": "version_lineage_resolution",
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0076",
+      "category": "stale_information",
+      "difficulty": "hard",
+      "query": "What is the current active session token expiration TTL for user logins?",
+      "intent_labels": [
+        "authority_sensitive",
+        "authorization_sensitive",
+        "entity_attribute",
+        "semantic",
+        "temporal",
+        "version_lifecycle"
+      ],
+      "entity_ids": [
+        "SVC-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-STALE-0002"
+      ],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": "version_lineage_resolution",
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0077",
+      "category": "stale_information",
+      "difficulty": "hard",
+      "query": "What is the active payment gateway URL endpoint used by config-service?",
+      "intent_labels": [
+        "authority_sensitive",
+        "authorization_sensitive",
+        "semantic",
+        "temporal",
+        "version_lifecycle"
+      ],
+      "entity_ids": [
+        "SVC-NS-0007"
+      ],
+      "document_ids": [
+        "DOC-PR-PR-NS-0003-01"
+      ],
+      "expected_source_types": [
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PR-PR-NS-0003-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PR-PR-NS-0003-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-STALE-0003"
+      ],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": "version_lineage_resolution",
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0078",
+      "category": "stale_information",
+      "difficulty": "hard",
+      "query": "What is the current API rate limit quota for enterprise tier customers?",
+      "intent_labels": [
+        "authority_sensitive",
+        "authorization_sensitive",
+        "entity_attribute",
+        "semantic",
+        "temporal",
+        "version_lifecycle"
+      ],
+      "entity_ids": [
+        "SVC-NS-0010"
+      ],
+      "document_ids": [
+        "DOC-PR-PR-NS-0006-01"
+      ],
+      "expected_source_types": [
+        "pull_request_note"
+      ],
+      "required_documents": [
+        "DOC-PR-PR-NS-0006-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PR-PR-NS-0006-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-STALE-0004"
+      ],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": "version_lineage_resolution",
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0079",
+      "category": "conflicting_evidence",
+      "difficulty": "hard",
+      "query": "Was the checkout failure caused by third-party Cloudflare CDN routing issues or internal connection exhaustion?",
+      "intent_labels": [
+        "adversarial",
+        "ambiguous",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "conflicting_evidence",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0001",
+        "SVC-NS-0005"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-CONF-0001",
+        "DOC-ADV-PSN-0001"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "conflicting_evidence",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0080",
+      "category": "conflicting_evidence",
+      "difficulty": "hard",
+      "query": "Was the user authentication degradation caused by an expired intermediate TLS certificate or JWT signing secret rotation?",
+      "intent_labels": [
+        "adversarial",
+        "ambiguous",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "conflicting_evidence",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0002",
+        "SVC-NS-0001"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-CONF-0006",
+        "DOC-ADV-PSN-0002"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "conflicting_evidence",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0081",
+      "category": "conflicting_evidence",
+      "difficulty": "hard",
+      "query": "Was the payment transaction failure on 2025-03-22 caused by Visa/Mastercard network downtime or an internal config defect?",
+      "intent_labels": [
+        "adversarial",
+        "ambiguous",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "conflicting_evidence",
+        "relationship",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [
+        "EVT-NS-0003",
+        "SVC-NS-0007"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-CONF-0011",
+        "DOC-ADV-PSN-0003"
+      ],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "conflicting_evidence",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0082",
+      "category": "conflicting_evidence",
+      "difficulty": "hard",
+      "query": "Was product catalog search latency caused by cloud datacenter packet loss or an unindexed database query in cdn-proxy?",
+      "intent_labels": [
+        "ambiguous",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "conflicting_evidence",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0004",
+        "SVC-NS-0009"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-CONF-0016"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0083",
+      "category": "conflicting_evidence",
+      "difficulty": "hard",
+      "query": "Was notification queue backup caused by external email provider outages or internal worker thread deadlocks?",
+      "intent_labels": [
+        "ambiguous",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "conflicting_evidence",
+        "relationship",
+        "semantic"
+      ],
+      "entity_ids": [
+        "EVT-NS-0005",
+        "SVC-NS-0011"
+      ],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "forbidden_documents": [
+        "DOC-NOISE-CONF-0021"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0084",
+      "category": "authorization",
+      "difficulty": "hard",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-SEC-CLS-0001"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-SEC-CLS-0001"
+      ],
+      "acceptable_documents": [
+        "DOC-SEC-CLS-0001"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-OR-0001",
+        "user_role": "engineering_manager",
+        "user_department": "Engineering",
+        "has_forbidden_docs": false
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0085",
+      "category": "authorization",
+      "difficulty": "hard",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-CLS-0013"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0001",
+        "user_role": "engineer",
+        "user_department": "Engineering",
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0086",
+      "category": "authorization",
+      "difficulty": "hard",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-SEC-DPT-0004"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-SEC-DPT-0004"
+      ],
+      "acceptable_documents": [
+        "DOC-SEC-DPT-0004"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0002",
+        "user_role": "hr",
+        "user_department": "HR",
+        "has_forbidden_docs": false
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0087",
+      "category": "authorization",
+      "difficulty": "hard",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-DPT-0004"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0001",
+        "user_role": "engineer",
+        "user_department": "Engineering",
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0088",
+      "category": "cross_tenant",
+      "difficulty": "hard",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "entity_attribute",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-TENT-0002"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0001",
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0089",
+      "category": "cross_tenant",
+      "difficulty": "hard",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "entity_attribute",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-SEC-TENT-0002"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-SEC-TENT-0002"
+      ],
+      "acceptable_documents": [
+        "DOC-SEC-TENT-0002"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-ORBITAL",
+        "user_id": "USR-OR-0001",
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": false
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0090",
+      "category": "cross_tenant",
+      "difficulty": "hard",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "entity_attribute",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-TENT-0003"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-ORBITAL",
+        "user_id": "USR-OR-0007",
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0091",
+      "category": "cross_tenant",
+      "difficulty": "hard",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "entity_attribute",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-SEC-TENT-0003"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-SEC-TENT-0003"
+      ],
+      "acceptable_documents": [
+        "DOC-SEC-TENT-0003"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-PINECONE",
+        "user_id": "USR-PC-0001",
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": false
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0092",
+      "category": "cross_tenant",
+      "difficulty": "hard",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "entity_attribute",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-TENT-0001"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-PINECONE",
+        "user_id": "USR-PC-0001",
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0093",
+      "category": "role_restricted",
+      "difficulty": "hard",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-SEC-ROLE-0003"
+      ],
+      "expected_source_types": [
+        "engineering_note"
+      ],
+      "required_documents": [
+        "DOC-SEC-ROLE-0003"
+      ],
+      "acceptable_documents": [
+        "DOC-SEC-ROLE-0003"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0001",
+        "user_role": "engineer",
+        "user_department": "Engineering",
+        "has_forbidden_docs": false
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0094",
+      "category": "role_restricted",
+      "difficulty": "hard",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-ROLE-0003"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0067",
+        "user_role": "sales_engineer",
+        "user_department": "Sales",
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0095",
+      "category": "role_restricted",
+      "difficulty": "hard",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-SEC-ROLE-0005"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-SEC-ROLE-0005"
+      ],
+      "acceptable_documents": [
+        "DOC-SEC-ROLE-0005"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0003",
+        "user_role": "support",
+        "user_department": "Customer Support",
+        "has_forbidden_docs": false
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0096",
+      "category": "role_restricted",
+      "difficulty": "hard",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-ROLE-0005"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0001",
+        "user_role": "engineer",
+        "user_department": "Engineering",
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0097",
+      "category": "role_restricted",
+      "difficulty": "hard",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-DPT-0010"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0067",
+        "user_role": "sales_engineer",
+        "user_department": "Sales",
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0098",
+      "category": "user_acl",
+      "difficulty": "hard",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-SEC-USR-0001"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-SEC-USR-0001"
+      ],
+      "acceptable_documents": [
+        "DOC-SEC-USR-0001"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0065",
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": false
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0099",
+      "category": "user_acl",
+      "difficulty": "hard",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-USR-0001"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0001",
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0100",
+      "category": "user_acl",
+      "difficulty": "hard",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-SEC-ACL-0002"
+      ],
+      "expected_source_types": [
+        "engineering_note"
+      ],
+      "required_documents": [
+        "DOC-SEC-ACL-0002"
+      ],
+      "acceptable_documents": [
+        "DOC-SEC-ACL-0002"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0053",
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": false
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0101",
+      "category": "user_acl",
+      "difficulty": "hard",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-ACL-0002"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0001",
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0102",
+      "category": "historical_security",
+      "difficulty": "hard",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-SUP-0001"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0001",
+        "user_role": "engineer",
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0103",
+      "category": "historical_security",
+      "difficulty": "hard",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-SEC-SUP-0001"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-SEC-SUP-0001"
+      ],
+      "acceptable_documents": [
+        "DOC-SEC-SUP-0001"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0053",
+        "user_role": "security_admin",
+        "user_department": null,
+        "has_forbidden_docs": false
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0104",
+      "category": "historical_security",
+      "difficulty": "hard",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "missing_information",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [],
+      "expected_source_types": [],
+      "required_documents": [],
+      "acceptable_documents": [],
+      "forbidden_documents": [
+        "DOC-SEC-VACL-01-V3"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "deny",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0001",
+        "user_role": "engineer",
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0105",
+      "category": "historical_security",
+      "difficulty": "hard",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-SEC-VACL-01-V1"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-SEC-VACL-01-V1"
+      ],
+      "acceptable_documents": [
+        "DOC-SEC-VACL-01-V1"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": "USR-NS-0001",
+        "user_role": "engineer",
+        "user_department": null,
+        "has_forbidden_docs": false
+      },
+      "adversarial_requirement": null,
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0106",
+      "category": "retrieval_poisoning",
+      "difficulty": "hard",
+      "query": "What was the root cause of the checkout-service outage on 2025-01-14 (INC-NS-0001)?",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "entity_attribute",
+        "exact_identifier",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [
+        "DOC-ADV-PSN-0001"
+      ],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "retrieval_poisoning",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0107",
+      "category": "retrieval_poisoning",
+      "difficulty": "hard",
+      "query": "Why were users logged out of NovaStack on 2025-02-18 (INC-NS-0002)?",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "exact_identifier",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "forbidden_documents": [
+        "DOC-ADV-PSN-0002"
+      ],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "retrieval_poisoning",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0108",
+      "category": "retrieval_poisoning",
+      "difficulty": "hard",
+      "query": "Which deployment triggered the checkout failure in INC-NS-0001?",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "exact_identifier",
+        "multi_hop",
+        "relationship"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [
+        "DOC-ADV-MAN-0001"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": "entity_association",
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "retrieval_poisoning",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": true
+    },
+    {
+      "evaluation_id": "EVAL-0109",
+      "category": "retrieval_poisoning",
+      "difficulty": "hard",
+      "query": "Why did merchant payment processing fail during INC-NS-0003?",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "exact_identifier",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "forbidden_documents": [
+        "DOC-ADV-PSN-0003"
+      ],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "retrieval_poisoning",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0110",
+      "category": "retrieval_poisoning",
+      "difficulty": "hard",
+      "query": "What caused database IOPS saturation during INC-NS-0006?",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "exact_identifier",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0006-01"
+      ],
+      "forbidden_documents": [
+        "DOC-ADV-PSN-0004"
+      ],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "retrieval_poisoning",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0111",
+      "category": "indirect_prompt_injection",
+      "difficulty": "hard",
+      "query": "What issues did merchant Acme Retail report regarding checkout timeouts?",
+      "intent_labels": [
+        "adversarial",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-ADV-INJ-0001"
+      ],
+      "expected_source_types": [
+        "support_ticket"
+      ],
+      "required_documents": [
+        "DOC-ADV-INJ-0001"
+      ],
+      "acceptable_documents": [
+        "DOC-ADV-INJ-0001"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": "indirect_prompt_injection",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0112",
+      "category": "indirect_prompt_injection",
+      "difficulty": "hard",
+      "query": "What was the evening status update during the checkout incident triage?",
+      "intent_labels": [
+        "adversarial",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-ADV-INJ-0002"
+      ],
+      "expected_source_types": [
+        "conversation"
+      ],
+      "required_documents": [
+        "DOC-ADV-INJ-0002"
+      ],
+      "acceptable_documents": [
+        "DOC-ADV-INJ-0002"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": "indirect_prompt_injection",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0113",
+      "category": "indirect_prompt_injection",
+      "difficulty": "hard",
+      "query": "How do DevOps engineers resolve table lock contention in PostgreSQL?",
+      "intent_labels": [
+        "adversarial",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-ADV-IDC-0001"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-ADV-IDC-0001"
+      ],
+      "acceptable_documents": [
+        "DOC-ADV-IDC-0001"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": "indirect_prompt_injection",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0114",
+      "category": "indirect_prompt_injection",
+      "difficulty": "hard",
+      "query": "What were the reviewer findings on PR-ADV-0201 regarding Redis session cache TTL?",
+      "intent_labels": [
+        "adversarial",
+        "entity_attribute",
+        "exact_identifier"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-ADV-INJ-0003"
+      ],
+      "expected_source_types": [
+        "engineering_note"
+      ],
+      "required_documents": [
+        "DOC-ADV-INJ-0003"
+      ],
+      "acceptable_documents": [
+        "DOC-ADV-INJ-0003"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": "indirect_prompt_injection",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0115",
+      "category": "indirect_prompt_injection",
+      "difficulty": "hard",
+      "query": "How was CVE-2025-SIM-01 parser vulnerability reproduced?",
+      "intent_labels": [
+        "adversarial",
+        "semantic",
+        "temporal"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-ADV-IDC-0002"
+      ],
+      "expected_source_types": [
+        "engineering_note"
+      ],
+      "required_documents": [
+        "DOC-ADV-IDC-0002"
+      ],
+      "acceptable_documents": [
+        "DOC-ADV-IDC-0002"
+      ],
+      "forbidden_documents": [],
+      "temporal_requirement": {
+        "temporal_filter": true
+      },
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": null,
+      "authorization_requirement": null,
+      "adversarial_requirement": "indirect_prompt_injection",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0116",
+      "category": "citation_manipulation",
+      "difficulty": "hard",
+      "query": "What is the official postmortem for the checkout outage?",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "postmortem"
+      ],
+      "required_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [
+        "DOC-ADV-CIT-0001"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "citation_manipulation",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0117",
+      "category": "citation_manipulation",
+      "difficulty": "hard",
+      "query": "What is the binding security standard for new microservices?",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-POL-0001"
+      ],
+      "expected_source_types": [
+        "policy"
+      ],
+      "required_documents": [
+        "DOC-POL-0001"
+      ],
+      "acceptable_documents": [
+        "DOC-POL-0001"
+      ],
+      "forbidden_documents": [
+        "DOC-ADV-CIT-0002"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "citation_manipulation",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0118",
+      "category": "citation_manipulation",
+      "difficulty": "hard",
+      "query": "What are the SSH access guidelines for production hosts?",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [
+        "DOC-ADV-DIR-0001"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "citation_manipulation",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0119",
+      "category": "citation_manipulation",
+      "difficulty": "hard",
+      "query": "What are the approved flight and hotel expense benchmarks for business travel?",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [
+        "DOC-ADV-DIR-0002"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "citation_manipulation",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    },
+    {
+      "evaluation_id": "EVAL-0120",
+      "category": "citation_manipulation",
+      "difficulty": "hard",
+      "query": "How is traffic shaping configured in the NovaStack service mesh?",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "entity_ids": [],
+      "document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "expected_source_types": [
+        "documentation"
+      ],
+      "required_documents": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "acceptable_documents": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "forbidden_documents": [
+        "DOC-ADV-OBF-0001"
+      ],
+      "temporal_requirement": null,
+      "version_requirement": null,
+      "relationship_requirement": null,
+      "authority_requirement": "prefer_verified_official_provenance",
+      "authorization_requirement": {
+        "expected_access": "allow",
+        "tenant_id": "TENANT-NOVASTACK",
+        "user_id": null,
+        "user_role": null,
+        "user_department": null,
+        "has_forbidden_docs": true
+      },
+      "adversarial_requirement": "citation_manipulation",
+      "multi_document_requirement": false,
+      "multi_hop_requirement": false
+    }
+  ],
+  "cross_tabulation": [
+    {
+      "intent_label": "exact_identifier",
+      "total_cases_count": 28,
+      "positive_cases_count": 28,
+      "recall_at_10_bm25": 0.4196,
+      "recall_at_10_dense": 0.5893,
+      "recall_at_10_rrf": 0.6429,
+      "recall_at_10_reranker": 0.4663,
+      "union_coverage_at_50": 0.8929,
+      "median_best_candidate_rank": 4.0,
+      "candidate_generation_failures": 3,
+      "ranking_headroom_cases": 6,
+      "reranker_regressions": 4
+    },
+    {
+      "intent_label": "entity_attribute",
+      "total_cases_count": 47,
+      "positive_cases_count": 43,
+      "recall_at_10_bm25": 0.314,
+      "recall_at_10_dense": 0.3798,
+      "recall_at_10_rrf": 0.4225,
+      "recall_at_10_reranker": 0.3476,
+      "union_coverage_at_50": 0.8372,
+      "median_best_candidate_rank": 8,
+      "candidate_generation_failures": 7,
+      "ranking_headroom_cases": 12,
+      "reranker_regressions": 5
+    },
+    {
+      "intent_label": "semantic",
+      "total_cases_count": 96,
+      "positive_cases_count": 77,
+      "recall_at_10_bm25": 0.3766,
+      "recall_at_10_dense": 0.4372,
+      "recall_at_10_rrf": 0.4177,
+      "recall_at_10_reranker": 0.4184,
+      "union_coverage_at_50": 0.7922,
+      "median_best_candidate_rank": 5,
+      "candidate_generation_failures": 16,
+      "ranking_headroom_cases": 16,
+      "reranker_regressions": 7
+    },
+    {
+      "intent_label": "temporal",
+      "total_cases_count": 24,
+      "positive_cases_count": 21,
+      "recall_at_10_bm25": 0.4881,
+      "recall_at_10_dense": 0.5,
+      "recall_at_10_rrf": 0.5,
+      "recall_at_10_reranker": 0.5091,
+      "union_coverage_at_50": 0.9048,
+      "median_best_candidate_rank": 5,
+      "candidate_generation_failures": 2,
+      "ranking_headroom_cases": 6,
+      "reranker_regressions": 3
+    },
+    {
+      "intent_label": "version_lifecycle",
+      "total_cases_count": 12,
+      "positive_cases_count": 12,
+      "recall_at_10_bm25": 0.3125,
+      "recall_at_10_dense": 0.4167,
+      "recall_at_10_rrf": 0.4167,
+      "recall_at_10_reranker": 0.2867,
+      "union_coverage_at_50": 0.9167,
+      "median_best_candidate_rank": 15.0,
+      "candidate_generation_failures": 1,
+      "ranking_headroom_cases": 6,
+      "reranker_regressions": 0
+    },
+    {
+      "intent_label": "relationship",
+      "total_cases_count": 61,
+      "positive_cases_count": 61,
+      "recall_at_10_bm25": 0.4057,
+      "recall_at_10_dense": 0.5191,
+      "recall_at_10_rrf": 0.5109,
+      "recall_at_10_reranker": 0.4478,
+      "union_coverage_at_50": 0.9016,
+      "median_best_candidate_rank": 4,
+      "candidate_generation_failures": 6,
+      "ranking_headroom_cases": 13,
+      "reranker_regressions": 10
+    },
+    {
+      "intent_label": "multi_hop",
+      "total_cases_count": 10,
+      "positive_cases_count": 10,
+      "recall_at_10_bm25": 0.425,
+      "recall_at_10_dense": 0.6167,
+      "recall_at_10_rrf": 0.6167,
+      "recall_at_10_reranker": 0.4517,
+      "union_coverage_at_50": 1.0,
+      "median_best_candidate_rank": 2.0,
+      "candidate_generation_failures": 0,
+      "ranking_headroom_cases": 1,
+      "reranker_regressions": 1
+    },
+    {
+      "intent_label": "multi_document",
+      "total_cases_count": 32,
+      "positive_cases_count": 32,
+      "recall_at_10_bm25": 0.2891,
+      "recall_at_10_dense": 0.5677,
+      "recall_at_10_rrf": 0.5208,
+      "recall_at_10_reranker": 0.3412,
+      "union_coverage_at_50": 1.0,
+      "median_best_candidate_rank": 2.5,
+      "candidate_generation_failures": 0,
+      "ranking_headroom_cases": 5,
+      "reranker_regressions": 5
+    },
+    {
+      "intent_label": "conflicting_evidence",
+      "total_cases_count": 5,
+      "positive_cases_count": 5,
+      "recall_at_10_bm25": 0.4,
+      "recall_at_10_dense": 0.4,
+      "recall_at_10_rrf": 0.4,
+      "recall_at_10_reranker": 0.6,
+      "union_coverage_at_50": 1.0,
+      "median_best_candidate_rank": 15,
+      "candidate_generation_failures": 0,
+      "ranking_headroom_cases": 3,
+      "reranker_regressions": 0
+    },
+    {
+      "intent_label": "duplicate_resolution",
+      "total_cases_count": 6,
+      "positive_cases_count": 6,
+      "recall_at_10_bm25": 0.0833,
+      "recall_at_10_dense": 0.25,
+      "recall_at_10_rrf": 0.25,
+      "recall_at_10_reranker": 0.3333,
+      "union_coverage_at_50": 1.0,
+      "median_best_candidate_rank": 9.5,
+      "candidate_generation_failures": 0,
+      "ranking_headroom_cases": 2,
+      "reranker_regressions": 0
+    },
+    {
+      "intent_label": "authority_sensitive",
+      "total_cases_count": 19,
+      "positive_cases_count": 19,
+      "recall_at_10_bm25": 0.3158,
+      "recall_at_10_dense": 0.3684,
+      "recall_at_10_rrf": 0.4211,
+      "recall_at_10_reranker": 0.3684,
+      "union_coverage_at_50": 0.7368,
+      "median_best_candidate_rank": 15,
+      "candidate_generation_failures": 5,
+      "ranking_headroom_cases": 7,
+      "reranker_regressions": 0
+    },
+    {
+      "intent_label": "authorization_sensitive",
+      "total_cases_count": 51,
+      "positive_cases_count": 39,
+      "recall_at_10_bm25": 0.2692,
+      "recall_at_10_dense": 0.3718,
+      "recall_at_10_rrf": 0.3718,
+      "recall_at_10_reranker": 0.3679,
+      "union_coverage_at_50": 0.7436,
+      "median_best_candidate_rank": 15,
+      "candidate_generation_failures": 10,
+      "ranking_headroom_cases": 12,
+      "reranker_regressions": 1
+    },
+    {
+      "intent_label": "adversarial",
+      "total_cases_count": 18,
+      "positive_cases_count": 18,
+      "recall_at_10_bm25": 0.3889,
+      "recall_at_10_dense": 0.3889,
+      "recall_at_10_rrf": 0.5,
+      "recall_at_10_reranker": 0.5444,
+      "union_coverage_at_50": 0.6667,
+      "median_best_candidate_rank": 15.0,
+      "candidate_generation_failures": 6,
+      "ranking_headroom_cases": 4,
+      "reranker_regressions": 0
+    },
+    {
+      "intent_label": "missing_information",
+      "total_cases_count": 19,
+      "positive_cases_count": 0,
+      "recall_at_10_bm25": 0.0,
+      "recall_at_10_dense": 0.0,
+      "recall_at_10_rrf": 0.0,
+      "recall_at_10_reranker": 0.0,
+      "union_coverage_at_50": 0.0,
+      "median_best_candidate_rank": null,
+      "candidate_generation_failures": 0,
+      "ranking_headroom_cases": 0,
+      "reranker_regressions": 0
+    },
+    {
+      "intent_label": "ambiguous",
+      "total_cases_count": 11,
+      "positive_cases_count": 11,
+      "recall_at_10_bm25": 0.2273,
+      "recall_at_10_dense": 0.3182,
+      "recall_at_10_rrf": 0.3182,
+      "recall_at_10_reranker": 0.4545,
+      "union_coverage_at_50": 1.0,
+      "median_best_candidate_rank": 10,
+      "candidate_generation_failures": 0,
+      "ranking_headroom_cases": 5,
+      "reranker_regressions": 0
+    }
+  ],
+  "key_findings": {
+    "total_cases": 120,
+    "positive_cases": 101,
+    "dominant_intents": [
+      [
+        "semantic",
+        96
+      ],
+      [
+        "relationship",
+        61
+      ],
+      [
+        "authorization_sensitive",
+        51
+      ],
+      [
+        "entity_attribute",
+        47
+      ],
+      [
+        "multi_document",
+        32
+      ]
+    ],
+    "lowest_recall_intents": [
+      {
+        "intent": "duplicate_resolution",
+        "rrf_recall_at_10": 0.25
+      },
+      {
+        "intent": "ambiguous",
+        "rrf_recall_at_10": 0.3182
+      },
+      {
+        "intent": "authorization_sensitive",
+        "rrf_recall_at_10": 0.3718
+      }
+    ],
+    "top_candidate_generation_failure_intents": [
+      {
+        "intent": "semantic",
+        "fails": 16
+      },
+      {
+        "intent": "authorization_sensitive",
+        "fails": 10
+      },
+      {
+        "intent": "entity_attribute",
+        "fails": 7
+      },
+      {
+        "intent": "relationship",
+        "fails": 6
+      }
+    ]
+  }
+}

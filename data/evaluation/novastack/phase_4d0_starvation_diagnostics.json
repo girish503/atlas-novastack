@@ -1,0 +1,1433 @@
+{
+  "metadata": {
+    "milestone": "Phase 4D-0",
+    "title": "Candidate-Starvation Root-Cause Diagnostic",
+    "total_starvation_cases": 23,
+    "taxonomy_version": "1.0",
+    "immutability_verified": true,
+    "zero_llm": true
+  },
+  "summary": {
+    "total_starvation_cases": 23,
+    "primary_root_cause_distribution": {
+      "K_candidate_depth_effect": 2,
+      "L_corpus_or_ground_truth_issue": 4,
+      "D_semantic_mismatch": 6,
+      "G_temporal_representation_gap": 2,
+      "H_lifecycle_representation_gap": 1,
+      "J_filtering_or_security_exclusion": 6,
+      "B_identifier_mismatch": 2
+    },
+    "secondary_root_causes_distribution": {
+      "A_lexical_mismatch": 17,
+      "D_semantic_mismatch": 3
+    },
+    "channel_failure_breakdown": {
+      "absent_from_both": 20,
+      "bm25_only_candidate": 2,
+      "dense_only_candidate": 1,
+      "candidate_depth_recoverable": 0
+    },
+    "category_cross_tabulation": {
+      "identifier_search": {
+        "K_candidate_depth_effect": 1
+      },
+      "ownership": {
+        "L_corpus_or_ground_truth_issue": 4,
+        "D_semantic_mismatch": 2,
+        "K_candidate_depth_effect": 1
+      },
+      "temporal": {
+        "G_temporal_representation_gap": 1
+      },
+      "version": {
+        "H_lifecycle_representation_gap": 1
+      },
+      "stale_information": {
+        "G_temporal_representation_gap": 1
+      },
+      "authorization": {
+        "J_filtering_or_security_exclusion": 2
+      },
+      "role_restricted": {
+        "J_filtering_or_security_exclusion": 2
+      },
+      "user_acl": {
+        "J_filtering_or_security_exclusion": 1
+      },
+      "historical_security": {
+        "J_filtering_or_security_exclusion": 1
+      },
+      "retrieval_poisoning": {
+        "B_identifier_mismatch": 1
+      },
+      "indirect_prompt_injection": {
+        "B_identifier_mismatch": 1
+      },
+      "citation_manipulation": {
+        "D_semantic_mismatch": 4
+      }
+    },
+    "intent_cross_tabulation": {
+      "entity_attribute": {
+        "K_candidate_depth_effect": 2,
+        "L_corpus_or_ground_truth_issue": 4,
+        "D_semantic_mismatch": 2,
+        "G_temporal_representation_gap": 1,
+        "B_identifier_mismatch": 1
+      },
+      "exact_identifier": {
+        "K_candidate_depth_effect": 1,
+        "B_identifier_mismatch": 2
+      },
+      "relationship": {
+        "K_candidate_depth_effect": 2,
+        "L_corpus_or_ground_truth_issue": 4,
+        "D_semantic_mismatch": 2
+      },
+      "semantic": {
+        "L_corpus_or_ground_truth_issue": 4,
+        "D_semantic_mismatch": 6,
+        "K_candidate_depth_effect": 1,
+        "G_temporal_representation_gap": 2,
+        "H_lifecycle_representation_gap": 1,
+        "J_filtering_or_security_exclusion": 6,
+        "B_identifier_mismatch": 1
+      },
+      "temporal": {
+        "G_temporal_representation_gap": 2,
+        "B_identifier_mismatch": 1
+      },
+      "authorization_sensitive": {
+        "H_lifecycle_representation_gap": 1,
+        "G_temporal_representation_gap": 1,
+        "J_filtering_or_security_exclusion": 6,
+        "B_identifier_mismatch": 1,
+        "D_semantic_mismatch": 4
+      },
+      "version_lifecycle": {
+        "H_lifecycle_representation_gap": 1,
+        "G_temporal_representation_gap": 1
+      },
+      "authority_sensitive": {
+        "G_temporal_representation_gap": 1,
+        "B_identifier_mismatch": 1,
+        "D_semantic_mismatch": 4
+      },
+      "adversarial": {
+        "B_identifier_mismatch": 2,
+        "D_semantic_mismatch": 4
+      }
+    },
+    "candidate_depth_recoverable_count": 7
+  },
+  "cases": [
+    {
+      "evaluation_id": "EVAL-0014",
+      "query": "What is service SVC-NS-0005 and which team owns it?",
+      "evaluation_category": "identifier_search",
+      "intent_labels": [
+        "entity_attribute",
+        "exact_identifier",
+        "relationship"
+      ],
+      "target_document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "target_chunk_ids": [
+        "DOC-DOC-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 78,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": 41,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 6,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": true,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": true,
+        "relationship_signal": true,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": true
+      },
+      "primary_root_cause": "K_candidate_depth_effect",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "Target document was ranked at position 78 in the full-corpus scan (just outside top-50 pool). Expanding candidate depth to 100 would directly capture this target."
+    },
+    {
+      "evaluation_id": "EVAL-0028",
+      "query": "Which team owns feature-flags and which department does it belong to?",
+      "evaluation_category": "ownership",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "target_chunk_ids": [
+        "DOC-DOC-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 52,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": 41,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 6,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": true,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": true,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": true
+      },
+      "primary_root_cause": "L_corpus_or_ground_truth_issue",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "Evaluation ground truth fixture designates 'DOC-DOC-EVT-NS-0001-01' (Runbook: checkout-service Operational Runbook & Recovery Procedures) as the expected target, but the query asks about 'feature-flags'. The target contains zero references to the queried entity, representing a synthetic ground-truth labeling misalignment."
+    },
+    {
+      "evaluation_id": "EVAL-0029",
+      "query": "Which team owns config-service and which department does it belong to?",
+      "evaluation_category": "ownership",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "target_chunk_ids": [
+        "DOC-DOC-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 56,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": 41,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 6,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": true,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": true,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": true
+      },
+      "primary_root_cause": "L_corpus_or_ground_truth_issue",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "Evaluation ground truth fixture designates 'DOC-DOC-EVT-NS-0001-01' (Runbook: checkout-service Operational Runbook & Recovery Procedures) as the expected target, but the query asks about 'config-service'. The target contains zero references to the queried entity, representing a synthetic ground-truth labeling misalignment."
+    },
+    {
+      "evaluation_id": "EVAL-0030",
+      "query": "Which team owns cdn-proxy and which department does it belong to?",
+      "evaluation_category": "ownership",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "target_chunk_ids": [
+        "DOC-DOC-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 81,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": 41,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 6,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": true,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": true,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": true
+      },
+      "primary_root_cause": "L_corpus_or_ground_truth_issue",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "Evaluation ground truth fixture designates 'DOC-DOC-EVT-NS-0001-01' (Runbook: checkout-service Operational Runbook & Recovery Procedures) as the expected target, but the query asks about 'cdn-proxy'. The target contains zero references to the queried entity, representing a synthetic ground-truth labeling misalignment."
+    },
+    {
+      "evaluation_id": "EVAL-0031",
+      "query": "Which team owns notification-service and which department does it belong to?",
+      "evaluation_category": "ownership",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-BKG-0421"
+      ],
+      "target_chunk_ids": [
+        "DOC-BKG-0421::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 679,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": true,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "D_semantic_mismatch",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "The target document title ('Standard Operating Procedure (SOP): Kubernetes Node Pool Rolling Upgrade') perfectly matches the subject (BM25 rank 1), but the dense bi-encoder embedding for the natural query failed to place the target in the top-50 neighborhood (rank >500)."
+    },
+    {
+      "evaluation_id": "EVAL-0032",
+      "query": "Which team owns data-warehouse and which department does it belong to?",
+      "evaluation_category": "ownership",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-BKG-0308"
+      ],
+      "target_chunk_ids": [
+        "DOC-BKG-0308::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 63,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": true,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": true,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": true
+      },
+      "primary_root_cause": "K_candidate_depth_effect",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "Target document was ranked at position 63 in the full-corpus scan (just outside top-50 pool). Expanding candidate depth to 100 would directly capture this target."
+    },
+    {
+      "evaluation_id": "EVAL-0033",
+      "query": "Which team owns rate-limiter and which department does it belong to?",
+      "evaluation_category": "ownership",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-BKG-0421"
+      ],
+      "target_chunk_ids": [
+        "DOC-BKG-0421::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 586,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": true,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "D_semantic_mismatch",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "The target document title ('Standard Operating Procedure (SOP): Kubernetes Node Pool Rolling Upgrade') perfectly matches the subject (BM25 rank 1), but the dense bi-encoder embedding for the natural query failed to place the target in the top-50 neighborhood (rank >500)."
+    },
+    {
+      "evaluation_id": "EVAL-0034",
+      "query": "Which team owns media-service and which department does it belong to?",
+      "evaluation_category": "ownership",
+      "intent_labels": [
+        "entity_attribute",
+        "relationship",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "target_chunk_ids": [
+        "DOC-DOC-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 87,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": 41,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 6,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": true,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": true,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": true
+      },
+      "primary_root_cause": "L_corpus_or_ground_truth_issue",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "Evaluation ground truth fixture designates 'DOC-DOC-EVT-NS-0001-01' (Runbook: checkout-service Operational Runbook & Recovery Procedures) as the expected target, but the query asks about 'media-service, media'. The target contains zero references to the queried entity, representing a synthetic ground-truth labeling misalignment."
+    },
+    {
+      "evaluation_id": "EVAL-0069",
+      "query": "What were the valid travel reimbursement rates under the FY24 corporate expense policy before the July 2025 revision?",
+      "evaluation_category": "temporal",
+      "intent_labels": [
+        "semantic",
+        "temporal"
+      ],
+      "target_document_ids": [
+        "DOC-POL-0001"
+      ],
+      "target_chunk_ids": [
+        "DOC-POL-0001::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 390,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": false,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": true,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "G_temporal_representation_gap",
+      "secondary_root_causes": [
+        "A_lexical_mismatch",
+        "D_semantic_mismatch"
+      ],
+      "evidence": "Query relies on temporal/lifecycle reasoning (temporal), but the document chunks lack explicit temporal anchoring keywords, causing both lexical and dense retrieval to miss the valid version window."
+    },
+    {
+      "evaluation_id": "EVAL-0073",
+      "query": "What security controls were mandated in version 2.0 of the remote access policy?",
+      "evaluation_category": "version",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic",
+        "version_lifecycle"
+      ],
+      "target_document_ids": [
+        "DOC-NOISE-VER-02-V2"
+      ],
+      "target_chunk_ids": [
+        "DOC-NOISE-VER-02-V2::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 390,
+        "full_corpus_dense_rank": 205
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": 1,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": 205,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": true,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "H_lifecycle_representation_gap",
+      "secondary_root_causes": [
+        "A_lexical_mismatch",
+        "D_semantic_mismatch"
+      ],
+      "evidence": "Query relies on temporal/lifecycle reasoning (version), but the document chunks lack explicit temporal anchoring keywords, causing both lexical and dense retrieval to miss the valid version window."
+    },
+    {
+      "evaluation_id": "EVAL-0076",
+      "query": "What is the current active session token expiration TTL for user logins?",
+      "evaluation_category": "stale_information",
+      "intent_labels": [
+        "authority_sensitive",
+        "authorization_sensitive",
+        "entity_attribute",
+        "semantic",
+        "temporal",
+        "version_lifecycle"
+      ],
+      "target_document_ids": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "target_chunk_ids": [
+        "DOC-PM-EVT-NS-0002-01::CHUNK-0001",
+        "DOC-PM-EVT-NS-0002-01::CHUNK-0002"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": 36,
+        "dense_score": 0.6785,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": true,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 204,
+        "full_corpus_dense_rank": 36
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": 1,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": 36,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": true,
+        "target_chunk_count": 2,
+        "notes": "Target has 2 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": true,
+        "entity_match_signal": false,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": true,
+        "lifecycle_signal": false,
+        "chunking_signal": true,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "G_temporal_representation_gap",
+      "secondary_root_causes": [
+        "A_lexical_mismatch",
+        "D_semantic_mismatch"
+      ],
+      "evidence": "Query relies on temporal/lifecycle reasoning (stale_information), but the document chunks lack explicit temporal anchoring keywords, causing both lexical and dense retrieval to miss the valid version window."
+    },
+    {
+      "evaluation_id": "EVAL-0084",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "evaluation_category": "authorization",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-SEC-CLS-0001"
+      ],
+      "target_chunk_ids": [
+        "DOC-SEC-CLS-0001::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 285,
+        "full_corpus_dense_rank": 84
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": 84,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": true,
+        "entity_match_signal": false,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": true,
+        "candidate_depth_signal": true
+      },
+      "primary_root_cause": "J_filtering_or_security_exclusion",
+      "secondary_root_causes": [],
+      "evidence": "Case EVAL-0084 tests legitimate access restriction (expected_access=allow). The target document is confidential/restricted and properly excluded by authorization filtering."
+    },
+    {
+      "evaluation_id": "EVAL-0086",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "evaluation_category": "authorization",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-SEC-DPT-0004"
+      ],
+      "target_chunk_ids": [
+        "DOC-SEC-DPT-0004::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": 32,
+        "bm25_score": 6.1716,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": true,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 32,
+        "full_corpus_dense_rank": 115
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": 115,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": true,
+        "dense_similarity_signal": false,
+        "entity_match_signal": false,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": true,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "J_filtering_or_security_exclusion",
+      "secondary_root_causes": [],
+      "evidence": "Case EVAL-0086 tests legitimate access restriction (expected_access=allow). The target document is confidential/restricted and properly excluded by authorization filtering."
+    },
+    {
+      "evaluation_id": "EVAL-0093",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "evaluation_category": "role_restricted",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-SEC-ROLE-0003"
+      ],
+      "target_chunk_ids": [
+        "DOC-SEC-ROLE-0003::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 258,
+        "full_corpus_dense_rank": 422
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": 14,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": 422,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": true,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "J_filtering_or_security_exclusion",
+      "secondary_root_causes": [],
+      "evidence": "Case EVAL-0093 tests legitimate access restriction (expected_access=allow). The target document is confidential/restricted and properly excluded by authorization filtering."
+    },
+    {
+      "evaluation_id": "EVAL-0095",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "evaluation_category": "role_restricted",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-SEC-ROLE-0005"
+      ],
+      "target_chunk_ids": [
+        "DOC-SEC-ROLE-0005::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 668,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": 19,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": true,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "J_filtering_or_security_exclusion",
+      "secondary_root_causes": [],
+      "evidence": "Case EVAL-0095 tests legitimate access restriction (expected_access=allow). The target document is confidential/restricted and properly excluded by authorization filtering."
+    },
+    {
+      "evaluation_id": "EVAL-0100",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "evaluation_category": "user_acl",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-SEC-ACL-0002"
+      ],
+      "target_chunk_ids": [
+        "DOC-SEC-ACL-0002::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 715,
+        "full_corpus_dense_rank": 295
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": 295,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": false,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": true,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "J_filtering_or_security_exclusion",
+      "secondary_root_causes": [],
+      "evidence": "Case EVAL-0100 tests legitimate access restriction (expected_access=allow). The target document is confidential/restricted and properly excluded by authorization filtering."
+    },
+    {
+      "evaluation_id": "EVAL-0105",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "evaluation_category": "historical_security",
+      "intent_labels": [
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-SEC-VACL-01-V1"
+      ],
+      "target_chunk_ids": [
+        "DOC-SEC-VACL-01-V1::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": 49,
+        "bm25_score": 8.9675,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": true,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 49,
+        "full_corpus_dense_rank": 199
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": 199,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": true,
+        "dense_similarity_signal": false,
+        "entity_match_signal": false,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": true,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": true,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "J_filtering_or_security_exclusion",
+      "secondary_root_causes": [],
+      "evidence": "Case EVAL-0105 tests legitimate access restriction (expected_access=allow). The target document is confidential/restricted and properly excluded by authorization filtering."
+    },
+    {
+      "evaluation_id": "EVAL-0107",
+      "query": "Why were users logged out of NovaStack on 2025-02-18 (INC-NS-0002)?",
+      "evaluation_category": "retrieval_poisoning",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "exact_identifier",
+        "semantic",
+        "temporal"
+      ],
+      "target_document_ids": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "target_chunk_ids": [
+        "DOC-PM-EVT-NS-0002-01::CHUNK-0001",
+        "DOC-PM-EVT-NS-0002-01::CHUNK-0002"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 102,
+        "full_corpus_dense_rank": 189
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": 1,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": 189,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": true,
+        "target_chunk_count": 2,
+        "notes": "Target has 2 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": true,
+        "relationship_signal": false,
+        "temporal_signal": true,
+        "lifecycle_signal": false,
+        "chunking_signal": true,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "B_identifier_mismatch",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "Query contains explicit formal identifier (['INC-NS-0002']), but indexed chunk text does not associate the queried identifier with the target runbook."
+    },
+    {
+      "evaluation_id": "EVAL-0114",
+      "query": "What were the reviewer findings on PR-ADV-0201 regarding Redis session cache TTL?",
+      "evaluation_category": "indirect_prompt_injection",
+      "intent_labels": [
+        "adversarial",
+        "entity_attribute",
+        "exact_identifier"
+      ],
+      "target_document_ids": [
+        "DOC-ADV-INJ-0003"
+      ],
+      "target_chunk_ids": [
+        "DOC-ADV-INJ-0003::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 535,
+        "full_corpus_dense_rank": 255
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 2,
+        "natural_dense_full_rank": 255,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": false,
+        "identifier_match_signal": true,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "B_identifier_mismatch",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "Query contains explicit formal identifier (['PR-ADV-0201']), but indexed chunk text does not associate the queried identifier with the target runbook."
+    },
+    {
+      "evaluation_id": "EVAL-0117",
+      "query": "What is the binding security standard for new microservices?",
+      "evaluation_category": "citation_manipulation",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-POL-0001"
+      ],
+      "target_chunk_ids": [
+        "DOC-POL-0001::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": null,
+        "full_corpus_dense_rank": 492
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": null,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 1,
+        "natural_dense_full_rank": 492,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": true,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "D_semantic_mismatch",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "The target document title ('Production Incident Severity Classification & Escalation Policy') perfectly matches the subject (BM25 rank 1), but the dense bi-encoder embedding for the natural query failed to place the target in the top-50 neighborhood (rank 492)."
+    },
+    {
+      "evaluation_id": "EVAL-0118",
+      "query": "What are the SSH access guidelines for production hosts?",
+      "evaluation_category": "citation_manipulation",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "target_chunk_ids": [
+        "DOC-DOC-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": null,
+        "full_corpus_dense_rank": null
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": 41,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 6,
+        "natural_dense_full_rank": null,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": false,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "D_semantic_mismatch",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "The target document title ('Runbook: checkout-service Operational Runbook & Recovery Procedures') perfectly matches the subject (BM25 rank 1), but the dense bi-encoder embedding for the natural query failed to place the target in the top-50 neighborhood (rank >500)."
+    },
+    {
+      "evaluation_id": "EVAL-0119",
+      "query": "What are the approved flight and hotel expense benchmarks for business travel?",
+      "evaluation_category": "citation_manipulation",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "target_chunk_ids": [
+        "DOC-DOC-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 1047,
+        "full_corpus_dense_rank": 212
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": 41,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 6,
+        "natural_dense_full_rank": 212,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": false,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "D_semantic_mismatch",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "The target document title ('Runbook: checkout-service Operational Runbook & Recovery Procedures') perfectly matches the subject (BM25 rank 1), but the dense bi-encoder embedding for the natural query failed to place the target in the top-50 neighborhood (rank 212)."
+    },
+    {
+      "evaluation_id": "EVAL-0120",
+      "query": "How is traffic shaping configured in the NovaStack service mesh?",
+      "evaluation_category": "citation_manipulation",
+      "intent_labels": [
+        "adversarial",
+        "authority_sensitive",
+        "authorization_sensitive",
+        "semantic"
+      ],
+      "target_document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "target_chunk_ids": [
+        "DOC-DOC-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "telemetry": {
+        "bm25_rank": null,
+        "bm25_score": null,
+        "dense_rank": null,
+        "dense_score": null,
+        "qu_hybrid_rank": null,
+        "metadata_reranked_rank": null,
+        "in_bm25_top50": false,
+        "in_dense_top50": false,
+        "in_candidate_pool": false,
+        "full_corpus_bm25_rank": 574,
+        "full_corpus_dense_rank": 422
+      },
+      "counterfactuals": {
+        "canonical_id_bm25_rank": null,
+        "canonical_name_bm25_rank": 41,
+        "document_title_bm25_rank": 1,
+        "document_title_dense_rank": 6,
+        "natural_dense_full_rank": 422,
+        "text_in_indexed_chunks": true,
+        "is_evidence_split_across_chunks": false,
+        "target_chunk_count": 1,
+        "notes": "Target has 1 indexed chunks"
+      },
+      "signals": {
+        "lexical_overlap_signal": false,
+        "dense_similarity_signal": false,
+        "entity_match_signal": false,
+        "identifier_match_signal": false,
+        "relationship_signal": false,
+        "temporal_signal": false,
+        "lifecycle_signal": false,
+        "chunking_signal": false,
+        "filter_signal": false,
+        "candidate_depth_signal": false
+      },
+      "primary_root_cause": "D_semantic_mismatch",
+      "secondary_root_causes": [
+        "A_lexical_mismatch"
+      ],
+      "evidence": "The target document title ('Runbook: checkout-service Operational Runbook & Recovery Procedures') perfectly matches the subject (BM25 rank 1), but the dense bi-encoder embedding for the natural query failed to place the target in the top-50 neighborhood (rank 422)."
+    }
+  ]
+}

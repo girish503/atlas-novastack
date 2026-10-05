@@ -29,6 +29,7 @@ dev = [
 ]
 test = [
     "pytest>=7.4.0,<9.0.0",
+    "psutil>=5.9.0,<7.0.0",
 ]
 
 [tool.setuptools.packages.find]
@@ -36,7 +37,7 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = [".", "src"]
 markers = [
     "slow: requires ML model loading (Gemma or SentenceTransformer on CPU)",
 ]
