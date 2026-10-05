@@ -1,0 +1,18 @@
+{
+  "decision": "READY_FOR_PUBLICATION_PREFLIGHT",
+  "repository_visibility": "PRIVATE",
+  "real_secrets": 0,
+  "test_secrets_preserved": 13,
+  "real_local_machine_findings_before": 116,
+  "documentation_findings_sanitized": 44,
+  "scratch_log_findings_excluded": 63,
+  "synthetic_test_data_preserved": 665,
+  "false_positives_preserved": 34,
+  "release_artifact_sha_verified": true,
+  "release_artifact_modified": false,
+  "production_modified": false,
+  "source_behavior_changed": false,
+  "github_remote_created": false,
+  "push_performed": false,
+  "cs01_executed": false
+}

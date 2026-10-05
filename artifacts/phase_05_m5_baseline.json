@@ -1,0 +1,259 @@
+{
+  "milestone": "ATLAS 0.5-M5 Baseline (Captured from M4 Candidate)",
+  "timestamp": "2026-09-26T12:21:01.358817+00:00",
+  "production_reference_release": "0.4.14-rc1",
+  "baseline_immutability_verified": true,
+  "verified_baseline_artifacts_count": 16,
+  "verified_baseline_digests": {
+    "data/raw/novastack/source_records.json": "f877faf2dec310dca1ca56c57756f8c7368a90468c2f6b0ab74f689eca43eab3",
+    "data/processed/novastack/search_documents.json": "ffd7483aec9b4ffce57394880f664cbf79f2ca6733422ba01b235df28e9b9871",
+    "data/processed/novastack/search_chunks.json": "36fbc12e31cecb146f220a8d58873980c84c08beda770f13f77631b3c6c48605",
+    "data/evaluation/novastack/evaluation_cases.json": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+    "data/evaluation/novastack/bm25_baseline.json": "91fd7ddbdb837e21089d622da08d4e8c8091d68c74b744500ec332ebfe8c4d52",
+    "data/evaluation/novastack/dense_baseline.json": "0d70a7b9523445065754d2a0325703544725e3c5cff587eda0ccc2079dc2acb2",
+    "data/evaluation/novastack/hybrid_baseline.json": "794a4a805075f6ff83a966fce8bda756c29e5e5fd0afb4a85c84e49a72374663",
+    "data/evaluation/novastack/phase_4b0_candidate_diagnostics.json": "2493b08e136b7ba40e6e3bbbaace977a3b55f77cf45bff945cdd961c696327c6",
+    "data/evaluation/novastack/phase_4b1_reranker_baseline.json": "30e9ba5da6966b4ee871764e6c45b1ea6db57cbe265389a7c739bf4a9e62bd96",
+    "data/evaluation/novastack/phase_4c0_query_profiles.json": "782134fd40068c6bf5994b418428094126202f7fccafa5a12f72b5f264b08226",
+    "data/evaluation/novastack/phase_4c1_query_understanding.json": "57fb97475f5541b0c844fb1662b539f54f70aa92038ae8f00dc4e7d00d4d2b6d",
+    "data/evaluation/novastack/phase_4c2_metadata_diagnostics.json": "e6fdd0efe8493ec4cab6dd5c523c4edf1b2771a103a97a230cfc42b8496e2a8c",
+    "data/evaluation/novastack/phase_4c3_metadata_reranking.json": "ea9407b430a0424705e465673b29d8bb0ba42c1cec2406b3f979883f8ecf5766",
+    "data/evaluation/novastack/phase_4d0_starvation_diagnostics.json": "7628b042e3f29c9935da76388a0380e24d2da27378cddd2cb3e84e38dcdfc31b",
+    "data/evaluation/novastack/phase_4d0_1_reconciliation.json": "dceaec3c81d0941c6b25425e3d1b781b23c1f741e6ce2262eec842a93803edc7",
+    "data/evaluation/novastack/phase_4d1_depth_fusion_ablation.json": "4ab13904c1f686a7c2f011f7bf66f188c5d2215e75259a699fdeecaa661f49cb"
+  },
+  "metrics": {
+    "positive_answer_yield": {
+      "answered": 61,
+      "total": 101,
+      "yield_pct": 60.4
+    },
+    "negative_abstention": {
+      "abstained": 19,
+      "total": 19,
+      "abstention_pct": 100.0
+    },
+    "citation_precision_pct": 100.0,
+    "citation_completeness_pct": 88.52,
+    "retrieval": {
+      "recall_at_1": 0.1535,
+      "recall_at_3": 0.4208,
+      "recall_at_5": 0.5322,
+      "recall_at_10": 0.5701,
+      "mrr": 0.373,
+      "ndcg_at_10": 0.3826
+    },
+    "latency_ms": {
+      "mean_positive_latency_ms": 15541.22,
+      "p95_positive_latency_ms": 23800.0
+    },
+    "context_and_evidence": {
+      "mean_prompt_token_count": 558.4,
+      "mean_evidence_documents_positive": 2.0,
+      "mean_evidence_documents_protective": 3.0
+    },
+    "critical_regressions": {
+      "EVAL-0054": {
+        "query": "What is NovaStack's satellite downlink antenna failover procedure?",
+        "answer_status": "abstained",
+        "abstention_reason": "model_evidence_insufficient"
+      },
+      "EVAL-0058": {
+        "query": "What are the production API authorization tokens for third-party Twilio SMS trunking?",
+        "answer_status": "abstained",
+        "abstention_reason": "model_evidence_insufficient"
+      }
+    },
+    "security": {
+      "security_violations": 0,
+      "cross_tenant_violations": 0,
+      "unauthorized_citations": 0,
+      "forbidden_citations": 0
+    }
+  },
+  "multi_hop_slice_baseline": {
+    "total_multihop_and_multidoc_cases": 18,
+    "cases": {
+      "EVAL-0035": {
+        "category": "multi_document",
+        "query": "What did deployment DEP-NS-0001 change and what PR resolved the resulting checkout outage?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 2,
+        "generation_latency_ms": 10639.468999999963,
+        "input_tokens": 466,
+        "exposed_evidence_count": 2
+      },
+      "EVAL-0036": {
+        "category": "multi_document",
+        "query": "What was the customer impact reported during the authentication incident and how did the postmortem resolve it?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 1,
+        "generation_latency_ms": 18199.707899999907,
+        "input_tokens": 906,
+        "exposed_evidence_count": 3
+      },
+      "EVAL-0037": {
+        "category": "multi_document",
+        "query": "What did the deployment note for config-service state and what did the fixing PR change?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 1,
+        "generation_latency_ms": 21485.575900000073,
+        "input_tokens": 485,
+        "exposed_evidence_count": 2
+      },
+      "EVAL-0038": {
+        "category": "multi_document",
+        "query": "What did triage channel notes say about search latency and what did postmortem action items require?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 3,
+        "generation_latency_ms": 19676.410600000054,
+        "input_tokens": 764,
+        "exposed_evidence_count": 3
+      },
+      "EVAL-0039": {
+        "category": "multi_document",
+        "query": "What caused notification delivery failure in deployment DEP-NS-0004 and what PR resolved it?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 2,
+        "generation_latency_ms": 9684.022400000003,
+        "input_tokens": 429,
+        "exposed_evidence_count": 2
+      },
+      "EVAL-0040": {
+        "category": "multi_document",
+        "query": "Which deployment triggered the database migration lock and what postmortem actions were taken?",
+        "answer_status": "abstained",
+        "abstention_reason": "model_evidence_insufficient",
+        "citations_count": 0,
+        "generation_latency_ms": 23373.679699999913,
+        "input_tokens": 779,
+        "exposed_evidence_count": 3
+      },
+      "EVAL-0041": {
+        "category": "multi_document",
+        "query": "What rate limit values were deployed in DEP-NS-0006 and what PR restored the quota?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 1,
+        "generation_latency_ms": 16465.60189999991,
+        "input_tokens": 474,
+        "exposed_evidence_count": 2
+      },
+      "EVAL-0042": {
+        "category": "multi_document",
+        "query": "What did support tickets report about customer billing errors and what PR fixed the analytics calculation?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 2,
+        "generation_latency_ms": 24261.773300000186,
+        "input_tokens": 754,
+        "exposed_evidence_count": 3
+      },
+      "EVAL-0043": {
+        "category": "multi_document",
+        "query": "What deployment was rolled back in media-service and what rollback deployment DEP-NS-0008 accomplished?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 2,
+        "generation_latency_ms": 23729.148500000065,
+        "input_tokens": 529,
+        "exposed_evidence_count": 2
+      },
+      "EVAL-0044": {
+        "category": "multi_hop",
+        "query": "Trace the full causal chain of the checkout outage: what symptom appeared, which service was affected, which deployment caused it, and which PR resolved it?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 1,
+        "generation_latency_ms": 12898.22449999997,
+        "input_tokens": 473,
+        "exposed_evidence_count": 2
+      },
+      "EVAL-0045": {
+        "category": "multi_hop",
+        "query": "Trace the authentication failure: what did users experience, what service failed, what deployment introduced it, and how did a PR fix it?",
+        "answer_status": "abstained",
+        "abstention_reason": "model_evidence_insufficient",
+        "citations_count": 0,
+        "generation_latency_ms": 9550.574200000028,
+        "input_tokens": 642,
+        "exposed_evidence_count": 2
+      },
+      "EVAL-0046": {
+        "category": "multi_hop",
+        "query": "Trace the payment failure: what error occurred, which service was misconfigured, which deployment was responsible, and which PR resolved the issue?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 3,
+        "generation_latency_ms": 20777.02939999995,
+        "input_tokens": 820,
+        "exposed_evidence_count": 3
+      },
+      "EVAL-0047": {
+        "category": "multi_hop",
+        "query": "Trace the search latency incident: what degradation was observed, which caching service failed, and which PR fixed edge TTLs?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 2,
+        "generation_latency_ms": 21535.943600000108,
+        "input_tokens": 777,
+        "exposed_evidence_count": 3
+      },
+      "EVAL-0048": {
+        "category": "multi_hop",
+        "query": "Trace notification delivery failure: what was the symptom, which service queue stalled, which deployment caused it, and which PR fixed worker deadlocks?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 3,
+        "generation_latency_ms": 8672.388599999977,
+        "input_tokens": 470,
+        "exposed_evidence_count": 2
+      },
+      "EVAL-0049": {
+        "category": "multi_hop",
+        "query": "Trace the database write freeze: what symptom occurred, what warehouse service was affected, which deployment ran the schema change, and how was it mitigated?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 2,
+        "generation_latency_ms": 20859.89859999995,
+        "input_tokens": 868,
+        "exposed_evidence_count": 3
+      },
+      "EVAL-0050": {
+        "category": "multi_hop",
+        "query": "Trace the API throttling incident: what error did API clients receive, which service was misconfigured, which deployment halved quotas, and which PR restored them?",
+        "answer_status": "abstained",
+        "abstention_reason": "timeout",
+        "citations_count": 0,
+        "generation_latency_ms": 25140.531100000087,
+        "input_tokens": 0,
+        "exposed_evidence_count": 0
+      },
+      "EVAL-0051": {
+        "category": "multi_hop",
+        "query": "Trace the billing invoice discrepancy: what did customers observe, which pipeline caused double multiplication, and which PR fixed the rates?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 1,
+        "generation_latency_ms": 14871.41859999997,
+        "input_tokens": 716,
+        "exposed_evidence_count": 3
+      },
+      "EVAL-0052": {
+        "category": "multi_hop",
+        "query": "Trace the media-service crash: what failed after v3.0.0, which deployment DEP-NS-0007 caused it, which rollback deployment DEP-NS-0008 fixed it, and which PR updated rollback logic?",
+        "answer_status": "answered",
+        "abstention_reason": null,
+        "citations_count": 1,
+        "generation_latency_ms": 14671.066800000062,
+        "input_tokens": 512,
+        "exposed_evidence_count": 2
+      }
+    }
+  }
+}

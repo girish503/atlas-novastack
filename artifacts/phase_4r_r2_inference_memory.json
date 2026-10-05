@@ -1,0 +1,272 @@
+{
+  "phase": "4R-R2",
+  "title": "Inference Deadline & Memory Characterization",
+  "timestamp": "2026-09-12T14:52:35Z",
+  "classification": "YELLOW",
+  "frozen_configuration": {
+    "enable_boundary_stitching": false,
+    "enable_query_aware_authority": true,
+    "enable_event_bundling": false,
+    "max_concurrent_inferences": 1,
+    "queue_timeout_seconds": 0.5,
+    "request_timeout_seconds": 30.0,
+    "circuit_breaker": true
+  },
+  "system_specs": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.13.5",
+    "cpu_count_physical": 8,
+    "cpu_count_logical": 8,
+    "total_ram_gb": 7.63,
+    "available_ram_gb": 2.29,
+    "torch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device": "cpu",
+    "pytorch_thread_count": 8,
+    "initial_rss_mb": 231.66,
+    "initial_thread_count": 1
+  },
+  "model_specs": {
+    "model_name": "google/gemma-3-1b-it",
+    "parameter_count": 999885952,
+    "dtype": "torch.float32",
+    "weight_memory_mb": 3814.26
+  },
+  "timing_breakdown": [
+    {
+      "query_id": "REQ-R2-0001",
+      "evaluation_id": "EVAL-0001",
+      "status_code": 504,
+      "answer_status": "timeout",
+      "queue_acquisition_ms": 0.1,
+      "retrieval_ms": 10304.79,
+      "evidence_assembly_ms": 43.06,
+      "tokenization_ms": 0.0,
+      "raw_generation_ms": 0.0,
+      "citation_resolution_ms": 0.0,
+      "serialization_ms": 0.5,
+      "end_to_end_ms": 32006.81,
+      "headroom_ms": -2006.81,
+      "was_generation_invoked": false,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    {
+      "query_id": "REQ-R2-0002",
+      "evaluation_id": "EVAL-0002",
+      "status_code": 504,
+      "answer_status": "timeout",
+      "queue_acquisition_ms": 0.1,
+      "retrieval_ms": 348.23,
+      "evidence_assembly_ms": 12.35,
+      "tokenization_ms": 0.0,
+      "raw_generation_ms": 0.0,
+      "citation_resolution_ms": 0.0,
+      "serialization_ms": 0.5,
+      "end_to_end_ms": 31542.24,
+      "headroom_ms": -1542.24,
+      "was_generation_invoked": false,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    {
+      "query_id": "REQ-R2-0003",
+      "evaluation_id": "EVAL-0003",
+      "status_code": 504,
+      "answer_status": "timeout",
+      "queue_acquisition_ms": 0.1,
+      "retrieval_ms": 255.76,
+      "evidence_assembly_ms": 10.07,
+      "tokenization_ms": 0.0,
+      "raw_generation_ms": 0.0,
+      "citation_resolution_ms": 0.0,
+      "serialization_ms": 0.5,
+      "end_to_end_ms": 30012.67,
+      "headroom_ms": -12.67,
+      "was_generation_invoked": false,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    {
+      "query_id": "REQ-R2-0004",
+      "evaluation_id": "EVAL-0004",
+      "status_code": 503,
+      "answer_status": "error",
+      "queue_acquisition_ms": 0.1,
+      "retrieval_ms": 0.0,
+      "evidence_assembly_ms": 0.0,
+      "tokenization_ms": 0.0,
+      "raw_generation_ms": 0.0,
+      "citation_resolution_ms": 0.0,
+      "serialization_ms": 0.5,
+      "end_to_end_ms": 4.62,
+      "headroom_ms": 29995.38,
+      "was_generation_invoked": false,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  ],
+  "boundary_analysis": {
+    "total_tested": 4,
+    "completed_200": 0,
+    "timed_out_504": 3,
+    "stability_assessment": "borderline",
+    "mean_generation_ms": 0.0,
+    "mean_end_to_end_ms": 23391.58,
+    "mean_headroom_ms": 6608.41
+  },
+  "memory_timeline": [
+    {
+      "stage_name": "Initial Process Startup",
+      "step_number": 1,
+      "rss_mb": 231.66,
+      "active_threads": 1,
+      "pytorch_threads": 8,
+      "delta_from_previous_mb": 0.0,
+      "delta_from_initial_mb": 0.0,
+      "notes": "Bare Python process before pipeline instantiation"
+    },
+    {
+      "stage_name": "After Pipeline Init (Lazy)",
+      "step_number": 2,
+      "rss_mb": 277.8,
+      "active_threads": 1,
+      "pytorch_threads": 8,
+      "delta_from_previous_mb": 46.14,
+      "delta_from_initial_mb": 46.14,
+      "notes": "BM25 + Dense + Reranker loaded in 0.87s"
+    },
+    {
+      "stage_name": "After Model Load",
+      "step_number": 3,
+      "rss_mb": 883.64,
+      "active_threads": 2,
+      "pytorch_threads": 8,
+      "delta_from_previous_mb": 605.84,
+      "delta_from_initial_mb": 651.98,
+      "notes": "Loaded 999,885,952 params (torch.float32, 3814.26 MB) in 29.83s"
+    },
+    {
+      "stage_name": "Before Generation #1",
+      "step_number": 4,
+      "rss_mb": 882.79,
+      "active_threads": 2,
+      "pytorch_threads": 8,
+      "delta_from_previous_mb": -0.85,
+      "delta_from_initial_mb": 651.13,
+      "notes": "Idle ready state prior to inference"
+    },
+    {
+      "stage_name": "After Generation #1",
+      "step_number": 5,
+      "rss_mb": 3908.72,
+      "active_threads": 4,
+      "pytorch_threads": 8,
+      "delta_from_previous_mb": 3025.93,
+      "delta_from_initial_mb": 3677.06,
+      "notes": "REQ-R2-0001 completed (HTTP 504)"
+    },
+    {
+      "stage_name": "After Generation #2",
+      "step_number": 6,
+      "rss_mb": 4057.74,
+      "active_threads": 5,
+      "pytorch_threads": 8,
+      "delta_from_previous_mb": 149.02,
+      "delta_from_initial_mb": 3826.08,
+      "notes": "REQ-R2-0002 completed (HTTP 504)"
+    },
+    {
+      "stage_name": "After Generation #3",
+      "step_number": 7,
+      "rss_mb": 4060.24,
+      "active_threads": 5,
+      "pytorch_threads": 8,
+      "delta_from_previous_mb": 2.5,
+      "delta_from_initial_mb": 3828.58,
+      "notes": "REQ-R2-0003 completed (HTTP 504)"
+    },
+    {
+      "stage_name": "After Explicit Python GC",
+      "step_number": 8,
+      "rss_mb": 3853.62,
+      "active_threads": 5,
+      "pytorch_threads": 8,
+      "delta_from_previous_mb": -206.62,
+      "delta_from_initial_mb": 3621.96,
+      "notes": "gc.collect() invoked"
+    },
+    {
+      "stage_name": "After Safe Idle Period",
+      "step_number": 9,
+      "rss_mb": 4107.26,
+      "active_threads": 5,
+      "pytorch_threads": 8,
+      "delta_from_previous_mb": 253.64,
+      "delta_from_initial_mb": 3875.6,
+      "notes": "5s idle period + gc.collect()"
+    }
+  ],
+  "memory_verdict": "Persistent RSS increase observed; root cause not yet established.",
+  "circuit_breaker_transitions": [
+    {
+      "step": "initial_state",
+      "state": "CLOSED",
+      "can_execute": true,
+      "consecutive_failures": 0
+    },
+    {
+      "step": "failure_1",
+      "state": "CLOSED",
+      "can_execute": true,
+      "consecutive_failures": 1
+    },
+    {
+      "step": "failure_2",
+      "state": "CLOSED",
+      "can_execute": true,
+      "consecutive_failures": 2
+    },
+    {
+      "step": "failure_3_tripped",
+      "state": "OPEN",
+      "can_execute": false,
+      "consecutive_failures": 3
+    },
+    {
+      "step": "fast_rejection_503",
+      "status_code": 422,
+      "latency_ms": 36.96,
+      "error_type": "ValidationError"
+    },
+    {
+      "step": "after_cooldown_probe",
+      "state": "OPEN",
+      "can_execute": false
+    },
+    {
+      "step": "success_recovery",
+      "state": "CLOSED",
+      "can_execute": true,
+      "consecutive_failures": 0
+    }
+  ],
+  "health_probes": {
+    "healthz": {
+      "probes": 15,
+      "success": 15,
+      "failure": 0,
+      "p50_ms": 1.52,
+      "p95_ms": 4.89,
+      "max_ms": 8.78
+    },
+    "ready": {
+      "probes": 15,
+      "success": 15,
+      "failure": 0,
+      "p50_ms": 2.72,
+      "p95_ms": 9.52,
+      "max_ms": 19.47
+    }
+  }
+}

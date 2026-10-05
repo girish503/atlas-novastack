@@ -1,0 +1,18 @@
+{
+  "twelve_point_security": {
+    "S01_valid_jwt_verifies": true,
+    "S02_missing_jwt_rejected": true,
+    "S03_expired_jwt_rejected": true,
+    "S04_wrong_signature_rejected": true,
+    "S05_wrong_issuer_rejected": true,
+    "S06_wrong_audience_rejected": true,
+    "S07_security_pipeline_10_steps": true,
+    "S08_layer1s_in_code": true,
+    "S09_tenant_isolation_in_pipeline": true,
+    "S10_c2_citation_in_pipeline": true,
+    "S11_credential_redaction_list_count": 15,
+    "S11_has_redaction_list": true,
+    "S12_no_auth_in_inference_payload": true
+  },
+  "violations": 0
+}

@@ -1,0 +1,89 @@
+{
+  "milestone": "ATLAS 0.5-M3",
+  "document_id": "DOC-ATLAS-0.5-M3-BASELINE",
+  "timestamp": "2026-09-26T01:12:00Z",
+  "production_reference_release": "0.4.14-rc1",
+  "baseline_immutability_verified": true,
+  "verified_baseline_artifacts_count": 16,
+  "canonical_benchmark_summary": {
+    "total_cases": 120,
+    "positive_cases": 101,
+    "negative_cases": 19
+  },
+  "retrieval_ir_metrics": {
+    "recall_at_1": 0.2118,
+    "recall_at_3": 0.3764,
+    "recall_at_5": 0.4215,
+    "recall_at_10": 0.4938,
+    "mrr": 0.3835,
+    "ndcg_at_10": 0.3625
+  },
+  "generation_baselines": {
+    "compaction_off_production_reference": {
+      "strategy": "raw_prefix",
+      "max_documents": 3,
+      "positive_answered_count": 63,
+      "total_positive_cases": 101,
+      "positive_answer_yield_pct": 62.38,
+      "negative_abstained_count": 19,
+      "total_negative_cases": 19,
+      "negative_abstention_pct": 100.0,
+      "total_citations": 90,
+      "valid_citations": 90,
+      "citation_precision_pct": 100.0,
+      "citation_completeness_pct": 93.65,
+      "mean_latency_ms": 14414.56,
+      "p95_latency_ms": 23738.58,
+      "security_violations": 0,
+      "affected_case_behavior": {
+        "EVAL-0054": "abstained",
+        "EVAL-0058": "abstained"
+      }
+    },
+    "compaction_on_m2_experimental": {
+      "strategy": "salience_compression_lexical_ungrounded",
+      "max_documents": 3,
+      "max_sentences_per_chunk": 2,
+      "max_token_budget": 550,
+      "positive_answered_count": 67,
+      "total_positive_cases": 101,
+      "positive_answer_yield_pct": 66.34,
+      "negative_abstained_count": 17,
+      "total_negative_cases": 19,
+      "negative_abstention_pct": 89.47,
+      "total_citations": 111,
+      "valid_citations": 111,
+      "citation_precision_pct": 100.0,
+      "citation_completeness_pct": 92.54,
+      "mean_latency_ms": 11632.72,
+      "p95_latency_ms": 15840.12,
+      "security_violations": 0,
+      "affected_case_behavior": {
+        "EVAL-0054": "answered",
+        "EVAL-0058": "answered"
+      }
+    }
+  },
+  "delta_index_baseline": {
+    "records_ingested": 50,
+    "mean_freshness_latency_ms": 6.198,
+    "p95_freshness_latency_ms": 6.536,
+    "max_freshness_latency_ms": 127.536,
+    "r_at_5_fresh_records_pct": 100.0,
+    "memory_mb": 0.152,
+    "base_index_mutation_observed": false
+  },
+  "schema_edge_gating_baseline": {
+    "cross_domain_pollution_observed": false,
+    "organizational_traversal_nodes_reached": 11
+  },
+  "m3_target_objectives": {
+    "eval_0054_target": "abstained",
+    "eval_0058_target": "abstained",
+    "negative_abstention_target_pct": 100.0,
+    "citation_precision_target_pct": 100.0,
+    "positive_answer_yield_target": ">= 67/101 (> 66.34%)",
+    "mechanism_A": "Entity-to-Runbook Reverse Indexing",
+    "mechanism_B": "Calibrated Entity/Domain Grounding Gate"
+  }
+}

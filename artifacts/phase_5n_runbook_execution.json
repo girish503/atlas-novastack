@@ -1,0 +1,341 @@
+{
+  "phase": "5N",
+  "release_candidate": "0.4.14-rc1",
+  "execution_steps": [
+    {
+      "step": 1,
+      "name": "Release Artifact Verification",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:55:42.354403+00:00",
+      "details": {
+        "archive_path": "\\dist\\atlas-novastack-0.4.14-rc1.tar.gz",
+        "computed_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+        "expected_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+        "sha_match": true,
+        "size_bytes": 3475452,
+        "extracted_root_exists": true,
+        "src_exists": true,
+        "data_exists": true,
+        "pyproject_exists": true
+      }
+    },
+    {
+      "step": 2,
+      "name": "Prerequisites & Environment Verification",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:55:47.346081+00:00",
+      "details": {
+        "docker_running": true,
+        "ollama_running": true,
+        "model_present": true,
+        "model_digest_match": true,
+        "inference_port_8001_listening": true,
+        "container_non_root_user": true
+      }
+    },
+    {
+      "step": 3,
+      "name": "Secret Configuration Contract",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:55:49.330638+00:00",
+      "details": {
+        "unconfigured_fails_closed": true,
+        "short_secret_fails_closed": true,
+        "valid_secret_succeeds": true,
+        "runbook_has_no_secrets": true
+      }
+    },
+    {
+      "step": 4,
+      "name": "Health & Readiness Verification",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:55:53.157286+00:00",
+      "details": {
+        "inf_healthz_status": 200,
+        "inf_ready_status": 200,
+        "inf_ready_json": {
+          "status": "ready",
+          "service": "atlas-inference-service",
+          "backend": "ollama",
+          "backend_connected": true,
+          "model_name": "gemma3:1b",
+          "model_available": true,
+          "detail": null
+        },
+        "pipeline_all_ready": true,
+        "pipeline_components": {
+          "bm25": true,
+          "dense": true,
+          "reranker": true,
+          "generator": true,
+          "index_alignment": true,
+          "generation_active": true
+        },
+        "active_generation_id": "GEN-20260923105552-b9a278"
+      }
+    },
+    {
+      "step": 5,
+      "name": "Authentication Smoke Verification",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:55:53.209289+00:00",
+      "details": {
+        "missing_token_rejected": true,
+        "malformed_token_rejected": true,
+        "expired_token_rejected": true,
+        "bad_signature_rejected": true,
+        "valid_token_verified": true
+      }
+    },
+    {
+      "step": 6,
+      "name": "First Query & C2 Citations Verification",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:56:29.603035+00:00",
+      "details": {
+        "answer_status": "answered",
+        "was_generation_invoked": true,
+        "citation_count": 2,
+        "latency_ms": 5288.74,
+        "has_answer_text": true,
+        "first_citation": {
+          "raw_tag": "[EVD-001]",
+          "evidence_id": "EVD-EVAL-0001-001-DOC-INC-INC-NS-0001-02",
+          "document_id": "DOC-INC-INC-NS-0001-02",
+          "chunk_id": "DOC-INC-INC-NS-0001-02::CHUNK-0001",
+          "title": "[UPDATE] Triage & Mitigation Progress for INC-NS-0001",
+          "status": "VALID",
+          "reasons": [
+            "verified_selected_authorized_evidence"
+          ],
+          "phrase_match_detected": true,
+          "evidence_status": "accepted",
+          "authority_level": "high",
+          "is_adversarial": false
+        }
+      }
+    },
+    {
+      "step": 7,
+      "name": "Layer 1S Security Abstention Verification",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:56:29.633210+00:00",
+      "details": {
+        "q4_cases": {
+          "EVAL-0088": {
+            "abstained": true,
+            "provider_invoked": false,
+            "citations": 0,
+            "pass": true
+          },
+          "EVAL-0090": {
+            "abstained": true,
+            "provider_invoked": false,
+            "citations": 0,
+            "pass": true
+          },
+          "EVAL-0092": {
+            "abstained": true,
+            "provider_invoked": false,
+            "citations": 0,
+            "pass": true
+          },
+          "EVAL-0096": {
+            "abstained": true,
+            "provider_invoked": false,
+            "citations": 0,
+            "pass": true
+          }
+        },
+        "all_abstained": true
+      }
+    },
+    {
+      "step": 8,
+      "name": "Capacity & Circuit Breaker Recovery Drill",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:56:29.988207+00:00",
+      "details": {
+        "slot1_acquired": true,
+        "slot2_shed_capacity_429": true,
+        "cb_init_closed": true,
+        "cb_tripped_open": true,
+        "cb_probing_half_open": true,
+        "cb_recovered_closed": true
+      }
+    },
+    {
+      "step": 9,
+      "name": "Container Restart Recovery Drill",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:56:39.080783+00:00",
+      "details": {
+        "docker_stop_rc": 0,
+        "docker_start_rc": 0,
+        "recovery_duration_seconds": 9.09,
+        "health_restored": true,
+        "ready_restored": true
+      }
+    },
+    {
+      "step": 10,
+      "name": "Rollback and Backend Restoration Drill",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:56:39.143109+00:00",
+      "details": {
+        "initial_is_backend_b": true,
+        "rollback_is_backend_a": true,
+        "backend_a_ready": true,
+        "restored_is_backend_b": true,
+        "backend_b_ready": true
+      }
+    },
+    {
+      "step": 11,
+      "name": "Runbook Completeness Audit",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:56:39.146360+00:00",
+      "details": {
+        "audit_questions": {
+          "Q01_what_to_install": true,
+          "Q02_what_to_start_first": true,
+          "Q03_where_is_model": true,
+          "Q04_where_does_ollama_run": true,
+          "Q05_what_ports_required": true,
+          "Q06_what_secrets_required": true,
+          "Q07_how_to_verify_readiness": true,
+          "Q08_how_to_perform_query": true,
+          "Q09_why_401": true,
+          "Q10_why_403": true,
+          "Q11_why_429": true,
+          "Q12_why_503": true,
+          "Q13_why_504": true,
+          "Q14_how_to_restart_atlas": true,
+          "Q15_how_to_restart_inference": true,
+          "Q16_how_to_recover_ollama": true,
+          "Q17_how_to_rollback": true,
+          "Q18_how_to_restore_backend_b": true,
+          "Q19_where_to_inspect_logs": true,
+          "Q20_where_to_inspect_metrics": true,
+          "Q21_when_to_stop": true
+        },
+        "all_questions_answered": true,
+        "undocumented_steps": [],
+        "sections_found": {
+          "1. Scope": true,
+          "2. Certified Operating Envelope": true,
+          "3. Architecture / Service Topology": true,
+          "4. Prerequisites": true,
+          "5. Release Verification": true,
+          "6. Secret Configuration": true,
+          "7. Startup": true,
+          "8. Health Check": true,
+          "9. Readiness Check": true,
+          "10. Authentication": true,
+          "11. First Query": true,
+          "12. Security Verification": true,
+          "13. Monitoring": true,
+          "14. Common Failures": true,
+          "15. Recovery Procedures": true,
+          "16. Restart": true,
+          "17. Rollback": true,
+          "18. Restore Production Backend": true,
+          "19. Shutdown": true,
+          "20. Known Limitations": true,
+          "21. Stop Conditions": true,
+          "22. Verification Checklist": true
+        },
+        "all_sections_present": true
+      }
+    },
+    {
+      "step": 12,
+      "name": "Certified Regression Suite",
+      "status": "PASS",
+      "timestamp": "2026-09-23T10:59:26.810563+00:00",
+      "details": {
+        "suites": {
+          "phase_5m_release_packaging": {
+            "passed": 14,
+            "failed": 0,
+            "duration_seconds": 50.48,
+            "status": "PASS"
+          },
+          "phase_5n_operational_runbook": {
+            "passed": 14,
+            "failed": 0,
+            "duration_seconds": 6.19,
+            "status": "PASS"
+          },
+          "phase_5l_independent_validation": {
+            "passed": 41,
+            "failed": 0,
+            "duration_seconds": 6.93,
+            "status": "PASS"
+          },
+          "phase_5k_release_freeze": {
+            "passed": 10,
+            "failed": 0,
+            "duration_seconds": 4.87,
+            "status": "PASS"
+          },
+          "phase_5j_production_promotion": {
+            "passed": 7,
+            "failed": 0,
+            "duration_seconds": 3.74,
+            "status": "PASS"
+          },
+          "phase_5i_production_promotion": {
+            "passed": 7,
+            "failed": 0,
+            "duration_seconds": 6.86,
+            "status": "PASS"
+          },
+          "phase_5g_abstention_safety": {
+            "passed": 23,
+            "failed": 0,
+            "duration_seconds": 11.33,
+            "status": "PASS"
+          },
+          "phase_5b_quantized_provider": {
+            "passed": 17,
+            "failed": 0,
+            "duration_seconds": 58.04,
+            "status": "PASS"
+          },
+          "phase_5a_provider_boundary": {
+            "passed": 23,
+            "failed": 0,
+            "duration_seconds": 8.99,
+            "status": "PASS"
+          },
+          "security_corpus": {
+            "passed": 23,
+            "failed": 0,
+            "duration_seconds": 2.96,
+            "status": "PASS"
+          },
+          "phase_4t_identity_boundary": {
+            "passed": 17,
+            "failed": 0,
+            "duration_seconds": 3.99,
+            "status": "PASS"
+          },
+          "phase_4m_auth_fail_closed": {
+            "passed": 11,
+            "failed": 0,
+            "duration_seconds": 3.28,
+            "status": "PASS"
+          }
+        },
+        "total_tests_passed": 207,
+        "total_tests_failed": 0
+      }
+    }
+  ],
+  "gate_summary": {
+    "passed": 12,
+    "failed": 0,
+    "final_decision": "PASS"
+  }
+}

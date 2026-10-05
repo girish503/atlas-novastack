@@ -1,0 +1,142 @@
+{
+  "phase": "4Q",
+  "title": "Ingestion & Index Reliability",
+  "timestamp": "2026-09-12T11:35:00Z",
+  "production_configuration": {
+    "enable_boundary_stitching": false,
+    "enable_query_aware_authority": true,
+    "enable_event_bundling": false
+  },
+  "quarantine_and_dlq": {
+    "module": "novastack.quarantine",
+    "dlq_storage_path": "data/ingestion/dlq/quarantined_records.jsonl",
+    "record_schema": [
+      "quarantine_id",
+      "timestamp",
+      "tenant_id",
+      "document_id",
+      "error_code",
+      "error_message",
+      "retryable",
+      "payload_preview"
+    ],
+    "retryability_taxonomy": {
+      "DANGLING_REFERENCE": true,
+      "TRANSIENT_SYSTEM_ERROR": true,
+      "SCHEMA_VIOLATION": false,
+      "INVALID_TENANT": false,
+      "MALFORMED_JSON": false,
+      "TEMPORAL_INVERSION": false,
+      "CROSS_TENANT_VIOLATION": false,
+      "DUPLICATE_DOCUMENT_ID": false
+    },
+    "isolation_guarantee": "One bad document never destroys or aborts valid documents in the batch. Failures are written to DLQ and excluded from index candidate."
+  },
+  "incremental_indexing": {
+    "module": "novastack.index_manager",
+    "hashing_algorithm": "SHA-256",
+    "hashed_fields": [
+      "document_id",
+      "tenant_id",
+      "title",
+      "text",
+      "classification",
+      "allowed_roles",
+      "allowed_departments",
+      "allowed_users",
+      "valid_from",
+      "valid_to",
+      "status",
+      "supersedes_id",
+      "parent_id",
+      "provenance"
+    ],
+    "diff_actions": [
+      "UNCHANGED",
+      "UPDATED",
+      "NEW",
+      "DELETED"
+    ],
+    "optimization": "Unchanged documents reuse pre-computed chunks and dense embeddings, skipping redundant model inference."
+  },
+  "deep_index_integrity": {
+    "checks": [
+      "bm25_dense_chunk_count_equality",
+      "bm25_dense_chunk_id_sequence_1to1",
+      "vector_dimensionality_384",
+      "vector_finite_values_no_nan_no_inf",
+      "no_duplicate_chunk_ids",
+      "no_orphan_chunks_in_corpus",
+      "corpus_document_presence_verification"
+    ],
+    "component_self_validation": {
+      "BM25Index.validate_integrity()": "Verifies chunk count, chunk ID uniqueness, and document index bounds",
+      "DenseIndex.validate_integrity()": "Verifies chunk count, embeddings matrix dimensionality, and NaN/Inf absence"
+    }
+  },
+  "atomic_publish_and_rollback": {
+    "generation_lifecycle": [
+      "BUILDING",
+      "VALIDATING",
+      "ACTIVE",
+      "FAILED",
+      "RETIRED"
+    ],
+    "staging_mechanism": "Candidates are constructed in an isolated staging generation (CandidateGeneration). Active generation remains live and serves queries.",
+    "validation_gate": "Candidate must pass validate_index_integrity() before publish.",
+    "atomic_swap": "Publish performs an in-memory pointer swap to the candidate generation.",
+    "rollback_guarantee": "If candidate validation fails, candidate status is set to FAILED, error is logged, and active generation remains strictly untouched with zero query interruption."
+  },
+  "readiness_probing": {
+    "endpoint": "GET /health/ready",
+    "probing_logic": "Deep pipeline verification testing readiness of QueryEngine, BM25Index, DenseIndex, HybridRetriever, AuthorityScorer, and Gemma generator.",
+    "failure_behavior": "Fails closed with HTTP 503 Service Unavailable if any index component is missing, desynchronized, corrupted, or containing NaN/Inf vectors."
+  },
+  "multi_tenant_isolation": {
+    "intra_batch_collision_check": "Duplicate document IDs within a batch are rejected and quarantined.",
+    "cross_tenant_collision_check": "Incoming documents colliding with an existing document ID owned by another tenant are rejected and quarantined.",
+    "cross_tenant_reference_check": "Referential integrity links (parent_id, supersedes_id) pointing to documents owned by a different tenant are rejected and quarantined.",
+    "query_retrieval_isolation": "Strict tenant filtering enforced across all retrieval, ranking, and generation stages."
+  },
+  "observability_metrics": {
+    "endpoint": "GET /metrics",
+    "metrics_added": [
+      "atlas_ingestion_documents_total",
+      "atlas_ingestion_failures_total",
+      "atlas_ingestion_dlq_total",
+      "atlas_index_builds_total",
+      "atlas_index_build_failures_total",
+      "atlas_index_publish_total",
+      "atlas_index_validation_failures_total"
+    ],
+    "cardinality": "Bounded, zero-leak, operator-visible counters"
+  },
+  "test_results": {
+    "phase_4q_reliability_tests": {
+      "test_file": "tests/test_phase_4q_ingestion_reliability.py",
+      "total": 26,
+      "passed": 26,
+      "failed": 0
+    },
+    "full_regression_suite": {
+      "total": 139,
+      "passed": 139,
+      "failed": 0,
+      "regressions": 0,
+      "breakdown": {
+        "tests/test_phase_4q_ingestion_reliability.py": 26,
+        "tests/test_phase_4p_observability.py": 18,
+        "tests/test_phase_4o_resilience.py": 15,
+        "tests/test_phase_4n_packaging.py": 8,
+        "tests/test_phase_4m_api_service.py": 16,
+        "tests/test_phase_4m_auth_fail_closed.py": 11,
+        "tests/test_phase_4k_g_b_promotion.py": 3,
+        "tests/test_phase_4k_f_b_security_redteam.py": 5,
+        "tests/test_phase_4k_e_b_only.py": 5,
+        "tests/test_canonical_baseline.py": 5,
+        "tests/test_ingestion.py": 27
+      }
+    }
+  },
+  "overall_verdict": "PASS"
+}

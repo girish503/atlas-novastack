@@ -1,0 +1,70 @@
+{
+  "EVAL-0018": {
+    "gemma3:1b": {
+      "status": "ANSWERED",
+      "duration_ms": 22129.1,
+      "text": "Due to a Redis cache eviction in the authentication token validation path triggered by a feature flag rollout for gradual-login-redesign, resulting in unexpected Redis cache eviction and a spike in login latency."
+    },
+    "qwen2.5:1.5b": {
+      "status": "ABSTAINED",
+      "duration_ms": 33108.8,
+      "text": "Insufficient evidence to answer this question."
+    }
+  },
+  "EVAL-0024": {
+    "gemma3:1b": {
+      "status": "ANSWERED",
+      "duration_ms": 18499.7,
+      "text": "Billing recalculated for all affected customers and credits issued."
+    },
+    "qwen2.5:1.5b": {
+      "status": "ABSTAINED",
+      "duration_ms": 13616.1,
+      "text": "Insufficient evidence to answer this question."
+    }
+  },
+  "EVAL-0048": {
+    "gemma3:1b": {
+      "status": "ANSWERED",
+      "duration_ms": 27311.2,
+      "text": "High request latency and 504 gateway timeouts. Message queue partition rebalancing during notification-service scaling event caused consumer group desynchronization and message loss across email and push notification channels."
+    },
+    "qwen2.5:1.5b": {
+      "status": "ANSWERED",
+      "duration_ms": 22289.8,
+      "text": "The symptom was high request latency and 504 gateway timeouts. The service queue that stalled was the message queue partition. The deployment that caused this was DEP-NS-0004 (version 4.2.0). The PR that fixed worker deadlocks was PR-NS-0005."
+    }
+  },
+  "EVAL-0070": {
+    "gemma3:1b": {
+      "error": "timed out"
+    },
+    "qwen2.5:1.5b": {
+      "error": "timed out"
+    }
+  },
+  "EVAL-0083": {
+    "gemma3:1b": {
+      "status": "ABSTAINED",
+      "duration_ms": 29647.6,
+      "text": "Insufficient evidence to answer this question."
+    },
+    "qwen2.5:1.5b": {
+      "status": "ABSTAINED",
+      "duration_ms": 18635.5,
+      "text": "Insufficient evidence to answer this question."
+    }
+  },
+  "EVAL-0054": {
+    "gemma3:1b": {
+      "status": "ABSTAINED",
+      "duration_ms": 28824.5,
+      "text": "Insufficient evidence to answer this question."
+    },
+    "qwen2.5:1.5b": {
+      "status": "ABSTAINED",
+      "duration_ms": 14410.9,
+      "text": "Insufficient evidence to answer this question."
+    }
+  }
+}

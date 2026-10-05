@@ -1,0 +1,672 @@
+{
+  "phase": "5H",
+  "status": "CANDIDATE ELIGIBLE",
+  "timestamp": "2026-09-21T12:59:17.673834+00:00",
+  "dataset": {
+    "cases_total": 120,
+    "documents_total": 1393,
+    "chunks_total": 1663
+  },
+  "dataset_hash_verification": {
+    "pre_benchmark": {
+      "all_passed": true,
+      "records": [
+        {
+          "path": "data/raw/novastack/source_records.json",
+          "expected": "f877faf2dec310dca1ca56c57756f8c7368a90468c2f6b0ab74f689eca43eab3",
+          "actual": "f877faf2dec310dca1ca56c57756f8c7368a90468c2f6b0ab74f689eca43eab3",
+          "result": "PASS"
+        },
+        {
+          "path": "data/raw/novastack/adversarial_fixtures.json",
+          "expected": "1e11fb7d4dd81538281e10a2c2a251c206afb8e59d1a2dd8f9c9e418740a5fee",
+          "actual": "1e11fb7d4dd81538281e10a2c2a251c206afb8e59d1a2dd8f9c9e418740a5fee",
+          "result": "PASS"
+        },
+        {
+          "path": "data/raw/novastack/security_fixtures.json",
+          "expected": "9c519bc725ce96463abc8ada2be7e2aa5792cf9dc8cb5c82eb5db7b365252f6f",
+          "actual": "9c519bc725ce96463abc8ada2be7e2aa5792cf9dc8cb5c82eb5db7b365252f6f",
+          "result": "PASS"
+        },
+        {
+          "path": "data/processed/novastack/search_documents.json",
+          "expected": "ffd7483aec9b4ffce57394880f664cbf79f2ca6733422ba01b235df28e9b9871",
+          "actual": "ffd7483aec9b4ffce57394880f664cbf79f2ca6733422ba01b235df28e9b9871",
+          "result": "PASS"
+        },
+        {
+          "path": "data/processed/novastack/search_chunks.json",
+          "expected": "36fbc12e31cecb146f220a8d58873980c84c08beda770f13f77631b3c6c48605",
+          "actual": "36fbc12e31cecb146f220a8d58873980c84c08beda770f13f77631b3c6c48605",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/evaluation_cases.json",
+          "expected": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+          "actual": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/bm25_baseline.json",
+          "expected": "91fd7ddbdb837e21089d622da08d4e8c8091d68c74b744500ec332ebfe8c4d52",
+          "actual": "91fd7ddbdb837e21089d622da08d4e8c8091d68c74b744500ec332ebfe8c4d52",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/dense_baseline.json",
+          "expected": "0d70a7b9523445065754d2a0325703544725e3c5cff587eda0ccc2079dc2acb2",
+          "actual": "0d70a7b9523445065754d2a0325703544725e3c5cff587eda0ccc2079dc2acb2",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/hybrid_baseline.json",
+          "expected": "794a4a805075f6ff83a966fce8bda756c29e5e5fd0afb4a85c84e49a72374663",
+          "actual": "794a4a805075f6ff83a966fce8bda756c29e5e5fd0afb4a85c84e49a72374663",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4b0_candidate_diagnostics.json",
+          "expected": "2493b08e136b7ba40e6e3bbbaace977a3b55f77cf45bff945cdd961c696327c6",
+          "actual": "2493b08e136b7ba40e6e3bbbaace977a3b55f77cf45bff945cdd961c696327c6",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4b1_reranker_baseline.json",
+          "expected": "30e9ba5da6966b4ee871764e6c45b1ea6db57cbe265389a7c739bf4a9e62bd96",
+          "actual": "30e9ba5da6966b4ee871764e6c45b1ea6db57cbe265389a7c739bf4a9e62bd96",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4c0_query_profiles.json",
+          "expected": "782134fd40068c6bf5994b418428094126202f7fccafa5a12f72b5f264b08226",
+          "actual": "782134fd40068c6bf5994b418428094126202f7fccafa5a12f72b5f264b08226",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4c1_query_understanding.json",
+          "expected": "57fb97475f5541b0c844fb1662b539f54f70aa92038ae8f00dc4e7d00d4d2b6d",
+          "actual": "57fb97475f5541b0c844fb1662b539f54f70aa92038ae8f00dc4e7d00d4d2b6d",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4c2_metadata_diagnostics.json",
+          "expected": "e6fdd0efe8493ec4cab6dd5c523c4edf1b2771a103a97a230cfc42b8496e2a8c",
+          "actual": "e6fdd0efe8493ec4cab6dd5c523c4edf1b2771a103a97a230cfc42b8496e2a8c",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4c3_metadata_reranking.json",
+          "expected": "ea9407b430a0424705e465673b29d8bb0ba42c1cec2406b3f979883f8ecf5766",
+          "actual": "ea9407b430a0424705e465673b29d8bb0ba42c1cec2406b3f979883f8ecf5766",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4d0_starvation_diagnostics.json",
+          "expected": "7628b042e3f29c9935da76388a0380e24d2da27378cddd2cb3e84e38dcdfc31b",
+          "actual": "7628b042e3f29c9935da76388a0380e24d2da27378cddd2cb3e84e38dcdfc31b",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4d0_1_reconciliation.json",
+          "expected": "dceaec3c81d0941c6b25425e3d1b781b23c1f741e6ce2262eec842a93803edc7",
+          "actual": "dceaec3c81d0941c6b25425e3d1b781b23c1f741e6ce2262eec842a93803edc7",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4d1_depth_fusion_ablation.json",
+          "expected": "4ab13904c1f686a7c2f011f7bf66f188c5d2215e75259a699fdeecaa661f49cb",
+          "actual": "4ab13904c1f686a7c2f011f7bf66f188c5d2215e75259a699fdeecaa661f49cb",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4d2_relational_retrieval.json",
+          "expected": "7d79d13b696b8bffed0a90751be7fb4e449c2235a716378d3a02f53482a1b00e",
+          "actual": "7d79d13b696b8bffed0a90751be7fb4e449c2235a716378d3a02f53482a1b00e",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4e_evidence_assembly.json",
+          "expected": "8cebe97b2112d70f4fada63b671fe62d90c166259c6560182f066515dcf74357",
+          "actual": "8cebe97b2112d70f4fada63b671fe62d90c166259c6560182f066515dcf74357",
+          "result": "PASS"
+        }
+      ]
+    },
+    "post_benchmark": {
+      "all_passed": true,
+      "records": [
+        {
+          "path": "data/raw/novastack/source_records.json",
+          "expected": "f877faf2dec310dca1ca56c57756f8c7368a90468c2f6b0ab74f689eca43eab3",
+          "actual": "f877faf2dec310dca1ca56c57756f8c7368a90468c2f6b0ab74f689eca43eab3",
+          "result": "PASS"
+        },
+        {
+          "path": "data/raw/novastack/adversarial_fixtures.json",
+          "expected": "1e11fb7d4dd81538281e10a2c2a251c206afb8e59d1a2dd8f9c9e418740a5fee",
+          "actual": "1e11fb7d4dd81538281e10a2c2a251c206afb8e59d1a2dd8f9c9e418740a5fee",
+          "result": "PASS"
+        },
+        {
+          "path": "data/raw/novastack/security_fixtures.json",
+          "expected": "9c519bc725ce96463abc8ada2be7e2aa5792cf9dc8cb5c82eb5db7b365252f6f",
+          "actual": "9c519bc725ce96463abc8ada2be7e2aa5792cf9dc8cb5c82eb5db7b365252f6f",
+          "result": "PASS"
+        },
+        {
+          "path": "data/processed/novastack/search_documents.json",
+          "expected": "ffd7483aec9b4ffce57394880f664cbf79f2ca6733422ba01b235df28e9b9871",
+          "actual": "ffd7483aec9b4ffce57394880f664cbf79f2ca6733422ba01b235df28e9b9871",
+          "result": "PASS"
+        },
+        {
+          "path": "data/processed/novastack/search_chunks.json",
+          "expected": "36fbc12e31cecb146f220a8d58873980c84c08beda770f13f77631b3c6c48605",
+          "actual": "36fbc12e31cecb146f220a8d58873980c84c08beda770f13f77631b3c6c48605",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/evaluation_cases.json",
+          "expected": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+          "actual": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/bm25_baseline.json",
+          "expected": "91fd7ddbdb837e21089d622da08d4e8c8091d68c74b744500ec332ebfe8c4d52",
+          "actual": "91fd7ddbdb837e21089d622da08d4e8c8091d68c74b744500ec332ebfe8c4d52",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/dense_baseline.json",
+          "expected": "0d70a7b9523445065754d2a0325703544725e3c5cff587eda0ccc2079dc2acb2",
+          "actual": "0d70a7b9523445065754d2a0325703544725e3c5cff587eda0ccc2079dc2acb2",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/hybrid_baseline.json",
+          "expected": "794a4a805075f6ff83a966fce8bda756c29e5e5fd0afb4a85c84e49a72374663",
+          "actual": "794a4a805075f6ff83a966fce8bda756c29e5e5fd0afb4a85c84e49a72374663",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4b0_candidate_diagnostics.json",
+          "expected": "2493b08e136b7ba40e6e3bbbaace977a3b55f77cf45bff945cdd961c696327c6",
+          "actual": "2493b08e136b7ba40e6e3bbbaace977a3b55f77cf45bff945cdd961c696327c6",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4b1_reranker_baseline.json",
+          "expected": "30e9ba5da6966b4ee871764e6c45b1ea6db57cbe265389a7c739bf4a9e62bd96",
+          "actual": "30e9ba5da6966b4ee871764e6c45b1ea6db57cbe265389a7c739bf4a9e62bd96",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4c0_query_profiles.json",
+          "expected": "782134fd40068c6bf5994b418428094126202f7fccafa5a12f72b5f264b08226",
+          "actual": "782134fd40068c6bf5994b418428094126202f7fccafa5a12f72b5f264b08226",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4c1_query_understanding.json",
+          "expected": "57fb97475f5541b0c844fb1662b539f54f70aa92038ae8f00dc4e7d00d4d2b6d",
+          "actual": "57fb97475f5541b0c844fb1662b539f54f70aa92038ae8f00dc4e7d00d4d2b6d",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4c2_metadata_diagnostics.json",
+          "expected": "e6fdd0efe8493ec4cab6dd5c523c4edf1b2771a103a97a230cfc42b8496e2a8c",
+          "actual": "e6fdd0efe8493ec4cab6dd5c523c4edf1b2771a103a97a230cfc42b8496e2a8c",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4c3_metadata_reranking.json",
+          "expected": "ea9407b430a0424705e465673b29d8bb0ba42c1cec2406b3f979883f8ecf5766",
+          "actual": "ea9407b430a0424705e465673b29d8bb0ba42c1cec2406b3f979883f8ecf5766",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4d0_starvation_diagnostics.json",
+          "expected": "7628b042e3f29c9935da76388a0380e24d2da27378cddd2cb3e84e38dcdfc31b",
+          "actual": "7628b042e3f29c9935da76388a0380e24d2da27378cddd2cb3e84e38dcdfc31b",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4d0_1_reconciliation.json",
+          "expected": "dceaec3c81d0941c6b25425e3d1b781b23c1f741e6ce2262eec842a93803edc7",
+          "actual": "dceaec3c81d0941c6b25425e3d1b781b23c1f741e6ce2262eec842a93803edc7",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4d1_depth_fusion_ablation.json",
+          "expected": "4ab13904c1f686a7c2f011f7bf66f188c5d2215e75259a699fdeecaa661f49cb",
+          "actual": "4ab13904c1f686a7c2f011f7bf66f188c5d2215e75259a699fdeecaa661f49cb",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4d2_relational_retrieval.json",
+          "expected": "7d79d13b696b8bffed0a90751be7fb4e449c2235a716378d3a02f53482a1b00e",
+          "actual": "7d79d13b696b8bffed0a90751be7fb4e449c2235a716378d3a02f53482a1b00e",
+          "result": "PASS"
+        },
+        {
+          "path": "data/evaluation/novastack/phase_4e_evidence_assembly.json",
+          "expected": "8cebe97b2112d70f4fada63b671fe62d90c166259c6560182f066515dcf74357",
+          "actual": "8cebe97b2112d70f4fada63b671fe62d90c166259c6560182f066515dcf74357",
+          "result": "PASS"
+        }
+      ]
+    }
+  },
+  "preflight": {
+    "healthz": "200 OK",
+    "ready": {
+      "status": "ready",
+      "service": "atlas-inference-service",
+      "backend": "ollama",
+      "backend_connected": true,
+      "model_name": "gemma3:1b",
+      "model_available": true,
+      "detail": null
+    },
+    "ollama_models": [
+      "deepseek-r1:8b",
+      "llama3.2:3b",
+      "qwen3:4b",
+      "gemma3:latest",
+      "qwen2.5:3b",
+      "gemma3:1b",
+      "qwen2.5:1.5b"
+    ],
+    "layer_1s_verified": true,
+    "pyproject_version": "0.4.14"
+  },
+  "backend": {
+    "adapter": "InferenceServiceAdapter",
+    "runtime": "Ollama / llama.cpp",
+    "model": "gemma3:1b",
+    "quantization": "Q4_K_M",
+    "container": "atlas-inference-5d",
+    "endpoint": "http://127.0.0.1:8001"
+  },
+  "layer_1s_enabled": true,
+  "case_count": 120,
+  "positive_count": 101,
+  "negative_count": 19,
+  "metrics": {
+    "total_cases": 120,
+    "positive_cases": 101,
+    "negative_cases": 19,
+    "answered": 63,
+    "partially_answered": 0,
+    "abstained": 57,
+    "pos_answered": 63,
+    "pos_with_valid_citation": 59,
+    "citation_completeness_pct": 93.65,
+    "neg_abstained": 19,
+    "neg_abstention_rate_pct": 100.0,
+    "total_citations": 90,
+    "valid_citations": 90,
+    "citation_precision_pct": 100.0,
+    "security_violations": 0,
+    "cross_tenant": 0,
+    "unauthorized": 0,
+    "forbidden": 0,
+    "adversarial": 0,
+    "mean_latency_ms": 14414.56,
+    "p50_latency_ms": 15964.29,
+    "p90_latency_ms": 20527.89,
+    "p95_latency_ms": 23738.58,
+    "max_latency_ms": 25361.88,
+    "latency_regimes": {
+      "deterministic_abstention_mean_ms": 0.01,
+      "other_pre_generation_mean_ms": 0.0,
+      "generation_only_mean_ms": 16165.86,
+      "generation_only_p95_ms": 23738.58
+    },
+    "invocation_counts": {
+      "provider_invoked_count": 104,
+      "deterministic_abstention_count": 13,
+      "model_generation_count": 107
+    },
+    "failure_taxonomy": {
+      "retrieval_failure": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "evidence_assembly_failure": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "evidence_resolution_failure": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "insufficient_evidence": {
+        "count": 34,
+        "pct": 28.33
+      },
+      "generation_hallucination": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "unsupported_claim": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "citation_failure": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "abstention_failure": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "authorization_failure": {
+        "count": 1,
+        "pct": 0.83
+      },
+      "prompt_injection_susceptibility": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "conflict_handling_failure": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "temporal_version_failure": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "none": {
+        "count": 85,
+        "pct": 70.83
+      }
+    }
+  },
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Citation Completeness",
+      "threshold": ">= 90.0%",
+      "backend_a": "91.38%",
+      "backend_b": "93.65%",
+      "pass_b": true
+    },
+    {
+      "id": "G2",
+      "name": "Mechanical Citation Precision",
+      "threshold": "= 100.0%",
+      "backend_a": "100.0%",
+      "backend_b": "100.0%",
+      "pass_b": true
+    },
+    {
+      "id": "G3",
+      "name": "Negative Case Abstention",
+      "threshold": "19/19 (100%)",
+      "backend_a": "19/19 (100.0%)",
+      "backend_b": "19/19 (100.0%)",
+      "pass_b": true
+    },
+    {
+      "id": "G4",
+      "name": "Security Invariants",
+      "threshold": "0 violations",
+      "backend_a": "0",
+      "backend_b": "0",
+      "pass_b": true
+    },
+    {
+      "id": "G5",
+      "name": "Positive Successful Outcomes",
+      "threshold": ">= 40/101",
+      "backend_a": "53/101",
+      "backend_b": "59/101",
+      "pass_b": true
+    },
+    {
+      "id": "G6",
+      "name": "Mean Latency",
+      "threshold": "<= 30000 ms",
+      "backend_a": "58534.42 ms",
+      "backend_b": "14414.56 ms",
+      "pass_b": true
+    },
+    {
+      "id": "G7",
+      "name": "p95 Latency",
+      "threshold": "<= 60000 ms",
+      "backend_a": "272427.84 ms",
+      "backend_b": "23738.58 ms",
+      "pass_b": true
+    },
+    {
+      "id": "G8",
+      "name": "Correctness Non-Regression vs A",
+      "threshold": ">= 89.38% (A - 2%)",
+      "backend_a": "91.38%",
+      "backend_b": "93.65%",
+      "pass_b": true
+    },
+    {
+      "id": "G9",
+      "name": "Regression Suite",
+      "threshold": "All green",
+      "backend_a": "752/752 (pre-verified)",
+      "backend_b": "114 passed, 1 warning in 62.78s (0:01:02)",
+      "pass_b": true
+    }
+  ],
+  "known_failure_cases": [
+    "EVAL-0088",
+    "EVAL-0090",
+    "EVAL-0092",
+    "EVAL-0096"
+  ],
+  "known_failure_results": [
+    {
+      "case_id": "EVAL-0088",
+      "category": "cross_tenant",
+      "status": "abstained",
+      "provider_invoked": false,
+      "abstention_reason": "security_policy_abstention",
+      "diagnostics_layer": "security_abstention_gate",
+      "latency_ms": 0.0,
+      "recovered": true
+    },
+    {
+      "case_id": "EVAL-0090",
+      "category": "cross_tenant",
+      "status": "abstained",
+      "provider_invoked": false,
+      "abstention_reason": "security_policy_abstention",
+      "diagnostics_layer": "security_abstention_gate",
+      "latency_ms": 0.0,
+      "recovered": true
+    },
+    {
+      "case_id": "EVAL-0092",
+      "category": "cross_tenant",
+      "status": "abstained",
+      "provider_invoked": false,
+      "abstention_reason": "security_policy_abstention",
+      "diagnostics_layer": "security_abstention_gate",
+      "latency_ms": 0.0,
+      "recovered": true
+    },
+    {
+      "case_id": "EVAL-0096",
+      "category": "role_restricted",
+      "status": "abstained",
+      "provider_invoked": false,
+      "abstention_reason": "security_policy_abstention",
+      "diagnostics_layer": "security_abstention_gate",
+      "latency_ms": 0.0,
+      "recovered": true
+    }
+  ],
+  "negative_controls": {
+    "total": 19,
+    "abstained": 19,
+    "regressions_count": 0
+  },
+  "positive_controls": {
+    "total": 101,
+    "answered_or_partial": 63,
+    "with_valid_citation": 59,
+    "incorrectly_gated_count": 4
+  },
+  "security_results": {
+    "security_violations": 0,
+    "cross_tenant": 0,
+    "unauthorized": 0,
+    "forbidden": 0,
+    "adversarial": 0
+  },
+  "citation_results": {
+    "citation_completeness_pct": 93.65,
+    "citation_precision_pct": 100.0,
+    "total_citations": 90,
+    "valid_citations": 90
+  },
+  "latency_results": {
+    "mean_latency_ms": 14414.56,
+    "p50_latency_ms": 15964.29,
+    "p90_latency_ms": 20527.89,
+    "p95_latency_ms": 23738.58,
+    "max_latency_ms": 25361.88,
+    "latency_regimes": {
+      "deterministic_abstention_mean_ms": 0.01,
+      "other_pre_generation_mean_ms": 0.0,
+      "generation_only_mean_ms": 16165.86,
+      "generation_only_p95_ms": 23738.58
+    },
+    "invocation_counts": {
+      "provider_invoked_count": 104,
+      "deterministic_abstention_count": 13,
+      "model_generation_count": 107
+    }
+  },
+  "regression_results": {
+    "passed": true,
+    "summary": "114 passed, 1 warning in 62.78s (0:01:02)"
+  },
+  "comparison_to_phase_5e": [
+    {
+      "gate": "G1",
+      "metric": "Citation Completeness",
+      "threshold": ">= 90.0%",
+      "phase_5e": "91.94%",
+      "phase_5h": "93.65%",
+      "delta": "+1.71%",
+      "status": "PASS",
+      "result": "PASS"
+    },
+    {
+      "gate": "G2",
+      "metric": "Mechanical Citation Precision",
+      "threshold": "= 100.0%",
+      "phase_5e": "100.0%",
+      "phase_5h": "100.0%",
+      "delta": "+0.0%",
+      "status": "PASS",
+      "result": "PASS"
+    },
+    {
+      "gate": "G3",
+      "metric": "Negative Abstention",
+      "threshold": "19/19 (100%)",
+      "phase_5e": "15/19 (78.95%)",
+      "phase_5h": "19/19 (100.0%)",
+      "delta": "+21.05% (+4 cases)",
+      "status": "PASS",
+      "result": "PASS"
+    },
+    {
+      "gate": "G4",
+      "metric": "Security Invariants",
+      "threshold": "0 violations",
+      "phase_5e": "0",
+      "phase_5h": "0",
+      "delta": "0",
+      "status": "PASS",
+      "result": "PASS"
+    },
+    {
+      "gate": "G5",
+      "metric": "Positive Successful Outcomes",
+      "threshold": ">= 40/101",
+      "phase_5e": "57/101",
+      "phase_5h": "59/101",
+      "delta": "+2",
+      "status": "PASS",
+      "result": "PASS"
+    },
+    {
+      "gate": "G6",
+      "metric": "Mean Latency",
+      "threshold": "<= 30000 ms",
+      "phase_5e": "14877.02 ms",
+      "phase_5h": "14414.56 ms",
+      "delta": "-462.46 ms",
+      "status": "PASS",
+      "result": "PASS"
+    },
+    {
+      "gate": "G7",
+      "metric": "P95 Latency",
+      "threshold": "<= 60000 ms",
+      "phase_5e": "22721.91 ms",
+      "phase_5h": "23738.58 ms",
+      "delta": "+1016.67 ms",
+      "status": "PASS",
+      "result": "PASS"
+    },
+    {
+      "gate": "G8",
+      "metric": "Correctness Non-Regression",
+      "threshold": ">= 89.38%",
+      "phase_5e": "91.94%",
+      "phase_5h": "93.65%",
+      "delta": "+1.71%",
+      "status": "PASS",
+      "result": "PASS"
+    },
+    {
+      "gate": "G9",
+      "metric": "Regression Suite",
+      "threshold": "All green",
+      "phase_5e": "752/752",
+      "phase_5h": "114 passed, 1 warning in 62.78s (0:01:02)",
+      "delta": "+23 Phase 5G tests",
+      "status": "PASS",
+      "result": "PASS"
+    }
+  ],
+  "unexpected_regressions": {
+    "negative_cases": [],
+    "positive_cases_gated": [
+      {
+        "case_id": "EVAL-0035",
+        "category": "multi_document"
+      },
+      {
+        "case_id": "EVAL-0044",
+        "category": "multi_hop"
+      },
+      {
+        "case_id": "EVAL-0084",
+        "category": "authorization"
+      },
+      {
+        "case_id": "EVAL-0095",
+        "category": "role_restricted"
+      }
+    ]
+  },
+  "production_changes": [],
+  "candidate_eligible": true,
+  "recommendation": "Backend B meets all mandatory SLA gates (G1-G9) with 100% negative case abstention (19/19) and 0 security violations following Layer 1S remediation. Recommend CTO review for production promotion."
+}

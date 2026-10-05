@@ -1,0 +1,35 @@
+# ATLAS Phase 5C: Standalone Inference Service Container
+FROM python:3.11-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    INFERENCE_SERVICE_PORT=8001 \
+    INFERENCE_BACKEND_URL=http://host.docker.internal:11434 \
+    INFERENCE_MODEL_NAME=gemma3:1b
+
+WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends curl && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN groupadd -g 1000 -r appuser && \
+    useradd -u 1000 -r -g appuser -d /app -s /sbin/nologin appuser
+
+COPY pyproject.toml README.md ./
+COPY src/ ./src/
+
+RUN pip install --no-cache-dir .
+
+RUN chown -R appuser:appuser /app
+
+USER appuser
+
+EXPOSE 8001
+
+HEALTHCHECK --interval=5s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8001/healthz || exit 1
+
+CMD ["uvicorn", "novastack.inference_service.app:app", "--host", "0.0.0.0", "--port", "8001"]

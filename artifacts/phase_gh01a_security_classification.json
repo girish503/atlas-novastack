@@ -1,0 +1,26 @@
+{
+  "decision": "BLOCKED",
+  "total_files": 1123,
+  "secret_findings": {
+    "total": 13,
+    "real_secret": 0,
+    "test_secret": 13,
+    "placeholder": 0,
+    "false_positive": 0,
+    "unknown": 0
+  },
+  "personal_data_findings": {
+    "total": 815,
+    "real_personal_data": 116,
+    "synthetic_test_data": 665,
+    "public_reference_data": 0,
+    "false_positive": 34,
+    "unknown": 0
+  },
+  "publication_safe": false,
+  "source_modified": false,
+  "production_modified": false,
+  "github_remote_created": false,
+  "push_performed": false,
+  "cs01_executed": false
+}

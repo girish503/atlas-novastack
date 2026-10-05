@@ -1,0 +1,91 @@
+{
+  "phase": "4N",
+  "title": "Containerization & Dependency Packaging",
+  "status": "PASSED",
+  "timestamp": "2026-09-12T10:25:00Z",
+  "package": {
+    "name": "atlas-novastack",
+    "version": "0.4.14",
+    "build_backend": "setuptools.build_meta",
+    "requires_python": ">=3.10",
+    "runtime_dependencies": [
+      "fastapi>=0.110.0,<1.0.0",
+      "pydantic>=2.7.0,<3.0.0",
+      "uvicorn>=0.28.0,<1.0.0",
+      "torch>=2.0.0,<3.0.0",
+      "transformers>=4.40.0,<6.0.0",
+      "sentence-transformers>=3.0.0,<7.0.0",
+      "numpy>=1.24.0,<3.0.0",
+      "httpx>=0.27.0,<1.0.0"
+    ],
+    "optional_dependencies": {
+      "dev": ["pytest>=7.4.0,<9.0.0"],
+      "test": ["pytest>=7.4.0,<9.0.0"]
+    },
+    "clean_install_verified": true,
+    "clean_venv_test_status": "PASSED"
+  },
+  "container": {
+    "dockerfile": "Dockerfile",
+    "base_image": "python:3.11-slim",
+    "rationale": "Official, reproducible, slim Debian-based OCI image with pre-built binary wheel support for PyTorch, transformers, and FastAPI without bloated build tools.",
+    "port": 8000,
+    "entrypoint": ["uvicorn", "novastack.service.api:app", "--host", "0.0.0.0", "--port", "8000"],
+    "user": "atlas",
+    "healthcheck": "curl -f http://localhost:8000/healthz || exit 1",
+    "local_build_status": "SKIPPED_HOST_ENVIRONMENT",
+    "local_build_reason": "Docker engine / CLI is not installed on the Windows host. Syntax and directives validated via static test suite and automated CI workflow."
+  },
+  "dockerignore": {
+    "file": ".dockerignore",
+    "exclusions_verified": true,
+    "runtime_data_preserved": true
+  },
+  "ci_workflow": {
+    "file": ".github/workflows/ci.yml",
+    "pipeline_steps": [
+      "actions/checkout@v4",
+      "actions/setup-python@v5 (Python 3.11)",
+      "pip install .[test]",
+      "pytest test execution",
+      "docker build container smoke test"
+    ],
+    "syntax_valid": true
+  },
+  "service_startup_verification": {
+    "healthz_status_code": 200,
+    "healthz_payload": {"status": "ok"},
+    "ready_status_code": 200,
+    "ready_payload": {
+      "status": "ready",
+      "components": {
+        "bm25": true,
+        "dense": true,
+        "reranker": true,
+        "generator": true
+      }
+    },
+    "sample_query_status_code": 200,
+    "sample_query_result": "grounded_or_principled_abstention"
+  },
+  "test_verification_summary": {
+    "total_tests_executed": 53,
+    "passed": 53,
+    "failed": 0,
+    "regressions": 0,
+    "suite_breakdown": {
+      "tests/test_phase_4n_packaging.py": "8/8 passed",
+      "tests/test_phase_4m_api_service.py": "16/16 passed",
+      "tests/test_phase_4m_auth_fail_closed.py": "11/11 passed",
+      "tests/test_phase_4k_g_b_promotion.py": "3/3 passed",
+      "tests/test_phase_4k_f_b_security_redteam.py": "5/5 passed",
+      "tests/test_phase_4k_e_b_only.py": "5/5 passed",
+      "tests/test_canonical_baseline.py": "5/5 passed"
+    }
+  },
+  "frozen_production_configuration": {
+    "enable_boundary_stitching": false,
+    "enable_query_aware_authority": true,
+    "enable_event_bundling": false
+  }
+}

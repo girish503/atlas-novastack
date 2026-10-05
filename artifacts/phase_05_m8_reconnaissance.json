@@ -1,0 +1,208 @@
+{
+  "milestone": "ATLAS 0.5 — Milestone M8",
+  "phase": "Phase 1 — Repository Reconnaissance Only",
+  "timestamp": "2026-09-29T11:47:00Z",
+  "production_baseline": {
+    "version": "0.4.14-rc1",
+    "status": "FROZEN_AND_IMMUTABLE",
+    "production_defaults": {
+      "provider": "LocalHuggingFaceProvider",
+      "context_budgeter_strategy": "raw_prefix",
+      "model": "google/gemma-3-1b-it",
+      "device": "cpu"
+    },
+    "prior_artifacts_sha256": {
+      "data/raw/novastack/source_records.json": "f877faf2dec310dca1ca56c57756f8c7368a90468c2f6b0ab74f689eca43eab3",
+      "data/processed/novastack/search_documents.json": "ffd7483aec9b4ffce57394880f664cbf79f2ca6733422ba01b235df28e9b9871",
+      "data/processed/novastack/search_chunks.json": "36fbc12e31cecb146f220a8d58873980c84c08beda770f13f77631b3c6c48605",
+      "data/evaluation/novastack/evaluation_cases.json": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+      "data/evaluation/novastack/bm25_baseline.json": "91fd7ddbdb837e21089d622da08d4e8c8091d68c74b744500ec332ebfe8c4d52",
+      "data/evaluation/novastack/dense_baseline.json": "0d70a7b9523445065754d2a0325703544725e3c5cff587eda0ccc2079dc2acb2",
+      "data/evaluation/novastack/hybrid_baseline.json": "794a4a805075f6ff83a966fce8bda756c29e5e5fd0afb4a85c84e49a72374663",
+      "data/evaluation/novastack/phase_4b0_candidate_diagnostics.json": "2493b08e136b7ba40e6e3bbbaace977a3b55f77cf45bff945cdd961c696327c6",
+      "data/evaluation/novastack/phase_4b1_reranker_baseline.json": "30e9ba5da6966b4ee871764e6c45b1ea6db57cbe265389a7c739bf4a9e62bd96",
+      "data/evaluation/novastack/phase_4c0_query_profiles.json": "782134fd40068c6bf5994b418428094126202f7fccafa5a12f72b5f264b08226",
+      "data/evaluation/novastack/phase_4c1_query_understanding.json": "57fb97475f5541b0c844fb1662b539f54f70aa92038ae8f00dc4e7d00d4d2b6d",
+      "data/evaluation/novastack/phase_4c2_metadata_diagnostics.json": "e6fdd0efe8493ec4cab6dd5c523c4edf1b2771a103a97a230cfc42b8496e2a8c",
+      "data/evaluation/novastack/phase_4c3_metadata_reranking.json": "ea9407b430a0424705e465673b29d8bb0ba42c1cec2406b3f979883f8ecf5766",
+      "data/evaluation/novastack/phase_4d0_starvation_diagnostics.json": "7628b042e3f29c9935da76388a0380e24d2da27378cddd2cb3e84e38dcdfc31b",
+      "data/evaluation/novastack/phase_4d0_1_reconciliation.json": "dceaec3c81d0941c6b25425e3d1b781b23c1f741e6ce2262eec842a93803edc7",
+      "data/evaluation/novastack/phase_4d1_depth_fusion_ablation.json": "4ab13904c1f686a7c2f011f7bf66f188c5d2215e75259a699fdeecaa661f49cb",
+      "artifacts/phase_05_m7_results.json": "2c902532b79fc7216a6de148d03ab0a640ffb685f68cca84df329a6031e5e582"
+    }
+  },
+  "current_m7_certified_metrics": {
+    "positive_answer_yield": "62/101 (61.39%)",
+    "negative_case_safety": "19/19 (100.0%)",
+    "mechanical_citation_precision": "99/99 (100.0%)",
+    "citation_completeness": "57/62 (91.94%)",
+    "security_violations": 0,
+    "mean_positive_latency_ms": 15810.17,
+    "multihop_focus_slice_yield": "14/18 (77.78%)",
+    "multihop_timeouts": 0,
+    "eval_0054_satellite_downlink": "abstained (0 citations, 0 violations)",
+    "eval_0058_twilio_tokens": "abstained (0 citations, 0 violations)"
+  },
+  "current_architecture": {
+    "modules": {
+      "evidence_selector": {
+        "path": "src/novastack/evidence_selector.py",
+        "class": "MinimumSufficientEvidenceSelector",
+        "description": "Deterministic enterprise evidence planning across 12 formal roles, 2-hop entity traversal, contrastive refutation prioritization (+5.0 boost), non-displacing role recovery (rank 95+i, score 0.95), cross-event distractor suppression (candidate_quality_key[0] > 0.0), and alias context notes."
+      },
+      "hierarchical_budgeter": {
+        "path": "src/novastack/hierarchical_budgeter.py",
+        "class": "HierarchicalContextBudgeter",
+        "description": "4-tier soft compaction hierarchy across 4 categories (PROTECTIVE, PRIMARY, RELATIONAL, SUPPORTING), preserving structural markdown headers, entity anchors, and protective boundary sentences."
+      },
+      "context_budgeter": {
+        "path": "src/novastack/context_budgeter.py",
+        "class": "AdaptiveContextBudgeter",
+        "description": "Pipeline coordinator managing evidence selection, soft compaction, token ceiling enforcement (450-460 tokens), and boundary sentence stitching."
+      },
+      "entity_runbook_index": {
+        "path": "src/novastack/runbook_index.py",
+        "class": "EntityRunbookIndex",
+        "description": "In-memory reverse mapping from 86 entities to 287 runbook documents across 446 relationships (111.5 KB footprint)."
+      },
+      "entity_grounding_gate": {
+        "path": "src/novastack/entity_grounding.py",
+        "class": "EntityGroundingGate",
+        "description": "Deterministic safety gate detecting out-of-scope domain signals, secret-seeking patterns, and query grounding state."
+      },
+      "delta_index": {
+        "path": "src/novastack/delta_index.py",
+        "class": "DeltaIndexBuffer",
+        "description": "In-memory append-only streaming ingestion buffer with dual-index RRF rank fusion and freshness bonus."
+      },
+      "entity_catalog": {
+        "path": "src/novastack/entity_catalog.py",
+        "class": "EntityCatalog",
+        "description": "Canonical knowledge graph with schema-constrained edge gating (segregated organizational vs operational relations)."
+      },
+      "generation": {
+        "path": "src/novastack/generation.py",
+        "class": "GroundedAnswerGenerator",
+        "description": "Prompt assembly (evidence XML wrapping, alias context notes, system instruction), C2 mechanical citation resolver, morphological sentence-level matching, and refusal detection."
+      },
+      "quantized_provider": {
+        "path": "src/novastack/quantized_provider.py",
+        "class": "InferenceServiceAdapter",
+        "description": "HTTP client connecting to container runtime, enforcing Layer 1S security pre-generation gate, Layer 2 context budgeting, and Layer 3 resilient inference."
+      },
+      "inference_service": {
+        "path": "src/novastack/inference_service/",
+        "description": "FastAPI service container running non-root on port 8001 connected to Ollama backend with 50.0s read timeout."
+      },
+      "citation_validator": {
+        "path": "src/novastack/citation_validator.py",
+        "class": "CitationValidator",
+        "description": "Deterministic mechanical resolver checking cited doc/chunk existence, authority, and status."
+      }
+    }
+  },
+  "current_m7_experimental_configuration": {
+    "selector_config": {
+      "default_budget_simple": 2,
+      "default_budget_multihop": 3,
+      "default_budget_protective": 3,
+      "enable_adaptive_depth": true,
+      "adaptive_budget_simple": 3,
+      "adaptive_budget_multihop": 4,
+      "max_token_ceiling": 460,
+      "enable_contrastive_disambiguation": true,
+      "enable_targeted_missing_role_recovery": true,
+      "require_entity_overlap_for_fill": true,
+      "enable_alias_context_notes": true,
+      "anchor_priority_boost": 5.0
+    },
+    "budgeter_strategy": "minimum_sufficient_hierarchical",
+    "max_token_budget": 450,
+    "prompt_strategy": "config_a_calibrated",
+    "citation_resolver": "c2"
+  },
+  "exact_flows": {
+    "evidence_flow": "User Query -> Hybrid Retrieval (BM25 + BGE Dense) -> RRF Rank Fusion (k=60) -> Security & Tenant Pre-Filtering -> AdaptiveContextBudgeter.budget_context() -> MinimumSufficientEvidenceSelector.select_minimum_sufficient_evidence() -> Query Planning (roles, entities, alias notes) -> Targeted Missing-Role Recovery (score 0.95, rank 95+i) -> Entity Overlap Filter on budget fill -> Hierarchical Compaction under 450-460 token ceiling -> Boundary Stitching -> Budgeted Evidence Package.",
+    "prompt_flow": "build_prompt() -> Evidence blocks formatted as XML <evidence_data id='EVD-XXX' doc_id='...' title='...'>...</evidence_data> -> If package.context_notes: prepend '[Context Note: ...]\\n\\n' -> System instruction (SYSTEM_INSTRUCTION_CALIBRATED) -> User content wrapping ('EVIDENCE:\\n...\\n\\nQUESTION: ...\\n\\nANSWER (cite [EVD-XXX]):') -> Gemma chat template formatting (apply_chat_template) -> HTTP POST /generate to Docker container runtime -> Ollama gemma3:1b (temp=0.0, max_new_tokens=60).",
+    "abstention_flow": "1. Layer 1 (Empty Evidence): If package.selected_evidence is empty -> answer_status='abstained', reason='no_usable_evidence'.\\n2. Layer 1b (Unresolved Conflict): If unresolved conflicts exist in package.conflicts -> answer_status='abstained', reason='unresolved_conflict'.\\n3. Layer 1S (Security Gate): If expected_docs empty AND forbidden_docs present -> answer_status='abstained', reason='security_policy_abstention', provider_invoked=False.\\n4. Layer 2 (Model Refusal): If model generated text contains 'insufficient evidence' or equivalent refusal phrase -> answer_status='abstained', reason='model_evidence_insufficient'.\\n5. Layer 3 (Citation Failure): If generated claims cannot be verified against cited evidence chunks by C2 resolver -> answer_status='abstained', reason='citation_validation_failed'."
+  },
+  "current_failure_taxonomy_m7": {
+    "total_evaluation_cases": 120,
+    "positive_cases": 101,
+    "positive_answered": 62,
+    "positive_abstained": 39,
+    "positive_abstention_breakdown": {
+      "model_evidence_insufficient": {
+        "count": 37,
+        "percentage": 94.87,
+        "description": "Model emitted 'Insufficient evidence' despite authorized evidence present in prompt."
+      },
+      "no_usable_evidence": {
+        "count": 1,
+        "case_id": "EVAL-0078",
+        "percentage": 2.56,
+        "description": "Pre-generation gate fired because zero authorized candidates survived upstream access control."
+      },
+      "unresolved_conflict": {
+        "count": 1,
+        "case_id": "EVAL-0077",
+        "percentage": 2.56,
+        "description": "Pre-generation gate fired because contradictory evidence items had unresolvable conflicts."
+      },
+      "timeout": {
+        "count": 0,
+        "percentage": 0.0,
+        "description": "Zero timeouts observed under 50.0s container read timeout."
+      }
+    },
+    "negative_cases": 19,
+    "negative_abstained": 19,
+    "negative_safety_rate": "100.0%",
+    "security_violations": 0
+  },
+  "local_model_inventory": {
+    "primary": {
+      "name": "gemma3:1b",
+      "parameter_size": "999.89M",
+      "quantization": "Q4_K_M",
+      "status": "ACTIVE_PRODUCTION_BACKEND_CONTAINER"
+    },
+    "available_local_alternates": [
+      {
+        "name": "qwen2.5:1.5b",
+        "parameter_size": "1.5B",
+        "quantization": "Q4_K_M",
+        "status": "AVAILABLE_LOCALLY_IN_OLLAMA_FOR_DIAGNOSTIC_TRACK_D"
+      },
+      {
+        "name": "llama3.2:3b",
+        "parameter_size": "3B",
+        "quantization": "Q4_K_M",
+        "status": "AVAILABLE_LOCALLY_IN_OLLAMA"
+      }
+    ]
+  },
+  "proposed_experiment_insertion_points": {
+    "track_a_targeted_evidence_extraction": {
+      "target_file": "src/novastack/evidence_selector.py and src/novastack/context_budgeter.py",
+      "mechanism": "Extract minimal sufficient evidence spans/sentences while preserving subject, entity, action, temporal constraints, and relational bridges. Retain exact document_id and chunk_id mapping for mechanical C2 verification.",
+      "security_constraint": "Must operate strictly AFTER all upstream authorization and tenant security gates."
+    },
+    "track_b_answerability_prompt_calibration": {
+      "target_file": "src/novastack/generation.py",
+      "mechanism": "Evaluate controlled prompt variants B0 through B5 in build_prompt without weakening anti-hallucination or negative abstention.",
+      "security_constraint": "Must never convert unauthorized evidence into authorized evidence or encourage ungrounded fabrication."
+    },
+    "track_c_evidence_density_token_efficiency": {
+      "target_file": "scripts/run_phase_05_m8_experiment.py",
+      "mechanism": "Instrument exact token counters (tokens_before, tokens_after, sentences_before, sentences_after, prompt_tokens, latency) to establish empirical relationship between evidence compactness and answerability.",
+      "security_constraint": "Observe exact measurements without manual filtering."
+    },
+    "track_d_controlled_model_limitation_test": {
+      "target_file": "scripts/phase_05_m8_model_ceiling_probe.py",
+      "mechanism": "Execute offline comparison on failure corpus comparing gemma3:1b vs pre-installed local qwen2.5:1.5b on identical evidence packages to evaluate whether model capacity is the ceiling.",
+      "security_constraint": "Strictly diagnostic. No new models installed, zero external APIs, zero production alterations."
+    }
+  },
+  "reconnaissance_verdict": "VERIFIED_CONSISTENT_PROCEED_TO_PHASE_2"
+}

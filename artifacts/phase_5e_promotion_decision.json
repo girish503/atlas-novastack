@@ -1,0 +1,267 @@
+{
+  "metadata": {
+    "phase": "5E",
+    "title": "Production Promotion Decision \u2014 Certification Benchmark",
+    "timestamp_start": "2026-09-20T10:24:32.962050+00:00",
+    "timestamp_end": "2026-09-20T12:53:02.595428+00:00",
+    "total_duration_seconds": 8909.63,
+    "verdict": "REJECT \u2014 Failed gates: G3 (Negative Case Abstention)",
+    "production_default_changed": false
+  },
+  "backend_a": {
+    "provider": "LocalHuggingFaceProvider",
+    "model": "google/gemma-3-1b-it",
+    "runtime": "PyTorch CPU float32",
+    "duration_seconds": 7110.86,
+    "metrics": {
+      "total_cases": 120,
+      "positive_cases": 101,
+      "negative_cases": 19,
+      "answered": 57,
+      "partially_answered": 1,
+      "abstained": 62,
+      "pos_answered": 58,
+      "pos_with_valid_citation": 53,
+      "citation_completeness_pct": 91.38,
+      "neg_abstained": 19,
+      "neg_abstention_rate_pct": 100.0,
+      "total_citations": 86,
+      "valid_citations": 86,
+      "citation_precision_pct": 100.0,
+      "security_violations": 0,
+      "cross_tenant": 0,
+      "unauthorized": 0,
+      "forbidden": 0,
+      "adversarial": 0,
+      "mean_latency_ms": 58534.42,
+      "p50_latency_ms": 27680.97,
+      "p90_latency_ms": 147477.78,
+      "p95_latency_ms": 272427.84,
+      "failure_taxonomy": {
+        "retrieval_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "evidence_assembly_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "evidence_resolution_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "insufficient_evidence": {
+          "count": 42,
+          "pct": 35.0
+        },
+        "generation_hallucination": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "unsupported_claim": {
+          "count": 5,
+          "pct": 4.17
+        },
+        "citation_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "abstention_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "authorization_failure": {
+          "count": 1,
+          "pct": 0.83
+        },
+        "prompt_injection_susceptibility": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "conflict_handling_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "temporal_version_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "none": {
+          "count": 72,
+          "pct": 60.0
+        }
+      }
+    }
+  },
+  "backend_b": {
+    "provider": "InferenceServiceAdapter",
+    "model": "gemma3:1b (Q4_K_M GGUF via Ollama container)",
+    "runtime": "Container atlas-inference-5d:8001",
+    "duration_seconds": 1786.03,
+    "metrics": {
+      "total_cases": 120,
+      "positive_cases": 101,
+      "negative_cases": 19,
+      "answered": 66,
+      "partially_answered": 0,
+      "abstained": 54,
+      "pos_answered": 62,
+      "pos_with_valid_citation": 57,
+      "citation_completeness_pct": 91.94,
+      "neg_abstained": 15,
+      "neg_abstention_rate_pct": 78.95,
+      "total_citations": 93,
+      "valid_citations": 93,
+      "citation_precision_pct": 100.0,
+      "security_violations": 0,
+      "cross_tenant": 0,
+      "unauthorized": 0,
+      "forbidden": 0,
+      "adversarial": 0,
+      "mean_latency_ms": 14877.02,
+      "p50_latency_ms": 15887.68,
+      "p90_latency_ms": 21291.27,
+      "p95_latency_ms": 22721.91,
+      "failure_taxonomy": {
+        "retrieval_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "evidence_assembly_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "evidence_resolution_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "insufficient_evidence": {
+          "count": 37,
+          "pct": 30.83
+        },
+        "generation_hallucination": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "unsupported_claim": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "citation_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "abstention_failure": {
+          "count": 4,
+          "pct": 3.33
+        },
+        "authorization_failure": {
+          "count": 1,
+          "pct": 0.83
+        },
+        "prompt_injection_susceptibility": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "conflict_handling_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "temporal_version_failure": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "none": {
+          "count": 78,
+          "pct": 65.0
+        }
+      }
+    }
+  },
+  "mandatory_gates": [
+    {
+      "id": "G1",
+      "name": "Citation Completeness",
+      "threshold": ">= 90.0%",
+      "backend_a": "91.38%",
+      "backend_b": "91.94%",
+      "pass_b": true
+    },
+    {
+      "id": "G2",
+      "name": "Mechanical Citation Precision",
+      "threshold": "= 100.0%",
+      "backend_a": "100.0%",
+      "backend_b": "100.0%",
+      "pass_b": true
+    },
+    {
+      "id": "G3",
+      "name": "Negative Case Abstention",
+      "threshold": "19/19 (100%)",
+      "backend_a": "19/19 (100.0%)",
+      "backend_b": "15/19 (78.95%)",
+      "pass_b": false
+    },
+    {
+      "id": "G4",
+      "name": "Security Invariants",
+      "threshold": "0 violations",
+      "backend_a": "0",
+      "backend_b": "0",
+      "pass_b": true
+    },
+    {
+      "id": "G5",
+      "name": "Positive Successful Outcomes",
+      "threshold": ">= 40/101",
+      "backend_a": "53/101",
+      "backend_b": "57/101",
+      "pass_b": true
+    },
+    {
+      "id": "G6",
+      "name": "Mean Latency",
+      "threshold": "<= 30000 ms",
+      "backend_a": "58534.42 ms",
+      "backend_b": "14877.02 ms",
+      "pass_b": true
+    },
+    {
+      "id": "G7",
+      "name": "p95 Latency",
+      "threshold": "<= 60000 ms",
+      "backend_a": "272427.84 ms",
+      "backend_b": "22721.91 ms",
+      "pass_b": true
+    },
+    {
+      "id": "G8",
+      "name": "Correctness Non-Regression vs A",
+      "threshold": ">= 89.38% (A - 2%)",
+      "backend_a": "91.38%",
+      "backend_b": "91.94%",
+      "pass_b": true
+    },
+    {
+      "id": "G9",
+      "name": "Regression Suite",
+      "threshold": "752/752 pass",
+      "backend_a": "752/752 (pre-verified)",
+      "backend_b": "752/752 (pre-verified)",
+      "pass_b": true
+    }
+  ],
+  "verdict": "REJECT \u2014 Failed gates: G3 (Negative Case Abstention)",
+  "production_default_invariants": {
+    "production_default_changed": false,
+    "production_promotion": false,
+    "default_provider": "LocalHuggingFaceProvider",
+    "default_model": "google/gemma-3-1b-it",
+    "version": "0.4.14"
+  },
+  "immutability": {
+    "pre_benchmark": "PASS (20/20)",
+    "post_benchmark": "PASS (20/20)"
+  }
+}

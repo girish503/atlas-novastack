@@ -1,0 +1,137 @@
+{
+  "document_id": "DOC-ATLAS-0.5-DECISION",
+  "project": "ATLAS",
+  "title": "ATLAS 0.5 Architecture Review & Product Decision",
+  "author": "CTO / Principal AI Systems Architect",
+  "date": "2026-09-23",
+  "decision_status": "PROPOSED_PENDING_APPROVAL",
+  "current_state": {
+    "release": "0.4.14-rc1",
+    "package_version": "0.4.14",
+    "commissioning_status": "COMMISSIONED WITH DOCUMENTED LIMITATIONS",
+    "release_archive_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "source_immutability": "FROZEN (0 modifications in src/novastack/)",
+    "production_backend": "InferenceServiceAdapter -> Ollama -> gemma3:1b Q4_K_M GGUF",
+    "rollback_backend": "LocalHuggingFaceProvider -> google/gemma-3-1b-it FP32 CPU",
+    "citation_precision_percent": 100.0,
+    "citation_completeness_percent": 93.65,
+    "positive_answer_yield_percent": 62.4,
+    "negative_case_abstention_percent": 100.0,
+    "security_violations": 0,
+    "cross_tenant_leaks": 0,
+    "operating_envelope": {
+      "node_topology": "single-node",
+      "hardware": "CPU-only (Intel Core i3-N305 class, 8GB RAM)",
+      "concurrency": 1,
+      "queue_timeout_seconds": 0.5,
+      "request_timeout_seconds": 30.0,
+      "circuit_breaker_failure_threshold": 3,
+      "circuit_breaker_cooldown_seconds": 10.0
+    }
+  },
+  "primary_problem": "ATLAS 0.4.14-rc1 is secure, grounded, and resilient, but suffers from a 37.6% false abstention rate on legitimate positive questions. This is caused by multi-hop relational blind spots (depth d=1 cap), temporal policy confusion, prompt evidence starvation due to raw passage truncation (top-3 raw evidence limit), lack of real-time operational data freshness, and operator friction from headless JSON APIs.",
+  "proposed_direction": "Execute ATLAS 0.5 focusing on 5 high-leverage capabilities: (1) Bounded multi-hop graph retrieval (d<=3); (2) Structured ISO-8601 temporal interval filtering; (3) Salience-budgeted context compaction (top-3 -> top 6-8 documents within same 800 tokens); (4) Append-only in-memory delta index buffer (<500ms freshness); (5) Standalone operator Web Search & Provenance UI, paired with autonomous circuit-breaker fallback to Backend A.",
+  "why": [
+    "Evidence-backed failure attribution: Phase 4I proved that 58.3% of failures occur upstream from generation (Stage A candidate starvation, Stage B evidence suppression, Stage C context cutoff). Addressing retrieval and context budgeting directly eliminates these losses.",
+    "Preserves low-TCO CPU envelope: Multi-hop graph search and sentence salience compaction run in-memory on CPU in <10ms, avoiding expensive GPU clusters or model parameter expansion.",
+    "Zero regression discipline: Preserves 100% mechanical citation precision, 100% negative abstention, and zero cross-tenant leakage by testing against the immutable 120-case canonical suite.",
+    "Transforms developer/operator experience: The operator Web UI eliminates JSON parsing friction during Sev-1 incident triage."
+  ],
+  "key_risks": [
+    {
+      "risk": "Combinatorial candidate explosion during multi-hop graph traversal at depth d=3.",
+      "mitigation": "Apply strict path-weight decay (0.7^d), enforce per-hop top-k branching limits, and prune cross-tenant edges immediately."
+    },
+    {
+      "risk": "Loss of sentence narrative context during salience compaction causing hallucinated citations.",
+      "mitigation": "C2 tiered citation resolver enforces strict sentence and chunk substring alignment before citation attachment."
+    },
+    {
+      "risk": "Memory consumption growth in append-only delta index buffer.",
+      "mitigation": "Enforce strict capacity cap (max 1,000 documents) with periodic background compaction into base index generation."
+    }
+  ],
+  "what_we_will_not_build": [
+    "No external distributed vector databases (Milvus, Qdrant, Pinecone) — 1,663 chunks compute cosine similarity in <2ms in-memory.",
+    "No multi-turn open-ended agentic conversational loops — introduces stateful authorization leak risks and prompt injection vectors.",
+    "No 70B parameter GPU clusters — violates low-cost single-node CPU deployment mandate.",
+    "No Kubernetes or multi-node clustering — ATLAS remains optimized for bare metal / single VM edge and enterprise deployments."
+  ],
+  "milestone_roadmap": [
+    {
+      "milestone": "0.5-M1",
+      "name": "Multi-Hop Relational Traversal & Structured Temporal Filtering",
+      "target_duration": "Sprint 1",
+      "deliverables": [
+        "Bounded BFS graph traversal up to depth d=3",
+        "ISO-8601 temporal interval parser and metadata gate",
+        "Unit test suite tests/test_phase_05_m1_multihop_temporal.py"
+      ]
+    },
+    {
+      "milestone": "0.5-M2",
+      "name": "Salience Context Compaction & Append-Only Delta Index",
+      "target_duration": "Sprint 2",
+      "deliverables": [
+        "Extractive sentence salience compaction (Top 6-8 documents in prompt)",
+        "In-memory DeltaIndexBuffer with <500ms ingest freshness",
+        "Unit test suite tests/test_phase_05_m2_compaction_delta.py"
+      ]
+    },
+    {
+      "milestone": "0.5-M3",
+      "name": "Operator Web Search UI & Autonomous Fallback Routing",
+      "target_duration": "Sprint 3",
+      "deliverables": [
+        "Lightweight responsive single-page Web UI at /ui",
+        "Autonomous CircuitBreaker failover routing to LocalHuggingFaceProvider",
+        "Unit test suite tests/test_phase_05_m3_ui_resilience.py"
+      ]
+    },
+    {
+      "milestone": "0.5-M4",
+      "name": "Bounded Concurrency (N=2) & RS256 Identity (Stretch)",
+      "target_duration": "Sprint 4",
+      "deliverables": [
+        "Bounded concurrency semaphore N=2 with thread pinning",
+        "OIDC / RS256 public key verification in JwtIdentityVerifier"
+      ]
+    },
+    {
+      "milestone": "0.5-M5",
+      "name": "0.5 Release Baseline Certification & Commissioning Freeze",
+      "target_duration": "Sprint 5",
+      "deliverables": [
+        "Complete regression run (>280 tests green)",
+        "Standalone distribution bundle atlas-novastack-0.5.0.tar.gz",
+        "Final commissioning report and release sign-off"
+      ]
+    }
+  ],
+  "first_implementation_milestone": {
+    "milestone_id": "0.5-M1",
+    "name": "Multi-Hop Relational Traversal & Structured Temporal Filtering",
+    "scope": "Implement bounded BFS (d<=3) in StructuredRetriever and ISO-8601 date interval filtering in QueryUnderstanding.",
+    "code_files_to_modify": [
+      "src/novastack/relational_retrieval.py",
+      "src/novastack/query_understanding.py",
+      "src/novastack/metadata_reranker.py"
+    ],
+    "new_test_file": "tests/test_phase_05_m1_multihop_temporal.py"
+  },
+  "first_experiment": {
+    "experiment_id": "EXP-0.5-01",
+    "title": "Multi-Hop Relational Graph Traversal (d <= 3)",
+    "hypothesis": "Extending StructuredRetriever traversal from depth d=1 to bounded BFS depth d<=3 with exponential path-decay scoring (gamma = 0.7^d) will improve candidate recall R@10 by >= 25% on relational multi-entity queries without increasing non-relational query latency or leaking cross-tenant data.",
+    "success_threshold": "Multi-hop R@10 >= 65.0%; zero cross-tenant candidates; latency increase <= 10.0ms; zero regressions on canonical 120-case baseline."
+  },
+  "success_metrics": {
+    "target_positive_answer_yield_percent": ">= 75.0% (Current: 62.4%)",
+    "target_mechanical_citation_precision_percent": "100.0% (Zero tolerance for ungrounded citations)",
+    "target_negative_case_abstention_percent": "100.0% (19/19 canonical cases preserved)",
+    "target_data_freshness_latency_ms": "< 500 ms (Current: Infinite / batch-only)",
+    "target_query_availability_during_primary_outage": "100.0% (Current: 0% / 503 outage during CB trip)",
+    "target_prompt_evidence_diversity": "6 to 8 documents (Current: 3 documents)"
+  },
+  "governance_rule": "Treat 0.4.14-rc1 as strictly frozen. No code changes to src/novastack/ will occur until the CTO explicitly reviews this proposal and approves the start of Milestone 0.5-M1."
+}

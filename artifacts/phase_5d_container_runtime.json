@@ -1,0 +1,177 @@
+{
+  "timestamp": "2026-09-20T03:33:00Z",
+  "phase": "5D",
+  "status": "PASS",
+  "classification": {
+    "verified": [
+      "Gate 1: Docker CLI & Daemon Availability",
+      "Gate 2: OCI Image Build (atlas-inference:5d)",
+      "Gate 3: Non-Root Container Execution (UID 1000 appuser)",
+      "Gate 4: Health & Readiness Probes (/healthz & /ready)",
+      "Gate 5: Container-to-Ollama Reachability & Model Topology",
+      "Gate 6: Direct /generate Execution & Schema Validation",
+      "Gate 7: Full Grounded ATLAS Core E2E Query with C2 Citations",
+      "Gate 8: Complete 8-Point Zero-Trust Security Perimeter",
+      "Gate 9: Failure Isolation & Dependency Recovery (Stopped & Restored Ollama)",
+      "Gate 10: Container Restart Recovery (docker restart)",
+      "Gate 12: Repository Regression Suite (752/752 passed)"
+    ],
+    "observed": [
+      "Gate 11: Host Resource Observations (Container 34.09 MiB, Ollama 932.75 MiB RSS, Gen latency 3220.2 ms)"
+    ],
+    "not_verified": [],
+    "historical_blocked_provenance": {
+      "initial_run_status": "BLOCKED",
+      "initial_reason": "Docker CLI and Docker Desktop daemon unavailable on Windows 11 host",
+      "resolution": "Docker Desktop 29.8.0 (WSL2 backend) provisioned, started, and verified",
+      "date_cleared": "2026-09-20T03:14:00Z"
+    }
+  },
+  "system": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.13.5",
+    "processor": "Intel64 Family 6 Model 190 Stepping 0, GenuineIntel",
+    "logical_cores": 8
+  },
+  "environment": {
+    "docker": {
+      "cli_version": "Docker version 29.8.0, build 88096ef",
+      "server_version": "29.8.0",
+      "context": "desktop-linux",
+      "os_type": "linux",
+      "architecture": "x86_64",
+      "cpus": 8,
+      "total_memory_gib": 3.64,
+      "storage_driver": "overlayfs",
+      "kernel_version": "6.18.33.2-microsoft-standard-WSL2"
+    },
+    "ollama": {
+      "endpoint_url": "http://127.0.0.1:11434",
+      "model_name": "gemma3:1b",
+      "model_size_bytes": 815319791,
+      "quantization": "Q4_K_M GGUF"
+    }
+  },
+  "gates": {
+    "gate_1_docker_availability": {
+      "status": "PASS",
+      "cli": "29.8.0",
+      "server": "29.8.0",
+      "context": "desktop-linux",
+      "memory_gib": 3.64
+    },
+    "gate_2_oci_image_build": {
+      "status": "PASS",
+      "image_tag": "atlas-inference:5d",
+      "image_id": "sha256:94042560c4dfb0ea77b8ef036bbe266b5c8c84d83fe842a6b4adf3be04fd6352",
+      "base_image": "python:3.11-slim",
+      "exposed_port": "8001/tcp",
+      "configured_user": "appuser (UID 1000)",
+      "entrypoint": ["uvicorn", "novastack.inference_service.app:app", "--host", "0.0.0.0", "--port", "8001"],
+      "healthcheck": "CMD-SHELL curl -f http://localhost:8001/healthz || exit 1",
+      "size_bytes": 9595519645
+    },
+    "gate_3_non_root_runtime": {
+      "status": "PASS",
+      "container_name": "atlas-inference-5d",
+      "container_id": "f104e26ad10f",
+      "verified_user": "uid=1000(appuser) gid=1000(appuser) groups=1000(appuser)",
+      "root_execution": false
+    },
+    "gate_4_health_and_readiness": {
+      "status": "PASS",
+      "healthz": {
+        "status_code": 200,
+        "latency_ms": 964.37,
+        "body": {"status": "ok", "service": "atlas-inference-service"}
+      },
+      "ready": {
+        "status_code": 200,
+        "latency_ms": 100.48,
+        "backend_connected": true,
+        "model_available": true
+      }
+    },
+    "gate_5_container_to_ollama_networking": {
+      "status": "PASS",
+      "topology": "Container (172.17.0.x bridge) -> host.docker.internal:11434 -> Host Ollama (PID 21980) -> gemma3:1b",
+      "curl_verified_from_inside_container": true,
+      "target_model_verified": "gemma3:1b"
+    },
+    "gate_6_direct_generate": {
+      "status": "PASS",
+      "status_code": 200,
+      "latency_ms": 3220.2,
+      "prompt_tokens": 22,
+      "output_tokens": 24,
+      "eval_rate_tok_per_sec": 14.1,
+      "schema_validation_error_code": 422,
+      "request_id_preserved": true
+    },
+    "gate_7_full_e2e_atlas_pipeline": {
+      "status": "PASS",
+      "status_code": 200,
+      "answer_status": "answered",
+      "citations_count": 2,
+      "citations_valid_count": 2,
+      "answer_text": "Connection pool exhaustion in checkout-service caused by misconfigured maximum connections parameter (set to 10 instead of 100) deployed in v2.4.1. [EVD-001] [EVD-002]",
+      "c2_validation": "VALID"
+    },
+    "gate_8_security_perimeter": {
+      "status": "PASS",
+      "missing_jwt_rejection": 401,
+      "invalid_jwt_rejection": 401,
+      "cross_tenant_mismatch_rejection": 403,
+      "unauthorized_evidence_never_sent": true,
+      "adversarial_evidence_quarantined": true,
+      "zero_jwt_egress": true,
+      "zero_authorization_header_egress": true,
+      "zero_tenant_context_egress": true
+    },
+    "gate_9_failure_isolation": {
+      "status": "PASS",
+      "stopped_backend_ready_status": 503,
+      "stopped_backend_generate_status": 503,
+      "hung_requests": false,
+      "atlas_crashes": false,
+      "restarted_backend_ready_status": 200,
+      "restarted_backend_generate_status": 200
+    },
+    "gate_10_container_restart": {
+      "status": "PASS",
+      "restart_duration_ms": 1367.0,
+      "post_restart_healthz": 200,
+      "post_restart_ready": 200,
+      "post_restart_generate": 200,
+      "post_restart_e2e_status": 200,
+      "post_restart_e2e_latency_ms": 3310.9,
+      "post_restart_citations_valid": true
+    },
+    "gate_11_resource_observation": {
+      "status": "OBSERVED",
+      "host": "Windows 11 Home, i3-N305, 8GB RAM",
+      "container_rss_mib": 34.09,
+      "container_mem_percent": "0.91%",
+      "container_cpu_percent": "0.28%",
+      "ollama_host_rss_mb": 932.75,
+      "combined_inference_stack_mb": 966.84,
+      "direct_generate_latency_ms": 3220.2
+    },
+    "gate_12_regression_suite": {
+      "status": "PASS",
+      "passed": 752,
+      "failed": 0,
+      "deselected": 115,
+      "duration_seconds": 143.85
+    }
+  },
+  "production_default_invariants": {
+    "production_default_changed": false,
+    "production_promotion": false,
+    "default_provider": "LocalHuggingFaceProvider",
+    "default_model": "google/gemma-3-1b-it",
+    "default_dtype": "torch.float32",
+    "default_device": "cpu",
+    "version": "0.4.14"
+  }
+}

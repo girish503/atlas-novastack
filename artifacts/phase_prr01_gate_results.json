@@ -1,0 +1,129 @@
+{
+  "review": "ATLAS 0.5 — PRR-01 Gate Evaluation Scorecard",
+  "total_gates": 20,
+  "passed_gates": 20,
+  "failed_gates": 0,
+  "decision": "PROMOTION_READY",
+  "gates": {
+    "G01_benchmark_reproducible": {
+      "name": "120-Case Benchmark Reproducible",
+      "target": "101 positive + 19 negative cases",
+      "measured": "120 canonical cases verified (101 positive + 19 negative); SHA256 verified",
+      "status": "PASS"
+    },
+    "G02_positive_success": {
+      "name": "Positive Success Yield",
+      "target": ">= 67/101 (66.34%)",
+      "measured": "74/101 (73.27%)",
+      "status": "PASS"
+    },
+    "G03_negative_abstention": {
+      "name": "Negative Abstention Safety",
+      "target": "= 19/19 (100.0%)",
+      "measured": "19/19 (100.0%)",
+      "status": "PASS"
+    },
+    "G04_citation_precision": {
+      "name": "Mechanical Citation Precision",
+      "target": "= 100.0%",
+      "measured": "122/122 (100.0%)",
+      "status": "PASS"
+    },
+    "G05_citation_completeness": {
+      "name": "Citation Completeness",
+      "target": ">= 90.0%",
+      "measured": "69/74 (93.24%)",
+      "status": "PASS"
+    },
+    "G06_security_violations": {
+      "name": "Security Violations",
+      "target": "= 0",
+      "measured": 0,
+      "status": "PASS"
+    },
+    "G07_cross_tenant_leakage": {
+      "name": "Cross-Tenant Exposure",
+      "target": "= 0",
+      "measured": 0,
+      "status": "PASS"
+    },
+    "G08_unauthorized_evidence": {
+      "name": "Unauthorized Evidence Exposure",
+      "target": "= 0",
+      "measured": 0,
+      "status": "PASS"
+    },
+    "G09_forbidden_citations": {
+      "name": "Forbidden Document Citations",
+      "target": "= 0",
+      "measured": 0,
+      "status": "PASS"
+    },
+    "G10_multihop_yield": {
+      "name": "Multi-Hop Focus Slice Yield",
+      "target": ">= 13/18 (72.22%)",
+      "measured": "14/18 (77.78%)",
+      "status": "PASS"
+    },
+    "G11_timeouts": {
+      "name": "Execution Timeouts",
+      "target": "= 0",
+      "measured": 0,
+      "status": "PASS"
+    },
+    "G12_configuration_reproducibility": {
+      "name": "Configuration Reproducibility",
+      "target": "Deterministic declarative configuration",
+      "measured": "SelectorConfig + context_strategy + prompt_strategy deterministically verified",
+      "status": "PASS"
+    },
+    "G13_source_integrity": {
+      "name": "Source Integrity",
+      "target": "Zero unapproved source drift",
+      "measured": "48/48 source files cryptographically hashed; zero unapproved drift",
+      "status": "PASS"
+    },
+    "G14_dependency_runtime_reproducibility": {
+      "name": "Dependency / Runtime Reproducibility",
+      "target": "Containerized inference + Python dependency lock",
+      "measured": "Container healthy, non-root user execution, 61/61 phase 5c tests passed",
+      "status": "PASS"
+    },
+    "G15_observability_operational": {
+      "name": "Observability Operational",
+      "target": "Request ID, structured logging, metrics endpoints",
+      "measured": "Validated via operations regression tests",
+      "status": "PASS"
+    },
+    "G16_failure_recovery_validated": {
+      "name": "Failure Recovery Validated",
+      "target": "Circuit breaker, concurrency limiter, fail-closed handlers",
+      "measured": "32/32 incident recovery tests passed",
+      "status": "PASS"
+    },
+    "G17_rollback_validated": {
+      "name": "Rollback Validated",
+      "target": "Zero-downtime provider rollback to LocalHuggingFaceProvider",
+      "measured": "Provider switching round-trip validated",
+      "status": "PASS"
+    },
+    "G18_no_secrets_in_release": {
+      "name": "No Secrets in Release Artifacts",
+      "target": "= 0 hardcoded credentials",
+      "measured": "0 findings across codebase, configs, scripts, docs",
+      "status": "PASS"
+    },
+    "G19_production_baseline_untouched": {
+      "name": "0.4.14 Production Baseline Untouched",
+      "target": "Bit-for-bit immutable baseline archive",
+      "measured": "dist/atlas-novastack-0.4.14-rc1.tar.gz matches certified SHA256 (382cde6c...)",
+      "status": "PASS"
+    },
+    "G20_operator_runbook_complete": {
+      "name": "Operator Runbook Complete",
+      "target": "Production-grade operational runbook",
+      "measured": "docs/OPERATIONS_RUNBOOK.md (677 lines, 28KB) verified complete",
+      "status": "PASS"
+    }
+  }
+}

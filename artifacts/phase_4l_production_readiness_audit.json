@@ -1,0 +1,322 @@
+{
+  "metadata": {
+    "phase": "PHASE_4L_PRODUCTION_READINESS_AUDIT",
+    "timestamp": "2026-09-12T15:15:00Z",
+    "frozen_production_flags": {
+      "enable_boundary_stitching": false,
+      "enable_query_aware_authority": true,
+      "enable_event_bundling": false
+    },
+    "audit_status": "FAIL",
+    "status_rationale": "ATLAS demonstrates exceptional algorithmic accuracy and deterministic safety under benchmark conditions, but operates as an in-memory research/evaluation harness. It lacks an HTTP service layer, fail-closed authentication middleware, request timeouts, structured logging, containerization, and incremental indexing necessary for enterprise production deployment.",
+    "total_dimensions_audited": 20,
+    "classification_summary": {
+      "CRITICAL": 3,
+      "HIGH": 6,
+      "MEDIUM": 5,
+      "LOW": 1,
+      "PASS": 5
+    }
+  },
+  "top_5_production_risks": [
+    {
+      "rank": 1,
+      "dimension": "API/Service Reliability",
+      "risk": "Absence of HTTP/gRPC service layer, health endpoints, and process concurrency controls prevents enterprise integration and deployment.",
+      "severity": "CRITICAL"
+    },
+    {
+      "rank": 2,
+      "dimension": "Retries and Timeouts",
+      "risk": "Completely unbounded synchronous PyTorch model inference with zero timeouts or circuit breakers creates immediate susceptibility to thread starvation and process hang.",
+      "severity": "CRITICAL"
+    },
+    {
+      "rank": 3,
+      "dimension": "Authentication and Authorization Enforcement",
+      "risk": "Stage 2 authorization check bypasses role/dept/user ACL validation when credentials are None (unauthenticated caller), and defaults missing tenant to NovaStack.",
+      "severity": "CRITICAL"
+    },
+    {
+      "rank": 4,
+      "dimension": "Deployment Readiness",
+      "risk": "Missing Dockerfile, CI/CD pipelines, and outdated requirements.txt (unpinned torch/transformers) prevents reproducible container builds.",
+      "severity": "CRITICAL"
+    },
+    {
+      "rank": 5,
+      "dimension": "Logging and Observability",
+      "risk": "Standard logging module is 100% absent across codebase; zero Prometheus metrics or OpenTelemetry tracing prevents operational monitoring and incident triage.",
+      "severity": "HIGH"
+    }
+  ],
+  "findings": [
+    {
+      "dimension_id": 1,
+      "name": "API/Service Reliability",
+      "classification": "CRITICAL",
+      "file_module": "src/novastack/ (Missing service entrypoint)",
+      "current_behavior": "ATLAS exists strictly as an in-memory Python library without any HTTP/gRPC API service (FastAPI, Flask, gRPC). Queries are executed via local benchmark scripts.",
+      "why_it_matters": "Enterprise client applications cannot query ATLAS over standard network protocols. No ASGI/WSGI process supervision, health probes (/healthz, /ready), or connection pooling exist.",
+      "code_evidence": "Zero occurrences of FastAPI, Flask, uvicorn, or network socket listeners in src/. End-to-end execution requires manual class instantiation.",
+      "recommended_fix": "Build a production FastAPI service (src/novastack/service/api.py) with Pydantic request/response models, /healthz and /ready endpoints, and graceful shutdown handlers.",
+      "test_required": "tests/test_api_service.py using httpx.AsyncClient verifying endpoint schemas, concurrency, and health checks.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 2,
+      "name": "Authentication and Authorization Enforcement",
+      "classification": "CRITICAL",
+      "file_module": "src/novastack/evidence_resolution.py (lines 207, 343-359)",
+      "current_behavior": "Missing tenant defaults silently to 'TENANT-NOVASTACK'. ACL checks skip validation when user_role, user_department, or user_id is None, allowing unauthenticated callers to access restricted documents.",
+      "why_it_matters": "Violates zero-trust security. Any unauthenticated query omitting user_role bypasses role-based restrictions on restricted documents.",
+      "code_evidence": "Line 207: user_tenant = eval_case.get('tenant_id') or 'TENANT-NOVASTACK'. Line 343: if perms.allowed_roles and user_role is not None: if user_role not in perms.allowed_roles: is_auth = False.",
+      "recommended_fix": "Enforce fail-closed authorization: reject missing tenant_id immediately; enforce is_auth = False whenever perms.allowed_roles is non-empty and user_role is None or unauthorized.",
+      "test_required": "tests/test_auth_fail_closed.py verifying that unauthenticated requests (user_role=None) are strictly denied restricted records.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 3,
+      "name": "Tenant Isolation",
+      "classification": "MEDIUM",
+      "file_module": "src/novastack/bm25.py, src/novastack/dense.py, src/novastack/ingestion.py",
+      "current_behavior": "All tenants reside in a single shared index and vector matrix. Isolation relies on pre-scoring dictionary filtering and Stage 2 post-filtering. VALID_TENANTS is hardcoded in ingestion.py.",
+      "why_it_matters": "If caller accidentally passes filters=None, foreign tenant records enter candidate ranking and crowd out legitimate tenant documents before Stage 2 exclusion. Static tenant set prevents dynamic tenant onboarding.",
+      "code_evidence": "BM25Index and DenseIndex store self.chunks across all tenants in one array. ingestion.py:32 hardcodes VALID_TENANTS.",
+      "recommended_fix": "Partition indices per tenant or make tenant_id a required positional parameter at the index search interface. Implement dynamic tenant registry.",
+      "test_required": "tests/test_tenant_partitioning.py verifying that index instances strictly isolate tenant memory spaces.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 4,
+      "name": "Ingestion Failure Handling",
+      "classification": "HIGH",
+      "file_module": "src/novastack/ingestion.py (lines 483-500)",
+      "current_behavior": "In strict=True, any single invalid record aborts the entire batch. In strict=False, validation errors are logged but invalid records are still normalized and emitted in output search documents.",
+      "why_it_matters": "Batch-abort halts ETL synchronization; non-strict mode pollutes search documents with invalid schemas, dangling references, or temporal violations.",
+      "code_evidence": "Lines 483-487 raises ValueError; lines 499-502 calls normalize_source_record(r) for all records unconditionally in non-strict mode.",
+      "recommended_fix": "Implement partial batch ingestion with an isolated Dead-Letter Queue (DLQ). Valid records are committed; invalid records are routed to DLQ with detailed error traces.",
+      "test_required": "tests/test_ingestion_dlq.py verifying partial ingestion where valid records commit and invalid records route to DLQ.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 5,
+      "name": "Indexing Failure Handling",
+      "classification": "HIGH",
+      "file_module": "src/novastack/bm25.py, src/novastack/dense.py",
+      "current_behavior": "Indices are static, all-or-nothing in-memory structures. Incremental document indexing is unsupported. Corrupted index file on disk raises ValueError and leaves system inoperative.",
+      "why_it_matters": "Cannot add, update, or delete enterprise documents dynamically without rebuilding the entire corpus index. Index corruption causes catastrophic startup failure.",
+      "code_evidence": "DenseIndex and BM25Index lack incremental add/update/delete methods. DenseIndex.load raises ValueError on count or ID mismatch.",
+      "recommended_fix": "Implement AtomicIndexManager supporting blue/green index swapping and transactional index reloads; integrate production vector database for incremental updates.",
+      "test_required": "tests/test_atomic_index_swap.py verifying zero-downtime index cutover and rollback on corrupt index files.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 6,
+      "name": "Document/Version/Lifecycle Handling",
+      "classification": "MEDIUM",
+      "file_module": "src/novastack/evidence_resolution.py (Stage 5)",
+      "current_behavior": "Stage 5 correctly resolves supersession, deprecation, and drafts among retrieved candidates, but cannot detect if a candidate was superseded by a document that was not retrieved in Top-50.",
+      "why_it_matters": "If a newer v2.0 document is missed during lexical/dense retrieval, an obsolete v1.0 document is returned as active canonical truth.",
+      "code_evidence": "Stage 5 inspects supersedes_id and parent_id locally on candidate items, without querying a global supersession catalog.",
+      "recommended_fix": "Maintain a global pre-computed supersession lookup table and purge superseded documents at ingestion/indexing time.",
+      "test_required": "tests/test_global_supersession.py verifying that an obsolete document is excluded even if its replacement is absent from candidates.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 7,
+      "name": "Stale-Data Behavior",
+      "classification": "PASS",
+      "file_module": "src/novastack/evidence_resolution.py (Stage 6)",
+      "current_behavior": "Deterministic Stage 6 gate checks valid_from and valid_until ISO 8601 bounds against evaluation/query timestamp. Passed red-team audit with 0 stale resurrections.",
+      "why_it_matters": "Complies with temporal validity invariants and prevents expired data leaks.",
+      "code_evidence": "Stage 6 lines 510-545 correctly parses timestamps and excludes expired documents.",
+      "recommended_fix": "N/A (System functions as specified).",
+      "test_required": "Already verified via test_security_invariants_preserved_with_production_defaults and Phase 4K-F suite.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 8,
+      "name": "Retries and Timeouts",
+      "classification": "CRITICAL",
+      "file_module": "src/novastack/generation.py (lines 410-420), src/novastack/dense.py",
+      "current_behavior": "Zero timeouts, deadlines, or retry mechanisms anywhere in the codebase. PyTorch model.generate() runs synchronously and indefinitely on CPU/GPU.",
+      "why_it_matters": "A slow query, memory thrashing, or GPU deadlock will hang the worker process forever, causing cascading thread pool exhaustion and denial of service.",
+      "code_evidence": "src/novastack/generation.py:411: with torch.no_grad(): outputs = self.model.generate(**inputs, max_new_tokens=max_new_tokens, ...). Zero timeout parameters.",
+      "recommended_fix": "Implement execution deadlines using asyncio timeouts or thread-pool timeouts with stopping criteria, coupled with circuit breakers.",
+      "test_required": "tests/test_timeout_circuit_breaker.py verifying that slow generation triggers a controlled timeout exception and falls back to safe abstention.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 9,
+      "name": "Logging",
+      "classification": "HIGH",
+      "file_module": "src/novastack/ (Entire codebase)",
+      "current_behavior": "Standard Python logging library is 100% absent across src/. Components use print() statements or accumulate strings in diagnostic dictionaries.",
+      "why_it_matters": "SRE and DevOps teams cannot monitor system logs in CloudWatch/Datadog, cannot filter by severity level (INFO/WARN/ERROR), and lack correlation IDs for request tracking.",
+      "code_evidence": "Zero occurrences of 'import logging' or 'logging.getLogger' across all 37 Python files in src/novastack/.",
+      "recommended_fix": "Introduce a centralized structured logging module (novastack.logger) emitting JSON logs with correlation IDs, timestamps, and severity levels.",
+      "test_required": "tests/test_structured_logging.py verifying log emission, level filtering, and correlation ID attachment.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 10,
+      "name": "Observability",
+      "classification": "HIGH",
+      "file_module": "src/novastack/diagnostics.py, src/novastack/generation.py",
+      "current_behavior": "Internal diagnostic dicts are generated, but no Prometheus metrics (/metrics) or OpenTelemetry distributed tracing spans are exported.",
+      "why_it_matters": "No operational visibility into real-time request rates, latency percentiles (P95/P99), abstention spikes, cache hits, or GPU memory consumption.",
+      "code_evidence": "Zero Prometheus client or OpenTelemetry SDK integrations in src/.",
+      "recommended_fix": "Instrument all pipeline stages with OpenTelemetry spans and export Prometheus metrics for query latency, throughput, and abstention rates.",
+      "test_required": "tests/test_prometheus_metrics.py verifying metric increments and trace propagation.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 11,
+      "name": "Latency Measurement",
+      "classification": "PASS",
+      "file_module": "src/novastack/evidence_resolution.py, src/novastack/generation.py",
+      "current_behavior": "Fine-grained latency measurement using time.perf_counter() across all 8 internal resolution stages and generation phases.",
+      "why_it_matters": "Provides microsecond-level timing transparency for evidence ingestion, authorization, deduplication, lifecycle, authority, and inference.",
+      "code_evidence": "latencies dictionary populated with ingestion_ms, authorization_ms, deduplication_ms, etc., and generation_latency_ms.",
+      "recommended_fix": "N/A (Exposing to external Prometheus histogram is covered under Observability).",
+      "test_required": "Already verified in test_canonical_baseline.py.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 12,
+      "name": "Model/Token/Cost Measurement",
+      "classification": "LOW",
+      "file_module": "src/novastack/generation.py (lines 407, 420-421)",
+      "current_behavior": "Accurately measures input_tokens and output_tokens and limits context via budgeter. Does not calculate dollar cost or enforce per-tenant token quotas.",
+      "why_it_matters": "Multi-tenant enterprise SaaS requires commercial metering, cost allocation, and rate-limiting to prevent billing overruns.",
+      "code_evidence": "AnswerResult stores input_tokens and output_tokens; no pricing tables or quota enforcement classes exist.",
+      "recommended_fix": "Add a token quota limiter and billing estimator module calculating cost per tenant query.",
+      "test_required": "tests/test_token_quota.py verifying rejection when tenant token quota is exceeded.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 13,
+      "name": "Configuration Management",
+      "classification": "MEDIUM",
+      "file_module": "src/novastack/config.py, src/novastack/evidence_resolution.py",
+      "current_behavior": "Configuration uses clean Python dataclasses, but all parameters are hardcoded in source files without environment variable (os.environ) overrides.",
+      "why_it_matters": "Deploying in Kubernetes/container environments requires rebuilding or mounting code to change production flags rather than passing environment variables.",
+      "code_evidence": "EvidenceResolverConfig, DenseConfig, BM25Config default parameters are hardcoded without os.getenv() checks.",
+      "recommended_fix": "Integrate pydantic-settings or os.getenv overrides for all configuration dataclasses (e.g. ATLAS_QUERY_AWARE_AUTHORITY=true).",
+      "test_required": "tests/test_env_config.py verifying environment variable precedence over defaults.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 14,
+      "name": "Test Coverage and Test Organization",
+      "classification": "PASS",
+      "file_module": "tests/ (35 test files, 598 passing tests)",
+      "current_behavior": "Exemplary test coverage across unit, integration, ablation, benchmark, and red-team security suites. 598/598 tests passing.",
+      "why_it_matters": "Guarantees mathematical correctness, regression resistance, and lineage verification.",
+      "code_evidence": "All test files in tests/ execute cleanly in pytest.",
+      "recommended_fix": "N/A (Add API service tests once service layer is implemented).",
+      "test_required": "Already verified via pytest tests/ -v.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 15,
+      "name": "Deterministic/Reproducible Evaluation",
+      "classification": "PASS",
+      "file_module": "artifacts/phase_4k_canonical_baseline.json, src/novastack/generation.py",
+      "current_behavior": "Frozen canonical baseline with greedy decoding (do_sample=False) and fixed random seeding ensures bit-for-bit reproducibility.",
+      "why_it_matters": "Provides gold-standard scientific evaluation and deterministic certification.",
+      "code_evidence": "artifacts/phase_4k_canonical_baseline.json and generation.py greedy decoding flags.",
+      "recommended_fix": "N/A.",
+      "test_required": "Already verified in test_canonical_baseline.py.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 16,
+      "name": "Error Handling",
+      "classification": "MEDIUM",
+      "file_module": "src/novastack/generation.py, src/novastack/evidence_resolution.py",
+      "current_behavior": "Domain errors (conflicts, missing evidence) result in safe abstentions. However, unexpected system exceptions (OOM, missing files, malformed tensors) crash the execution thread without standardized error formatting.",
+      "why_it_matters": "Unhandled exceptions produce 500 crashes and unformatted stack traces in client logs.",
+      "code_evidence": "Absence of top-level try/except wrappers in GroundedAnswerGenerator.generate_answer.",
+      "recommended_fix": "Implement an RFC 7807 Problem Details error handler mapping runtime exceptions to structured error responses and safe fallback abstentions.",
+      "test_required": "tests/test_runtime_error_fallback.py verifying graceful error handling on synthetic OOM.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 17,
+      "name": "Rollback/Recovery",
+      "classification": "MEDIUM",
+      "file_module": "docs/PHASE_4K_G_B_PROMOTION.md",
+      "current_behavior": "Feature flag rollback is documented and instantaneous via a single boolean toggle. However, no automated deployment rollback or vector index snapshot recovery exists.",
+      "why_it_matters": "Requires manual engineering intervention to revert misconfigurations or corrupted indices in production.",
+      "code_evidence": "docs/PHASE_4K_G_B_PROMOTION.md specifies manual code edits for rollback.",
+      "recommended_fix": "Implement versioned artifact releases and automated canary rollback scripts.",
+      "test_required": "CI/CD automated rollback integration tests.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 18,
+      "name": "Deployment Readiness",
+      "classification": "CRITICAL",
+      "file_module": "requirements.txt, missing Dockerfile, missing pyproject.toml",
+      "current_behavior": "requirements.txt has not been updated since Phase 1C and only lists pytest. No Dockerfile, docker-compose, or CI/CD workflow exists. PyTorch, Transformers, and SentenceTransformers are unpinned.",
+      "why_it_matters": "The platform cannot be reproducibly built, containerized, or deployed to Kubernetes. Clean environment installations will fail.",
+      "code_evidence": "requirements.txt contains only 'pytest>=7.0'. No Dockerfile or pyproject.toml in repository.",
+      "recommended_fix": "Create modern pyproject.toml with pinned dependencies (torch, transformers, sentence-transformers, numpy, etc.), multi-stage Dockerfile, and GitHub Actions CI workflow.",
+      "test_required": "tests/test_docker_build.sh verifying container build and startup.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 19,
+      "name": "Data Integrity",
+      "classification": "LOW",
+      "file_module": "data/processed/novastack/",
+      "current_behavior": "Static corpus data integrity is rigorously verified and immutable. For dynamic multi-tenant production, flat JSON storage lacks ACID transactions and concurrency safety.",
+      "why_it_matters": "Concurrent write operations by multiple workers in production would cause file corruption.",
+      "code_evidence": "Corpus files are stored as plain JSON on local disk.",
+      "recommended_fix": "Migrate dynamic operational records to an ACID relational or document database with row-level locks.",
+      "test_required": "tests/test_concurrent_data_writes.py.",
+      "affects_baseline": false
+    },
+    {
+      "dimension_id": 20,
+      "name": "Operational Risks",
+      "classification": "HIGH",
+      "file_module": "System Architecture",
+      "current_behavior": "ATLAS operates as a stateful, in-memory monolithic Python process holding large vector arrays and Gemma-3-1B model weights in worker memory.",
+      "why_it_matters": "High blast radius: a crash brings down the entire pipeline. Multi-worker scaling multiplies VRAM/RAM linearly. Long cold-start times.",
+      "code_evidence": "Each worker process instantiates DenseIndex and loads Gemma model into memory.",
+      "recommended_fix": "Decouple into dedicated microservices: Vector Retrieval Service (stateless/vector DB) and Generation Service (dedicated vLLM/TGI inference backend).",
+      "test_required": "Load and stress testing across independent service tiers.",
+      "affects_baseline": false
+    }
+  ],
+  "recommended_implementation_order": [
+    {
+      "phase": "Phase 4M: API Service & Fail-Closed Security Hardening",
+      "focus": "Build FastAPI service layer (/query, /healthz, /ready), fix fail-closed RBAC check for None roles, enforce tenant authentication middleware.",
+      "urgency": "IMMEDIATE (P0)"
+    },
+    {
+      "phase": "Phase 4N: Containerization & Dependency Packaging",
+      "focus": "Create pyproject.toml with pinned dependencies, multi-stage Dockerfile with GPU/CPU support, and CI/CD GitHub Actions workflow.",
+      "urgency": "IMMEDIATE (P0)"
+    },
+    {
+      "phase": "Phase 4O: Resiliency, Timeouts & Circuit Breakers",
+      "focus": "Wrap PyTorch inference in asynchronous timeout contexts, implement circuit breakers, and add RFC 7807 structured error responses.",
+      "urgency": "HIGH (P1)"
+    },
+    {
+      "phase": "Phase 4P: Structured Logging & OpenTelemetry Observability",
+      "focus": "Introduce centralized JSON logging with correlation IDs, OpenTelemetry tracing spans, and Prometheus metric exports.",
+      "urgency": "HIGH (P1)"
+    },
+    {
+      "phase": "Phase 4Q: Ingestion DLQ & Dynamic Index Management",
+      "focus": "Implement partial batch ingestion with Dead-Letter Queue (DLQ), dynamic tenant partitioning, and atomic index swapping.",
+      "urgency": "MEDIUM (P2)"
+    }
+  ]
+}

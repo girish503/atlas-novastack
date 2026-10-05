@@ -1,0 +1,383 @@
+{
+  "phase": "5M",
+  "release_candidate": "0.4.14-rc1",
+  "package_version": "0.4.14",
+  "timestamp_start": "2026-09-23T10:21:05.120592+00:00",
+  "production_backend": "InferenceServiceAdapter",
+  "rollback_backend": "LocalHuggingFaceProvider",
+  "release_identity": {
+    "status": "PASS",
+    "source_drift": false,
+    "pkg_version": "0.4.14",
+    "version_match": true,
+    "prod_provider": "InferenceServiceAdapter",
+    "rollback_provider": "LocalHuggingFaceProvider",
+    "providers_match": true,
+    "model_name": "gemma3:1b",
+    "actual_digest": "8648f39daa8fbf5b18c7b4e6a8fb4990c692751d49917417b8842ca5758e7ffc",
+    "actual_size": 815319791,
+    "model_found": true,
+    "digest_match": true,
+    "size_match": true,
+    "sha_matched": 38,
+    "sha_mismatches": 0,
+    "sha_missing": 0
+  },
+  "artifact": {
+    "created": true,
+    "path": "\\dist\\atlas-novastack-0.4.14-rc1.tar.gz",
+    "sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "size_bytes": 3475452,
+    "file_count": 85
+  },
+  "deployment": {
+    "artifact_based": true,
+    "docker_verified": true,
+    "non_root": true,
+    "healthz": true,
+    "ready": true
+  },
+  "topology": {
+    "atlas": "Host Python process / container port 8000",
+    "inference_service": "Container atlas-inference:5d on port 8001 (non-root appuser)",
+    "ollama": "Host Ollama daemon on port 11434",
+    "networking": "Docker host-gateway bridge; container connects via http://host.docker.internal:11434"
+  },
+  "security": {
+    "secret_hygiene": "PASS",
+    "layer1s": "PASS",
+    "jwt": "PASS",
+    "tenant_isolation": "PASS",
+    "citation_security": "PASS"
+  },
+  "runtime": {
+    "e2e_query": "PASS",
+    "restart_recovery": "PASS",
+    "rollback": "PASS"
+  },
+  "regression": {
+    "total_passed": 179,
+    "total_failed": 0,
+    "individual_suites": {
+      "phase_5l_independent_validation": {
+        "passed": 41,
+        "failed": 0,
+        "duration_seconds": 7.95,
+        "status": "PASS"
+      },
+      "phase_5k_release_freeze": {
+        "passed": 10,
+        "failed": 0,
+        "duration_seconds": 5.46,
+        "status": "PASS"
+      },
+      "phase_5j_production_promotion": {
+        "passed": 7,
+        "failed": 0,
+        "duration_seconds": 4.06,
+        "status": "PASS"
+      },
+      "phase_5i_production_promotion": {
+        "passed": 7,
+        "failed": 0,
+        "duration_seconds": 7.06,
+        "status": "PASS"
+      },
+      "phase_5g_abstention_safety": {
+        "passed": 23,
+        "failed": 0,
+        "duration_seconds": 10.99,
+        "status": "PASS"
+      },
+      "phase_5b_quantized_provider": {
+        "passed": 17,
+        "failed": 0,
+        "duration_seconds": 54.41,
+        "status": "PASS"
+      },
+      "phase_5a_provider_boundary": {
+        "passed": 23,
+        "failed": 0,
+        "duration_seconds": 11.58,
+        "status": "PASS"
+      },
+      "security_corpus": {
+        "passed": 23,
+        "failed": 0,
+        "duration_seconds": 3.11,
+        "status": "PASS"
+      },
+      "phase_4t_identity_boundary": {
+        "passed": 17,
+        "failed": 0,
+        "duration_seconds": 4.05,
+        "status": "PASS"
+      },
+      "phase_4m_auth_fail_closed": {
+        "passed": 11,
+        "failed": 0,
+        "duration_seconds": 3.11,
+        "status": "PASS"
+      }
+    }
+  },
+  "known_limitations": [
+    "Single-node CPU deployment topology only; no distributed clustering claimed",
+    "Hardware certified on Intel Core i3-N305 with 8GB RAM without discrete GPU",
+    "Inference concurrency strictly bound to 1 (max_concurrent_inferences=1)",
+    "HTTP request timeout deadline 30.0s; queue timeout deadline 0.5s",
+    "Dynamic index hot-swap (Phase 4S) is process-local; cold restart re-leases persisted baseline index",
+    "Asynchronous HTTP client disconnect semantic: underlying Ollama evaluation completes asynchronously"
+  ],
+  "documentation_discrepancies": [
+    {
+      "issue": "Scorecard metadata discrepancy: '4 eval cases' vs canonical 120 cases",
+      "file": "data/evaluation/novastack/evaluation_cases.json",
+      "file_sha256": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+      "dict_keys_count": 4,
+      "dict_keys": [
+        "version",
+        "seed",
+        "count",
+        "evaluation_cases"
+      ],
+      "evaluation_cases_array_length": 120,
+      "count_field": 120,
+      "positive_cases": 101,
+      "negative_cases": 19,
+      "root_cause": "In Phase 5K and Phase 5L, verification scripts called len(eval_data) on the parsed JSON dict rather than len(eval_data['evaluation_cases']), returning 4 (the count of JSON keys: ['version', 'seed', 'count', 'evaluation_cases']) instead of 120. The underlying file has remained completely immutable and identical to Phase 5K SHA-256.",
+      "classification": "DOCUMENTATION_METADATA_ONLY",
+      "affects_release_identity": false
+    }
+  ],
+  "gates": {
+    "gate_01": {
+      "name": "Release Identity",
+      "status": "PASS",
+      "pkg_version": "0.4.14",
+      "version_match": true,
+      "prod_provider": "InferenceServiceAdapter",
+      "rollback_provider": "LocalHuggingFaceProvider",
+      "providers_match": true,
+      "model_name": "gemma3:1b",
+      "actual_digest": "8648f39daa8fbf5b18c7b4e6a8fb4990c692751d49917417b8842ca5758e7ffc",
+      "actual_size": 815319791,
+      "model_found": true,
+      "digest_match": true,
+      "size_match": true,
+      "sha_matched": 38,
+      "sha_mismatches": 0,
+      "sha_missing": 0
+    },
+    "gate_02": {
+      "name": "Create Release Artifact",
+      "status": "PASS",
+      "archive_name": "atlas-novastack-0.4.14-rc1.tar.gz",
+      "archive_path": "\\dist\\atlas-novastack-0.4.14-rc1.tar.gz",
+      "size_bytes": 3475452,
+      "file_count": 85,
+      "staging_dir": "\\dist\\atlas-novastack-0.4.14-rc1"
+    },
+    "gate_03": {
+      "name": "Artifact Hashing",
+      "status": "PASS",
+      "archive_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+      "size_bytes": 3475452,
+      "file_count": 85
+    },
+    "gate_04": {
+      "name": "Clean Deployment Environment",
+      "status": "PASS",
+      "extracted": true,
+      "has_user_appuser": true,
+      "has_expose_8001": true,
+      "has_python_311_slim": true,
+      "no_secrets_in_dockerfile": true,
+      "live_container_user": "appuser",
+      "non_root_verified": true,
+      "live_container_image": "atlas-inference:5d"
+    },
+    "gate_05": {
+      "name": "Secret Injection Contract",
+      "status": "PASS",
+      "issuer_contract": "ATLAS_AUTH_ISSUER",
+      "audience_contract": "ATLAS_AUTH_AUDIENCE",
+      "secret_contract": "ATLAS_AUTH_HS256_SECRET (>=32 bytes)",
+      "fail_closed_verified": true,
+      "secret_values_exposed": false
+    },
+    "gate_06": {
+      "name": "Startup Order & Topology",
+      "status": "PASS",
+      "ollama_host_status": 200,
+      "ollama_reachable": true,
+      "inference_service_status": 200,
+      "inference_service_healthy": true,
+      "inference_service_ready": true,
+      "atlas": "Host Python process / container port 8000",
+      "inference_service": "Container atlas-inference:5d on port 8001 (non-root appuser)",
+      "ollama": "Host Ollama daemon on port 11434",
+      "networking": "Docker host-gateway bridge; container connects via http://host.docker.internal:11434"
+    },
+    "gate_07": {
+      "name": "Health & Readiness",
+      "status": "PASS",
+      "healthz_code": 200,
+      "ready_code": 200,
+      "pipeline_all_ready": true,
+      "components": {
+        "bm25": true,
+        "dense": true,
+        "reranker": true,
+        "generator": true,
+        "index_alignment": true,
+        "generation_active": true
+      }
+    },
+    "gate_08": {
+      "name": "Real End-to-End Query",
+      "status": "PASS",
+      "answer_status": "answered",
+      "was_generation_invoked": true,
+      "citation_count": 2,
+      "latency_ms": 4967.83,
+      "has_answer_text": true
+    },
+    "gate_09": {
+      "name": "Layer 1S Security Abstention",
+      "status": "PASS",
+      "q4_cases": {
+        "EVAL-0088": {
+          "abstained": true,
+          "provider_invoked": false,
+          "gate": "security_policy_no_expected_docs_with_forbidden",
+          "citations": 0,
+          "pass": true
+        },
+        "EVAL-0090": {
+          "abstained": true,
+          "provider_invoked": false,
+          "gate": "security_policy_no_expected_docs_with_forbidden",
+          "citations": 0,
+          "pass": true
+        },
+        "EVAL-0092": {
+          "abstained": true,
+          "provider_invoked": false,
+          "gate": "security_policy_no_expected_docs_with_forbidden",
+          "citations": 0,
+          "pass": true
+        },
+        "EVAL-0096": {
+          "abstained": true,
+          "provider_invoked": false,
+          "gate": "security_policy_no_expected_docs_with_forbidden",
+          "citations": 0,
+          "pass": true
+        }
+      },
+      "all_abstained": true
+    },
+    "gate_10": {
+      "name": "Security Smoke Matrix",
+      "status": "PASS",
+      "1_missing_jwt": true,
+      "2_malformed_jwt": true,
+      "3_expired_jwt": true,
+      "4_invalid_signature": true,
+      "5_tenant_context_matches_claim": true,
+      "6_user_matches_claim": true,
+      "7_pipeline_has_tenant_filter": true,
+      "8_forbidden_docs_enforced": true,
+      "9_secrets_redacted_in_logging": true,
+      "10_no_jwt_in_inference_payload": true,
+      "11_no_tenant_state_in_inference": true,
+      "12_inference_boundary_isolated": true
+    },
+    "gate_11": {
+      "name": "Observability",
+      "status": "PASS",
+      "redacts_authorization": true,
+      "redacts_token": true,
+      "metrics_count": 6,
+      "forbidden_label_count": 10
+    },
+    "gate_12": {
+      "name": "Failure Injection & Recovery",
+      "status": "PASS",
+      "slot1_acquired": true,
+      "slot2_shed_capacity": true,
+      "cb_init_closed": true,
+      "cb_tripped_open": true,
+      "cb_half_open_or_recovering": true,
+      "cb_recovered_closed": true
+    },
+    "gate_13": {
+      "name": "Restart Recovery",
+      "status": "PASS",
+      "docker_stop_rc": 0,
+      "docker_start_rc": 0,
+      "recovery_duration_seconds": 9.64,
+      "health_restored": true,
+      "ready_restored": true
+    },
+    "gate_14": {
+      "name": "Rollback Drill",
+      "status": "PASS",
+      "initial_is_backend_b": true,
+      "rollback_is_backend_a": true,
+      "restored_is_backend_b": true
+    },
+    "gate_15": {
+      "name": "Clean Reproducibility",
+      "status": "PASS",
+      "extracted_package_present": true,
+      "src_present": true,
+      "data_present": true,
+      "manifests_present": true,
+      "dockerfile_present": true
+    },
+    "gate_16": {
+      "name": "Certified Regression Suite",
+      "status": "PASS",
+      "total_passed": 179,
+      "total_failed": 0,
+      "suite_count": 10
+    },
+    "gate_17": {
+      "name": "Artifact Immutability",
+      "status": "PASS",
+      "archive_sha_match": true,
+      "source_mismatches": 0,
+      "source_immutability_verified": true
+    },
+    "gate_18": {
+      "name": "Discrepancy Audit & Final Decision",
+      "status": "PASS",
+      "audit": {
+        "issue": "Scorecard metadata discrepancy: '4 eval cases' vs canonical 120 cases",
+        "file": "data/evaluation/novastack/evaluation_cases.json",
+        "file_sha256": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+        "dict_keys_count": 4,
+        "dict_keys": [
+          "version",
+          "seed",
+          "count",
+          "evaluation_cases"
+        ],
+        "evaluation_cases_array_length": 120,
+        "count_field": 120,
+        "positive_cases": 101,
+        "negative_cases": 19,
+        "root_cause": "In Phase 5K and Phase 5L, verification scripts called len(eval_data) on the parsed JSON dict rather than len(eval_data['evaluation_cases']), returning 4 (the count of JSON keys: ['version', 'seed', 'count', 'evaluation_cases']) instead of 120. The underlying file has remained completely immutable and identical to Phase 5K SHA-256.",
+        "classification": "DOCUMENTATION_METADATA_ONLY",
+        "affects_release_identity": false
+      },
+      "final_decision": "PASS",
+      "gate_pass_count": 17,
+      "gate_fail_count": 0
+    }
+  },
+  "final_decision": "PASS",
+  "timestamp_end": "2026-09-23T10:23:58.034265+00:00"
+}

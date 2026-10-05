@@ -1,0 +1,201 @@
+{
+  "phase": "5B",
+  "title": "Quantized Local Inference Controlled Experiment",
+  "timestamp": "2026-09-19T08:07:21Z",
+  "environment": {
+    "os": "Windows 11 (AMD64)",
+    "cpu": "Intel64 Family 6 Model 190 Stepping 0, GenuineIntel",
+    "logical_cores": 8,
+    "physical_cores": 8,
+    "total_ram_mb": 7813.07,
+    "initial_available_ram_mb": 873.11,
+    "initial_ram_percent_used": 88.8,
+    "clean_memory_threshold_mb": 3072.0,
+    "clean_memory_target_met": false,
+    "python_version": "3.13.5"
+  },
+  "model_and_runtime": {
+    "provider_name": "quantized_local",
+    "model_name": "gemma3:1b",
+    "quantization_format": "GGUF",
+    "quantization_level": "Q4_K_M",
+    "model_file_size_mb": 815.0,
+    "baseline_model_file_size_mb": 2500.0,
+    "file_size_reduction_ratio": 0.674,
+    "engine": "llama_cpp_cpu via Ollama",
+    "endpoint": "http://127.0.0.1:11434"
+  },
+  "memory_checkpoints": {
+    "m0_startup": {
+      "rss_mb": 64.23,
+      "vms_mb": 57.09,
+      "available_sys_ram_mb": 873.11,
+      "total_sys_ram_mb": 7813.07,
+      "ram_percent_used": 88.8
+    },
+    "m1_provider_init": {
+      "rss_mb": 68.77,
+      "vms_mb": 58.04,
+      "available_sys_ram_mb": 873.56,
+      "total_sys_ram_mb": 7813.07,
+      "ram_percent_used": 88.8
+    },
+    "m2_engine_ready": {
+      "rss_mb": 71.87,
+      "vms_mb": 59.43,
+      "available_sys_ram_mb": 915.08,
+      "total_sys_ram_mb": 7813.07,
+      "ram_percent_used": 88.3
+    },
+    "m4_post_generation": {
+      "rss_mb": 85.98,
+      "vms_mb": 73.27,
+      "available_sys_ram_mb": 971.73,
+      "total_sys_ram_mb": 7813.07,
+      "ram_percent_used": 87.6
+    },
+    "m5_post_gc": {
+      "rss_mb": 85.99,
+      "vms_mb": 73.27,
+      "available_sys_ram_mb": 971.9,
+      "total_sys_ram_mb": 7813.07,
+      "ram_percent_used": 87.6
+    },
+    "m6_idle": {
+      "rss_mb": 85.99,
+      "vms_mb": 73.27,
+      "available_sys_ram_mb": 969.98,
+      "total_sys_ram_mb": 7813.07,
+      "ram_percent_used": 87.6
+    },
+    "net_process_rss_delta_mb": 21.76
+  },
+  "runs": [
+    {
+      "run_index": 1,
+      "run_type": "COLD (First Call)",
+      "query": "What was the root cause of incident INC-NS-0001?",
+      "answer_status": "answered",
+      "has_expected_content": true,
+      "citation_status": "valid",
+      "citations_count": 1,
+      "unsupported_claims_count": 0,
+      "prompt_tokens": 284,
+      "output_tokens": 29,
+      "tokens_per_second": 14.47,
+      "timings_ms": {
+        "t1_retrieval_ms": 23.82,
+        "t3_evidence_ms": 0.06,
+        "t6_prompt_eval_ms": 5434.36,
+        "t7_token_eval_ms": 2003.87,
+        "gen_duration_ms": 7497.24,
+        "t10_total_e2e_ms": 7522.1
+      },
+      "memory_mb": {
+        "before_rss_mb": 85.87,
+        "after_rss_mb": 85.96,
+        "delta_rss_mb": 0.09,
+        "available_sys_ram_mb": 947.63
+      }
+    },
+    {
+      "run_index": 2,
+      "run_type": "WARM (Call #2)",
+      "query": "Which port does the OpenTelemetry gRPC ingest endpoint listen on?",
+      "answer_status": "answered",
+      "has_expected_content": true,
+      "citation_status": "valid",
+      "citations_count": 2,
+      "unsupported_claims_count": 0,
+      "prompt_tokens": 269,
+      "output_tokens": 25,
+      "tokens_per_second": 14.9,
+      "timings_ms": {
+        "t1_retrieval_ms": 0.38,
+        "t3_evidence_ms": 0.08,
+        "t6_prompt_eval_ms": 5197.48,
+        "t7_token_eval_ms": 1677.62,
+        "gen_duration_ms": 6921.08,
+        "t10_total_e2e_ms": 6922.12
+      },
+      "memory_mb": {
+        "before_rss_mb": 85.96,
+        "after_rss_mb": 85.98,
+        "delta_rss_mb": 0.02,
+        "available_sys_ram_mb": 1000.14
+      }
+    },
+    {
+      "run_index": 3,
+      "run_type": "WARM (Call #3)",
+      "query": "At what threshold does cache cleanup start removing old snapshots?",
+      "answer_status": "answered",
+      "has_expected_content": true,
+      "citation_status": "valid",
+      "citations_count": 1,
+      "unsupported_claims_count": 0,
+      "prompt_tokens": 270,
+      "output_tokens": 25,
+      "tokens_per_second": 14.28,
+      "timings_ms": {
+        "t1_retrieval_ms": 0.22,
+        "t3_evidence_ms": 0.05,
+        "t6_prompt_eval_ms": 5248.38,
+        "t7_token_eval_ms": 1750.57,
+        "gen_duration_ms": 7023.87,
+        "t10_total_e2e_ms": 7024.46
+      },
+      "memory_mb": {
+        "before_rss_mb": 85.98,
+        "after_rss_mb": 85.98,
+        "delta_rss_mb": 0.0,
+        "available_sys_ram_mb": 971.73
+      }
+    }
+  ],
+  "historical_baseline_comparison": {
+    "baseline_provider": "LocalHuggingFaceProvider",
+    "baseline_model": "google/gemma-3-1b-it (torch.float32, CPU)",
+    "baseline_measured_gen_latency_range_s": [
+      12.091,
+      15.918
+    ],
+    "baseline_measured_gen_timeout_s": 30.443,
+    "baseline_clean_memory_status": "HOLD (Host RAM < 3.0 GB)",
+    "experimental_provider": "QuantizedLocalProvider",
+    "experimental_model": "gemma3:1b (Q4_K_M GGUF, CPU)",
+    "experimental_warm_gen_latency_range_s": [
+      1.678,
+      1.751
+    ],
+    "experimental_warm_e2e_latency_range_s": [
+      6.922,
+      7.024
+    ]
+  },
+  "acceptance_gates": {
+    "provider_implements_interface": true,
+    "production_default_remains_local_hf": true,
+    "existing_api_contract_unchanged": true,
+    "security_invariants_preserved": true,
+    "evidence_pipeline_unchanged": true,
+    "c2_citation_validation_active": true,
+    "quantized_provider_returns_valid_answer_result": true,
+    "focused_correctness_suite_passes": true,
+    "security_suite_passes": true,
+    "no_unauthorized_evidence_reaches_provider": true,
+    "performance_measurements_instrumented": true,
+    "performance_benchmark_valid_clean_memory": false
+  },
+  "status_evaluation": {
+    "status": "HOLD",
+    "status_reason": "Correctness, security, citations, and engine decoupling are 100% PASS. However, host available RAM was 1.3-1.4 GB (< 3.0 GB threshold required for certified production performance benchmark). Status correctly held at HOLD per Section 21.",
+    "production_default_changed": "NO",
+    "security_regression": "PASS",
+    "citation_regression": "PASS",
+    "correctness": "PASS",
+    "performance_benchmark_valid": "NO",
+    "quantized_provider_decision": "KEEP FOR FURTHER EVALUATION",
+    "next_phase_recommendation": "Phase 5C: Multi-tenant / Containerized Inference Service Isolation or Clean-Host Quantized Certification."
+  }
+}

@@ -1,0 +1,1557 @@
+{
+  "milestone": "ATLAS 0.5 \u2014 Milestone M8",
+  "artifact": "phase_05_m8_failure_corpus",
+  "total_positive_failures": 39,
+  "summary_partitioning": {
+    "SUFFICIENT_EVIDENCE_ABSTENTION": 14,
+    "PARTIALLY_SUFFICIENT_EVIDENCE": 18,
+    "GENUINELY_INSUFFICIENT_EVIDENCE": 7
+  },
+  "methodology": "Audit using ground-truth expected facts, required document presence, chunk text semantic overlap, and upstream security state.",
+  "cases": [
+    {
+      "case_id": "EVAL-0014",
+      "query": "What is service SVC-NS-0005 and which team owns it?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-DOC-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents (['DOC-DOC-EVT-NS-0001-01']) and 2/2 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-DOC-EVT-NS-0001-01"
+        ],
+        "required_docs": [
+          "DOC-DOC-EVT-NS-0001-01"
+        ],
+        "selected_docs": [
+          "DOC-INC-INC-NS-0001-02",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-DOC-EVT-NS-0001-02",
+          "DOC-NOISE-DUP-0023",
+          "DOC-NOISE-DUP-0024",
+          "DOC-INC-INC-NS-0001-01",
+          "DOC-BKG-0186",
+          "DOC-INC-INC-NS-0001-03",
+          "DOC-PM-EVT-NS-0001-02"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0018",
+      "query": "Why were active users intermittently logged out and faced login delays?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0002-01::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents (['DOC-PM-EVT-NS-0002-01']) and 2/2 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0002-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0002-01"
+        ],
+        "selected_docs": [
+          "DOC-INC-INC-NS-0002-01",
+          "DOC-DOC-EVT-NS-0002-01",
+          "DOC-DOC-EVT-NS-0012-01",
+          "DOC-PM-EVT-NS-0002-01",
+          "DOC-SEC-VACL-04-V3",
+          "DOC-CHAT-EVT-NS-0012-02",
+          "DOC-DEP-DEP-NS-0002-01",
+          "DOC-NOISE-CORR-0020",
+          "DOC-INC-INC-NS-0001-01",
+          "DOC-NOISE-CORR-0026"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0024",
+      "query": "Why did customers receive inflated invoice amounts for their monthly billing?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0008-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0008-01::CHUNK-0002"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents (['DOC-PM-EVT-NS-0008-01']) and 2/2 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0008-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0008-01"
+        ],
+        "selected_docs": [
+          "DOC-INC-INC-NS-0008-01",
+          "DOC-PM-EVT-NS-0008-01",
+          "DOC-BKG-0074",
+          "DOC-BKG-0064",
+          "DOC-BKG-0054",
+          "DOC-BKG-0089",
+          "DOC-BKG-0094",
+          "DOC-DOC-EVT-NS-0008-01",
+          "DOC-NOISE-CORR-0019",
+          "DOC-NOISE-CORR-0004"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0027",
+      "query": "Which team owns checkout-service and which department does it belong to?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-DOC-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents ([]) and 2/2 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-DOC-EVT-NS-0001-01"
+        ],
+        "required_docs": [],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-INC-INC-NS-0001-02",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-BKG-0009",
+          "DOC-NOISE-DUP-0023",
+          "DOC-INC-INC-NS-0001-01",
+          "DOC-DOC-EVT-NS-0001-02",
+          "DOC-NOISE-DUP-0024",
+          "DOC-INC-INC-NS-0001-03",
+          "DOC-PM-EVT-NS-0001-02"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0028",
+      "query": "Which team owns feature-flags and which department does it belong to?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents ([]) and 2/2 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-DOC-EVT-NS-0001-01"
+        ],
+        "required_docs": [],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0002-01",
+          "DOC-BKG-0008",
+          "DOC-INC-INC-NS-0002-01",
+          "DOC-BKG-0328",
+          "DOC-BKG-0010",
+          "DOC-BKG-0045",
+          "DOC-INC-INC-NS-0002-02",
+          "DOC-BKG-0030",
+          "DOC-BKG-0011",
+          "DOC-DOC-EVT-NS-0002-02"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0029",
+      "query": "Which team owns config-service and which department does it belong to?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents ([]) and 2/2 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-DOC-EVT-NS-0001-01"
+        ],
+        "required_docs": [],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0003-01",
+          "DOC-BKG-0015",
+          "DOC-BKG-0319",
+          "DOC-BKG-0344",
+          "DOC-INC-INC-NS-0003-02",
+          "DOC-PM-EVT-NS-0003-01",
+          "DOC-BKG-0046",
+          "DOC-BKG-0019",
+          "DOC-BKG-0425",
+          "DOC-SEC-DPT-0015"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0030",
+      "query": "Which team owns cdn-proxy and which department does it belong to?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents ([]) and 2/2 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-DOC-EVT-NS-0001-01"
+        ],
+        "required_docs": [],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0004-01",
+          "DOC-INC-INC-NS-0004-02",
+          "DOC-INC-INC-NS-0004-01",
+          "DOC-PM-EVT-NS-0004-01",
+          "DOC-BKG-0306",
+          "DOC-BKG-0322",
+          "DOC-DOC-EVT-NS-0004-02",
+          "DOC-BKG-0031",
+          "DOC-BKG-0458",
+          "DOC-BKG-0334"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0033",
+      "query": "Which team owns rate-limiter and which department does it belong to?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-BKG-0421"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 0.5,
+      "explanation": "Partial facts (1/2) or some required docs present, but missing key secondary role/chunk: ['DOC-BKG-0421'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-BKG-0421"
+        ],
+        "required_docs": [],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0007-01",
+          "DOC-PM-EVT-NS-0007-01",
+          "DOC-INC-INC-NS-0007-02",
+          "DOC-DOC-EVT-NS-0007-02",
+          "DOC-INC-INC-NS-0007-01",
+          "DOC-INC-INC-NS-0007-03",
+          "DOC-DEP-DEP-NS-0006-02",
+          "DOC-PM-EVT-NS-0007-02",
+          "DOC-DEP-DEP-NS-0006-01",
+          "DOC-BKG-0343"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0034",
+      "query": "Which team owns media-service and which department does it belong to?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-DOC-EVT-NS-0001-01"
+      ],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents ([]) and 2/2 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-DOC-EVT-NS-0001-01"
+        ],
+        "required_docs": [],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0009-01",
+          "DOC-INC-INC-NS-0009-02",
+          "DOC-PM-EVT-NS-0009-01",
+          "DOC-INC-INC-NS-0009-01",
+          "DOC-INC-INC-NS-0009-03",
+          "DOC-DOC-EVT-NS-0011-01",
+          "DOC-INC-INC-NS-0011-01",
+          "DOC-BKG-0050",
+          "DOC-DEP-DEP-NS-0009-01",
+          "DOC-DEP-DEP-NS-0009-02"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0038",
+      "query": "What did triage channel notes say about search latency and what did postmortem action items require?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0004-01::CHUNK-0001"
+      ],
+      "missing_evidence": [
+        "DOC-CHAT-EVT-NS-0004-01"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 0.5,
+      "explanation": "Partial facts (1/2) or some required docs present, but missing key secondary role/chunk: ['DOC-CHAT-EVT-NS-0004-01'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-CHAT-EVT-NS-0004-01",
+          "DOC-PM-EVT-NS-0004-01"
+        ],
+        "required_docs": [
+          "DOC-CHAT-EVT-NS-0004-01",
+          "DOC-PM-EVT-NS-0004-01"
+        ],
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0004-01",
+          "DOC-PM-EVT-NS-0004-02",
+          "DOC-BKG-0336",
+          "DOC-BKG-0341",
+          "DOC-PM-EVT-NS-0007-02",
+          "DOC-PM-EVT-NS-0012-02",
+          "DOC-PM-EVT-NS-0008-02",
+          "DOC-PM-EVT-NS-0011-01",
+          "DOC-BKG-0440",
+          "DOC-PM-EVT-NS-0005-01"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0042",
+      "query": "What did support tickets report about customer billing errors and what PR fixed the analytics calculation?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [
+        "DOC-PR-PR-NS-0007-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PR-PR-NS-0007-01::CHUNK-0001"
+      ],
+      "missing_evidence": [
+        "DOC-TKT-EVT-NS-0008-CUST-NS-0011"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 0.5,
+      "explanation": "Partial facts (1/2) or some required docs present, but missing key secondary role/chunk: ['DOC-TKT-EVT-NS-0008-CUST-NS-0011'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-TKT-EVT-NS-0008-CUST-NS-0011",
+          "DOC-PR-PR-NS-0007-01"
+        ],
+        "required_docs": [
+          "DOC-TKT-EVT-NS-0008-CUST-NS-0011",
+          "DOC-PR-PR-NS-0007-01"
+        ],
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0008-01",
+          "DOC-DOC-EVT-NS-0008-02",
+          "DOC-PR-PR-NS-0007-01",
+          "DOC-DOC-EVT-NS-0008-01",
+          "DOC-INC-INC-NS-0008-02",
+          "DOC-PM-EVT-NS-0003-01",
+          "DOC-CHAT-EVT-NS-0002-03",
+          "DOC-PR-PR-NS-0007-03",
+          "DOC-PR-PR-NS-0003-03",
+          "DOC-PR-PR-NS-0002-03"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0045",
+      "query": "Trace the authentication failure: what did users experience, what service failed, what deployment introduced it, and how did a PR fix it?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-PM-EVT-NS-0002-01",
+        "DOC-DEP-DEP-NS-0002-01",
+        "DOC-PR-PR-NS-0002-01"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 5,
+      "matched_facts_count": 5,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Partial facts (5/5) or some required docs present, but missing key secondary role/chunk: ['DOC-PM-EVT-NS-0002-01', 'DOC-DEP-DEP-NS-0002-01', 'DOC-PR-PR-NS-0002-01'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0002-01",
+          "DOC-DEP-DEP-NS-0002-01",
+          "DOC-PR-PR-NS-0002-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0002-01"
+        ],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0009-01",
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-PR-PR-NS-0008-01",
+          "DOC-PR-PR-NS-0003-01",
+          "DOC-PR-PR-NS-0009-01",
+          "DOC-PM-EVT-NS-0009-01",
+          "DOC-INC-INC-NS-0009-02",
+          "DOC-PM-EVT-NS-0011-01",
+          "DOC-PM-EVT-NS-0003-01",
+          "DOC-PM-EVT-NS-0009-02"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0048",
+      "query": "Trace notification delivery failure: what was the symptom, which service queue stalled, which deployment caused it, and which PR fixed worker deadlocks?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0005-01",
+        "DOC-DEP-DEP-NS-0004-01",
+        "DOC-PR-PR-NS-0005-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0005-01::CHUNK-0002",
+        "DOC-PR-PR-NS-0005-01::CHUNK-0001",
+        "DOC-DEP-DEP-NS-0004-01::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 5,
+      "matched_facts_count": 5,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents (['DOC-PM-EVT-NS-0005-01']) and 5/5 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-DEP-DEP-NS-0004-01",
+          "DOC-PR-PR-NS-0005-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0005-01"
+        ],
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-DOC-EVT-NS-0005-01",
+          "DOC-DOC-EVT-NS-0005-02",
+          "DOC-INC-INC-NS-0005-02",
+          "DOC-PR-PR-NS-0005-01",
+          "DOC-DEP-DEP-NS-0004-01",
+          "DOC-PM-EVT-NS-0003-01",
+          "DOC-PM-EVT-NS-0011-01",
+          "DOC-BKG-0077",
+          "DOC-PM-EVT-NS-0012-01"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0062",
+      "query": "What is the network configuration standard for payment gateway webhook integrations?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0003-01::CHUNK-0002"
+      ],
+      "missing_evidence": [
+        "DOC-NOTE-EVT-NS-0003-01"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 0.5,
+      "explanation": "Partial facts (1/2) or some required docs present, but missing key secondary role/chunk: ['DOC-NOTE-EVT-NS-0003-01'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-NOTE-EVT-NS-0003-01",
+          "DOC-PM-EVT-NS-0003-01"
+        ],
+        "required_docs": [
+          "DOC-NOTE-EVT-NS-0003-01"
+        ],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0003-01",
+          "DOC-SEC-TENT-0007",
+          "DOC-PM-EVT-NS-0003-01",
+          "DOC-PR-PR-NS-0003-01",
+          "DOC-INC-INC-NS-0003-02",
+          "DOC-BKG-0072",
+          "DOC-BKG-0092",
+          "DOC-BKG-0087",
+          "DOC-BKG-0052",
+          "DOC-BKG-0067"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0063",
+      "query": "What are the edge proxy cache TTL guidelines for static and dynamic assets?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [
+        "DOC-NOTE-EVT-NS-0004-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-NOTE-EVT-NS-0004-01::CHUNK-0001"
+      ],
+      "missing_evidence": [
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 0.5,
+      "explanation": "Partial facts (1/2) or some required docs present, but missing key secondary role/chunk: ['DOC-PM-EVT-NS-0004-01'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-NOTE-EVT-NS-0004-01",
+          "DOC-PM-EVT-NS-0004-01"
+        ],
+        "required_docs": [
+          "DOC-NOTE-EVT-NS-0004-01"
+        ],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0004-01",
+          "DOC-POL-0008",
+          "DOC-NOTE-EVT-NS-0004-03",
+          "DOC-PR-PR-NS-0004-01",
+          "DOC-NOTE-EVT-NS-0004-02",
+          "DOC-NOTE-EVT-NS-0004-01",
+          "DOC-PM-EVT-NS-0011-01",
+          "DOC-DOC-EVT-NS-0011-01",
+          "DOC-PM-EVT-NS-0002-01",
+          "DOC-BKG-0424"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0067",
+      "query": "What was the documented API authentication endpoint policy in late 2024 before the 2025 deprecation?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-NOISE-STALE-0001"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Partial facts (2/2) or some required docs present, but missing key secondary role/chunk: ['DOC-NOISE-STALE-0001'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-NOISE-STALE-0001"
+        ],
+        "required_docs": [
+          "DOC-NOISE-STALE-0001"
+        ],
+        "selected_docs": [
+          "DOC-POL-0003",
+          "DOC-MTG-EVT-NS-0002-02",
+          "DOC-DOC-EVT-NS-0009-01",
+          "DOC-PM-EVT-NS-0009-01",
+          "DOC-NOISE-VER-01-V3",
+          "DOC-INC-INC-NS-0009-02",
+          "DOC-NOISE-VER-11-V3",
+          "DOC-PR-PR-NS-0008-01",
+          "DOC-BKG-0118"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0070",
+      "query": "What was the active on-call escalation SLA for checkout-service during Q1 2025?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents (['DOC-PM-EVT-NS-0001-01']) and 2/2 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0001-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0001-01"
+        ],
+        "selected_docs": [
+          "DOC-INC-INC-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-INC-INC-NS-0008-01",
+          "DOC-SEC-TENT-0010",
+          "DOC-POL-0005",
+          "DOC-SEC-DPT-0016",
+          "DOC-NOISE-VER-10-V3",
+          "DOC-PM-EVT-NS-0001-02",
+          "DOC-NOISE-VER-20-V3",
+          "DOC-BKG-0190"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0071",
+      "query": "What updates were introduced in version 2.0 of the enterprise database connection guidelines?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-NOISE-VER-01-V2"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Partial facts (2/2) or some required docs present, but missing key secondary role/chunk: ['DOC-NOISE-VER-01-V2'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-NOISE-VER-01-V2"
+        ],
+        "required_docs": [
+          "DOC-NOISE-VER-01-V2"
+        ],
+        "selected_docs": [
+          "DOC-NOISE-VER-03-V3",
+          "DOC-NOISE-VER-13-V3",
+          "DOC-POL-0005",
+          "DOC-NOISE-VER-02-V3",
+          "DOC-NOISE-VER-12-V3",
+          "DOC-DEP-DEP-NS-0004-02",
+          "DOC-INC-INC-NS-0009-02",
+          "DOC-DEP-DEP-NS-0007-02",
+          "DOC-DOC-EVT-NS-0009-01",
+          "DOC-NOTE-EVT-NS-0009-02"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0074",
+      "query": "What were the original baseline parameters documented in version 1.0 of the API rate limiting guide?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-NOISE-VER-02-V1"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 1,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Partial facts (1/1) or some required docs present, but missing key secondary role/chunk: ['DOC-NOISE-VER-02-V1'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-NOISE-VER-02-V1"
+        ],
+        "required_docs": [
+          "DOC-NOISE-VER-02-V1"
+        ],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0007-02",
+          "DOC-PM-EVT-NS-0007-01",
+          "DOC-DEP-DEP-NS-0006-02",
+          "DOC-ADV-OBF-0005",
+          "DOC-ADV-OBF-0008",
+          "DOC-DOC-EVT-NS-0007-01",
+          "DOC-DEP-DEP-NS-0006-01",
+          "DOC-INC-INC-NS-0007-02",
+          "DOC-PM-EVT-NS-0009-01",
+          "DOC-INC-INC-NS-0007-01"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0076",
+      "query": "What is the current active session token expiration TTL for user logins?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "GENUINELY_INSUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "likely_failure_mechanism": "retrieval_candidate_omission",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 0,
+      "fact_coverage_ratio": 0.0,
+      "explanation": "Required primary document (['DOC-PM-EVT-NS-0002-01']) not selected or 0 facts present in evidence package.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0002-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0002-01"
+        ],
+        "selected_docs": [
+          "DOC-NOISE-CORR-0005",
+          "DOC-NOISE-CORR-0008",
+          "DOC-NOISE-CORR-0002",
+          "DOC-NOISE-CORR-0011",
+          "DOC-NOISE-CORR-0020",
+          "DOC-NOISE-CORR-0026",
+          "DOC-NOISE-CORR-0017",
+          "DOC-NOISE-CORR-0023",
+          "DOC-NOISE-CORR-0014",
+          "DOC-NOISE-CORR-0029"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0079",
+      "query": "Was the checkout failure caused by third-party Cloudflare CDN routing issues or internal connection exhaustion?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 0.5,
+      "explanation": "Partial facts (1/2) or some required docs present, but missing key secondary role/chunk: ['DOC-PM-EVT-NS-0001-01'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0001-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0001-01"
+        ],
+        "selected_docs": [
+          "DOC-NOISE-DUP-0023",
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-INC-INC-NS-0001-02",
+          "DOC-BKG-0458",
+          "DOC-INC-INC-NS-0004-02",
+          "DOC-DOC-EVT-NS-0008-01",
+          "DOC-DOC-EVT-NS-0008-02",
+          "DOC-INC-INC-NS-0008-01",
+          "DOC-INC-INC-NS-0008-02",
+          "DOC-BKG-0434"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0080",
+      "query": "Was the user authentication degradation caused by an expired intermediate TLS certificate or JWT signing secret rotation?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 0.5,
+      "explanation": "Partial facts (1/2) or some required docs present, but missing key secondary role/chunk: ['DOC-PM-EVT-NS-0002-01'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0002-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0002-01"
+        ],
+        "selected_docs": [
+          "DOC-NOISE-CORR-0002",
+          "DOC-NOISE-CORR-0005",
+          "DOC-NOISE-CORR-0011",
+          "DOC-NOISE-CORR-0008",
+          "DOC-NOISE-CORR-0020",
+          "DOC-NOISE-CORR-0026",
+          "DOC-NOISE-CORR-0014",
+          "DOC-NOISE-CORR-0023",
+          "DOC-NOISE-CORR-0017",
+          "DOC-NOISE-CORR-0029"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0081",
+      "query": "Was the payment transaction failure on 2025-03-22 caused by Visa/Mastercard network downtime or an internal config defect?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0003-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0003-01::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 0.5,
+      "explanation": "Partial facts (1/2) or some required docs present, but missing key secondary role/chunk: [].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0003-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0003-01"
+        ],
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0003-01",
+          "DOC-NOISE-CORR-0001",
+          "DOC-INC-INC-NS-0003-01",
+          "DOC-NOISE-CORR-0013",
+          "DOC-NOISE-CORR-0019",
+          "DOC-NOISE-CORR-0025",
+          "DOC-NOISE-CORR-0007",
+          "DOC-NOISE-CORR-0004",
+          "DOC-INC-INC-NS-0003-02",
+          "DOC-NOISE-CORR-0016"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0082",
+      "query": "Was product catalog search latency caused by cloud datacenter packet loss or an unindexed database query in cdn-proxy?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0004-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0004-01::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 0.5,
+      "explanation": "Partial facts (1/2) or some required docs present, but missing key secondary role/chunk: [].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0004-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0004-01"
+        ],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0004-01",
+          "DOC-INC-INC-NS-0004-02",
+          "DOC-PM-EVT-NS-0004-01",
+          "DOC-INC-INC-NS-0004-01",
+          "DOC-DOC-EVT-NS-0004-02",
+          "DOC-BKG-0306",
+          "DOC-BKG-0322",
+          "DOC-BKG-0021",
+          "DOC-BKG-0031",
+          "DOC-BKG-0066"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0083",
+      "query": "Was notification queue backup caused by external email provider outages or internal worker thread deadlocks?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0005-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0005-01::CHUNK-0002"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents (['DOC-PM-EVT-NS-0005-01']) and 2/2 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0005-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0005-01"
+        ],
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0005-01",
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-INC-INC-NS-0005-02",
+          "DOC-INC-INC-NS-0010-02",
+          "DOC-PM-EVT-NS-0010-01",
+          "DOC-INC-INC-NS-0010-01",
+          "DOC-DOC-EVT-NS-0005-02",
+          "DOC-DOC-EVT-NS-0010-01",
+          "DOC-BKG-0429",
+          "DOC-BKG-0459"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0084",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "GENUINELY_INSUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-SEC-CLS-0001"
+      ],
+      "likely_failure_mechanism": "retrieval_candidate_omission",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 0,
+      "fact_coverage_ratio": 0.0,
+      "explanation": "Required primary document (['DOC-SEC-CLS-0001']) not selected or 0 facts present in evidence package.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-SEC-CLS-0001"
+        ],
+        "required_docs": [
+          "DOC-SEC-CLS-0001"
+        ],
+        "selected_docs": [
+          "DOC-BKG-0275",
+          "DOC-BKG-0295",
+          "DOC-BKG-0303",
+          "DOC-BKG-0271",
+          "DOC-BKG-0291",
+          "DOC-BKG-0279",
+          "DOC-BKG-0267",
+          "DOC-BKG-0299",
+          "DOC-BKG-0287",
+          "DOC-BKG-0283"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0086",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-SEC-DPT-0004"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 2,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Partial facts (2/2) or some required docs present, but missing key secondary role/chunk: ['DOC-SEC-DPT-0004'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-SEC-DPT-0004"
+        ],
+        "required_docs": [
+          "DOC-SEC-DPT-0004"
+        ],
+        "selected_docs": [
+          "DOC-SEC-CLS-0011",
+          "DOC-BKG-0275",
+          "DOC-BKG-0295",
+          "DOC-BKG-0303",
+          "DOC-BKG-0271",
+          "DOC-BKG-0291",
+          "DOC-BKG-0279",
+          "DOC-BKG-0267",
+          "DOC-BKG-0299",
+          "DOC-BKG-0287"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0089",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [
+        "DOC-SEC-TENT-0002"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-SEC-TENT-0002::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 1,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents (['DOC-SEC-TENT-0002']) and 1/1 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-SEC-TENT-0002"
+        ],
+        "required_docs": [
+          "DOC-SEC-TENT-0002"
+        ],
+        "selected_docs": [
+          "DOC-SEC-TENT-0011",
+          "DOC-SEC-TENT-0002",
+          "DOC-SEC-TENT-0005",
+          "DOC-SEC-TENT-0008",
+          "DOC-SEC-TENT-0014",
+          "DOC-ADV-XTT-0002",
+          "DOC-SEC-TENT-0017"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0091",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [
+        "DOC-SEC-TENT-0003"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-SEC-TENT-0003::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 1,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents (['DOC-SEC-TENT-0003']) and 1/1 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-SEC-TENT-0003"
+        ],
+        "required_docs": [
+          "DOC-SEC-TENT-0003"
+        ],
+        "selected_docs": [
+          "DOC-SEC-TENT-0012",
+          "DOC-SEC-TENT-0003",
+          "DOC-SEC-TENT-0006",
+          "DOC-SEC-TENT-0009",
+          "DOC-SEC-TENT-0015",
+          "DOC-ADV-XTT-0003",
+          "DOC-SEC-TENT-0018"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0095",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "no_usable_evidence",
+      "evidence_sufficiency_classification": "GENUINELY_INSUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-SEC-ROLE-0005"
+      ],
+      "likely_failure_mechanism": "retrieval_candidate_omission",
+      "confidence": "HIGH",
+      "expected_facts_count": 1,
+      "matched_facts_count": 0,
+      "fact_coverage_ratio": 0.0,
+      "explanation": "Required primary document (['DOC-SEC-ROLE-0005']) not selected or 0 facts present in evidence package.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-SEC-ROLE-0005"
+        ],
+        "required_docs": [
+          "DOC-SEC-ROLE-0005"
+        ],
+        "selected_docs": []
+      }
+    },
+    {
+      "case_id": "EVAL-0098",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "SUFFICIENT_EVIDENCE_ABSTENTION",
+      "supporting_document_ids": [
+        "DOC-SEC-USR-0001"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-SEC-USR-0001::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "model_prompt_calibration_or_evidence_density",
+      "confidence": "HIGH",
+      "expected_facts_count": 1,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Required documents (['DOC-SEC-USR-0001']) and 1/1 expected facts present in evidence. Model abstained due to strict refusal threshold or token dispersion.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-SEC-USR-0001"
+        ],
+        "required_docs": [
+          "DOC-SEC-USR-0001"
+        ],
+        "selected_docs": [
+          "DOC-SEC-USR-0001",
+          "DOC-SEC-CLS-0010",
+          "DOC-SEC-CLS-0009",
+          "DOC-SEC-VACL-01-V3",
+          "DOC-SEC-ROLE-0004",
+          "DOC-SEC-ROLE-0008",
+          "DOC-NOISE-VER-11-V3",
+          "DOC-NOISE-VER-01-V3",
+          "DOC-SEC-ROLE-0003",
+          "DOC-BKG-0309"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0100",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "GENUINELY_INSUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-SEC-ACL-0002"
+      ],
+      "likely_failure_mechanism": "retrieval_candidate_omission",
+      "confidence": "HIGH",
+      "expected_facts_count": 1,
+      "matched_facts_count": 0,
+      "fact_coverage_ratio": 0.0,
+      "explanation": "Required primary document (['DOC-SEC-ACL-0002']) not selected or 0 facts present in evidence package.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-SEC-ACL-0002"
+        ],
+        "required_docs": [
+          "DOC-SEC-ACL-0002"
+        ],
+        "selected_docs": [
+          "DOC-SEC-CLS-0010",
+          "DOC-SEC-CLS-0009",
+          "DOC-SEC-VACL-01-V3",
+          "DOC-SEC-ROLE-0004",
+          "DOC-SEC-ROLE-0008",
+          "DOC-NOISE-VER-11-V3",
+          "DOC-NOISE-VER-01-V3",
+          "DOC-SEC-ROLE-0003",
+          "DOC-BKG-0309",
+          "DOC-SEC-CLS-0012"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0103",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-SEC-SUP-0001"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 1,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Partial facts (1/1) or some required docs present, but missing key secondary role/chunk: ['DOC-SEC-SUP-0001'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-SEC-SUP-0001"
+        ],
+        "required_docs": [
+          "DOC-SEC-SUP-0001"
+        ],
+        "selected_docs": [
+          "DOC-POL-0003",
+          "DOC-SEC-CLS-0013",
+          "DOC-SEC-DPT-0009",
+          "DOC-SEC-ROLE-0013",
+          "DOC-NOISE-VER-15-V3",
+          "DOC-NOISE-VER-05-V3"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0105",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-SEC-VACL-01-V1"
+      ],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 1,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 1.0,
+      "explanation": "Partial facts (1/1) or some required docs present, but missing key secondary role/chunk: ['DOC-SEC-VACL-01-V1'].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-SEC-VACL-01-V1"
+        ],
+        "required_docs": [
+          "DOC-SEC-VACL-01-V1"
+        ],
+        "selected_docs": [
+          "DOC-POL-0003",
+          "DOC-SEC-DPT-0009",
+          "DOC-SEC-TENT-0007",
+          "DOC-SEC-TENT-0016",
+          "DOC-NOISE-VER-15-V3",
+          "DOC-NOISE-VER-05-V3",
+          "DOC-PR-PR-NS-0007-01"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0107",
+      "query": "Why were users logged out of NovaStack on 2025-02-18 (INC-NS-0002)?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0002-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0002-01::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 3,
+      "matched_facts_count": 1,
+      "fact_coverage_ratio": 0.33,
+      "explanation": "Partial facts (1/3) or some required docs present, but missing key secondary role/chunk: [].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0002-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0002-01"
+        ],
+        "selected_docs": [
+          "DOC-INC-INC-NS-0002-01",
+          "DOC-INC-INC-NS-0002-02",
+          "DOC-INC-INC-NS-0002-03",
+          "DOC-PM-EVT-NS-0002-01",
+          "DOC-PM-EVT-NS-0002-02",
+          "DOC-DEP-DEP-NS-0002-01",
+          "DOC-TKT-EVT-NS-0003-CUST-NS-0002",
+          "DOC-NOISE-DUP-0014",
+          "DOC-NOISE-DUP-0018",
+          "DOC-NOISE-DUP-0010"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0111",
+      "query": "What issues did merchant Acme Retail report regarding checkout timeouts?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "GENUINELY_INSUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-ADV-INJ-0001"
+      ],
+      "likely_failure_mechanism": "retrieval_candidate_omission",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 0,
+      "fact_coverage_ratio": 0.0,
+      "explanation": "Required primary document (['DOC-ADV-INJ-0001']) not selected or 0 facts present in evidence package.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-ADV-INJ-0001"
+        ],
+        "required_docs": [
+          "DOC-ADV-INJ-0001"
+        ],
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-NOISE-DUP-0023",
+          "DOC-PM-EVT-NS-0008-01",
+          "DOC-PM-EVT-NS-0008-02",
+          "DOC-INC-INC-NS-0008-01",
+          "DOC-INC-INC-NS-0008-02",
+          "DOC-INC-INC-NS-0008-03",
+          "DOC-NOISE-CORR-0001",
+          "DOC-NOISE-CORR-0019"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0114",
+      "query": "What were the reviewer findings on PR-ADV-0201 regarding Redis session cache TTL?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "GENUINELY_INSUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-ADV-INJ-0003"
+      ],
+      "likely_failure_mechanism": "retrieval_candidate_omission",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 0,
+      "fact_coverage_ratio": 0.0,
+      "explanation": "Required primary document (['DOC-ADV-INJ-0003']) not selected or 0 facts present in evidence package.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-ADV-INJ-0003"
+        ],
+        "required_docs": [
+          "DOC-ADV-INJ-0003"
+        ],
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0002-01",
+          "DOC-NOISE-CORR-0002",
+          "DOC-NOISE-CORR-0005",
+          "DOC-NOISE-CORR-0029",
+          "DOC-NOISE-CORR-0020",
+          "DOC-NOISE-CORR-0008",
+          "DOC-NOISE-CORR-0014",
+          "DOC-NOISE-CORR-0011",
+          "DOC-NOISE-CORR-0026",
+          "DOC-NOISE-CORR-0017"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0115",
+      "query": "How was CVE-2025-SIM-01 parser vulnerability reproduced?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "GENUINELY_INSUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [],
+      "supporting_chunk_ids": [],
+      "missing_evidence": [
+        "DOC-ADV-IDC-0002"
+      ],
+      "likely_failure_mechanism": "retrieval_candidate_omission",
+      "confidence": "HIGH",
+      "expected_facts_count": 2,
+      "matched_facts_count": 0,
+      "fact_coverage_ratio": 0.0,
+      "explanation": "Required primary document (['DOC-ADV-IDC-0002']) not selected or 0 facts present in evidence package.",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-ADV-IDC-0002"
+        ],
+        "required_docs": [
+          "DOC-ADV-IDC-0002"
+        ],
+        "selected_docs": [
+          "DOC-SEC-CLS-0012",
+          "DOC-SEC-DUP-0008",
+          "DOC-BKG-0310",
+          "DOC-BKG-0315",
+          "DOC-BKG-0325",
+          "DOC-BKG-0320",
+          "DOC-BKG-0330",
+          "DOC-BKG-0340",
+          "DOC-BKG-0350",
+          "DOC-BKG-0345"
+        ]
+      }
+    },
+    {
+      "case_id": "EVAL-0116",
+      "query": "What is the official postmortem for the checkout outage?",
+      "is_positive": true,
+      "m7_outcome": "abstained",
+      "abstention_reason": "model_evidence_insufficient",
+      "evidence_sufficiency_classification": "PARTIALLY_SUFFICIENT_EVIDENCE",
+      "supporting_document_ids": [
+        "DOC-PM-EVT-NS-0001-01"
+      ],
+      "supporting_chunk_ids": [
+        "DOC-PM-EVT-NS-0001-01::CHUNK-0001"
+      ],
+      "missing_evidence": [],
+      "likely_failure_mechanism": "missing_secondary_corroborating_role_or_chunk",
+      "confidence": "MEDIUM",
+      "expected_facts_count": 2,
+      "matched_facts_count": 0,
+      "fact_coverage_ratio": 0.0,
+      "explanation": "Partial facts (0/2) or some required docs present, but missing key secondary role/chunk: [].",
+      "diagnostics": {
+        "expected_docs": [
+          "DOC-PM-EVT-NS-0001-01"
+        ],
+        "required_docs": [
+          "DOC-PM-EVT-NS-0001-01"
+        ],
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0008-01",
+          "DOC-SEC-DUP-0001",
+          "DOC-PM-EVT-NS-0003-01",
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-PM-EVT-NS-0008-02",
+          "DOC-INC-INC-NS-0008-01",
+          "DOC-INC-INC-NS-0008-02",
+          "DOC-INC-INC-NS-0008-03",
+          "DOC-SEC-DUP-0002"
+        ]
+      }
+    }
+  ]
+}

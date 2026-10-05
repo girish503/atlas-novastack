@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atlas-novastack"
+version = "0.4.14"
+description = "ATLAS Enterprise Grounded Search and Answering Engine"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary" }
+authors = [
+    { name = "NovaStack Engineering" }
+]
+dependencies = [
+    "fastapi>=0.110.0,<1.0.0",
+    "pydantic>=2.7.0,<3.0.0",
+    "uvicorn>=0.28.0,<1.0.0",
+    "torch>=2.0.0,<3.0.0",
+    "transformers>=4.40.0,<6.0.0",
+    "sentence-transformers>=3.0.0,<7.0.0",
+    "numpy>=1.24.0,<3.0.0",
+    "httpx>=0.27.0,<1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0,<9.0.0",
+]
+test = [
+    "pytest>=7.4.0,<9.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "slow: requires ML model loading (Gemma or SentenceTransformer on CPU)",
+]

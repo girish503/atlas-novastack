@@ -1,0 +1,117 @@
+{
+  "phase": "4X-R2",
+  "title": "Clean-Memory Performance Confirmation",
+  "timestamp": "2026-09-19T06:25:42Z",
+  "status": "BLOCKED",
+  "verdict": "HOLD",
+  "verdict_reason": "Available RAM 1.19 GB is less than required 3.00 GB target. Clean-memory precondition not satisfied. Execution safely halted per directive.",
+  "environment_gate": {
+    "gate_passed": false,
+    "required_ram_gb": 3.0,
+    "available_ram_gb": 1.19,
+    "target_not_met": true,
+    "block_message": "4X-R2 BLOCKED \u2014 clean-memory precondition not satisfied."
+  },
+  "system_specs": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.13.5",
+    "cpu": "Intel64 Family 6 Model 190 Stepping 0, GenuineIntel",
+    "cpu_count_physical": 8,
+    "cpu_count_logical": 8,
+    "total_ram_gb": 7.63,
+    "available_ram_gb": 1.19,
+    "used_ram_gb": 6.44,
+    "target_available_ram_gb": 3.0,
+    "target_not_met": true,
+    "torch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device": "cpu",
+    "pytorch_thread_count": 8,
+    "initial_rss_mb": 222.16,
+    "initial_thread_count": 1
+  },
+  "frozen_configuration": {
+    "enable_boundary_stitching": false,
+    "enable_query_aware_authority": true,
+    "enable_event_bundling": false,
+    "max_concurrent_inferences": 1,
+    "queue_timeout_seconds": 0.5,
+    "request_timeout_seconds": 30.0,
+    "enable_circuit_breaker": true,
+    "circuit_failure_threshold": 3,
+    "circuit_cooldown_seconds": 10.0
+  },
+  "memory_checkpoints": [
+    {
+      "label": "M0_startup",
+      "timestamp_utc": "2026-09-19T06:25:42Z",
+      "rss_mb": 222.16,
+      "available_ram_gb": 1.2,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 6.43,
+      "thread_count": 1,
+      "pytorch_threads": 8
+    }
+  ],
+  "retrieval_controls": [],
+  "abstention_controls": [],
+  "generation_measurements": [],
+  "comparison_4x_vs_4x_r1_vs_4x_r2": {
+    "available_ram_gb": {
+      "4X": 0.51,
+      "4X_R1": 0.48,
+      "4X_R2": 1.19
+    },
+    "retrieval_latency_ms": {
+      "4X": 44.71,
+      "4X_R1": 15575.89,
+      "4X_R2": "BLOCKED"
+    },
+    "model_generate_latency_ms": {
+      "4X": "NOT_OBSERVED",
+      "4X_R1_gen1": 15918.08,
+      "4X_R1_gen2": "TIMEOUT",
+      "4X_R1_gen3": 12090.83,
+      "4X_R2": "BLOCKED"
+    },
+    "e2e_generation_latency_ms": {
+      "4X_gen1": 30745.18,
+      "4X_R1_gen1": 16501.44,
+      "4X_R1_gen2": 30442.96,
+      "4X_R1_gen3": 13384.6,
+      "4X_R2": "BLOCKED"
+    },
+    "generation_completed": {
+      "4X": "0 / 1",
+      "4X_R1": "2 / 3",
+      "4X_R2": "BLOCKED (0 / 0)"
+    },
+    "timeout_count": {
+      "4X": 1,
+      "4X_R1": 1,
+      "4X_R2": 0
+    },
+    "deadline_headroom_ms": {
+      "4X_gen1": -745.18,
+      "4X_R1_gen1": 13498.56,
+      "4X_R1_gen2": -442.96,
+      "4X_R1_gen3": 16615.4,
+      "4X_R2": "BLOCKED"
+    },
+    "peak_rss_mb": {
+      "4X": 1535.54,
+      "4X_R1": 4063.98,
+      "4X_R2": 222.16
+    },
+    "rss_after_gc_mb": {
+      "4X": 1594.06,
+      "4X_R1": 3446.33,
+      "4X_R2": "BLOCKED"
+    },
+    "available_ram_after_generation_gb": {
+      "4X": 0.51,
+      "4X_R1": 0.55,
+      "4X_R2": "BLOCKED"
+    }
+  }
+}

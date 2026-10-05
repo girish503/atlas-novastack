@@ -1,0 +1,2611 @@
+{
+  "metadata": {
+    "milestone": "ATLAS 0.5-M1",
+    "artifact_type": "experiment_results",
+    "baseline_release": "0.4.14-rc1",
+    "timestamp": "2026-09-24T10:15:00",
+    "total_benchmark_cases": 120,
+    "configuration": {
+      "max_traversal_depth": 3,
+      "path_decay_gamma": 0.7,
+      "max_neighbors_per_hop": 10,
+      "max_expanded_candidates": 100,
+      "enable_multihop": true,
+      "structured_temporal_filtering": true
+    }
+  },
+  "immutability_verification": {
+    "data/raw/novastack/source_records.json": "f877faf2dec310dca1ca56c57756f8c7368a90468c2f6b0ab74f689eca43eab3",
+    "data/processed/novastack/search_documents.json": "ffd7483aec9b4ffce57394880f664cbf79f2ca6733422ba01b235df28e9b9871",
+    "data/processed/novastack/search_chunks.json": "36fbc12e31cecb146f220a8d58873980c84c08beda770f13f77631b3c6c48605",
+    "data/evaluation/novastack/evaluation_cases.json": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+    "data/evaluation/novastack/bm25_baseline.json": "91fd7ddbdb837e21089d622da08d4e8c8091d68c74b744500ec332ebfe8c4d52",
+    "data/evaluation/novastack/dense_baseline.json": "0d70a7b9523445065754d2a0325703544725e3c5cff587eda0ccc2079dc2acb2",
+    "data/evaluation/novastack/hybrid_baseline.json": "794a4a805075f6ff83a966fce8bda756c29e5e5fd0afb4a85c84e49a72374663",
+    "data/evaluation/novastack/phase_4b0_candidate_diagnostics.json": "2493b08e136b7ba40e6e3bbbaace977a3b55f77cf45bff945cdd961c696327c6",
+    "data/evaluation/novastack/phase_4b1_reranker_baseline.json": "30e9ba5da6966b4ee871764e6c45b1ea6db57cbe265389a7c739bf4a9e62bd96",
+    "data/evaluation/novastack/phase_4c0_query_profiles.json": "782134fd40068c6bf5994b418428094126202f7fccafa5a12f72b5f264b08226",
+    "data/evaluation/novastack/phase_4c1_query_understanding.json": "57fb97475f5541b0c844fb1662b539f54f70aa92038ae8f00dc4e7d00d4d2b6d",
+    "data/evaluation/novastack/phase_4c2_metadata_diagnostics.json": "e6fdd0efe8493ec4cab6dd5c523c4edf1b2771a103a97a230cfc42b8496e2a8c",
+    "data/evaluation/novastack/phase_4c3_metadata_reranking.json": "ea9407b430a0424705e465673b29d8bb0ba42c1cec2406b3f979883f8ecf5766",
+    "data/evaluation/novastack/phase_4d0_starvation_diagnostics.json": "7628b042e3f29c9935da76388a0380e24d2da27378cddd2cb3e84e38dcdfc31b",
+    "data/evaluation/novastack/phase_4d0_1_reconciliation.json": "dceaec3c81d0941c6b25425e3d1b781b23c1f741e6ce2262eec842a93803edc7",
+    "data/evaluation/novastack/phase_4d1_depth_fusion_ablation.json": "4ab13904c1f686a7c2f011f7bf66f188c5d2215e75259a699fdeecaa661f49cb"
+  },
+  "summary": {
+    "baseline_macro": {
+      "recall_at_1": 0.1764,
+      "hit_at_1": 0.2167,
+      "recall_at_3": 0.3681,
+      "hit_at_3": 0.4583,
+      "recall_at_5": 0.4132,
+      "hit_at_5": 0.5,
+      "recall_at_10": 0.4979,
+      "hit_at_10": 0.5667,
+      "recall_at_20": 0.5736,
+      "hit_at_20": 0.6167,
+      "mrr": 0.3434,
+      "ndcg_at_10": 0.3396,
+      "forbidden_leaks_top10": 0.0,
+      "forbidden_in_pool": 0.1417
+    },
+    "m1_macro": {
+      "recall_at_1": 0.2118,
+      "hit_at_1": 0.275,
+      "recall_at_3": 0.3764,
+      "hit_at_3": 0.475,
+      "recall_at_5": 0.4215,
+      "hit_at_5": 0.5083,
+      "recall_at_10": 0.4938,
+      "hit_at_10": 0.5833,
+      "recall_at_20": 0.5444,
+      "hit_at_20": 0.6,
+      "mrr": 0.3835,
+      "ndcg_at_10": 0.3625,
+      "forbidden_leaks_top10": 0.0,
+      "forbidden_in_pool": 0.1417
+    },
+    "deltas": {
+      "recall_at_1": 0.0354,
+      "recall_at_3": 0.0083,
+      "recall_at_5": 0.0083,
+      "recall_at_10": -0.0041,
+      "mrr": 0.0401,
+      "ndcg_at_10": 0.0229
+    },
+    "recoveries_count": 2,
+    "regressions_count": 0,
+    "security_violations": 0
+  },
+  "challenge_slices": {
+    "relational_slice": {
+      "case_count": 17,
+      "baseline_recall_at_10": 0.5294,
+      "m1_recall_at_10": 0.3676,
+      "absolute_gain": -0.1618,
+      "relative_gain_percent": -30.56,
+      "target_met": false
+    },
+    "temporal_slice": {
+      "case_count": 13,
+      "baseline_recall_at_10": 0.6154,
+      "m1_recall_at_10": 0.6154,
+      "m1_mrr": 0.26,
+      "m1_ndcg_at_10": 0.3398
+    }
+  },
+  "category_metrics": {
+    "authorization": {
+      "case_count": 4,
+      "baseline_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "hit_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "hit_at_20": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_10": 0.0,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "hit_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "hit_at_20": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_10": 0.0,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "citation_manipulation": {
+      "case_count": 5,
+      "baseline_metrics": {
+        "recall_at_1": 0.2,
+        "hit_at_1": 0.2,
+        "recall_at_3": 0.2,
+        "hit_at_3": 0.2,
+        "recall_at_5": 0.2,
+        "hit_at_5": 0.2,
+        "recall_at_10": 0.2,
+        "hit_at_10": 0.2,
+        "recall_at_20": 0.2,
+        "hit_at_20": 0.2,
+        "mrr": 0.2,
+        "ndcg_at_10": 0.2,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.8
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.2,
+        "hit_at_1": 0.2,
+        "recall_at_3": 0.2,
+        "hit_at_3": 0.2,
+        "recall_at_5": 0.2,
+        "hit_at_5": 0.2,
+        "recall_at_10": 0.2,
+        "hit_at_10": 0.2,
+        "recall_at_20": 0.2,
+        "hit_at_20": 0.2,
+        "mrr": 0.2,
+        "ndcg_at_10": 0.2,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.8
+      }
+    },
+    "conflicting_evidence": {
+      "case_count": 5,
+      "baseline_metrics": {
+        "recall_at_1": 0.2,
+        "hit_at_1": 0.2,
+        "recall_at_3": 0.6,
+        "hit_at_3": 0.6,
+        "recall_at_5": 0.6,
+        "hit_at_5": 0.6,
+        "recall_at_10": 0.6,
+        "hit_at_10": 0.6,
+        "recall_at_20": 0.8,
+        "hit_at_20": 0.8,
+        "mrr": 0.3515,
+        "ndcg_at_10": 0.4,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.8
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.4,
+        "hit_at_1": 0.4,
+        "recall_at_3": 0.6,
+        "hit_at_3": 0.6,
+        "recall_at_5": 0.6,
+        "hit_at_5": 0.6,
+        "recall_at_10": 0.8,
+        "hit_at_10": 0.8,
+        "recall_at_20": 0.8,
+        "hit_at_20": 0.8,
+        "mrr": 0.5346,
+        "ndcg_at_10": 0.5929,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.8
+      }
+    },
+    "cross_tenant": {
+      "case_count": 5,
+      "baseline_metrics": {
+        "recall_at_1": 0.4,
+        "hit_at_1": 0.4,
+        "recall_at_3": 0.4,
+        "hit_at_3": 0.4,
+        "recall_at_5": 0.4,
+        "hit_at_5": 0.4,
+        "recall_at_10": 0.4,
+        "hit_at_10": 0.4,
+        "recall_at_20": 0.4,
+        "hit_at_20": 0.4,
+        "mrr": 0.4,
+        "ndcg_at_10": 0.4,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.4,
+        "hit_at_1": 0.4,
+        "recall_at_3": 0.4,
+        "hit_at_3": 0.4,
+        "recall_at_5": 0.4,
+        "hit_at_5": 0.4,
+        "recall_at_10": 0.4,
+        "hit_at_10": 0.4,
+        "recall_at_20": 0.4,
+        "hit_at_20": 0.4,
+        "mrr": 0.4,
+        "ndcg_at_10": 0.4,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "duplicate_resolution": {
+      "case_count": 6,
+      "baseline_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.25,
+        "hit_at_3": 0.5,
+        "recall_at_5": 0.3333,
+        "hit_at_5": 0.5,
+        "recall_at_10": 0.4167,
+        "hit_at_10": 0.6667,
+        "recall_at_20": 0.5833,
+        "hit_at_20": 0.8333,
+        "mrr": 0.2289,
+        "ndcg_at_10": 0.2357,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.1667
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.25,
+        "hit_at_3": 0.5,
+        "recall_at_5": 0.3333,
+        "hit_at_5": 0.5,
+        "recall_at_10": 0.4167,
+        "hit_at_10": 0.6667,
+        "recall_at_20": 0.5833,
+        "hit_at_20": 0.8333,
+        "mrr": 0.2567,
+        "ndcg_at_10": 0.2536,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.1667
+      }
+    },
+    "exact_lookup": {
+      "case_count": 8,
+      "baseline_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.4375,
+        "hit_at_3": 0.875,
+        "recall_at_5": 0.6875,
+        "hit_at_5": 1.0,
+        "recall_at_10": 0.875,
+        "hit_at_10": 1.0,
+        "recall_at_20": 1.0,
+        "hit_at_20": 1.0,
+        "mrr": 0.3646,
+        "ndcg_at_10": 0.4272,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.375,
+        "hit_at_1": 0.75,
+        "recall_at_3": 0.5,
+        "hit_at_3": 1.0,
+        "recall_at_5": 0.6875,
+        "hit_at_5": 1.0,
+        "recall_at_10": 0.6875,
+        "hit_at_10": 1.0,
+        "recall_at_20": 0.875,
+        "hit_at_20": 1.0,
+        "mrr": 0.875,
+        "ndcg_at_10": 0.6123,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "historical_security": {
+      "case_count": 4,
+      "baseline_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_10": 0.25,
+        "hit_at_10": 0.25,
+        "recall_at_20": 0.25,
+        "hit_at_20": 0.25,
+        "mrr": 0.0357,
+        "ndcg_at_10": 0.0833,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.25
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_10": 0.25,
+        "hit_at_10": 0.25,
+        "recall_at_20": 0.25,
+        "hit_at_20": 0.25,
+        "mrr": 0.0357,
+        "ndcg_at_10": 0.0833,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.25
+      }
+    },
+    "identifier_search": {
+      "case_count": 8,
+      "baseline_metrics": {
+        "recall_at_1": 0.5,
+        "hit_at_1": 0.5,
+        "recall_at_3": 0.875,
+        "hit_at_3": 0.875,
+        "recall_at_5": 0.875,
+        "hit_at_5": 0.875,
+        "recall_at_10": 0.875,
+        "hit_at_10": 0.875,
+        "recall_at_20": 1.0,
+        "hit_at_20": 1.0,
+        "mrr": 0.6958,
+        "ndcg_at_10": 0.7366,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.5,
+        "hit_at_1": 0.5,
+        "recall_at_3": 0.875,
+        "hit_at_3": 0.875,
+        "recall_at_5": 0.875,
+        "hit_at_5": 0.875,
+        "recall_at_10": 0.875,
+        "hit_at_10": 0.875,
+        "recall_at_20": 0.875,
+        "hit_at_20": 0.875,
+        "mrr": 0.6667,
+        "ndcg_at_10": 0.7202,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "indirect_prompt_injection": {
+      "case_count": 5,
+      "baseline_metrics": {
+        "recall_at_1": 0.4,
+        "hit_at_1": 0.4,
+        "recall_at_3": 0.6,
+        "hit_at_3": 0.6,
+        "recall_at_5": 0.6,
+        "hit_at_5": 0.6,
+        "recall_at_10": 0.6,
+        "hit_at_10": 0.6,
+        "recall_at_20": 0.8,
+        "hit_at_20": 0.8,
+        "mrr": 0.4767,
+        "ndcg_at_10": 0.5,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.4,
+        "hit_at_1": 0.4,
+        "recall_at_3": 0.6,
+        "hit_at_3": 0.6,
+        "recall_at_5": 0.6,
+        "hit_at_5": 0.6,
+        "recall_at_10": 0.6,
+        "hit_at_10": 0.6,
+        "recall_at_20": 0.8,
+        "hit_at_20": 0.8,
+        "mrr": 0.4767,
+        "ndcg_at_10": 0.5,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "missing_information": {
+      "case_count": 7,
+      "baseline_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "hit_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "hit_at_20": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_10": 0.0,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "hit_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "hit_at_20": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_10": 0.0,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "multi_document": {
+      "case_count": 9,
+      "baseline_metrics": {
+        "recall_at_1": 0.2778,
+        "hit_at_1": 0.5556,
+        "recall_at_3": 0.5,
+        "hit_at_3": 0.8889,
+        "recall_at_5": 0.5556,
+        "hit_at_5": 1.0,
+        "recall_at_10": 0.6667,
+        "hit_at_10": 1.0,
+        "recall_at_20": 0.8333,
+        "hit_at_20": 1.0,
+        "mrr": 0.7315,
+        "ndcg_at_10": 0.5688,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.1667,
+        "hit_at_1": 0.3333,
+        "recall_at_3": 0.4444,
+        "hit_at_3": 0.8889,
+        "recall_at_5": 0.5556,
+        "hit_at_5": 1.0,
+        "recall_at_10": 0.5556,
+        "hit_at_10": 1.0,
+        "recall_at_20": 0.7778,
+        "hit_at_20": 1.0,
+        "mrr": 0.5833,
+        "ndcg_at_10": 0.4512,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "multi_hop": {
+      "case_count": 9,
+      "baseline_metrics": {
+        "recall_at_1": 0.1852,
+        "hit_at_1": 0.4444,
+        "recall_at_3": 0.2963,
+        "hit_at_3": 0.5556,
+        "recall_at_5": 0.4537,
+        "hit_at_5": 0.7778,
+        "recall_at_10": 0.5833,
+        "hit_at_10": 0.8889,
+        "recall_at_20": 0.6481,
+        "hit_at_20": 0.8889,
+        "mrr": 0.5664,
+        "ndcg_at_10": 0.4694,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.213,
+        "hit_at_1": 0.5556,
+        "recall_at_3": 0.2963,
+        "hit_at_3": 0.5556,
+        "recall_at_5": 0.4537,
+        "hit_at_5": 0.7778,
+        "recall_at_10": 0.5833,
+        "hit_at_10": 0.8889,
+        "recall_at_20": 0.6481,
+        "hit_at_20": 0.8889,
+        "mrr": 0.622,
+        "ndcg_at_10": 0.484,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "ownership": {
+      "case_count": 8,
+      "baseline_metrics": {
+        "recall_at_1": 0.125,
+        "hit_at_1": 0.125,
+        "recall_at_3": 0.125,
+        "hit_at_3": 0.125,
+        "recall_at_5": 0.125,
+        "hit_at_5": 0.125,
+        "recall_at_10": 0.125,
+        "hit_at_10": 0.125,
+        "recall_at_20": 0.125,
+        "hit_at_20": 0.125,
+        "mrr": 0.1277,
+        "ndcg_at_10": 0.105,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.125,
+        "hit_at_5": 0.125,
+        "recall_at_10": 0.125,
+        "hit_at_10": 0.125,
+        "recall_at_20": 0.125,
+        "hit_at_20": 0.125,
+        "mrr": 0.025,
+        "ndcg_at_10": 0.0708,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "retrieval_poisoning": {
+      "case_count": 5,
+      "baseline_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.2,
+        "hit_at_3": 0.2,
+        "recall_at_5": 0.4,
+        "hit_at_5": 0.4,
+        "recall_at_10": 0.6,
+        "hit_at_10": 0.6,
+        "recall_at_20": 1.0,
+        "hit_at_20": 1.0,
+        "mrr": 0.1927,
+        "ndcg_at_10": 0.2725,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 1.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.6,
+        "hit_at_1": 0.6,
+        "recall_at_3": 0.8,
+        "hit_at_3": 0.8,
+        "recall_at_5": 0.8,
+        "hit_at_5": 0.8,
+        "recall_at_10": 0.8,
+        "hit_at_10": 0.8,
+        "recall_at_20": 0.8,
+        "hit_at_20": 0.8,
+        "mrr": 0.7083,
+        "ndcg_at_10": 0.7262,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 1.0
+      }
+    },
+    "role_restricted": {
+      "case_count": 5,
+      "baseline_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "hit_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "hit_at_20": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_10": 0.0,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "hit_at_10": 0.0,
+        "recall_at_20": 0.0,
+        "hit_at_20": 0.0,
+        "mrr": 0.0,
+        "ndcg_at_10": 0.0,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "semantic_search": {
+      "case_count": 10,
+      "baseline_metrics": {
+        "recall_at_1": 0.4,
+        "hit_at_1": 0.4,
+        "recall_at_3": 0.8,
+        "hit_at_3": 0.8,
+        "recall_at_5": 0.8,
+        "hit_at_5": 0.8,
+        "recall_at_10": 0.9,
+        "hit_at_10": 0.9,
+        "recall_at_20": 0.9,
+        "hit_at_20": 0.9,
+        "mrr": 0.5975,
+        "ndcg_at_10": 0.5189,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.3,
+        "hit_at_1": 0.3,
+        "recall_at_3": 0.7,
+        "hit_at_3": 0.7,
+        "recall_at_5": 0.7,
+        "hit_at_5": 0.7,
+        "recall_at_10": 0.9,
+        "hit_at_10": 0.9,
+        "recall_at_20": 0.9,
+        "hit_at_20": 0.9,
+        "mrr": 0.4973,
+        "ndcg_at_10": 0.4491,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "stale_information": {
+      "case_count": 4,
+      "baseline_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.25,
+        "hit_at_3": 0.25,
+        "recall_at_5": 0.25,
+        "hit_at_5": 0.25,
+        "recall_at_10": 0.5,
+        "hit_at_10": 0.5,
+        "recall_at_20": 0.5,
+        "hit_at_20": 0.5,
+        "mrr": 0.1753,
+        "ndcg_at_10": 0.2468,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.25,
+        "hit_at_3": 0.25,
+        "recall_at_5": 0.25,
+        "hit_at_5": 0.25,
+        "recall_at_10": 0.5,
+        "hit_at_10": 0.5,
+        "recall_at_20": 0.5,
+        "hit_at_20": 0.5,
+        "mrr": 0.1649,
+        "ndcg_at_10": 0.2366,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "temporal": {
+      "case_count": 5,
+      "baseline_metrics": {
+        "recall_at_1": 0.2,
+        "hit_at_1": 0.2,
+        "recall_at_3": 0.8,
+        "hit_at_3": 0.8,
+        "recall_at_5": 0.8,
+        "hit_at_5": 0.8,
+        "recall_at_10": 0.8,
+        "hit_at_10": 0.8,
+        "recall_at_20": 0.8,
+        "hit_at_20": 0.8,
+        "mrr": 0.5,
+        "ndcg_at_10": 0.5786,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.2,
+        "hit_at_1": 0.2,
+        "recall_at_3": 0.8,
+        "hit_at_3": 0.8,
+        "recall_at_5": 0.8,
+        "hit_at_5": 0.8,
+        "recall_at_10": 0.8,
+        "hit_at_10": 0.8,
+        "recall_at_20": 0.8,
+        "hit_at_20": 0.8,
+        "mrr": 0.5,
+        "ndcg_at_10": 0.5786,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.0
+      }
+    },
+    "user_acl": {
+      "case_count": 4,
+      "baseline_metrics": {
+        "recall_at_1": 0.25,
+        "hit_at_1": 0.25,
+        "recall_at_3": 0.25,
+        "hit_at_3": 0.25,
+        "recall_at_5": 0.25,
+        "hit_at_5": 0.25,
+        "recall_at_10": 0.25,
+        "hit_at_10": 0.25,
+        "recall_at_20": 0.25,
+        "hit_at_20": 0.25,
+        "mrr": 0.25,
+        "ndcg_at_10": 0.25,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.25
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.25,
+        "hit_at_1": 0.25,
+        "recall_at_3": 0.25,
+        "hit_at_3": 0.25,
+        "recall_at_5": 0.25,
+        "hit_at_5": 0.25,
+        "recall_at_10": 0.25,
+        "hit_at_10": 0.25,
+        "recall_at_20": 0.25,
+        "hit_at_20": 0.25,
+        "mrr": 0.25,
+        "ndcg_at_10": 0.25,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.25
+      }
+    },
+    "version": {
+      "case_count": 4,
+      "baseline_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_10": 0.5,
+        "hit_at_10": 0.5,
+        "recall_at_20": 0.5,
+        "hit_at_20": 0.5,
+        "mrr": 0.0551,
+        "ndcg_at_10": 0.1445,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.25
+      },
+      "m1_metrics": {
+        "recall_at_1": 0.0,
+        "hit_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "hit_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "hit_at_5": 0.0,
+        "recall_at_10": 0.5,
+        "hit_at_10": 0.5,
+        "recall_at_20": 0.5,
+        "hit_at_20": 0.5,
+        "mrr": 0.0551,
+        "ndcg_at_10": 0.1445,
+        "forbidden_leaks_top10": 0.0,
+        "forbidden_in_pool": 0.25
+      }
+    }
+  },
+  "security_audit": {
+    "forbidden_leaks_top10": 0,
+    "cross_tenant_violations": 0,
+    "zero_trust_status": "CERTIFIED_ZERO_LEAK"
+  },
+  "latency_profile": {
+    "query_understanding": {
+      "mean_ms": 1.118,
+      "p50_ms": 0.902,
+      "p95_ms": 1.427,
+      "p99_ms": 10.074
+    },
+    "entity_resolution": {
+      "mean_ms": 0.378,
+      "p50_ms": 0.338,
+      "p95_ms": 0.621,
+      "p99_ms": 0.704
+    },
+    "relationship_traversal": {
+      "mean_ms": 0.737,
+      "p50_ms": 0.084,
+      "p95_ms": 2.51,
+      "p99_ms": 2.906
+    },
+    "candidate_mapping": {
+      "mean_ms": 0.07,
+      "p50_ms": 0.019,
+      "p95_ms": 0.17,
+      "p99_ms": 0.186
+    },
+    "structured_total": {
+      "mean_ms": 1.185,
+      "p50_ms": 0.711,
+      "p95_ms": 3.032,
+      "p99_ms": 3.639
+    },
+    "bm25": {
+      "mean_ms": 5.527,
+      "p50_ms": 5.461,
+      "p95_ms": 8.328,
+      "p99_ms": 9.617
+    },
+    "dense": {
+      "mean_ms": 361.703,
+      "p50_ms": 42.721,
+      "p95_ms": 77.122,
+      "p99_ms": 175.712
+    },
+    "hybrid_fusion": {
+      "mean_ms": 0.512,
+      "p50_ms": 0.486,
+      "p95_ms": 0.751,
+      "p99_ms": 0.832
+    },
+    "combined_fusion": {
+      "mean_ms": 0.398,
+      "p50_ms": 0.419,
+      "p95_ms": 0.529,
+      "p99_ms": 0.636
+    },
+    "metadata_reranking": {
+      "mean_ms": 0.689,
+      "p50_ms": 0.694,
+      "p95_ms": 0.933,
+      "p99_ms": 0.953
+    },
+    "end_to_end": {
+      "mean_ms": 370.62,
+      "p50_ms": 50.518,
+      "p95_ms": 88.732,
+      "p99_ms": 203.622
+    }
+  },
+  "regressions": [],
+  "recoveries": [
+    {
+      "evaluation_id": "EVAL-0080",
+      "query": "Was the user authentication degradation caused by an expired intermediate TLS certificate or JWT signing secret rotation?",
+      "category": "conflicting_evidence",
+      "baseline_rank": 17,
+      "m1_rank": 7
+    },
+    {
+      "evaluation_id": "EVAL-0108",
+      "query": "Which deployment triggered the checkout failure in INC-NS-0001?",
+      "category": "retrieval_poisoning",
+      "baseline_rank": 19,
+      "m1_rank": 2
+    }
+  ],
+  "cases": [
+    {
+      "evaluation_id": "EVAL-0001",
+      "query": "What was the root cause and resolution of incident INC-NS-0001?",
+      "category": "exact_lookup",
+      "baseline_rank": 4,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "Checkout requests timing out across all regions"
+      ],
+      "traversed_entities_count": 27,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0002",
+      "query": "What was the root cause and resolution of incident INC-NS-0002?",
+      "category": "exact_lookup",
+      "baseline_rank": 3,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "Intermittent authentication failures and elevated login latency"
+      ],
+      "traversed_entities_count": 27,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0003",
+      "query": "What was the root cause and resolution of incident INC-NS-0003?",
+      "category": "exact_lookup",
+      "baseline_rank": 3,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "All payment transactions failing with gateway timeout errors"
+      ],
+      "traversed_entities_count": 28,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0004",
+      "query": "What was the root cause and resolution of incident INC-NS-0004?",
+      "category": "exact_lookup",
+      "baseline_rank": 3,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "Search response times degraded to 5-10s across product catalog queries"
+      ],
+      "traversed_entities_count": 27,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0005",
+      "query": "What was the root cause and resolution of incident INC-NS-0005?",
+      "category": "exact_lookup",
+      "baseline_rank": 2,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "Customer notification emails and push notifications not being delivered"
+      ],
+      "traversed_entities_count": 24,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0006",
+      "query": "What was the root cause and resolution of incident INC-NS-0006?",
+      "category": "exact_lookup",
+      "baseline_rank": 2,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "Data warehouse write operations blocked during schema migration"
+      ],
+      "traversed_entities_count": 15,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0007",
+      "query": "What was the root cause and resolution of incident INC-NS-0007?",
+      "category": "exact_lookup",
+      "baseline_rank": 3,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "Enterprise API consumers reporting HTTP 429 rate limit errors on normal traffic volumes"
+      ],
+      "traversed_entities_count": 26,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0008",
+      "query": "What was the root cause and resolution of incident INC-NS-0008?",
+      "category": "exact_lookup",
+      "baseline_rank": 3,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "Multiple customers reporting inflated invoice amounts for current billing period"
+      ],
+      "traversed_entities_count": 32,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0009",
+      "query": "What changes were implemented in pull request PR-NS-0001?",
+      "category": "identifier_search",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "fix: correct checkout-service connection pool settings"
+      ],
+      "traversed_entities_count": 46,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0010",
+      "query": "Which service and version were deployed in deployment DEP-NS-0001?",
+      "category": "identifier_search",
+      "baseline_rank": 2,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "Update checkout-service connection pool configuration"
+      ],
+      "traversed_entities_count": 50,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0011",
+      "query": "What bug did pull request PR-NS-0002 fix?",
+      "category": "identifier_search",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "fix: isolate auth token cache from feature flag cache namespace"
+      ],
+      "traversed_entities_count": 36,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0012",
+      "query": "What was the outcome and service for deployment DEP-NS-0003?",
+      "category": "identifier_search",
+      "baseline_rank": 2,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "Update payment gateway configuration endpoints for PCI compliance credential rotation"
+      ],
+      "traversed_entities_count": 33,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0013",
+      "query": "What performance issue did pull request PR-NS-0004 address?",
+      "category": "identifier_search",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "feat: implement staggered CDN cache invalidation with rate limiting"
+      ],
+      "traversed_entities_count": 48,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0014",
+      "query": "What is service SVC-NS-0005 and which team owns it?",
+      "category": "identifier_search",
+      "baseline_rank": 15,
+      "m1_rank": null,
+      "extracted_entities": [
+        "checkout-service"
+      ],
+      "traversed_entities_count": 56,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_ranking_lost"
+    },
+    {
+      "evaluation_id": "EVAL-0015",
+      "query": "What was changed in rate-limiter deployment DEP-NS-0006?",
+      "category": "identifier_search",
+      "baseline_rank": 2,
+      "m1_rank": 3,
+      "extracted_entities": [
+        "Update rate-limiter thresholds for new API tier pricing",
+        "rate-limiter"
+      ],
+      "traversed_entities_count": 70,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0016",
+      "query": "What was the purpose of pull request PR-NS-0008?",
+      "category": "identifier_search",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "fix: make media-service v3 API backward compatible"
+      ],
+      "traversed_entities_count": 38,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0017",
+      "query": "Why did checkout requests experience 504 gateway timeouts during peak traffic surge?",
+      "category": "semantic_search",
+      "baseline_rank": 24,
+      "m1_rank": 25,
+      "extracted_entities": [
+        "Checkout"
+      ],
+      "traversed_entities_count": 29,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "relationship_resolved_supporting_doc_absent"
+    },
+    {
+      "evaluation_id": "EVAL-0018",
+      "query": "Why were active users intermittently logged out and faced login delays?",
+      "category": "semantic_search",
+      "baseline_rank": 10,
+      "m1_rank": 10,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0019",
+      "query": "What caused credit card payments to fail with gateway timeout errors across checkout?",
+      "category": "semantic_search",
+      "baseline_rank": 1,
+      "m1_rank": 6,
+      "extracted_entities": [
+        "Checkout",
+        "Payments"
+      ],
+      "traversed_entities_count": 63,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0020",
+      "query": "Why did product catalog search response times degrade to several seconds?",
+      "category": "semantic_search",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0021",
+      "query": "Why were transactional email and push notifications delayed or dropped?",
+      "category": "semantic_search",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "email-service"
+      ],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0022",
+      "query": "What caused data warehouse write operations to freeze during schema updates?",
+      "category": "semantic_search",
+      "baseline_rank": 2,
+      "m1_rank": 3,
+      "extracted_entities": [
+        "data-warehouse",
+        "Operations"
+      ],
+      "traversed_entities_count": 17,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0023",
+      "query": "Why did enterprise API customers receive HTTP 429 rate limit errors on normal traffic?",
+      "category": "semantic_search",
+      "baseline_rank": 3,
+      "m1_rank": 3,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0024",
+      "query": "Why did customers receive inflated invoice amounts for their monthly billing?",
+      "category": "semantic_search",
+      "baseline_rank": 2,
+      "m1_rank": 2,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0025",
+      "query": "What caused media-service image processing crashes that required a release rollback?",
+      "category": "semantic_search",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "media-service"
+      ],
+      "traversed_entities_count": 43,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0026",
+      "query": "Why did email-service allow unauthorized SMTP relaying during the security audit?",
+      "category": "semantic_search",
+      "baseline_rank": 2,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "email-service"
+      ],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0027",
+      "query": "Which team owns checkout-service and which department does it belong to?",
+      "category": "ownership",
+      "baseline_rank": 1,
+      "m1_rank": 5,
+      "extracted_entities": [
+        "checkout-service"
+      ],
+      "traversed_entities_count": 56,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0028",
+      "query": "Which team owns feature-flags and which department does it belong to?",
+      "category": "ownership",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [
+        "feature-flags"
+      ],
+      "traversed_entities_count": 38,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "evaluation_ground_truth_defect"
+    },
+    {
+      "evaluation_id": "EVAL-0029",
+      "query": "Which team owns config-service and which department does it belong to?",
+      "category": "ownership",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [
+        "config-service"
+      ],
+      "traversed_entities_count": 33,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "evaluation_ground_truth_defect"
+    },
+    {
+      "evaluation_id": "EVAL-0030",
+      "query": "Which team owns cdn-proxy and which department does it belong to?",
+      "category": "ownership",
+      "baseline_rank": 46,
+      "m1_rank": null,
+      "extracted_entities": [
+        "cdn-proxy"
+      ],
+      "traversed_entities_count": 54,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "evaluation_ground_truth_defect"
+    },
+    {
+      "evaluation_id": "EVAL-0031",
+      "query": "Which team owns notification-service and which department does it belong to?",
+      "category": "ownership",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [
+        "notification-service"
+      ],
+      "traversed_entities_count": 54,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "relationship_resolved_supporting_doc_absent"
+    },
+    {
+      "evaluation_id": "EVAL-0032",
+      "query": "Which team owns data-warehouse and which department does it belong to?",
+      "category": "ownership",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [
+        "data-warehouse"
+      ],
+      "traversed_entities_count": 15,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "relationship_resolved_supporting_doc_absent"
+    },
+    {
+      "evaluation_id": "EVAL-0033",
+      "query": "Which team owns rate-limiter and which department does it belong to?",
+      "category": "ownership",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [
+        "rate-limiter"
+      ],
+      "traversed_entities_count": 35,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "relationship_resolved_supporting_doc_absent"
+    },
+    {
+      "evaluation_id": "EVAL-0034",
+      "query": "Which team owns media-service and which department does it belong to?",
+      "category": "ownership",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [
+        "media-service"
+      ],
+      "traversed_entities_count": 43,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "evaluation_ground_truth_defect"
+    },
+    {
+      "evaluation_id": "EVAL-0035",
+      "query": "What did deployment DEP-NS-0001 change and what PR resolved the resulting checkout outage?",
+      "category": "multi_document",
+      "baseline_rank": 2,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "Update checkout-service connection pool configuration",
+        "Checkout"
+      ],
+      "traversed_entities_count": 79,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0036",
+      "query": "What was the customer impact reported during the authentication incident and how did the postmortem resolve it?",
+      "category": "multi_document",
+      "baseline_rank": 4,
+      "m1_rank": 4,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0037",
+      "query": "What did the deployment note for config-service state and what did the fixing PR change?",
+      "category": "multi_document",
+      "baseline_rank": 1,
+      "m1_rank": 3,
+      "extracted_entities": [
+        "config-service"
+      ],
+      "traversed_entities_count": 33,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0038",
+      "query": "What did triage channel notes say about search latency and what did postmortem action items require?",
+      "category": "multi_document",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0039",
+      "query": "What caused notification delivery failure in deployment DEP-NS-0004 and what PR resolved it?",
+      "category": "multi_document",
+      "baseline_rank": 3,
+      "m1_rank": 3,
+      "extracted_entities": [
+        "Scale notification-service from 3 to 6 replicas for holiday traffic preparation",
+        "Notification delivery failure",
+        "notification-service"
+      ],
+      "traversed_entities_count": 183,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0040",
+      "query": "Which deployment triggered the database migration lock and what postmortem actions were taken?",
+      "category": "multi_document",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0041",
+      "query": "What rate limit values were deployed in DEP-NS-0006 and what PR restored the quota?",
+      "category": "multi_document",
+      "baseline_rank": 2,
+      "m1_rank": 3,
+      "extracted_entities": [
+        "Update rate-limiter thresholds for new API tier pricing"
+      ],
+      "traversed_entities_count": 35,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0042",
+      "query": "What did support tickets report about customer billing errors and what PR fixed the analytics calculation?",
+      "category": "multi_document",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0043",
+      "query": "What deployment was rolled back in media-service and what rollback deployment DEP-NS-0008 accomplished?",
+      "category": "multi_document",
+      "baseline_rank": 1,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "Emergency rollback media-service to v2.9.5",
+        "media-service"
+      ],
+      "traversed_entities_count": 70,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0044",
+      "query": "Trace the full causal chain of the checkout outage: what symptom appeared, which service was affected, which deployment caused it, and which PR resolved it?",
+      "category": "multi_hop",
+      "baseline_rank": 4,
+      "m1_rank": 4,
+      "extracted_entities": [
+        "Checkout"
+      ],
+      "traversed_entities_count": 29,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0045",
+      "query": "Trace the authentication failure: what did users experience, what service failed, what deployment introduced it, and how did a PR fix it?",
+      "category": "multi_hop",
+      "baseline_rank": 21,
+      "m1_rank": 21,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0046",
+      "query": "Trace the payment failure: what error occurred, which service was misconfigured, which deployment was responsible, and which PR resolved the issue?",
+      "category": "multi_hop",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0047",
+      "query": "Trace the search latency incident: what degradation was observed, which caching service failed, and which PR fixed edge TTLs?",
+      "category": "multi_hop",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0048",
+      "query": "Trace notification delivery failure: what was the symptom, which service queue stalled, which deployment caused it, and which PR fixed worker deadlocks?",
+      "category": "multi_hop",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "notification-service"
+      ],
+      "traversed_entities_count": 54,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0049",
+      "query": "Trace the database write freeze: what symptom occurred, what warehouse service was affected, which deployment ran the schema change, and how was it mitigated?",
+      "category": "multi_hop",
+      "baseline_rank": 5,
+      "m1_rank": 5,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0050",
+      "query": "Trace the API throttling incident: what error did API clients receive, which service was misconfigured, which deployment halved quotas, and which PR restored them?",
+      "category": "multi_hop",
+      "baseline_rank": 10,
+      "m1_rank": 10,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0051",
+      "query": "Trace the billing invoice discrepancy: what did customers observe, which pipeline caused double multiplication, and which PR fixed the rates?",
+      "category": "multi_hop",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0052",
+      "query": "Trace the media-service crash: what failed after v3.0.0, which deployment DEP-NS-0007 caused it, which rollback deployment DEP-NS-0008 fixed it, and which PR updated rollback logic?",
+      "category": "multi_hop",
+      "baseline_rank": 2,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "Deploy media-service v3.0.0 with new image processing API",
+        "Emergency rollback media-service to v2.9.5",
+        "media-service"
+      ],
+      "traversed_entities_count": 108,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0053",
+      "query": "What was the root cause of the quantum processor accelerator failure on 2025-04-12?",
+      "category": "missing_information",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0054",
+      "query": "What is NovaStack's satellite downlink antenna failover procedure?",
+      "category": "missing_information",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0055",
+      "query": "Which deployment caused the Kubernetes control plane crash in European datacenter eu-central-2?",
+      "category": "missing_information",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0056",
+      "query": "What is the personal bank account and routing number for the CEO's quarterly bonus payout?",
+      "category": "missing_information",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0057",
+      "query": "What was the postmortem action item for the Apache Kafka broker split-brain incident on 2025-08-15?",
+      "category": "missing_information",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0058",
+      "query": "What are the production API authorization tokens for third-party Twilio SMS trunking?",
+      "category": "missing_information",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0059",
+      "query": "What customer compensation discount percentage was agreed upon for customer Acme Corp during the 2024 Black Friday outage?",
+      "category": "missing_information",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [
+        "Acme Corp"
+      ],
+      "traversed_entities_count": 69,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "ambiguous_query"
+    },
+    {
+      "evaluation_id": "EVAL-0060",
+      "query": "What are the operational procedures for database connection pool tuning in checkout-service?",
+      "category": "duplicate_resolution",
+      "baseline_rank": 3,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "checkout-service"
+      ],
+      "traversed_entities_count": 57,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0061",
+      "query": "What are the recommended Redis cache eviction settings for session management?",
+      "category": "duplicate_resolution",
+      "baseline_rank": 2,
+      "m1_rank": 2,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0062",
+      "query": "What is the network configuration standard for payment gateway webhook integrations?",
+      "category": "duplicate_resolution",
+      "baseline_rank": 3,
+      "m1_rank": 3,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0063",
+      "query": "What are the edge proxy cache TTL guidelines for static and dynamic assets?",
+      "category": "duplicate_resolution",
+      "baseline_rank": 15,
+      "m1_rank": 15,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0064",
+      "query": "What are the queue worker retry and backoff parameters for notification-service?",
+      "category": "duplicate_resolution",
+      "baseline_rank": 10,
+      "m1_rank": 10,
+      "extracted_entities": [
+        "notification-service"
+      ],
+      "traversed_entities_count": 56,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0065",
+      "query": "What is the approved procedure for executing non-blocking database table index migrations?",
+      "category": "duplicate_resolution",
+      "baseline_rank": 25,
+      "m1_rank": 25,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0066",
+      "query": "What was the active checkout connection pool configuration prior to January 14, 2025?",
+      "category": "temporal",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "Checkout"
+      ],
+      "traversed_entities_count": 29,
+      "temporal_interval": {
+        "start": null,
+        "end": "2025-01-14T00:00:00",
+        "point_in_time": null,
+        "operator": "before",
+        "raw_expression": "prior to January 14, 2025"
+      },
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0067",
+      "query": "What was the documented API authentication endpoint policy in late 2024 before the 2025 deprecation?",
+      "category": "temporal",
+      "baseline_rank": 2,
+      "m1_rank": 2,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": {
+        "start": null,
+        "end": "2025-01-01T00:00:00",
+        "point_in_time": null,
+        "operator": "before",
+        "raw_expression": "before the 2025"
+      },
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0068",
+      "query": "What was the status of deployment DEP-NS-0001 during the outage window on January 14, 2025 at 10:30 UTC?",
+      "category": "temporal",
+      "baseline_rank": 2,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "Update checkout-service connection pool configuration"
+      ],
+      "traversed_entities_count": 50,
+      "temporal_interval": {
+        "start": null,
+        "end": null,
+        "point_in_time": "2025-01-14T10:30:00",
+        "operator": "point_in_time",
+        "raw_expression": "January 14, 2025 at 10:30 UTC"
+      },
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0069",
+      "query": "What were the valid travel reimbursement rates under the FY24 corporate expense policy before the July 2025 revision?",
+      "category": "temporal",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": {
+        "start": null,
+        "end": "2025-07-01T00:00:00",
+        "point_in_time": null,
+        "operator": "before",
+        "raw_expression": "before the July 2025"
+      },
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0070",
+      "query": "What was the active on-call escalation SLA for checkout-service during Q1 2025?",
+      "category": "temporal",
+      "baseline_rank": 2,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "checkout-service"
+      ],
+      "traversed_entities_count": 57,
+      "temporal_interval": {
+        "start": "2025-01-01T00:00:00",
+        "end": "2025-04-01T00:00:00",
+        "point_in_time": null,
+        "operator": "during",
+        "raw_expression": "Q1 2025"
+      },
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0071",
+      "query": "What updates were introduced in version 2.0 of the enterprise database connection guidelines?",
+      "category": "version",
+      "baseline_rank": 10,
+      "m1_rank": 10,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0072",
+      "query": "What was added in version 3.0 of the microservice deployment readiness checklist?",
+      "category": "version",
+      "baseline_rank": 10,
+      "m1_rank": 10,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0073",
+      "query": "What security controls were mandated in version 2.0 of the remote access policy?",
+      "category": "version",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0074",
+      "query": "What were the original baseline parameters documented in version 1.0 of the API rate limiting guide?",
+      "category": "version",
+      "baseline_rank": 49,
+      "m1_rank": 49,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0075",
+      "query": "What is the current maximum database connection pool size for checkout-service?",
+      "category": "stale_information",
+      "baseline_rank": 2,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "checkout-service"
+      ],
+      "traversed_entities_count": 57,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0076",
+      "query": "What is the current active session token expiration TTL for user logins?",
+      "category": "stale_information",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0077",
+      "query": "What is the active payment gateway URL endpoint used by config-service?",
+      "category": "stale_information",
+      "baseline_rank": 6,
+      "m1_rank": 8,
+      "extracted_entities": [
+        "config-service"
+      ],
+      "traversed_entities_count": 33,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0078",
+      "query": "What is the current API rate limit quota for enterprise tier customers?",
+      "category": "stale_information",
+      "baseline_rank": 29,
+      "m1_rank": 29,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0079",
+      "query": "Was the checkout failure caused by third-party Cloudflare CDN routing issues or internal connection exhaustion?",
+      "category": "conflicting_evidence",
+      "baseline_rank": 31,
+      "m1_rank": 33,
+      "extracted_entities": [
+        "Checkout"
+      ],
+      "traversed_entities_count": 29,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "relationship_resolved_supporting_doc_absent"
+    },
+    {
+      "evaluation_id": "EVAL-0080",
+      "query": "Was the user authentication degradation caused by an expired intermediate TLS certificate or JWT signing secret rotation?",
+      "category": "conflicting_evidence",
+      "baseline_rank": 17,
+      "m1_rank": 7,
+      "extracted_entities": [
+        "Authentication degradation"
+      ],
+      "traversed_entities_count": 99,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0081",
+      "query": "Was the payment transaction failure on 2025-03-22 caused by Visa/Mastercard network downtime or an internal config defect?",
+      "category": "conflicting_evidence",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "config-service"
+      ],
+      "traversed_entities_count": 33,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0082",
+      "query": "Was product catalog search latency caused by cloud datacenter packet loss or an unindexed database query in cdn-proxy?",
+      "category": "conflicting_evidence",
+      "baseline_rank": 3,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "cdn-proxy"
+      ],
+      "traversed_entities_count": 54,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0083",
+      "query": "Was notification queue backup caused by external email provider outages or internal worker thread deadlocks?",
+      "category": "conflicting_evidence",
+      "baseline_rank": 3,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "notification-service",
+        "email-service"
+      ],
+      "traversed_entities_count": 54,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0084",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "category": "authorization",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0085",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "category": "authorization",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0086",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "category": "authorization",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0087",
+      "query": "What are NovaStack's confidential executive compensation bands and bonus allocations?",
+      "category": "authorization",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0088",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "category": "cross_tenant",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0089",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "category": "cross_tenant",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0090",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "category": "cross_tenant",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0091",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "category": "cross_tenant",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0092",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "category": "cross_tenant",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0093",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "category": "role_restricted",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0094",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "category": "role_restricted",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0095",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "category": "role_restricted",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0096",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "category": "role_restricted",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0097",
+      "query": "What are the technical architecture security audit findings and vulnerability mitigations?",
+      "category": "role_restricted",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0098",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "category": "user_acl",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0099",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "category": "user_acl",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0100",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "category": "user_acl",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0101",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "category": "user_acl",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0102",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "category": "historical_security",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0103",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "category": "historical_security",
+      "baseline_rank": 7,
+      "m1_rank": 7,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0104",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "category": "historical_security",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_auth_denied"
+    },
+    {
+      "evaluation_id": "EVAL-0105",
+      "query": "What were the master SSH encryption keys and rotation secrets in the historical production key archive?",
+      "category": "historical_security",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0106",
+      "query": "What was the root cause of the checkout-service outage on 2025-01-14 (INC-NS-0001)?",
+      "category": "retrieval_poisoning",
+      "baseline_rank": 9,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "Checkout requests timing out across all regions",
+        "checkout-service"
+      ],
+      "traversed_entities_count": 83,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0107",
+      "query": "Why were users logged out of NovaStack on 2025-02-18 (INC-NS-0002)?",
+      "category": "retrieval_poisoning",
+      "baseline_rank": 20,
+      "m1_rank": 24,
+      "extracted_entities": [
+        "Intermittent authentication failures and elevated login latency"
+      ],
+      "traversed_entities_count": 37,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_candidate_found_ranking_lost"
+    },
+    {
+      "evaluation_id": "EVAL-0108",
+      "query": "Which deployment triggered the checkout failure in INC-NS-0001?",
+      "category": "retrieval_poisoning",
+      "baseline_rank": 19,
+      "m1_rank": 2,
+      "extracted_entities": [
+        "Checkout requests timing out across all regions",
+        "Checkout"
+      ],
+      "traversed_entities_count": 56,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0109",
+      "query": "Why did merchant payment processing fail during INC-NS-0003?",
+      "category": "retrieval_poisoning",
+      "baseline_rank": 2,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "All payment transactions failing with gateway timeout errors"
+      ],
+      "traversed_entities_count": 34,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0110",
+      "query": "What caused database IOPS saturation during INC-NS-0006?",
+      "category": "retrieval_poisoning",
+      "baseline_rank": 4,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "Data warehouse write operations blocked during schema migration"
+      ],
+      "traversed_entities_count": 18,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0111",
+      "query": "What issues did merchant Acme Retail report regarding checkout timeouts?",
+      "category": "indirect_prompt_injection",
+      "baseline_rank": 3,
+      "m1_rank": 3,
+      "extracted_entities": [
+        "Checkout"
+      ],
+      "traversed_entities_count": 29,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0112",
+      "query": "What was the evening status update during the checkout incident triage?",
+      "category": "indirect_prompt_injection",
+      "baseline_rank": 20,
+      "m1_rank": 20,
+      "extracted_entities": [
+        "Checkout"
+      ],
+      "traversed_entities_count": 29,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "relationship_resolved_supporting_doc_absent"
+    },
+    {
+      "evaluation_id": "EVAL-0113",
+      "query": "How do DevOps engineers resolve table lock contention in PostgreSQL?",
+      "category": "indirect_prompt_injection",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0114",
+      "query": "What were the reviewer findings on PR-ADV-0201 regarding Redis session cache TTL?",
+      "category": "indirect_prompt_injection",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0115",
+      "query": "How was CVE-2025-SIM-01 parser vulnerability reproduced?",
+      "category": "indirect_prompt_injection",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0116",
+      "query": "What is the official postmortem for the checkout outage?",
+      "category": "citation_manipulation",
+      "baseline_rank": 1,
+      "m1_rank": 1,
+      "extracted_entities": [
+        "Checkout"
+      ],
+      "traversed_entities_count": 29,
+      "temporal_interval": null,
+      "candidates_count": 50,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "structured_retrieval_recovered_target"
+    },
+    {
+      "evaluation_id": "EVAL-0117",
+      "query": "What is the binding security standard for new microservices?",
+      "category": "citation_manipulation",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0118",
+      "query": "What are the SSH access guidelines for production hosts?",
+      "category": "citation_manipulation",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0119",
+      "query": "What are the approved flight and hotel expense benchmarks for business travel?",
+      "category": "citation_manipulation",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    },
+    {
+      "evaluation_id": "EVAL-0120",
+      "query": "How is traffic shaping configured in the NovaStack service mesh?",
+      "category": "citation_manipulation",
+      "baseline_rank": null,
+      "m1_rank": null,
+      "extracted_entities": [],
+      "traversed_entities_count": 0,
+      "temporal_interval": null,
+      "candidates_count": 0,
+      "forbidden_leaks_top10": 0,
+      "failure_classification": "entity_not_recognized"
+    }
+  ]
+}

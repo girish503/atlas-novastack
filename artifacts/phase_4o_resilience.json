@@ -1,0 +1,99 @@
+{
+  "phase": "4O",
+  "title": "Service Resilience, Timeouts & Controlled Failure Handling",
+  "timestamp": "2026-09-12T10:48:00Z",
+  "production_configuration": {
+    "enable_boundary_stitching": false,
+    "enable_query_aware_authority": true,
+    "enable_event_bundling": false
+  },
+  "resilience_configuration": {
+    "request_timeout_seconds": 30.0,
+    "max_concurrent_inferences": 1,
+    "queue_timeout_seconds": 0.5,
+    "enable_circuit_breaker": true,
+    "circuit_failure_threshold": 3,
+    "circuit_cooldown_seconds": 10.0
+  },
+  "execution_model_analysis": {
+    "synchronous_model_generate": true,
+    "thread_pool_executor_offload": true,
+    "cooperative_stopping_criteria": true,
+    "event_loop_blocking_eliminated": true
+  },
+  "error_taxonomy": {
+    "504_timeout": "AtlasTimeoutError",
+    "503_model_unavailable": "ModelUnavailableError",
+    "429_capacity_exhausted": "CapacityExhaustedError",
+    "422_invalid_request": "Pydantic / RequestValidationError",
+    "500_unexpected_internal": "InternalServerError"
+  },
+  "sanitization_verified": {
+    "stack_trace_leakage": false,
+    "absolute_path_leakage": false,
+    "credential_leakage": false
+  },
+  "test_results": {
+    "phase_4o_resilience_tests": {
+      "passed": 15,
+      "failed": 0,
+      "total": 15,
+      "tests": [
+        "test_normal_generation_succeeds_unchanged",
+        "test_configured_deadline_is_honored",
+        "test_simulated_slow_generation_triggers_timeout",
+        "test_timeout_does_not_return_partial_answer",
+        "test_timeout_does_not_produce_fake_citations",
+        "test_timeout_response_contains_no_stack_trace",
+        "test_unexpected_runtime_exception_is_sanitized",
+        "test_model_resource_failure_is_controlled",
+        "test_concurrent_inference_is_bounded",
+        "test_capacity_exhaustion_returns_controlled_response",
+        "test_service_remains_responsive_after_timeout",
+        "test_successful_requests_continue_after_a_failed_request",
+        "test_tenant_context_remains_intact_during_failures",
+        "test_security_invariants_remain_intact",
+        "test_production_flags_remain_frozen"
+      ]
+    },
+    "full_regression_suite": {
+      "passed": 68,
+      "failed": 0,
+      "total": 68,
+      "regressions": 0,
+      "breakdown": {
+        "tests/test_phase_4o_resilience.py": 15,
+        "tests/test_phase_4n_packaging.py": 8,
+        "tests/test_phase_4m_api_service.py": 16,
+        "tests/test_phase_4m_auth_fail_closed.py": 11,
+        "tests/test_phase_4k_g_b_promotion.py": 3,
+        "tests/test_phase_4k_f_b_security_redteam.py": 5,
+        "tests/test_phase_4k_e_b_only.py": 5,
+        "tests/test_canonical_baseline.py": 5
+      }
+    }
+  },
+  "performance_metrics": {
+    "normal_queries": {
+      "tested": 3,
+      "succeeded": 3,
+      "timed_out": 0,
+      "failed": 0,
+      "mean_latency_ms": 27549.26,
+      "p95_latency_ms": 64678.31,
+      "quality_degradation": false
+    },
+    "timeout_enforcement": {
+      "tested": 3,
+      "timed_out_cleanly": 3,
+      "mean_timeout_latency_ms": 8113.42,
+      "partial_answers_returned": 0,
+      "fake_citations_returned": 0
+    },
+    "resource_leak_check": {
+      "stuck_threads": 0,
+      "memory_leaks_detected": false
+    }
+  },
+  "overall_verdict": "PASS"
+}

@@ -1,0 +1,723 @@
+{
+  "phase": "5B-R1",
+  "title": "Ollama Process + Concurrency Characterization",
+  "timestamp": "2026-09-19T08:42:25Z",
+  "environment": {
+    "os": "Windows 11 (AMD64)",
+    "cpu": "Intel64 Family 6 Model 190 Stepping 0, GenuineIntel",
+    "logical_cores": 8,
+    "physical_cores": 8,
+    "total_host_ram_mb": 7813.07,
+    "initial_available_ram_mb": 858.3,
+    "clean_memory_threshold_mb": 3072.0,
+    "clean_memory_certified": false,
+    "python_version": "3.13.5"
+  },
+  "process_hierarchy": {
+    "python_process_pid": 3260,
+    "ollama_server_pid": 18092,
+    "ollama_gui_pid": 18504,
+    "llama_worker_pid": 17520,
+    "llama_worker_name": "llama-server.exe"
+  },
+  "memory_checkpoints": {
+    "M0_before_benchmark": {
+      "python_process": {
+        "pid": 3260,
+        "name": "python.exe",
+        "rss_mb": 78.61,
+        "vms_mb": 71.86
+      },
+      "ollama_server": {
+        "pid": 18092,
+        "name": "ollama.exe",
+        "rss_mb": 26.85,
+        "vms_mb": 59.5,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+      },
+      "ollama_gui": {
+        "pid": 18504,
+        "name": "ollama app.exe",
+        "rss_mb": 33.6,
+        "vms_mb": 50.36,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama app.exe"
+      },
+      "llama_worker": {
+        "pid": 17520,
+        "name": "llama-server.exe",
+        "rss_mb": 958.9,
+        "vms_mb": 1010.75,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe"
+      },
+      "ollama_total_rss_mb": 1019.35,
+      "combined_process_rss_mb": 1097.96,
+      "host_available_ram_mb": 858.3,
+      "host_total_ram_mb": 7813.07,
+      "host_ram_used_percent": 89.0
+    },
+    "M1_provider_init": {
+      "python_process": {
+        "pid": 3260,
+        "name": "python.exe",
+        "rss_mb": 79.87,
+        "vms_mb": 72.34
+      },
+      "ollama_server": {
+        "pid": 18092,
+        "name": "ollama.exe",
+        "rss_mb": 26.85,
+        "vms_mb": 59.5,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+      },
+      "ollama_gui": {
+        "pid": 18504,
+        "name": "ollama app.exe",
+        "rss_mb": 33.6,
+        "vms_mb": 50.36,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama app.exe"
+      },
+      "llama_worker": {
+        "pid": 17520,
+        "name": "llama-server.exe",
+        "rss_mb": 958.9,
+        "vms_mb": 1010.75,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe"
+      },
+      "ollama_total_rss_mb": 1019.35,
+      "combined_process_rss_mb": 1099.22,
+      "host_available_ram_mb": 673.64,
+      "host_total_ram_mb": 7813.07,
+      "host_ram_used_percent": 91.4
+    },
+    "M2_app_wired": {
+      "python_process": {
+        "pid": 3260,
+        "name": "python.exe",
+        "rss_mb": 82.96,
+        "vms_mb": 72.97
+      },
+      "ollama_server": {
+        "pid": 18092,
+        "name": "ollama.exe",
+        "rss_mb": 26.85,
+        "vms_mb": 59.5,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+      },
+      "ollama_gui": {
+        "pid": 18504,
+        "name": "ollama app.exe",
+        "rss_mb": 33.6,
+        "vms_mb": 50.36,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama app.exe"
+      },
+      "llama_worker": {
+        "pid": 17520,
+        "name": "llama-server.exe",
+        "rss_mb": 958.9,
+        "vms_mb": 1010.75,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe"
+      },
+      "ollama_total_rss_mb": 1019.35,
+      "combined_process_rss_mb": 1102.31,
+      "host_available_ram_mb": 620.59,
+      "host_total_ram_mb": 7813.07,
+      "host_ram_used_percent": 92.1
+    },
+    "M4_after_single_control": {
+      "python_process": {
+        "pid": 3260,
+        "name": "python.exe",
+        "rss_mb": 84.87,
+        "vms_mb": 75.05
+      },
+      "ollama_server": {
+        "pid": 18092,
+        "name": "ollama.exe",
+        "rss_mb": 26.97,
+        "vms_mb": 59.61,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+      },
+      "ollama_gui": {
+        "pid": 18504,
+        "name": "ollama app.exe",
+        "rss_mb": 33.58,
+        "vms_mb": 50.33,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama app.exe"
+      },
+      "llama_worker": {
+        "pid": 17520,
+        "name": "llama-server.exe",
+        "rss_mb": 950.31,
+        "vms_mb": 1002.18,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe"
+      },
+      "ollama_total_rss_mb": 1010.86,
+      "combined_process_rss_mb": 1095.73,
+      "host_available_ram_mb": 580.75,
+      "host_total_ram_mb": 7813.07,
+      "host_ram_used_percent": 92.6
+    },
+    "M5_after_all_requests": {
+      "python_process": {
+        "pid": 3260,
+        "name": "python.exe",
+        "rss_mb": 85.16,
+        "vms_mb": 74.93
+      },
+      "ollama_server": {
+        "pid": 18092,
+        "name": "ollama.exe",
+        "rss_mb": 27.3,
+        "vms_mb": 60.33,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+      },
+      "ollama_gui": {
+        "pid": 18504,
+        "name": "ollama app.exe",
+        "rss_mb": 33.55,
+        "vms_mb": 50.33,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama app.exe"
+      },
+      "llama_worker": {
+        "pid": 17520,
+        "name": "llama-server.exe",
+        "rss_mb": 944.47,
+        "vms_mb": 1010.74,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe"
+      },
+      "ollama_total_rss_mb": 1005.32,
+      "combined_process_rss_mb": 1090.48,
+      "host_available_ram_mb": 890.49,
+      "host_total_ram_mb": 7813.07,
+      "host_ram_used_percent": 88.6
+    },
+    "M6_after_gc": {
+      "python_process": {
+        "pid": 3260,
+        "name": "python.exe",
+        "rss_mb": 85.16,
+        "vms_mb": 74.93
+      },
+      "ollama_server": {
+        "pid": 18092,
+        "name": "ollama.exe",
+        "rss_mb": 27.3,
+        "vms_mb": 60.33,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+      },
+      "ollama_gui": {
+        "pid": 18504,
+        "name": "ollama app.exe",
+        "rss_mb": 33.55,
+        "vms_mb": 50.33,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama app.exe"
+      },
+      "llama_worker": {
+        "pid": 17520,
+        "name": "llama-server.exe",
+        "rss_mb": 944.47,
+        "vms_mb": 1010.74,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe"
+      },
+      "ollama_total_rss_mb": 1005.32,
+      "combined_process_rss_mb": 1090.48,
+      "host_available_ram_mb": 948.58,
+      "host_total_ram_mb": 7813.07,
+      "host_ram_used_percent": 87.9
+    },
+    "M7_after_60s_idle": {
+      "python_process": {
+        "pid": 3260,
+        "name": "python.exe",
+        "rss_mb": 85.14,
+        "vms_mb": 74.88
+      },
+      "ollama_server": {
+        "pid": 18092,
+        "name": "ollama.exe",
+        "rss_mb": 27.3,
+        "vms_mb": 60.33,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama.exe"
+      },
+      "ollama_gui": {
+        "pid": 18504,
+        "name": "ollama app.exe",
+        "rss_mb": 33.55,
+        "vms_mb": 50.33,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\ollama app.exe"
+      },
+      "llama_worker": {
+        "pid": 17520,
+        "name": "llama-server.exe",
+        "rss_mb": 944.47,
+        "vms_mb": 1010.74,
+        "exe": "C:\\Users\\<LOCAL_USER>\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe"
+      },
+      "ollama_total_rss_mb": 1005.32,
+      "combined_process_rss_mb": 1090.46,
+      "host_available_ram_mb": 1209.19,
+      "host_total_ram_mb": 7813.07,
+      "host_ram_used_percent": 84.5
+    }
+  },
+  "single_request_control_c1": [
+    {
+      "run_index": 1,
+      "query": "What was the root cause of incident INC-NS-0001?",
+      "http_status": 200,
+      "answer_status": "answered",
+      "gen_invoked": true,
+      "gen_latency_ms": 9971.96,
+      "total_e2e_ms": 10040.2,
+      "citations_count": 1,
+      "python_rss_mb": 84.33,
+      "ollama_total_rss_mb": 1010.74,
+      "combined_rss_mb": 1095.07,
+      "available_host_ram_mb": 629.24
+    },
+    {
+      "run_index": 2,
+      "query": "Which port does the OpenTelemetry gRPC ingest endpoint listen on?",
+      "http_status": 200,
+      "answer_status": "answered",
+      "gen_invoked": true,
+      "gen_latency_ms": 9506.6,
+      "total_e2e_ms": 9540.38,
+      "citations_count": 2,
+      "python_rss_mb": 84.69,
+      "ollama_total_rss_mb": 1010.7,
+      "combined_rss_mb": 1095.39,
+      "available_host_ram_mb": 554.71
+    },
+    {
+      "run_index": 3,
+      "query": "What is the network topology of core-gateway?",
+      "http_status": 200,
+      "answer_status": "answered",
+      "gen_invoked": true,
+      "gen_latency_ms": 8701.19,
+      "total_e2e_ms": 8739.33,
+      "citations_count": 1,
+      "python_rss_mb": 84.86,
+      "ollama_total_rss_mb": 1010.86,
+      "combined_rss_mb": 1095.72,
+      "available_host_ram_mb": 577.23
+    }
+  ],
+  "concurrency_characterization": {
+    "C=1": {
+      "concurrency_level": 1,
+      "requested": 1,
+      "completed": 1,
+      "generated_200": 1,
+      "capacity_shed_429": 0,
+      "circuit_breaker_503": 0,
+      "timeout_504": 0,
+      "other_errors": 0,
+      "wall_clock_ms": 8865.5,
+      "p50_latency_ms": 8865.12,
+      "p95_latency_ms": 8865.12,
+      "max_latency_ms": 8865.12,
+      "actual_generation_latency_avg_ms": 8865.12,
+      "fast_rejection_latency_avg_ms": 0.0,
+      "memory_before_combined_rss_mb": 1095.79,
+      "memory_after_combined_rss_mb": 1096.12,
+      "host_available_ram_after_mb": 621.66,
+      "calls": [
+        {
+          "call_id": 0,
+          "status_code": 200,
+          "latency_ms": 8865.12,
+          "is_200": true,
+          "is_429": false,
+          "is_503": false,
+          "is_504": false,
+          "data": {
+            "answer_id": "ANS-TEST-5B-R1-CONC-1-0",
+            "query": "What is the network topology of core-gateway? (burst call 0)",
+            "answer_text": "NovaStack core topology is active-passive with redundant links across all zones. [EVD-002]",
+            "answer_status": "answered",
+            "citations": [
+              {
+                "raw_tag": "[EVD-002]",
+                "evidence_id": "EVD-TEST-5B-R1-CONC-1-0-002-DOC-NOVASTACK-01",
+                "document_id": "DOC-NOVASTACK-01",
+                "chunk_id": "DOC-NOVASTACK-01::CHUNK-0001",
+                "title": "NovaStack Core Gateway Topology",
+                "status": "VALID",
+                "reasons": [
+                  "verified_selected_authorized_evidence"
+                ],
+                "phrase_match_detected": true,
+                "evidence_status": "accepted",
+                "authority_level": "canonical",
+                "is_adversarial": false
+              }
+            ],
+            "abstention_reason": null,
+            "latency_ms": 8816.2,
+            "request_id": "0d00e843-a4ee-4d38-9b4a-e9f02c104501",
+            "was_generation_invoked": true,
+            "generation_latency_ms": 8812.47,
+            "index_generation_id": "GEN-20260919083926-f90b07"
+          }
+        }
+      ]
+    },
+    "C=2": {
+      "concurrency_level": 2,
+      "requested": 2,
+      "completed": 2,
+      "generated_200": 1,
+      "capacity_shed_429": 1,
+      "circuit_breaker_503": 0,
+      "timeout_504": 0,
+      "other_errors": 0,
+      "wall_clock_ms": 1420.09,
+      "p50_latency_ms": 1419.9,
+      "p95_latency_ms": 1419.9,
+      "max_latency_ms": 1419.9,
+      "actual_generation_latency_avg_ms": 1419.9,
+      "fast_rejection_latency_avg_ms": 557.56,
+      "memory_before_combined_rss_mb": 1096.12,
+      "memory_after_combined_rss_mb": 1105.0,
+      "host_available_ram_after_mb": 613.82,
+      "calls": [
+        {
+          "call_id": 0,
+          "status_code": 200,
+          "latency_ms": 1419.9,
+          "is_200": true,
+          "is_429": false,
+          "is_503": false,
+          "is_504": false,
+          "data": {
+            "answer_id": "ANS-TEST-5B-R1-CONC-2-0",
+            "query": "What is the network topology of core-gateway? (burst call 0)",
+            "answer_text": "NovaStack core topology is active-passive with redundant links across all zones. [EVD-002]",
+            "answer_status": "answered",
+            "citations": [
+              {
+                "raw_tag": "[EVD-002]",
+                "evidence_id": "EVD-TEST-5B-R1-CONC-2-0-002-DOC-NOVASTACK-01",
+                "document_id": "DOC-NOVASTACK-01",
+                "chunk_id": "DOC-NOVASTACK-01::CHUNK-0001",
+                "title": "NovaStack Core Gateway Topology",
+                "status": "VALID",
+                "reasons": [
+                  "verified_selected_authorized_evidence"
+                ],
+                "phrase_match_detected": true,
+                "evidence_status": "accepted",
+                "authority_level": "canonical",
+                "is_adversarial": false
+              }
+            ],
+            "abstention_reason": null,
+            "latency_ms": 1372.79,
+            "request_id": "bfcafb36-3f86-4871-934c-612b1be82b53",
+            "was_generation_invoked": true,
+            "generation_latency_ms": 1370.9,
+            "index_generation_id": "GEN-20260919083926-f90b07"
+          }
+        },
+        {
+          "call_id": 1,
+          "status_code": 429,
+          "latency_ms": 557.56,
+          "is_200": false,
+          "is_429": true,
+          "is_503": false,
+          "is_504": false,
+          "data": {
+            "detail": "Inference capacity exhausted; please retry later",
+            "error_type": "CapacityExhaustedError",
+            "answer_status": "error"
+          }
+        }
+      ]
+    },
+    "C=5": {
+      "concurrency_level": 5,
+      "requested": 5,
+      "completed": 5,
+      "generated_200": 1,
+      "capacity_shed_429": 4,
+      "circuit_breaker_503": 0,
+      "timeout_504": 0,
+      "other_errors": 0,
+      "wall_clock_ms": 1329.02,
+      "p50_latency_ms": 559.26,
+      "p95_latency_ms": 1328.78,
+      "max_latency_ms": 1328.78,
+      "actual_generation_latency_avg_ms": 1328.78,
+      "fast_rejection_latency_avg_ms": 558.4,
+      "memory_before_combined_rss_mb": 1105.02,
+      "memory_after_combined_rss_mb": 1104.94,
+      "host_available_ram_after_mb": 634.39,
+      "calls": [
+        {
+          "call_id": 0,
+          "status_code": 200,
+          "latency_ms": 1328.78,
+          "is_200": true,
+          "is_429": false,
+          "is_503": false,
+          "is_504": false,
+          "data": {
+            "answer_id": "ANS-TEST-5B-R1-CONC-5-0",
+            "query": "What is the network topology of core-gateway? (burst call 0)",
+            "answer_text": "NovaStack core topology is active-passive with redundant links across all zones. [EVD-002]",
+            "answer_status": "answered",
+            "citations": [
+              {
+                "raw_tag": "[EVD-002]",
+                "evidence_id": "EVD-TEST-5B-R1-CONC-5-0-002-DOC-NOVASTACK-01",
+                "document_id": "DOC-NOVASTACK-01",
+                "chunk_id": "DOC-NOVASTACK-01::CHUNK-0001",
+                "title": "NovaStack Core Gateway Topology",
+                "status": "VALID",
+                "reasons": [
+                  "verified_selected_authorized_evidence"
+                ],
+                "phrase_match_detected": true,
+                "evidence_status": "accepted",
+                "authority_level": "canonical",
+                "is_adversarial": false
+              }
+            ],
+            "abstention_reason": null,
+            "latency_ms": 1272.53,
+            "request_id": "0009eb0b-f61a-4c6e-bd5d-fa562fb1edec",
+            "was_generation_invoked": true,
+            "generation_latency_ms": 1269.61,
+            "index_generation_id": "GEN-20260919083926-f90b07"
+          }
+        },
+        {
+          "call_id": 1,
+          "status_code": 429,
+          "latency_ms": 559.26,
+          "is_200": false,
+          "is_429": true,
+          "is_503": false,
+          "is_504": false,
+          "data": {
+            "detail": "Inference capacity exhausted; please retry later",
+            "error_type": "CapacityExhaustedError",
+            "answer_status": "error"
+          }
+        },
+        {
+          "call_id": 2,
+          "status_code": 429,
+          "latency_ms": 558.25,
+          "is_200": false,
+          "is_429": true,
+          "is_503": false,
+          "is_504": false,
+          "data": {
+            "detail": "Inference capacity exhausted; please retry later",
+            "error_type": "CapacityExhaustedError",
+            "answer_status": "error"
+          }
+        },
+        {
+          "call_id": 3,
+          "status_code": 429,
+          "latency_ms": 552.52,
+          "is_200": false,
+          "is_429": true,
+          "is_503": false,
+          "is_504": false,
+          "data": {
+            "detail": "Inference capacity exhausted; please retry later",
+            "error_type": "CapacityExhaustedError",
+            "answer_status": "error"
+          }
+        },
+        {
+          "call_id": 4,
+          "status_code": 429,
+          "latency_ms": 563.59,
+          "is_200": false,
+          "is_429": true,
+          "is_503": false,
+          "is_504": false,
+          "data": {
+            "detail": "Inference capacity exhausted; please retry later",
+            "error_type": "CapacityExhaustedError",
+            "answer_status": "error"
+          }
+        }
+      ]
+    }
+  },
+  "repeated_request_stability_trend": [
+    {
+      "request_index": 1,
+      "http_status": 200,
+      "answer_status": "answered",
+      "latency_ms": 8790.4,
+      "python_rss_mb": 85.02,
+      "ollama_total_rss_mb": 1011.55,
+      "llama_worker_rss_mb": 950.43,
+      "combined_rss_mb": 1096.57,
+      "host_available_ram_mb": 633.82
+    },
+    {
+      "request_index": 2,
+      "http_status": 200,
+      "answer_status": "answered",
+      "latency_ms": 1353.06,
+      "python_rss_mb": 85.05,
+      "ollama_total_rss_mb": 1020.03,
+      "llama_worker_rss_mb": 958.9,
+      "combined_rss_mb": 1105.08,
+      "host_available_ram_mb": 609.48
+    },
+    {
+      "request_index": 3,
+      "http_status": 200,
+      "answer_status": "answered",
+      "latency_ms": 1439.59,
+      "python_rss_mb": 85.06,
+      "ollama_total_rss_mb": 1019.83,
+      "llama_worker_rss_mb": 958.91,
+      "combined_rss_mb": 1104.89,
+      "host_available_ram_mb": 623.18
+    },
+    {
+      "request_index": 4,
+      "http_status": 200,
+      "answer_status": "answered",
+      "latency_ms": 1287.32,
+      "python_rss_mb": 85.07,
+      "ollama_total_rss_mb": 1019.84,
+      "llama_worker_rss_mb": 958.91,
+      "combined_rss_mb": 1104.91,
+      "host_available_ram_mb": 636.12
+    },
+    {
+      "request_index": 5,
+      "http_status": 200,
+      "answer_status": "answered",
+      "latency_ms": 1311.96,
+      "python_rss_mb": 85.07,
+      "ollama_total_rss_mb": 1019.84,
+      "llama_worker_rss_mb": 958.91,
+      "combined_rss_mb": 1104.91,
+      "host_available_ram_mb": 630.41
+    },
+    {
+      "request_index": 6,
+      "http_status": 200,
+      "answer_status": "answered",
+      "latency_ms": 1328.44,
+      "python_rss_mb": 85.14,
+      "ollama_total_rss_mb": 1019.85,
+      "llama_worker_rss_mb": 958.91,
+      "combined_rss_mb": 1104.99,
+      "host_available_ram_mb": 736.62
+    },
+    {
+      "request_index": 7,
+      "http_status": 200,
+      "answer_status": "answered",
+      "latency_ms": 1316.64,
+      "python_rss_mb": 85.14,
+      "ollama_total_rss_mb": 1019.85,
+      "llama_worker_rss_mb": 958.91,
+      "combined_rss_mb": 1104.99,
+      "host_available_ram_mb": 736.91
+    },
+    {
+      "request_index": 8,
+      "http_status": 200,
+      "answer_status": "answered",
+      "latency_ms": 1237.69,
+      "python_rss_mb": 85.14,
+      "ollama_total_rss_mb": 1019.99,
+      "llama_worker_rss_mb": 958.89,
+      "combined_rss_mb": 1105.13,
+      "host_available_ram_mb": 739.35
+    },
+    {
+      "request_index": 9,
+      "http_status": 200,
+      "answer_status": "answered",
+      "latency_ms": 1360.96,
+      "python_rss_mb": 85.15,
+      "ollama_total_rss_mb": 1019.99,
+      "llama_worker_rss_mb": 958.89,
+      "combined_rss_mb": 1105.14,
+      "host_available_ram_mb": 738.92
+    },
+    {
+      "request_index": 10,
+      "http_status": 200,
+      "answer_status": "answered",
+      "latency_ms": 1298.25,
+      "python_rss_mb": 85.16,
+      "ollama_total_rss_mb": 1020.16,
+      "llama_worker_rss_mb": 958.89,
+      "combined_rss_mb": 1105.32,
+      "host_available_ram_mb": 739.08
+    }
+  ],
+  "security_verification": {
+    "unauth_status": 401,
+    "mismatch_status": 403,
+    "status": "PASS"
+  },
+  "historical_float32_comparison": {
+    "baseline_engine": "PyTorch float32 (in-process)",
+    "baseline_model_weights_ram_mb": 2500.0,
+    "baseline_warm_gen_latency_range_s": [
+      12.091,
+      15.918
+    ],
+    "baseline_timeout_rate_under_pressure": "Observed 504 timeouts at 30.4s",
+    "quantized_engine": "Ollama + llama.cpp Q4_K_M (out-of-process)",
+    "quantized_worker_rss_mb": 944.47,
+    "quantized_warm_gen_latency_range_s": [
+      8.79,
+      1.353,
+      1.44,
+      1.287,
+      1.312,
+      1.328,
+      1.317,
+      1.238,
+      1.361,
+      1.298
+    ],
+    "quantized_timeout_rate": "0 timeouts across all tested single and concurrency requests"
+  },
+  "acceptance_gates": {
+    "ollama_process_measured": true,
+    "python_and_ollama_separated": true,
+    "c1_characterized": true,
+    "c2_characterized": true,
+    "c5_characterized": true,
+    "fast_rejection_separated_from_generation": true,
+    "memory_checkpoints_captured": true,
+    "security_boundary_intact": true,
+    "production_default_changed": false,
+    "clean_performance_certification": "NOT AVAILABLE"
+  },
+  "final_status": {
+    "status": "PASS",
+    "clean_performance_certification": "NOT AVAILABLE (Host Available RAM < 3.0 GB)",
+    "production_default_changed": "NO",
+    "security": "PASS",
+    "correctness": "PASS",
+    "c2_citations": "PASS",
+    "ollama_process_measured": "YES",
+    "concurrency_characterized": "C=1 / C=2 / C=5",
+    "memory_characterization": "PASS",
+    "production_promotion": "NO",
+    "phase_5c": "DO NOT IMPLEMENT",
+    "next_action": "CTO REVIEW"
+  }
+}

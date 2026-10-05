@@ -1,0 +1,81 @@
+{
+  "check": "CS-01-ENV Canary Execution Environment Check",
+  "timestamp": "2026-10-05T07:50:00Z",
+  "decision": "NO_EXISTING_ENVIRONMENT_FOUND",
+  "statement": "No suitable existing execution environment was found. Do not run CS-01 on the current laptop. An appropriately provisioned execution environment must be selected before canary execution.",
+  "release_candidate": {
+    "version": "0.5.0-rc1",
+    "artifact_path": "dist/atlas-novastack-0.5.0-rc1.tar.gz",
+    "sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+    "verified": true,
+    "source_drift_detected": false
+  },
+  "current_host": {
+    "os": "Windows 11",
+    "total_ram_gb": 7.63,
+    "free_ram_gb": 1.31,
+    "feasibility_decision": "RED",
+    "ollama_models_loaded": 0,
+    "docker_containers_running": 0
+  },
+  "evaluated_environments": {
+    "github_actions": {
+      "workflow_file": ".github/workflows/ci.yml",
+      "exists": true,
+      "runner_os": "ubuntu-latest",
+      "python_tests_supported": true,
+      "docker_build_step": true,
+      "ollama_configured": false,
+      "gemma_model_configured": false,
+      "git_remote_attached": false,
+      "usable_as_is": false,
+      "notes": "ci.yml contains fast unit tests, security regression, and docker build smoke test only. Ollama and Gemma 3 1B runtime are not provisioned; local folder is not an active git repository with a configured GitHub remote."
+    },
+    "local_wsl": {
+      "distributions": [
+        "docker-desktop (Stopped)"
+      ],
+      "general_linux_distro_present": false,
+      "usable_as_is": false,
+      "notes": "No standalone Linux distribution (e.g., Ubuntu, Debian) is installed under WSL."
+    },
+    "local_docker": {
+      "installed": true,
+      "running": false,
+      "usable_as_is": false,
+      "notes": "Docker Desktop is stopped. Starting it on this host consumes an additional 250-400 MB RAM, worsening host memory pressure."
+    },
+    "conda_and_python": {
+      "base_python": "C:\\Users\\<LOCAL_USER>\\anaconda3\\python.exe",
+      "conda_envs": [
+        "deep_research",
+        "multimodal_agent",
+        "rag-chatbot",
+        "web_agent"
+      ],
+      "usable_as_is": false,
+      "notes": "Python runtimes share the same physical memory space of the 7.63 GB laptop."
+    }
+  },
+  "minimum_execution_envelope": {
+    "basis": "Empirical ATLAS measurements on Gemma 3 1B Q4_K_M",
+    "stored_model_size_mb": 815.0,
+    "observed_model_ram_reduction_gb": 0.83,
+    "minimum_free_ram_gb": 2.5,
+    "recommended_system_ram_gb": 16.0,
+    "runtime_components": [
+      "ATLAS FastAPI service & pipeline (300-500 MB)",
+      "Inference container adapter (250-400 MB)",
+      "Ollama runtime & Gemma 3 1B Q4_K_M (1000-1200 MB)",
+      "Safety buffer / OS paging margin (>= 1000 MB)"
+    ]
+  },
+  "constraints_preserved": {
+    "cs01_executed": false,
+    "m8_rerun": false,
+    "prr_rerun": false,
+    "cr01_rerun": false,
+    "production_modified": false,
+    "source_modified": false
+  }
+}

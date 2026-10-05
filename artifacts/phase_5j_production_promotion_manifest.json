@@ -1,0 +1,63 @@
+{
+  "phase": "5J",
+  "timestamp": "2026-09-23T07:25:54.267230+00:00",
+  "status": "PROMOTED",
+  "previous_default": {
+    "provider": "LocalHuggingFaceProvider",
+    "model": "google/gemma-3-1b-it",
+    "precision": "torch.float32",
+    "device": "cpu"
+  },
+  "new_default": {
+    "provider": "InferenceServiceAdapter",
+    "model": "gemma3:1b",
+    "quantization": "Q4_K_M",
+    "format": "GGUF",
+    "service_url": "http://127.0.0.1:8001",
+    "runtime": "Ollama / llama.cpp containerized"
+  },
+  "rollback_backend": {
+    "provider": "LocalHuggingFaceProvider",
+    "model": "google/gemma-3-1b-it",
+    "precision": "torch.float32",
+    "device": "cpu",
+    "activation_mechanism": "Environment variable ATLAS_INFERENCE_PROVIDER=local_huggingface OR constructor dependency injection."
+  },
+  "verification_summary": {
+    "pre_promotion_health": true,
+    "security_smoke": true,
+    "backend_b_runtime": true,
+    "layer1s_abstention": true,
+    "failure_injection": true,
+    "observability": true,
+    "rollback_drill": true,
+    "backend_a_restored": true,
+    "backend_b_restored": true,
+    "regression_suite": "128 passed, 1 warning in 71.99s (0:01:11)"
+  },
+  "production_changes": [
+    {
+      "file": "src/novastack/provider.py",
+      "type": "FACTORY_ADDITION",
+      "description": "Added create_default_provider() factory with Backend B (InferenceServiceAdapter) default and Backend A (LocalHuggingFaceProvider) rollback selection via ATLAS_INFERENCE_PROVIDER env var."
+    },
+    {
+      "file": "src/novastack/service/api.py",
+      "type": "FACTORY_WIRING",
+      "description": "Wired create_default_provider() in AtlasServicePipeline.create_default() when generator is None."
+    }
+  ],
+  "observed_resources": {
+    "atlas_process_rss_mb": 127.77,
+    "ollama_runtime_rss_mb": 22.34,
+    "container_memory_usage": "35.42MiB / 3.64GiB",
+    "mean_latency_ms": 14414.56,
+    "passed": true
+  },
+  "limitations": [
+    "Hardware environment constraints: Host platform operates on Intel Core i3-N305 with 8GB RAM without dedicated GPU acceleration.",
+    "Sequential execution profile: In-tree concurrency is intentionally bounded to 1 (max_concurrent_inferences=1) under CPU-only inference service.",
+    "Asynchronous HTTP disconnect semantics: When client disconnects or hits HTTP deadline at 30s, active Ollama worker completes context evaluation asynchronously."
+  ],
+  "unresolved_risks": []
+}

@@ -1,0 +1,43 @@
+{
+  "milestone": "ATLAS 0.5 \u2014 Milestone M7 Baseline Characterization (from M6 Certified Results)",
+  "source_milestone": "ATLAS 0.5-M6",
+  "production_baseline_reference": "0.4.14-rc1",
+  "immutable_baseline_verified": true,
+  "metrics": {
+    "positive_answer_yield": {
+      "answered": 62,
+      "total": 101,
+      "yield_pct": 61.39
+    },
+    "negative_abstention": {
+      "abstained": 19,
+      "total": 19,
+      "abstention_pct": 100.0
+    },
+    "citation_precision_pct": 100.0,
+    "citation_completeness_pct": 93.55,
+    "mean_positive_latency_ms": 14710.01,
+    "multi_hop_focus_slice": {
+      "total_cases": 18,
+      "answered": 9,
+      "yield_pct": 50.0
+    }
+  },
+  "failure_taxonomy_positive_abstentions": {
+    "timeout": 1,
+    "model_evidence_insufficient": 37,
+    "no_usable_evidence": 1
+  },
+  "m7_recovery_targets": [
+    "EVAL-0018",
+    "EVAL-0019",
+    "EVAL-0033",
+    "EVAL-0044",
+    "EVAL-0046",
+    "EVAL-0050",
+    "EVAL-0062",
+    "EVAL-0064"
+  ],
+  "target_yield_pct": 66.34,
+  "target_yield_cases": 67
+}

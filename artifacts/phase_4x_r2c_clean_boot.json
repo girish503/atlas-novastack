@@ -1,0 +1,186 @@
+{
+  "phase": "4X-R2-C",
+  "title": "Clean-Boot Performance Confirmation",
+  "timestamp": "2026-09-19T06:37:25Z",
+  "status": "BLOCKED",
+  "verdict": "HOLD",
+  "verdict_reason": "Clean-memory precondition was not satisfied after clean boot. Available RAM 1.28 GB is less than required 3.00 GB target.",
+  "environment_gate": {
+    "gate_passed": false,
+    "required_ram_gb": 3.0,
+    "available_ram_gb": 1.28,
+    "free_ram_gb": 1.28,
+    "used_ram_gb": 6.35,
+    "target_not_met": true,
+    "uptime_hours": 2.05,
+    "block_message": "PHASE 4X-R2-C BLOCKED \u2014 clean-memory precondition not satisfied."
+  },
+  "system_specs": {
+    "timestamp_utc": "2026-09-19T06:37:22Z",
+    "os": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.13.5",
+    "cpu": "Intel64 Family 6 Model 190 Stepping 0, GenuineIntel",
+    "cpu_count_physical": 8,
+    "cpu_count_logical": 8,
+    "total_ram_gb": 7.63,
+    "available_ram_gb": 1.28,
+    "free_ram_gb": 1.28,
+    "used_ram_gb": 6.35,
+    "uptime_hours": 2.05,
+    "target_available_ram_gb": 3.0,
+    "target_not_met": true,
+    "torch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device": "cpu",
+    "pytorch_thread_count": 8,
+    "initial_rss_mb": 222.62,
+    "initial_thread_count": 1,
+    "python_process_count": 1,
+    "top_memory_consuming_processes": [
+      {
+        "pid": 6212,
+        "name": "language_server.exe",
+        "rss_mb": 486.95
+      },
+      {
+        "pid": 15824,
+        "name": "ChatGPT (Beta).exe",
+        "rss_mb": 434.58
+      },
+      {
+        "pid": 11592,
+        "name": "Antigravity.exe",
+        "rss_mb": 287.53
+      },
+      {
+        "pid": 3140,
+        "name": "MemCompression",
+        "rss_mb": 256.71
+      },
+      {
+        "pid": 10924,
+        "name": "chrome.exe",
+        "rss_mb": 243.65
+      },
+      {
+        "pid": 19080,
+        "name": "python.exe",
+        "rss_mb": 223.38
+      },
+      {
+        "pid": 8508,
+        "name": "chrome.exe",
+        "rss_mb": 171.45
+      },
+      {
+        "pid": 3612,
+        "name": "chrome.exe",
+        "rss_mb": 167.25
+      },
+      {
+        "pid": 11204,
+        "name": "MsMpEng.exe",
+        "rss_mb": 157.5
+      },
+      {
+        "pid": 16320,
+        "name": "chrome.exe",
+        "rss_mb": 145.21
+      }
+    ]
+  },
+  "frozen_configuration": {
+    "enable_boundary_stitching": false,
+    "enable_query_aware_authority": true,
+    "enable_event_bundling": false,
+    "max_concurrent_inferences": 1,
+    "queue_timeout_seconds": 0.5,
+    "request_timeout_seconds": 30.0,
+    "circuit_breaker": "enabled",
+    "circuit_failure_threshold": 3,
+    "circuit_cooldown_seconds": 10.0
+  },
+  "memory_checkpoints": [
+    {
+      "label": "M0_startup",
+      "timestamp_utc": "2026-09-19T06:37:25Z",
+      "rss_mb": 223.4,
+      "available_ram_gb": 1.24,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 6.39,
+      "thread_count": 1,
+      "pytorch_threads": 8
+    }
+  ],
+  "retrieval_controls": [],
+  "abstention_controls": [],
+  "generation_measurements": [],
+  "comparison_4x_vs_r1_vs_r2_vs_r2c": {
+    "available_ram_gb": {
+      "4X": 0.51,
+      "4X_R1": 0.48,
+      "4X_R2": 1.19,
+      "4X_R2_C": 1.28
+    },
+    "retrieval_latency_ms": {
+      "4X": 44.71,
+      "4X_R1": 15575.89,
+      "4X_R2": "BLOCKED",
+      "4X_R2_C": "BLOCKED"
+    },
+    "model_generate_latency_ms": {
+      "4X": "NOT_OBSERVED",
+      "4X_R1_gen1": 15918.08,
+      "4X_R1_gen2": "TIMEOUT",
+      "4X_R1_gen3": 12090.83,
+      "4X_R2": "BLOCKED",
+      "4X_R2_C": "BLOCKED"
+    },
+    "e2e_generation_latency_ms": {
+      "4X_gen1": 30745.18,
+      "4X_R1_gen1": 16501.44,
+      "4X_R1_gen2": 30442.96,
+      "4X_R1_gen3": 13384.6,
+      "4X_R2": "BLOCKED",
+      "4X_R2_C": "BLOCKED"
+    },
+    "generation_completed": {
+      "4X": "0 / 1",
+      "4X_R1": "2 / 3",
+      "4X_R2": "BLOCKED (0 / 0)",
+      "4X_R2_C": "BLOCKED (0 / 0)"
+    },
+    "timeout_count": {
+      "4X": 1,
+      "4X_R1": 1,
+      "4X_R2": 0,
+      "4X_R2_C": 0
+    },
+    "deadline_headroom_ms": {
+      "4X_gen1": -745.18,
+      "4X_R1_gen1": 13498.56,
+      "4X_R1_gen2": -442.96,
+      "4X_R1_gen3": 16615.4,
+      "4X_R2": "BLOCKED",
+      "4X_R2_C": "BLOCKED"
+    },
+    "peak_rss_mb": {
+      "4X": 1535.54,
+      "4X_R1": 4063.98,
+      "4X_R2": 222.16,
+      "4X_R2_C": 223.4
+    },
+    "rss_after_gc_mb": {
+      "4X": 1594.06,
+      "4X_R1": 3446.33,
+      "4X_R2": "BLOCKED",
+      "4X_R2_C": "BLOCKED"
+    },
+    "available_ram_after_generation_gb": {
+      "4X": 0.51,
+      "4X_R1": 0.55,
+      "4X_R2": "BLOCKED",
+      "4X_R2_C": "BLOCKED"
+    }
+  }
+}

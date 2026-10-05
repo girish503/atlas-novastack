@@ -1,0 +1,30 @@
+{
+  "normal_queries": {
+    "tested": 3,
+    "succeeded": 3,
+    "timed_out": 0,
+    "failed": 0,
+    "mean_latency_ms": 27549.26,
+    "p95_latency_ms": 64678.31,
+    "latencies_ms": [
+      64678.31,
+      17920.44,
+      49.02
+    ]
+  },
+  "timeout_enforcement": {
+    "tested": 3,
+    "timed_out_cleanly": 3,
+    "mean_timeout_latency_ms": 8113.42,
+    "latencies_ms": [
+      2279.43,
+      4940.95,
+      17119.89
+    ]
+  },
+  "concurrency_and_threads": {
+    "threads_before": 1,
+    "threads_after": 8,
+    "stuck_threads": 5
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "iterations": 50,
+  "successful_queries": 50,
+  "with_observability": {
+    "mean_latency_ms": 2.67,
+    "p95_latency_ms": 4.22
+  },
+  "raw_pipeline_baseline": {
+    "mean_latency_ms": 0.71,
+    "p95_latency_ms": 0.94
+  },
+  "observability_overhead": {
+    "mean_overhead_ms": 1.96,
+    "overhead_percentage": 73.44
+  }
+}

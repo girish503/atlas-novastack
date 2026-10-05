@@ -1,0 +1,68 @@
+{
+  "executor_status": "not_running",
+  "previous_prr_status": "NEVER_STARTED",
+  "completed": false,
+  "last_confirmed_stage": "NONE",
+  "last_confirmed_case": "NONE",
+  "partial_results_available": false,
+  "source_changes": 0,
+  "error_found": false,
+  "error_summary": "No PRR-01 execution was ever initiated in this workspace. The error ID 6f805bad6a5c49fd978785807455d3b0 references an executor-level status message ('Executor is not currently running'), not a failed PRR run. The last agent action in this conversation was the M8 CTO Milestone Report delivery at 2026-10-01T04:41:38Z (step 24675), which completed successfully with STOP. No PRR script exists in the repository. No PRR artifacts exist. No PRR-related files were created or modified. The conversation has no record of any PRR invocation between M8 completion and this recovery request.",
+  "recommended_next_action": "Create and execute the PRR-01 Promotion Release Readiness review as a new task. No recovery or resumption is needed because no prior PRR execution occurred.",
+  "safe_to_resume": false,
+  "investigation_details": {
+    "investigation_timestamp": "2026-10-01T12:35:00Z",
+    "files_searched": {
+      "repo_recursive_prr_match": 0,
+      "artifacts_prr_content_match": false,
+      "docs_prr_content_match": false,
+      "scripts_prr_pattern_match": 0,
+      "brain_prr_files": 0,
+      "all_conversations_prr_match": 0,
+      "transcript_prr_mentions": "4 (all from this investigation session itself)"
+    },
+    "error_id_analysis": {
+      "error_id": "6f805bad6a5c49fd978785807455d3b0",
+      "found_in_transcript": true,
+      "first_occurrence": "line 24527 (user's current request at step 24676)",
+      "conclusion": "Error ID originates from the user's message, not from a prior failed execution. It is an executor-level status identifier, not a crash trace."
+    },
+    "last_conversation_action": {
+      "step_index": 24675,
+      "timestamp": "2026-10-01T04:41:38Z",
+      "action": "M8 CTO Milestone Report delivery (24-section report ending with STOP.)",
+      "status": "DONE"
+    },
+    "workspace_state": {
+      "files_modified_after_m8_report": 2,
+      "modified_files": [
+        ".pytest_cache/v/cache/nodeids (pytest cache, 10:09 AM)",
+        ".pytest_cache/v/cache/stepwise (pytest cache, 10:09 AM)"
+      ],
+      "source_files_modified": 0,
+      "test_files_modified": 0,
+      "config_files_modified": 0,
+      "artifacts_created_by_prr": 0,
+      "artifacts_modified_by_prr": 0
+    },
+    "existing_promotion_scripts": [
+      "scripts/phase_5e_promotion_decision.py (pre-M8, legacy)",
+      "scripts/phase_5i_production_promotion_review.py (pre-M8, legacy)",
+      "scripts/phase_5j_pre_promotion_checkpoint.py (pre-M8, legacy)",
+      "scripts/phase_5j_pre_promotion_runner.py (pre-M8, legacy)",
+      "scripts/phase_5j_production_promotion.py (pre-M8, legacy)"
+    ],
+    "git_status": "Not a git repository",
+    "traceback_found": false,
+    "exception_found": false,
+    "timeout_found": false,
+    "connection_refused_found": false,
+    "ollama_failure_found": false,
+    "inference_container_failure_found": false,
+    "subprocess_failure_found": false,
+    "oom_found": false,
+    "http_429_found": false,
+    "http_503_found": false,
+    "executor_termination_found": false
+  }
+}

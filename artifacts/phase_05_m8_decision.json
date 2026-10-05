@@ -1,0 +1,12 @@
+{
+  "decision_id": "D145",
+  "milestone": "ATLAS 0.5 \u2014 M8",
+  "date": "2026-09-30",
+  "verdict": "PROMOTE",
+  "summary": "Targeted sentence-level evidence extraction and answerability prompt calibration experimentally evaluated across 120 canonical cases.",
+  "yield_reconstructed": "74/101 (73.27%)",
+  "precision": "100.0%",
+  "completeness": "93.24%",
+  "negative_safety": "19/19 (100.0%)",
+  "security_violations": 0
+}

@@ -1,0 +1,407 @@
+{
+  "phase": "5O",
+  "release_candidate": "0.4.14-rc1",
+  "package_version": "0.4.14",
+  "timestamp_start": "2026-09-23T14:25:56.706379+00:00",
+  "production_backend": "InferenceServiceAdapter",
+  "rollback_backend": "LocalHuggingFaceProvider",
+  "runbook_path": "docs/OPERATIONS_RUNBOOK.md",
+  "circuit_breaker_config": {
+    "production_cooldown_seconds": 10.0,
+    "failure_threshold": 3,
+    "note": "Production circuit cooldown is strictly 10.0s (Phase 5N test harness used 0.2s acceleration)."
+  },
+  "resilience_config": {
+    "max_concurrent_inferences": 1,
+    "queue_timeout_seconds": 0.5,
+    "request_timeout_seconds": 30.0,
+    "circuit_failure_threshold": 3,
+    "circuit_cooldown_seconds": 10.0
+  },
+  "baseline": {
+    "verified": true
+  },
+  "incidents": {
+    "incident_00_baseline": {
+      "name": "Pre-Incident Baseline Verification",
+      "status": "PASS",
+      "archive_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+      "sha_match": true,
+      "pyproject_version": "0.4.14",
+      "version_match": true,
+      "source_drift_files": [],
+      "zero_source_drift": true,
+      "ollama_running": true,
+      "model_digest_match": true,
+      "container_ready": true,
+      "baseline_query_status": "answered",
+      "was_generation_invoked": true,
+      "citation_count": 2,
+      "latency_ms": 5124.97,
+      "active_generation_id": "GEN-20260923142656-08f718"
+    },
+    "incident_01_ollama_failure": {
+      "name": "Ollama Dependency Failure & Recovery Drill",
+      "status": "PASS",
+      "container_ready_code": 503,
+      "container_backend_connected": true,
+      "failure_answer_status": "abstained",
+      "failure_abstention_reason": "service_unavailable",
+      "failure_citations_count": 0,
+      "safe_abstention": true,
+      "secret_leaked": false,
+      "recovery_duration_seconds": 64.47,
+      "container_recovered": true,
+      "post_recovery_answer_status": "answered",
+      "post_recovery_was_generation_invoked": true,
+      "post_recovery_citations": 2
+    },
+    "incident_02_container_failure": {
+      "name": "Inference Service Container Failure & Recovery Drill",
+      "status": "PASS",
+      "port_8001_unreachable": true,
+      "failure_answer_status": "abstained",
+      "failure_abstention_reason": "timeout",
+      "safe_abstention": true,
+      "recovery_duration_seconds": 4.3,
+      "container_recovered": true,
+      "post_recovery_answer_status": "answered",
+      "post_recovery_citations": 2
+    },
+    "incident_03_capacity_exhaustion": {
+      "name": "Inference Capacity Exhaustion Drill",
+      "status": "PASS",
+      "slot1_acquired": true,
+      "slot2_capacity_shed_429": true,
+      "slot2_waited_approx_queue_timeout": true,
+      "slot3_idle_recovery_acquired": true,
+      "error_contains_no_secrets": true
+    },
+    "incident_04_circuit_breaker": {
+      "name": "Production Circuit Breaker State Machine Drill",
+      "status": "PASS",
+      "production_config_threshold": 3,
+      "production_config_cooldown_seconds": 10.0,
+      "initial_state": "CLOSED",
+      "state_after_3_failures": "OPEN",
+      "tripped_to_open": true,
+      "t_open": "2026-09-23T14:30:06.380698+00:00",
+      "open_state_fails_fast": true,
+      "probe_allowed_after_cooldown": true,
+      "state_in_probe": "HALF_OPEN",
+      "t_half_open": "2026-09-23T14:30:16.481093+00:00",
+      "transitioned_to_half_open": true,
+      "state_after_success": "CLOSED",
+      "t_closed": "2026-09-23T14:30:16.481152+00:00",
+      "recovered_to_closed": true
+    },
+    "incident_05_atlas_restart": {
+      "name": "ATLAS Process Failure & Index Re-Leasing Drill",
+      "status": "PASS",
+      "cold_init_latency_ms": 1824.96,
+      "pipeline_ready": true,
+      "components_ready": {
+        "bm25": true,
+        "dense": true,
+        "reranker": true,
+        "generator": true,
+        "index_alignment": true,
+        "generation_active": true
+      },
+      "persisted_generation_id": "baseline",
+      "active_matches_persisted": true,
+      "active_generation_id": "GEN-20260923143017-7a5d88",
+      "hotswap_persistence_contract_verified": true,
+      "query_status": "answered",
+      "citations_count": 2
+    },
+    "incident_06_index_safety": {
+      "name": "Index Corruption & Missing Generation Protection Drill",
+      "status": "PASS",
+      "active_index_valid": true,
+      "active_index_errors": [],
+      "active_generation_id": "GEN-20260923143023-0cad0b",
+      "empty_candidate_rejected": true,
+      "empty_candidate_error_count": 2,
+      "dim_mismatch_rejected": true,
+      "active_generation_untouched": true
+    },
+    "incident_07_rollback_restoration": {
+      "name": "Upstream Provider Rollback & Restoration Drill",
+      "status": "PASS",
+      "initial_is_backend_b": true,
+      "rollback_provider_name": "LocalHuggingFaceProvider",
+      "rollback_is_backend_a": true,
+      "backend_a_ready": true,
+      "rollback_duration_ms": 0.02,
+      "restored_provider_name": "InferenceServiceAdapter",
+      "restored_is_backend_b": true,
+      "backend_b_ready": true,
+      "restoration_duration_ms": 80.59,
+      "post_restore_answer_status": "answered",
+      "post_restore_citations": 2
+    },
+    "incident_08_auth_fail_closed": {
+      "name": "Authentication Fail-Closed Under Incident Conditions",
+      "status": "PASS",
+      "missing_token_rejected": true,
+      "malformed_token_rejected": true,
+      "expired_token_rejected": true,
+      "bad_signature_rejected": true,
+      "cross_tenant_rejected": true
+    },
+    "incident_09_client_disconnect": {
+      "name": "Client Disconnect & Asynchronous Timeout Semantics",
+      "status": "PASS",
+      "request_timeout_seconds": 30.0,
+      "queue_timeout_seconds": 0.5,
+      "subsequent_slot_recovered": true,
+      "timeout_deadline_enforced": true
+    },
+    "incident_10_full_recovery_drill": {
+      "name": "Full End-to-End Incident & Recovery Drill",
+      "status": "PASS",
+      "pre_check_ready": true,
+      "incident_detected_503": true,
+      "incident_detected_backend_disconnected": true,
+      "recovery_duration_seconds": 37.42,
+      "container_recovered": true,
+      "post_recovery_answer_status": "answered",
+      "post_recovery_was_generation_invoked": true,
+      "post_recovery_citations_count": 2,
+      "post_recovery_query_latency_ms": 5140.79,
+      "q4_negative_cases_abstained": true
+    },
+    "regression_suite": {
+      "name": "Certified Regression Suite Execution",
+      "status": "PASS",
+      "suites": {
+        "phase_5o_incident_recovery": {
+          "passed": 18,
+          "failed": 0,
+          "duration_seconds": 11.78,
+          "status": "PASS"
+        },
+        "phase_5n_operational_runbook": {
+          "passed": 14,
+          "failed": 0,
+          "duration_seconds": 5.88,
+          "status": "PASS"
+        },
+        "phase_5m_release_packaging": {
+          "passed": 14,
+          "failed": 0,
+          "duration_seconds": 68.46,
+          "status": "PASS"
+        },
+        "phase_5l_independent_validation": {
+          "passed": 41,
+          "failed": 0,
+          "duration_seconds": 7.56,
+          "status": "PASS"
+        },
+        "phase_5k_release_freeze": {
+          "passed": 10,
+          "failed": 0,
+          "duration_seconds": 5.45,
+          "status": "PASS"
+        },
+        "phase_5j_production_promotion": {
+          "passed": 7,
+          "failed": 0,
+          "duration_seconds": 4.24,
+          "status": "PASS"
+        },
+        "phase_5i_production_promotion": {
+          "passed": 7,
+          "failed": 0,
+          "duration_seconds": 7.35,
+          "status": "PASS"
+        },
+        "phase_5g_abstention_safety": {
+          "passed": 23,
+          "failed": 0,
+          "duration_seconds": 12.1,
+          "status": "PASS"
+        },
+        "phase_5b_quantized_provider": {
+          "passed": 17,
+          "failed": 0,
+          "duration_seconds": 74.0,
+          "status": "PASS"
+        },
+        "phase_5a_provider_boundary": {
+          "passed": 23,
+          "failed": 0,
+          "duration_seconds": 9.63,
+          "status": "PASS"
+        },
+        "security_corpus": {
+          "passed": 23,
+          "failed": 0,
+          "duration_seconds": 3.48,
+          "status": "PASS"
+        },
+        "phase_4t_identity_boundary": {
+          "passed": 17,
+          "failed": 0,
+          "duration_seconds": 4.88,
+          "status": "PASS"
+        },
+        "phase_4m_auth_fail_closed": {
+          "passed": 11,
+          "failed": 0,
+          "duration_seconds": 3.37,
+          "status": "PASS"
+        }
+      },
+      "total_passed": 225,
+      "total_failed": 0
+    },
+    "release_integrity": {
+      "name": "Release Integrity & Immutability Check",
+      "status": "PASS",
+      "tarball_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+      "tarball_sha_match": true,
+      "source_drift_files": [],
+      "zero_source_drift": true,
+      "model_digest_match": true,
+      "package_version": "0.4.14",
+      "version_match": true
+    }
+  },
+  "security_invariants": {
+    "security_violations": 0,
+    "cross_tenant_leaks": 0,
+    "unauthorized_exposures": 0,
+    "forbidden_citations": 0,
+    "auth_bypass_during_recovery": false,
+    "secret_leakage_in_errors": false
+  },
+  "release_integrity": {
+    "tarball_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "expected_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "tarball_sha256_match": true,
+    "source_drift_detected": false,
+    "source_drift_files": [],
+    "model_digest_match": true,
+    "package_version_match": true
+  },
+  "regression": {
+    "passed": 225,
+    "failed": 0,
+    "suites": {
+      "phase_5o_incident_recovery": {
+        "passed": 18,
+        "failed": 0,
+        "duration_seconds": 11.78,
+        "status": "PASS"
+      },
+      "phase_5n_operational_runbook": {
+        "passed": 14,
+        "failed": 0,
+        "duration_seconds": 5.88,
+        "status": "PASS"
+      },
+      "phase_5m_release_packaging": {
+        "passed": 14,
+        "failed": 0,
+        "duration_seconds": 68.46,
+        "status": "PASS"
+      },
+      "phase_5l_independent_validation": {
+        "passed": 41,
+        "failed": 0,
+        "duration_seconds": 7.56,
+        "status": "PASS"
+      },
+      "phase_5k_release_freeze": {
+        "passed": 10,
+        "failed": 0,
+        "duration_seconds": 5.45,
+        "status": "PASS"
+      },
+      "phase_5j_production_promotion": {
+        "passed": 7,
+        "failed": 0,
+        "duration_seconds": 4.24,
+        "status": "PASS"
+      },
+      "phase_5i_production_promotion": {
+        "passed": 7,
+        "failed": 0,
+        "duration_seconds": 7.35,
+        "status": "PASS"
+      },
+      "phase_5g_abstention_safety": {
+        "passed": 23,
+        "failed": 0,
+        "duration_seconds": 12.1,
+        "status": "PASS"
+      },
+      "phase_5b_quantized_provider": {
+        "passed": 17,
+        "failed": 0,
+        "duration_seconds": 74.0,
+        "status": "PASS"
+      },
+      "phase_5a_provider_boundary": {
+        "passed": 23,
+        "failed": 0,
+        "duration_seconds": 9.63,
+        "status": "PASS"
+      },
+      "security_corpus": {
+        "passed": 23,
+        "failed": 0,
+        "duration_seconds": 3.48,
+        "status": "PASS"
+      },
+      "phase_4t_identity_boundary": {
+        "passed": 17,
+        "failed": 0,
+        "duration_seconds": 4.88,
+        "status": "PASS"
+      },
+      "phase_4m_auth_fail_closed": {
+        "passed": 11,
+        "failed": 0,
+        "duration_seconds": 3.37,
+        "status": "PASS"
+      }
+    }
+  },
+  "evidence_classification": {
+    "VERIFIED": [
+      "Pre-incident baseline verified: release artifact SHA-256 matches, zero source drift, Ollama/container healthy, query answered in 5125.0ms with 2 C2 citations.",
+      "Incident 1: Ollama failure safely produced abstention (service_unavailable); 0 secrets leaked; recovered via runbook in 64.47s; query answered with 2 C2 citations.",
+      "Incident 2: Container failure translated safely to timeout; recovered via docker start in 4.3s; query operational with 2 C2 citations.",
+      "Incident 3: Capacity exhaustion enforced strictly at max_concurrent=1; second slot waited 0.51s and shed capacity (429) without leaking sensitive state.",
+      "Incident 4: Production circuit breaker state machine certified with real 10.0s cooldown (CLOSED -> OPEN at 2026-09-23T14:30:06.380698+00:00 -> HALF_OPEN at 2026-09-23T14:30:16.481093+00:00 -> CLOSED at 2026-09-23T14:30:16.481152+00:00).",
+      "Incident 5: ATLAS cold restart initialized in 1825.0ms; re-leased persisted baseline generation 'GEN-20260923143017-7a5d88'; query operational with 2 C2 citations.",
+      "Incident 6: Index integrity validator rejected corrupted candidates (null components, structural violations); active production generation remained 100% immutable and operational.",
+      "Incident 7: Provider rollback (to LocalHuggingFaceProvider in 0.02ms) and restoration (to InferenceServiceAdapter in 80.59ms) completed cleanly with valid query serving.",
+      "Incident 8: Authentication verified strictly fail-closed during incident states (missing, malformed, expired, bad signature, and cross-tenant mismatch all rejected).",
+      "Incident 9: Client disconnect and async timeout semantics verified; ATLAS enforces 30.0s deadline; concurrency slots recover cleanly.",
+      "Incident 10: Full end-to-end incident drill executed strictly from runbook; recovered in 37.42s; query answered in 5140.8ms with 2 C2 citations; Layer 1S verified on 4/4 negative cases.",
+      "Certified regression suite passed: 225 tests passed / 0 failed across 13 test suites.",
+      "Release integrity confirmed: tarball matches 382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3 exactly; 0 source code changes occurred in src/novastack/ during failure injections."
+    ],
+    "OBSERVED": [
+      "Host CPU Ollama processes run asynchronously to completion upon client disconnect before slot is reclaimed."
+    ],
+    "UNKNOWN": [],
+    "NOT TESTED": []
+  },
+  "known_limitations": [
+    "Single-node CPU deployment topology only; no distributed clustering claimed",
+    "Hardware certified on Intel Core i3-N305 class host with 8GB RAM without discrete GPU",
+    "Inference concurrency strictly bound to 1 (max_concurrent_inferences=1)",
+    "HTTP request timeout deadline 30.0s; queue timeout deadline 0.5s",
+    "Dynamic index hot-swap (Phase 4S) is process-local; cold restart re-leases persisted baseline index",
+    "Asynchronous HTTP client disconnect semantic: underlying Ollama evaluation completes asynchronously on CPU",
+    "Production circuit breaker cooldown is strictly 10.0s (accelerated test harnesses used 0.2s)"
+  ],
+  "final_decision": "PASS",
+  "timestamp_end": "2026-09-23T14:35:31.460039+00:00"
+}

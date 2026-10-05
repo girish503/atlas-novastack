@@ -1,0 +1,385 @@
+{
+  "p5k_identity": {
+    "rc_version": "0.4.14-rc1",
+    "package_version": "0.4.14",
+    "provider": "InferenceServiceAdapter",
+    "model": "gemma3:1b",
+    "quantization": "Q4_K_M",
+    "model_digest": "8648f39daa8fbf5b18c7b4e6a8fb4990c692751d49917417b8842ca5758e7ffc",
+    "model_size_bytes": 815319791,
+    "service_url": "http://127.0.0.1:8001",
+    "rollback_provider": "LocalHuggingFaceProvider",
+    "rollback_model": "google/gemma-3-1b-it",
+    "container_image": "atlas-inference:5d",
+    "container_image_id": "sha256:94042560c4dfb0ea77b8ef036bbe266b5c8c84d83fe842a6b4adf3be04fd6352",
+    "container_user": "appuser",
+    "container_uid": 1000,
+    "documents": 1393,
+    "chunks": 1663,
+    "dense_dimension": 384,
+    "sha256_file_count": 38
+  },
+  "release_identity": {
+    "pyproject_version": "0.4.14",
+    "manifest_version": "0.4.14",
+    "version_match": true,
+    "live_provider_class": "InferenceServiceAdapter",
+    "manifest_provider": "InferenceServiceAdapter",
+    "provider_match": true
+  },
+  "sha256_verification": {
+    "total_files": 38,
+    "matched": 38,
+    "mismatched": 0,
+    "missing": 0,
+    "file_details": {
+      "pyproject.toml": {
+        "status": "MATCH"
+      },
+      "README.md": {
+        "status": "MATCH"
+      },
+      "Dockerfile": {
+        "status": "MATCH"
+      },
+      "Dockerfile.inference": {
+        "status": "MATCH"
+      },
+      ".github/workflows/ci.yml": {
+        "status": "MATCH"
+      },
+      "src/novastack/provider.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/quantized_provider.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/inference_client.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/service/api.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/service/identity.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/service/resilience.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/service/schemas.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/generation.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/citation_validator.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/index_manager.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/bm25.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/dense.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/evidence_resolution.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/observability/__init__.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/observability/metrics.py": {
+        "status": "MATCH"
+      },
+      "src/novastack/observability/logging.py": {
+        "status": "MATCH"
+      },
+      "tests/test_phase_5k_release_freeze.py": {
+        "status": "MATCH"
+      },
+      "tests/test_phase_5j_production_promotion.py": {
+        "status": "MATCH"
+      },
+      "tests/test_phase_5i_production_promotion.py": {
+        "status": "MATCH"
+      },
+      "tests/test_phase_5g_abstention_safety.py": {
+        "status": "MATCH"
+      },
+      "tests/test_phase_5b_quantized_provider.py": {
+        "status": "MATCH"
+      },
+      "tests/test_phase_5a_provider_boundary.py": {
+        "status": "MATCH"
+      },
+      "tests/test_security_corpus.py": {
+        "status": "MATCH"
+      },
+      "tests/test_phase_4t_identity_boundary.py": {
+        "status": "MATCH"
+      },
+      "tests/test_phase_4m_auth_fail_closed.py": {
+        "status": "MATCH"
+      },
+      "data/processed/novastack/search_documents.json": {
+        "status": "MATCH"
+      },
+      "data/processed/novastack/search_chunks.json": {
+        "status": "MATCH"
+      },
+      "data/processed/novastack/dense_index_metadata.json": {
+        "status": "MATCH"
+      },
+      "data/evaluation/novastack/evaluation_cases.json": {
+        "status": "MATCH"
+      },
+      "data/evaluation/novastack/phase_4e_evidence_assembly.json": {
+        "status": "MATCH"
+      },
+      "docs/PHASE_5J_PRODUCTION_PROMOTION.md": {
+        "status": "MATCH"
+      },
+      "artifacts/phase_5j_production_promotion_manifest.json": {
+        "status": "MATCH"
+      },
+      "artifacts/phase_5j_production_promotion.json": {
+        "status": "MATCH"
+      }
+    }
+  },
+  "dependency_reconstruction": {
+    "checks": {
+      "python_version": {
+        "expected": "3.13.5",
+        "actual": "3.13.5",
+        "match": true
+      },
+      "platform": {
+        "expected": "Windows-11-10.0.26200-SP0",
+        "actual": "Windows-11-10.0.26200-SP0",
+        "match": true
+      },
+      "fastapi": {
+        "expected": "0.141.1",
+        "actual": "0.141.1",
+        "match": true,
+        "note": null
+      },
+      "pydantic": {
+        "expected": "2.10.3",
+        "actual": "2.10.3",
+        "match": true,
+        "note": null
+      },
+      "pytorch": {
+        "expected": "2.14.0+cpu",
+        "actual": "2.14.0",
+        "match": true,
+        "note": "local version tag (+cpu) stripped for comparison"
+      },
+      "transformers": {
+        "expected": "5.17.0",
+        "actual": "5.17.0",
+        "match": true,
+        "note": null
+      },
+      "sentence_transformers": {
+        "expected": "6.0.1",
+        "actual": "6.0.1",
+        "match": true,
+        "note": null
+      },
+      "numpy": {
+        "expected": "2.1.3",
+        "actual": "2.1.3",
+        "match": true,
+        "note": null
+      },
+      "uvicorn": {
+        "expected": "0.52.4",
+        "actual": "0.52.4",
+        "match": true,
+        "note": null
+      },
+      "httpx": {
+        "expected": "0.28.1",
+        "actual": "0.28.1",
+        "match": true,
+        "note": null
+      },
+      "pytest": {
+        "expected": "8.3.4",
+        "actual": "8.3.4",
+        "match": true,
+        "note": null
+      }
+    },
+    "all_match": true
+  },
+  "container_reconstruction": {
+    "dockerfile_sha256_match": true,
+    "dockerfile_sha256_actual": "55cc4255c4d78eafedd4006cfb9188a6aaa9002c787cbf97d9f598d29b2da546",
+    "dockerfile_sha256_expected": "55cc4255c4d78eafedd4006cfb9188a6aaa9002c787cbf97d9f598d29b2da546",
+    "has_user_directive": true,
+    "has_healthcheck": true,
+    "has_expose_8001": true,
+    "base_image_python_311_slim": true,
+    "healthz_status": 200,
+    "healthz_200": true,
+    "ready_status": 200,
+    "ready_200": true,
+    "container_user": "appuser",
+    "non_root_verified": true,
+    "image_id_actual": "sha256:94042560c4dfb0ea77b8ef036bbe266b5c8c84d83fe842a6b4adf3be04fd6352",
+    "image_id_expected": "sha256:94042560c4dfb0ea77b8ef036bbe266b5c8c84d83fe842a6b4adf3be04fd6352",
+    "image_id_match": true,
+    "ollama_reachable": true
+  },
+  "model_identity": {
+    "model_name": "gemma3:1b",
+    "actual_digest": "8648f39daa8fbf5b18c7b4e6a8fb4990c692751d49917417b8842ca5758e7ffc",
+    "expected_digest": "8648f39daa8fbf5b18c7b4e6a8fb4990c692751d49917417b8842ca5758e7ffc",
+    "digest_match": true,
+    "actual_size_bytes": 815319791,
+    "expected_size_bytes": 815319791,
+    "size_match": true,
+    "quantization": "Q4_K_M",
+    "model_found": true
+  },
+  "corpus_reconstruction": {
+    "documents_actual": 1393,
+    "documents_expected": 1393,
+    "documents_match": true,
+    "chunks_actual": 1663,
+    "chunks_expected": 1663,
+    "chunks_match": true,
+    "eval_cases_actual": 4,
+    "corpus_sha256": {
+      "search_documents.json": {
+        "actual": "ffd7483aec9b4ffce57394880f664cbf79f2ca6733422ba01b235df28e9b9871",
+        "expected": "ffd7483aec9b4ffce57394880f664cbf79f2ca6733422ba01b235df28e9b9871",
+        "match": true
+      },
+      "search_chunks.json": {
+        "actual": "36fbc12e31cecb146f220a8d58873980c84c08beda770f13f77631b3c6c48605",
+        "expected": "36fbc12e31cecb146f220a8d58873980c84c08beda770f13f77631b3c6c48605",
+        "match": true
+      },
+      "evaluation_cases.json": {
+        "actual": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+        "expected": "d6d4caade97047a3606c949a6db34dd2b4561e5596e1bf46fd7dbc8f6d7adc12",
+        "match": true
+      }
+    }
+  },
+  "index_identity": {
+    "generation_id": "GEN-20260923085553-fa942a",
+    "expected_generation_prefix": "GEN-",
+    "bm25_doc_count": -1,
+    "dense_dimension_actual": 384,
+    "dense_dimension_expected": 384,
+    "dense_dimension_match": true,
+    "dense_chunk_count": 1663,
+    "nan_vector_count": 0,
+    "zero_nans": true,
+    "index_valid": true,
+    "validation_errors": [],
+    "validation_warnings": []
+  },
+  "configuration_reconstruction": {
+    "config_checks": {
+      "request_timeout_seconds": {
+        "actual": 30.0,
+        "expected": 30.0,
+        "match": true
+      },
+      "max_concurrent_inferences": {
+        "actual": 1,
+        "expected": 1,
+        "match": true
+      },
+      "queue_timeout_seconds": {
+        "actual": 0.5,
+        "expected": 0.5,
+        "match": true
+      },
+      "circuit_failure_threshold": {
+        "actual": 3,
+        "expected": 3,
+        "match": true
+      },
+      "circuit_cooldown_seconds": {
+        "actual": 10.0,
+        "expected": 10.0,
+        "match": true
+      },
+      "circuit_breaker_enabled": {
+        "actual": true,
+        "expected": true,
+        "match": true
+      },
+      "ATLAS_INFERENCE_PROVIDER": {
+        "actual": "inference_service",
+        "expected": "inference_service",
+        "match": true
+      },
+      "ATLAS_INFERENCE_BACKEND_URL": {
+        "actual": "http://127.0.0.1:8001",
+        "expected": "http://127.0.0.1:8001",
+        "match": true
+      },
+      "ATLAS_AUTH_ISSUER": {
+        "actual": "https://identity.atlas.example/issuer",
+        "expected": "https://identity.atlas.example/issuer",
+        "match": true
+      },
+      "ATLAS_AUTH_AUDIENCE": {
+        "actual": "atlas-query-api",
+        "expected": "atlas-query-api",
+        "match": true
+      }
+    },
+    "all_match": true
+  },
+  "baseline_comparison": {
+    "comparisons": {
+      "package_version": {
+        "status": "MATCH",
+        "value": "0.4.14"
+      },
+      "production_provider": {
+        "status": "MATCH",
+        "value": "InferenceServiceAdapter"
+      },
+      "production_model": {
+        "status": "NOT-COMPARABLE",
+        "manifest": "gemma3:1b"
+      },
+      "container_image": {
+        "status": "MATCH",
+        "value": "atlas-inference:5d"
+      },
+      "container_image_id": {
+        "status": "MATCH",
+        "value": "sha256:94042560c4dfb0ea77b8ef036bbe266b5c8c84d83fe842a6b4adf3be04fd6352"
+      },
+      "documents": {
+        "status": "MATCH",
+        "value": 1393
+      },
+      "chunks": {
+        "status": "MATCH",
+        "value": 1663
+      },
+      "sha256_file_count": {
+        "status": "NOT-COMPARABLE",
+        "manifest": 38
+      }
+    },
+    "match_count": 6,
+    "drift_count": 0,
+    "not_comparable_count": 2
+  }
+}

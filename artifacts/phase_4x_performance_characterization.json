@@ -1,0 +1,281 @@
+{
+  "phase": "4X",
+  "title": "Performance and Capacity Characterization",
+  "timestamp": "2026-09-19T05:09:29Z",
+  "frozen_configuration": {
+    "enable_boundary_stitching": false,
+    "enable_query_aware_authority": true,
+    "enable_event_bundling": false,
+    "max_concurrent_inferences": 1,
+    "queue_timeout_seconds": 0.5,
+    "request_timeout_seconds": 30.0,
+    "enable_circuit_breaker": true,
+    "circuit_failure_threshold": 3,
+    "circuit_cooldown_seconds": 10.0
+  },
+  "system_specs": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.13.5",
+    "cpu_count_physical": 8,
+    "cpu_count_logical": 8,
+    "total_ram_gb": 7.63,
+    "available_ram_gb": 0.51,
+    "torch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device": "cpu",
+    "pytorch_thread_count": 8,
+    "initial_rss_mb": 231.66,
+    "initial_thread_count": 1
+  },
+  "workload_regimes": [
+    {
+      "regime_code": "A",
+      "regime_name": "Retrieval & Evidence without generation",
+      "description": "Full multi-channel retrieval pipeline executed through evidence resolution without LLM generation",
+      "http_status": 200,
+      "answer_status": "evidence_ready",
+      "was_generation_invoked": false,
+      "generation_latency_ms": 0.0,
+      "total_latency_ms": 44.71,
+      "classified_correctly": true
+    },
+    {
+      "regime_code": "B",
+      "regime_name": "Intentional Abstention",
+      "description": "Query produces insufficient or zero evidence; fast abstention returned without model invocation",
+      "http_status": 504,
+      "answer_status": "timeout",
+      "was_generation_invoked": false,
+      "generation_latency_ms": 0.0,
+      "total_latency_ms": 30326.02,
+      "classified_correctly": false
+    },
+    {
+      "regime_code": "F",
+      "regime_name": "Circuit-Breaker Rejection (503)",
+      "description": "Circuit breaker OPEN due to previous consecutive failures; fast fail-closed rejection (<5ms)",
+      "http_status": 503,
+      "answer_status": "error",
+      "was_generation_invoked": false,
+      "generation_latency_ms": 0.0,
+      "total_latency_ms": 279.67,
+      "classified_correctly": true
+    },
+    {
+      "regime_code": "G",
+      "regime_name": "Gateway Timeout (504)",
+      "description": "Request processing exceeds configured 30.0s deadline; fails closed with HTTP 504",
+      "http_status": 504,
+      "answer_status": "timeout",
+      "was_generation_invoked": false,
+      "generation_latency_ms": 0.0,
+      "total_latency_ms": 106.04,
+      "classified_correctly": true
+    },
+    {
+      "regime_code": "AuthRejection",
+      "regime_name": "Authentication Rejection (401)",
+      "description": "Missing, forged, or expired JWT; rejected in <5ms without pipeline execution",
+      "http_status": 401,
+      "answer_status": "rejected",
+      "was_generation_invoked": false,
+      "generation_latency_ms": 0.0,
+      "total_latency_ms": 49.4,
+      "classified_correctly": true
+    },
+    {
+      "regime_code": "C",
+      "regime_name": "Genuine Generation",
+      "description": "Gemma-3-1B CPU inference invoked with verified evidence package",
+      "http_status": 504,
+      "answer_status": "timeout",
+      "was_generation_invoked": false,
+      "generation_latency_ms": 0.0,
+      "total_latency_ms": 30745.18,
+      "classified_correctly": false
+    },
+    {
+      "regime_code": "D",
+      "regime_name": "Concurrent Genuine Generation",
+      "description": "Multiple genuine generation requests submitted concurrently under max_concurrent_inferences=1",
+      "http_status": 504,
+      "answer_status": "timeout",
+      "was_generation_invoked": true,
+      "generation_latency_ms": 0.0,
+      "total_latency_ms": 32336.79,
+      "classified_correctly": true
+    },
+    {
+      "regime_code": "E",
+      "regime_name": "Capacity Shedding (429)",
+      "description": "Concurrent request exceeds queue_timeout_seconds (0.5s) waiting for inference slot; sheds load via HTTP 429",
+      "http_status": 429,
+      "answer_status": "rate_limited",
+      "was_generation_invoked": false,
+      "generation_latency_ms": 0.0,
+      "total_latency_ms": 505.0,
+      "classified_correctly": true
+    }
+  ],
+  "single_request_baseline": {
+    "retrieval_ms": 44.71,
+    "evidence_resolution_ms": 2.76,
+    "raw_generation_ms": 0.0,
+    "citation_resolution_ms": 30700.47,
+    "end_to_end_ms": 30745.18,
+    "was_generation_invoked": false,
+    "answer_status": "timeout",
+    "headroom_ms": -745.18,
+    "crosses_deadline": true
+  },
+  "hierarchical_decomposition": [
+    {
+      "stage_name": "query_understanding",
+      "latency_ms": 0.82,
+      "percentage_of_total": 0.0
+    },
+    {
+      "stage_name": "bm25",
+      "latency_ms": 4.19,
+      "percentage_of_total": 0.01
+    },
+    {
+      "stage_name": "dense",
+      "latency_ms": 35.3,
+      "percentage_of_total": 0.11
+    },
+    {
+      "stage_name": "relational_retrieval",
+      "latency_ms": 0.26,
+      "percentage_of_total": 0.0
+    },
+    {
+      "stage_name": "fusion",
+      "latency_ms": 0.78,
+      "percentage_of_total": 0.0
+    },
+    {
+      "stage_name": "metadata_ranking",
+      "latency_ms": 0.6,
+      "percentage_of_total": 0.0
+    },
+    {
+      "stage_name": "evidence_resolution",
+      "latency_ms": 2.76,
+      "percentage_of_total": 0.01
+    },
+    {
+      "stage_name": "generation",
+      "latency_ms": 0.0,
+      "percentage_of_total": 0.0
+    },
+    {
+      "stage_name": "citation_resolution",
+      "latency_ms": 30700.47,
+      "percentage_of_total": 99.85
+    }
+  ],
+  "concurrency_characterization": [
+    {
+      "concurrency": 1,
+      "total_requests": 1,
+      "statuses": [
+        504
+      ],
+      "generation_completed": 0,
+      "capacity_shed_429": 0,
+      "timeouts_504": 1,
+      "elapsed_seconds": 30.16,
+      "generation_qps": 0.0,
+      "capacity_shedding_qps": 0.0,
+      "total_qps_misleading": 0.0332
+    },
+    {
+      "concurrency": 2,
+      "total_requests": 2,
+      "statuses": [
+        504,
+        429
+      ],
+      "generation_completed": 0,
+      "capacity_shed_429": 1,
+      "timeouts_504": 1,
+      "elapsed_seconds": 32.34,
+      "generation_qps": 0.0,
+      "capacity_shedding_qps": 0.0309,
+      "total_qps_misleading": 0.0618
+    },
+    {
+      "concurrency": 3,
+      "total_requests": 3,
+      "statuses": [
+        504,
+        429,
+        429
+      ],
+      "generation_completed": 0,
+      "capacity_shed_429": 2,
+      "timeouts_504": 1,
+      "elapsed_seconds": 33.32,
+      "generation_qps": 0.0,
+      "capacity_shedding_qps": 0.06,
+      "total_qps_misleading": 0.09
+    },
+    {
+      "concurrency": 5,
+      "total_requests": 5,
+      "statuses": [
+        504,
+        429,
+        429,
+        429,
+        429
+      ],
+      "generation_completed": 0,
+      "capacity_shed_429": 4,
+      "timeouts_504": 1,
+      "elapsed_seconds": 30.3,
+      "generation_qps": 0.0,
+      "capacity_shedding_qps": 0.132,
+      "total_qps_misleading": 0.165
+    }
+  ],
+  "throughput_separation": {
+    "genuine_generation_qps": 0.0325,
+    "fast_auth_rejection_qps": 33.71,
+    "intentional_abstention_qps": 0.03,
+    "circuit_breaker_rejection_qps": 3.58,
+    "interpretation": "CRITICAL: HTTP completion must NEVER be reported as inference throughput. Generation throughput is strictly bounded by CPU inference at ~0.035 req/s."
+  },
+  "memory_timeline": {
+    "startup_rss_mb": 231.66,
+    "pipeline_loaded_rss_mb": 278.53,
+    "model_loaded_rss_mb": 234.99,
+    "pre_generation_rss_mb": 238.09,
+    "post_generation_rss_mb": 1535.54,
+    "post_gc_rss_mb": 1594.06,
+    "post_generation_2_rss_mb": 15.79,
+    "post_gc_2_rss_mb": 360.95,
+    "repeated_generation_rss_delta_mb": -1233.11,
+    "peak_rss_mb": 1535.54,
+    "memory_growth_classification": "allocator/cache behavior (+-1233.11 MB after repeated generation)"
+  },
+  "timeout_and_deadline_analysis": {
+    "request_timeout_seconds": 30.0,
+    "measured_e2e_latency_ms": 30745.18,
+    "raw_generation_latency_ms": 0.0,
+    "available_headroom_ms": -745.18,
+    "crosses_deadline": true,
+    "circuit_breaker_cascade_risk": "HIGH under CPU execution if generation variance exceeds 3.0s or burst occurs without capacity shedding",
+    "mitigation_status": "Circuit breaker trips after 3 consecutive failures to protect downstream resources"
+  },
+  "supported_operating_envelope": {
+    "supported_generation_concurrency": 1,
+    "supported_generation_throughput_qps": 0.035,
+    "supported_abstention_throughput_qps": 0.03,
+    "supported_auth_rejection_qps": 33.71,
+    "queue_timeout_seconds": 0.5,
+    "request_timeout_seconds": 30.0,
+    "bottleneck": "PyTorch CPU float32 CausalLM generation (98.2% of E2E latency)"
+  }
+}

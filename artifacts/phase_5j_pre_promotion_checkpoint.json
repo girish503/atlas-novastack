@@ -1,0 +1,94 @@
+{
+  "phase": "5J",
+  "step": 1,
+  "checkpoint_name": "pre_promotion_checkpoint",
+  "timestamp": "2026-09-23T06:45:00.222133+00:00",
+  "repository_git_enabled": false,
+  "repository_git_status": "Not a Git repository (documented per Step 0 requirement)",
+  "package_version": "0.4.14",
+  "current_production_provider": "LocalHuggingFaceProvider",
+  "current_production_model": "google/gemma-3-1b-it",
+  "current_production_device": "cpu",
+  "current_production_precision": "torch.float32",
+  "provider_configuration": {
+    "model_name": "google/gemma-3-1b-it",
+    "device": "cpu",
+    "lazy_load": true,
+    "torch_dtype": "torch.float32",
+    "local_files_only": true
+  },
+  "inference_configuration": {
+    "candidate_provider": "InferenceServiceAdapter",
+    "candidate_model": "gemma3:1b",
+    "quantization_level": "Q4_K_M",
+    "quantization_format": "GGUF",
+    "model_file_size_mb": 815.0,
+    "service_url": "http://127.0.0.1:8001",
+    "default_timeout_seconds": 30.0
+  },
+  "resilience_configuration": {
+    "request_timeout_seconds": 30.0,
+    "max_concurrent_inferences": 1,
+    "queue_timeout_seconds": 0.5,
+    "circuit_failure_threshold": 3,
+    "circuit_cooldown_seconds": 10.0,
+    "enable_circuit_breaker": true
+  },
+  "environment_variables": {
+    "ATLAS_INFERENCE_SERVICE_URL": {
+      "configured": false
+    },
+    "ATLAS_INFERENCE_BACKEND_URL": {
+      "configured": false
+    },
+    "ATLAS_INFERENCE_MODEL_NAME": {
+      "configured": false
+    },
+    "ATLAS_INFERENCE_SERVICE_HOST": {
+      "configured": false
+    },
+    "ATLAS_INFERENCE_SERVICE_PORT": {
+      "configured": false
+    },
+    "ATLAS_JWT_SECRET": {
+      "configured": false
+    },
+    "ATLAS_JWT_ISSUER": {
+      "configured": false
+    },
+    "ATLAS_JWT_AUDIENCE": {
+      "configured": false
+    }
+  },
+  "active_index_generation_id": "INDEX-GEN-NOVASTACK-BASE",
+  "corpus_metadata": {
+    "cases_total": 120,
+    "documents_total": 1393,
+    "chunks_total": 1663,
+    "embeddings_dimension": 384,
+    "embedding_model": "BAAI/bge-small-en-v1.5"
+  },
+  "file_hashes": {
+    "pyproject.toml": "e8c3a51d14b4bd1337d30784a4601e7399d17626b1ba365b570615b1f9f61143",
+    "src/novastack/provider.py": "8e7d591db74a97ddcc5c49cde90139c8744876e38da9c53e570c5469ff421ef4",
+    "src/novastack/quantized_provider.py": "02b13beb6b3a605ad48b7e464730238385ca50434f575093c219a776f62f334a",
+    "src/novastack/inference_client.py": "890f5a34d4fe120e1388f9c903ebaae622ff8df2a948bf6fa258dd6a7c7546c2",
+    "src/novastack/service/api.py": "ea7b896200022e45aec4b23e07a5b2519b05c0316bd71c71af51f41ca0f9de72",
+    "src/novastack/service/identity.py": "0ce1cf45110e62763dbff928762c1cec9f21d81b0a3abc827d6f950233e29ffb",
+    "src/novastack/service/resilience.py": "c9bc42b492279df678a87ad087afdd98967d08e13b0ef5b339896522c95a9883",
+    "src/novastack/index_manager.py": "009d8bec050264d4ff8d2dc3f9030664a8c175de73fa3dbb2e0615f17da601ce",
+    "Dockerfile": "f8063b88816778cf5f88d1f2e72a540106f3ac30f72dfe141f2489f6ed2b0437",
+    "Dockerfile.inference": "55cc4255c4d78eafedd4006cfb9188a6aaa9002c787cbf97d9f598d29b2da546",
+    "artifacts/phase_5h_backend_b_recertification.json": "7200bfc119044a97bdc8ffb6a061049a94e4fc074b22ddff9790c727c40cbff3",
+    "artifacts/phase_5i_production_promotion_review.json": "985aaa491c4cf1d82730358bab0a8050582d138073e75adef90238e7ddf10de1"
+  },
+  "phase_5h_artifact_hash": "7200bfc119044a97bdc8ffb6a061049a94e4fc074b22ddff9790c727c40cbff3",
+  "phase_5i_artifact_hash": "985aaa491c4cf1d82730358bab0a8050582d138073e75adef90238e7ddf10de1",
+  "verified_preconditions": {
+    "phase_5h_candidate_eligible": true,
+    "phase_5i_promotion_ready": true,
+    "security_violations": 0,
+    "promotion_blockers": [],
+    "production_default_currently_backend_a": true
+  }
+}

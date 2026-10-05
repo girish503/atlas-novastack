@@ -1,0 +1,62 @@
+{
+  "phase": "5J",
+  "status": "PROMOTED",
+  "previous_production_backend": "LocalHuggingFaceProvider",
+  "production_backend": "InferenceServiceAdapter",
+  "production_model": "gemma3:1b Q4_K_M",
+  "rollback_backend": "LocalHuggingFaceProvider",
+  "rollback_model": "google/gemma-3-1b-it FP32",
+  "pre_promotion": {
+    "health": true,
+    "readiness": true,
+    "security": true,
+    "candidate_runtime": true
+  },
+  "post_promotion": {
+    "health": true,
+    "readiness": true,
+    "generation": true,
+    "layer1s": true,
+    "c2": true,
+    "security": true
+  },
+  "security_violations": 0,
+  "rollback_drill": {
+    "passed": true,
+    "backend_a_restored": true,
+    "backend_a_query_verified": true,
+    "backend_b_restored": true,
+    "rollback_duration_seconds": 62.77,
+    "restart_required": false
+  },
+  "regression": {
+    "summary": "128 passed, 1 warning in 71.99s (0:01:11)",
+    "passed": true,
+    "duration_seconds": 82.01
+  },
+  "production_changes": [
+    {
+      "file": "src/novastack/provider.py",
+      "type": "FACTORY_ADDITION",
+      "description": "Added create_default_provider() factory with Backend B (InferenceServiceAdapter) default and Backend A (LocalHuggingFaceProvider) rollback selection via ATLAS_INFERENCE_PROVIDER env var."
+    },
+    {
+      "file": "src/novastack/service/api.py",
+      "type": "FACTORY_WIRING",
+      "description": "Wired create_default_provider() in AtlasServicePipeline.create_default() when generator is None."
+    }
+  ],
+  "observed_runtime": {
+    "atlas_process_rss_mb": 127.77,
+    "ollama_runtime_rss_mb": 22.34,
+    "container_memory_usage": "35.42MiB / 3.64GiB",
+    "mean_latency_ms": 14414.56,
+    "passed": true
+  },
+  "limitations": [
+    "Hardware environment constraints: Host platform operates on Intel Core i3-N305 with 8GB RAM without dedicated GPU acceleration.",
+    "Sequential execution profile: In-tree concurrency is intentionally bounded to 1 (max_concurrent_inferences=1) under CPU-only inference service.",
+    "Asynchronous HTTP disconnect semantics: When client disconnects or hits HTTP deadline at 30s, active Ollama worker completes context evaluation asynchronously."
+  ],
+  "unresolved_risks": []
+}

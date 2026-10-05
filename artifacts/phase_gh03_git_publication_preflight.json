@@ -1,0 +1,19 @@
+{
+  "decision": "BLOCKED",
+  "repository_visibility": "PRIVATE",
+  "git_repository_present": false,
+  "remote_created": false,
+  "push_performed": false,
+  "real_secrets": 0,
+  "test_secrets": 13,
+  "real_personal_data": 0,
+  "local_machine_path_findings": 10,
+  "synthetic_test_data_preserved": true,
+  "release_050_sha_verified": true,
+  "release_0414_sha_verified": true,
+  "unexpected_large_files": 0,
+  "production_dependencies": 0,
+  "source_modified": false,
+  "production_modified": false,
+  "cs01_executed": false
+}

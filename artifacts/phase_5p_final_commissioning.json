@@ -1,0 +1,63 @@
+{
+  "phase": "5P",
+  "release_candidate": "0.4.14-rc1",
+  "package_version": "0.4.14",
+  "release_identity": {
+    "artifact_sha256_verified": true,
+    "source_drift": false,
+    "model_identity_verified": true,
+    "corpus_identity_verified": true,
+    "evaluation_identity_verified": true
+  },
+  "security": {
+    "authentication_fail_closed": true,
+    "tenant_isolation": true,
+    "layer1s": true,
+    "citation_security": true,
+    "security_violations": 0
+  },
+  "deployment": {
+    "release_artifact_reproduced": true,
+    "docker_verified": true,
+    "non_root": true,
+    "health_verified": true,
+    "readiness_verified": true
+  },
+  "operations": {
+    "runbook_verified": true,
+    "undocumented_steps": 0
+  },
+  "recovery": {
+    "incident_certification": true,
+    "rollback_verified": true,
+    "restart_verified": true,
+    "circuit_breaker_verified": true
+  },
+  "regression": {
+    "phase_5o_passed": 225,
+    "phase_5o_failed": 0
+  },
+  "production_state": {
+    "backend": "inference_service",
+    "model": "gemma3:1b",
+    "quantization": "Q4_K_M",
+    "max_concurrency": 1,
+    "request_timeout_seconds": 30.0,
+    "queue_timeout_seconds": 0.5,
+    "circuit_breaker_threshold": 3,
+    "circuit_breaker_cooldown_seconds": 10.0
+  },
+  "known_limitations": [
+    "Single-node deployment on bare metal or VM",
+    "Docker containerized execution on host network/bridge",
+    "CPU-only execution (Intel Core i3-N305 class hardware, 8GB RAM)",
+    "Inference concurrency strictly bound to 1 (max_concurrent_inferences=1)",
+    "Bounded queue timeout (0.5s) with HTTP 429 shedding",
+    "30.0s HTTP request timeout; 25.0s container read timeout",
+    "10.0s production circuit breaker cooldown with 3-failure trip threshold",
+    "Process-local index hot-swap; persisted baseline index leased upon restart",
+    "Grounded generation with strict C2 citation validation",
+    "Fail-closed authentication (HS256) and Layer 1S security gate"
+  ],
+  "commissioning_decision": "COMMISSIONED WITH DOCUMENTED LIMITATIONS"
+}

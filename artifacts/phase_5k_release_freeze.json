@@ -1,0 +1,272 @@
+{
+  "phase": "5K",
+  "status": "RELEASE-CANDIDATE-READY",
+  "release_candidate_version": "0.4.14-rc1",
+  "package_version": "0.4.14",
+  "timestamp": "2026-09-23T08:06:53.652156+00:00",
+  "production_provider": "InferenceServiceAdapter",
+  "production_model": "gemma3:1b Q4_K_M",
+  "rollback_provider": "LocalHuggingFaceProvider",
+  "rollback_model": "google/gemma-3-1b-it FP32",
+  "code_identity": "Repository is not Git-backed; file-hash manifest used as immutable release identity.",
+  "repository_path": "",
+  "dependencies": {
+    "python_version": "3.13.5",
+    "python_full": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "fastapi": "0.141.1",
+    "pydantic": "2.10.3",
+    "pytorch": "2.14.0+cpu",
+    "transformers": "5.17.0",
+    "sentence_transformers": "6.0.1",
+    "numpy": "2.1.3",
+    "uvicorn": "0.52.4",
+    "httpx": "0.28.1",
+    "pytest": "8.3.4"
+  },
+  "container": {
+    "container_name": "atlas-inference-5d",
+    "image_name": "atlas-inference:5d",
+    "image_id": "sha256:94042560c4dfb0ea77b8ef036bbe266b5c8c84d83fe842a6b4adf3be04fd6352",
+    "manifest_digest": "sha256:039b4547cf2aa2149e544d8943e122d6967fc63c26b791e271703c9601430d15",
+    "base_image": "python:3.11-slim",
+    "user": "appuser",
+    "uid": 1000,
+    "gid": 1000,
+    "working_dir": "/app",
+    "exposed_port": 8001,
+    "host_port": 8001,
+    "entrypoint_cmd": [
+      "uvicorn",
+      "novastack.inference_service.app:app",
+      "--host",
+      "0.0.0.0",
+      "--port",
+      "8001"
+    ],
+    "environment_variables": [
+      "INFERENCE_BACKEND_URL=http://host.docker.internal:11434",
+      "INFERENCE_SERVICE_PORT=8001",
+      "INFERENCE_MODEL_NAME=gemma3:1b"
+    ],
+    "healthz_200": true,
+    "ready_200": true,
+    "backend_connected": true,
+    "model_available": true
+  },
+  "configuration": [
+    {
+      "name": "ATLAS_INFERENCE_PROVIDER",
+      "source": "os.environ",
+      "default": "inference_service",
+      "production_value": "inference_service",
+      "rollback_value": "local_huggingface",
+      "is_secret": false,
+      "required": false,
+      "description": "Selects active answer generator provider. Defaults to Backend B (InferenceServiceAdapter); accepts 'local_huggingface' for Backend A rollback."
+    },
+    {
+      "name": "ATLAS_INFERENCE_BACKEND_URL",
+      "source": "os.environ",
+      "default": "http://127.0.0.1:8001",
+      "production_value": "http://127.0.0.1:8001",
+      "is_secret": false,
+      "required": false,
+      "description": "Base URL of containerized inference microservice."
+    },
+    {
+      "name": "ATLAS_AUTH_ISSUER",
+      "source": "os.environ",
+      "default": "https://identity.atlas.example/issuer",
+      "production_value": "https://identity.atlas.example/issuer",
+      "is_secret": false,
+      "required": true,
+      "description": "Trusted JWT issuer for fail-closed caller identity verification."
+    },
+    {
+      "name": "ATLAS_AUTH_AUDIENCE",
+      "source": "os.environ",
+      "default": "atlas-query-api",
+      "production_value": "atlas-query-api",
+      "is_secret": false,
+      "required": true,
+      "description": "Expected JWT audience claim for API requests."
+    },
+    {
+      "name": "ATLAS_AUTH_HS256_SECRET",
+      "source": "os.environ",
+      "default": null,
+      "configured": true,
+      "is_secret": true,
+      "required": true,
+      "description": "Cryptographic shared key (>=32 bytes) for HS256 JWT signature verification."
+    },
+    {
+      "name": "ATLAS_REQUEST_TIMEOUT_SECONDS",
+      "source": "ResilienceConfig",
+      "default": 30.0,
+      "production_value": 30.0,
+      "is_secret": false,
+      "required": false,
+      "description": "Per-request HTTP execution deadline before returning 504 Gateway Timeout."
+    },
+    {
+      "name": "ATLAS_MAX_CONCURRENT_INFERENCES",
+      "source": "ResilienceConfig",
+      "default": 1,
+      "production_value": 1,
+      "is_secret": false,
+      "required": false,
+      "description": "Maximum concurrent inferences allowed on CPU platform. Bound strictly to 1."
+    },
+    {
+      "name": "ATLAS_QUEUE_TIMEOUT_SECONDS",
+      "source": "ResilienceConfig",
+      "default": 0.5,
+      "production_value": 0.5,
+      "is_secret": false,
+      "required": false,
+      "description": "Maximum wait time in inference concurrency queue before fast-failing with 429."
+    },
+    {
+      "name": "ATLAS_CIRCUIT_FAILURE_THRESHOLD",
+      "source": "ResilienceConfig",
+      "default": 3,
+      "production_value": 3,
+      "is_secret": false,
+      "required": false,
+      "description": "Number of consecutive failures required to trip circuit breaker into OPEN state."
+    },
+    {
+      "name": "ATLAS_CIRCUIT_COOLDOWN_SECONDS",
+      "source": "ResilienceConfig",
+      "default": 10.0,
+      "production_value": 10.0,
+      "is_secret": false,
+      "required": false,
+      "description": "Cooldown period before circuit breaker allows probe requests (HALF_OPEN)."
+    }
+  ],
+  "security_pipeline_order": [
+    "1. Request ID resolution and header propagation (X-Request-ID)",
+    "2. Bearer JWT signature and claims verification (JwtIdentityVerifier fail-closed: 401 on invalid/expired/missing, 503 if unconfigured)",
+    "3. CallerContext cross-check against verified claims (tenant_id, user_id mismatch -> 403 Forbidden)",
+    "4. CallerContext overwrite from verified token claims (spoofing prevention)",
+    "5. Pre-retrieval tenant isolation filtering (tenant_id match)",
+    "6. Post-retrieval RBAC/ABAC and classification limit enforcement (EvidenceResolver)",
+    "7. Adversarial content quarantine (EvidenceStatus.ADVERSARIAL -> excluded_evidence)",
+    "8. Deterministic Layer 1S security abstention gate (sub-millisecond abstention on empty expected + forbidden doc IDs, provider_invoked=False)",
+    "9. Quantized model inference with payload containing zero credentials (InferenceServiceAdapter)",
+    "10. Post-generation C2 citation verification and phrase matching (CitationValidator)"
+  ],
+  "corpus_and_index": {
+    "documents": 1393,
+    "chunks": 1663,
+    "evaluation_cases": 4,
+    "index_validation": true,
+    "immutability_verified": true
+  },
+  "resilience": {
+    "request_timeout_seconds": 30.0,
+    "queue_timeout_seconds": 0.5,
+    "max_concurrent_inferences": 1,
+    "circuit_failure_threshold": 3,
+    "circuit_cooldown_seconds": 10.0,
+    "circuit_breaker_enabled": true,
+    "concurrency_policy": "Strict CPU serialization: 1 active slot, 0.5s queue timeout -> 429",
+    "timeout_policy": "HTTP 30s deadline -> 504 Gateway Timeout",
+    "asynchronous_disconnect_semantic": "Known documented operational semantic: when an HTTP client aborts or hits the 30s deadline, the server terminates the HTTP response, but the underlying Ollama context evaluation completes asynchronously in the background."
+  },
+  "observability": {
+    "structured_logging_formatter": "StructuredJsonFormatter",
+    "request_id_header": "X-Request-ID",
+    "prohibited_keys_redacted": [
+      "answer_text",
+      "authorization",
+      "bearer",
+      "credentials",
+      "document_content",
+      "evidence_items",
+      "evidence_package",
+      "key",
+      "password",
+      "prompt",
+      "query",
+      "raw_query",
+      "raw_text",
+      "secret",
+      "token"
+    ],
+    "redaction_replacement": "[REDACTED_CREDENTIAL]",
+    "prometheus_endpoint": "/metrics",
+    "prometheus_metrics": [
+      "atlas_query_duration_seconds",
+      "atlas_queries_total",
+      "atlas_active_inferences",
+      "atlas_circuit_breaker_state",
+      "atlas_errors_total",
+      "atlas_identity_verification_failures_total"
+    ],
+    "forbidden_label_keys": [
+      "answer",
+      "evaluation_id",
+      "prompt",
+      "query",
+      "query_text",
+      "raw_query",
+      "request_id",
+      "session_id",
+      "tenant_id",
+      "user_id"
+    ]
+  },
+  "resource_baseline": {
+    "host_total_ram_gb": 7.63,
+    "host_available_ram_gb": 0.61,
+    "cpu_count": 8,
+    "atlas_process_rss_mb": 504.02,
+    "container_memory_usage": "35.43MiB / 3.64GiB",
+    "ollama_process_rss_mb": 31.57,
+    "reconciliation_note": "Resource measurements reflect the single-node release environment. Ollama process RSS varies depending on whether model weights are actively loaded in memory (~1.1GB during benchmark) or idle (~22-27MB daemon resident set)."
+  },
+  "restart_reproducibility": {
+    "healthz_status": 200,
+    "ready_status": 200,
+    "promoted_provider_active": true,
+    "query_generation_status": "answered",
+    "citations_count": 1,
+    "citation_valid": true,
+    "generation_latency_ms": 3438.08,
+    "restart_duration_seconds": 4.666,
+    "passed": true
+  },
+  "rollback_baseline": {
+    "rollback_provider": "LocalHuggingFaceProvider",
+    "rollback_model": "google/gemma-3-1b-it",
+    "precision": "torch.float32",
+    "device": "cpu",
+    "activation_environment_variable": "ATLAS_INFERENCE_PROVIDER=local_huggingface",
+    "activation_dependency_injection": "AtlasServicePipeline.create_default(generator=LocalHuggingFaceProvider(...))",
+    "backend_a_ready": true,
+    "switchable": true,
+    "passed": true
+  },
+  "regression": {
+    "passed": true,
+    "summary": "........................................................................ [ 52%]\n..................................................................       [100%]\n============================== warnings summary ===============================\n..\\..\\..\\..\\anaconda3\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\<LOCAL_USER>\\anaconda3\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n138 passed, 1 warning in 73.04s (0:01:13) ",
+    "duration_seconds": 76.4
+  },
+  "drift": "NONE",
+  "findings": {
+    "CRITICAL": [],
+    "HIGH": [],
+    "MEDIUM": [],
+    "LOW": [],
+    "DOCUMENTATION": []
+  },
+  "manifests": {
+    "release_manifest": "artifacts/phase_5k_release_manifest.json",
+    "reproducibility_manifest": "artifacts/phase_5k_reproducibility_manifest.json",
+    "sha256_manifest": "artifacts/phase_5k_sha256_manifest.json"
+  }
+}

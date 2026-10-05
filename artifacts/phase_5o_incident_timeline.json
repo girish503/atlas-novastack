@@ -1,0 +1,391 @@
+{
+  "phase": "5O",
+  "release_candidate": "0.4.14-rc1",
+  "events_count": 31,
+  "timeline": [
+    {
+      "timestamp": "2026-09-23T14:25:56.706460+00:00",
+      "phase": "5O",
+      "incident_id": "baseline",
+      "event_type": "BASELINE_START",
+      "description": "Initiating pre-incident baseline checks",
+      "status": "STARTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:27:59.933783+00:00",
+      "phase": "5O",
+      "incident_id": "baseline",
+      "event_type": "BASELINE_COMPLETE",
+      "description": "Pre-incident baseline verified successfully",
+      "status": "PASS",
+      "details": {
+        "archive_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+        "sha_match": true,
+        "pyproject_version": "0.4.14",
+        "version_match": true,
+        "source_drift_files": [],
+        "zero_source_drift": true,
+        "ollama_running": true,
+        "model_digest_match": true,
+        "container_ready": true,
+        "baseline_query_status": "answered",
+        "was_generation_invoked": true,
+        "citation_count": 2,
+        "latency_ms": 5124.97,
+        "active_generation_id": "GEN-20260923142656-08f718"
+      }
+    },
+    {
+      "timestamp": "2026-09-23T14:27:59.971522+00:00",
+      "phase": "5O",
+      "incident_id": "incident_01",
+      "event_type": "INJECTION",
+      "description": "Injecting controlled Ollama service interruption",
+      "status": "INJECTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:28:12.444825+00:00",
+      "phase": "5O",
+      "incident_id": "incident_01",
+      "event_type": "OBSERVE",
+      "description": "Ollama stopped; observing container and ATLAS reaction",
+      "status": "OBSERVED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:28:13.246447+00:00",
+      "phase": "5O",
+      "incident_id": "incident_01",
+      "event_type": "RECOVERY_START",
+      "description": "Following Runbook Section 9/10: restarting host Ollama",
+      "status": "RECOVERING",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:29:46.915748+00:00",
+      "phase": "5O",
+      "incident_id": "incident_01",
+      "event_type": "RECOVERY_COMPLETE",
+      "description": "Ollama restored, query validated",
+      "status": "PASS",
+      "details": {
+        "container_ready_code": 503,
+        "container_backend_connected": true,
+        "failure_answer_status": "abstained",
+        "failure_abstention_reason": "service_unavailable",
+        "failure_citations_count": 0,
+        "safe_abstention": true,
+        "secret_leaked": false,
+        "recovery_duration_seconds": 64.47,
+        "container_recovered": true,
+        "post_recovery_answer_status": "answered",
+        "post_recovery_was_generation_invoked": true,
+        "post_recovery_citations": 2
+      }
+    },
+    {
+      "timestamp": "2026-09-23T14:29:46.952795+00:00",
+      "phase": "5O",
+      "incident_id": "incident_02",
+      "event_type": "INJECTION",
+      "description": "Injecting container failure: docker stop atlas-inference-5d",
+      "status": "INJECTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:29:55.157100+00:00",
+      "phase": "5O",
+      "incident_id": "incident_02",
+      "event_type": "RECOVERY_START",
+      "description": "Following Runbook Section 9/10: docker start atlas-inference-5d",
+      "status": "RECOVERING",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:05.832947+00:00",
+      "phase": "5O",
+      "incident_id": "incident_02",
+      "event_type": "RECOVERY_COMPLETE",
+      "description": "Container recovered and verified",
+      "status": "PASS",
+      "details": {
+        "port_8001_unreachable": true,
+        "failure_answer_status": "abstained",
+        "failure_abstention_reason": "timeout",
+        "safe_abstention": true,
+        "recovery_duration_seconds": 4.3,
+        "container_recovered": true,
+        "post_recovery_answer_status": "answered",
+        "post_recovery_citations": 2
+      }
+    },
+    {
+      "timestamp": "2026-09-23T14:30:05.862479+00:00",
+      "phase": "5O",
+      "incident_id": "incident_03",
+      "event_type": "INJECTION",
+      "description": "Testing concurrency limiter capacity exhaustion with max_concurrent=1",
+      "status": "INJECTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:06.379779+00:00",
+      "phase": "5O",
+      "incident_id": "incident_03",
+      "event_type": "OBSERVE",
+      "description": "Capacity shedding and idle recovery verified",
+      "status": "PASS",
+      "details": {
+        "slot1_acquired": true,
+        "slot2_capacity_shed_429": true,
+        "slot2_waited_approx_queue_timeout": true,
+        "slot3_idle_recovery_acquired": true,
+        "error_contains_no_secrets": true
+      }
+    },
+    {
+      "timestamp": "2026-09-23T14:30:06.379871+00:00",
+      "phase": "5O",
+      "incident_id": "incident_04",
+      "event_type": "INJECTION",
+      "description": "Testing production circuit breaker: threshold=3, cooldown=10.0s",
+      "status": "INJECTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:06.380746+00:00",
+      "phase": "5O",
+      "incident_id": "incident_04",
+      "event_type": "WAIT_COOLDOWN",
+      "description": "Waiting for real 10.0s production cooldown",
+      "status": "WAITING",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:16.481263+00:00",
+      "phase": "5O",
+      "incident_id": "incident_04",
+      "event_type": "STATE_MACHINE_VERIFIED",
+      "description": "Circuit breaker state machine certified",
+      "status": "PASS",
+      "details": {
+        "production_config_threshold": 3,
+        "production_config_cooldown_seconds": 10.0,
+        "initial_state": "CLOSED",
+        "state_after_3_failures": "OPEN",
+        "tripped_to_open": true,
+        "t_open": "2026-09-23T14:30:06.380698+00:00",
+        "open_state_fails_fast": true,
+        "probe_allowed_after_cooldown": true,
+        "state_in_probe": "HALF_OPEN",
+        "t_half_open": "2026-09-23T14:30:16.481093+00:00",
+        "transitioned_to_half_open": true,
+        "state_after_success": "CLOSED",
+        "t_closed": "2026-09-23T14:30:16.481152+00:00",
+        "recovered_to_closed": true
+      }
+    },
+    {
+      "timestamp": "2026-09-23T14:30:16.481337+00:00",
+      "phase": "5O",
+      "incident_id": "incident_05",
+      "event_type": "INJECTION",
+      "description": "Simulating ATLAS process restart and index re-lease",
+      "status": "INJECTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:23.039375+00:00",
+      "phase": "5O",
+      "incident_id": "incident_05",
+      "event_type": "RESTART_VERIFIED",
+      "description": "ATLAS cold restart and index lease verified",
+      "status": "PASS",
+      "details": {
+        "cold_init_latency_ms": 1824.96,
+        "pipeline_ready": true,
+        "components_ready": {
+          "bm25": true,
+          "dense": true,
+          "reranker": true,
+          "generator": true,
+          "index_alignment": true,
+          "generation_active": true
+        },
+        "persisted_generation_id": "baseline",
+        "active_matches_persisted": true,
+        "active_generation_id": "GEN-20260923143017-7a5d88",
+        "hotswap_persistence_contract_verified": true,
+        "query_status": "answered",
+        "citations_count": 2
+      }
+    },
+    {
+      "timestamp": "2026-09-23T14:30:23.070970+00:00",
+      "phase": "5O",
+      "incident_id": "incident_06",
+      "event_type": "INJECTION",
+      "description": "Testing candidate index corruption rejection in isolated sandbox",
+      "status": "INJECTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:23.933776+00:00",
+      "phase": "5O",
+      "incident_id": "incident_06",
+      "event_type": "INDEX_SAFETY_VERIFIED",
+      "description": "Corrupted index rejection certified",
+      "status": "PASS",
+      "details": {
+        "active_index_valid": true,
+        "active_index_errors": [],
+        "active_generation_id": "GEN-20260923143023-0cad0b",
+        "empty_candidate_rejected": true,
+        "empty_candidate_error_count": 2,
+        "dim_mismatch_rejected": true,
+        "active_generation_untouched": true
+      }
+    },
+    {
+      "timestamp": "2026-09-23T14:30:23.967028+00:00",
+      "phase": "5O",
+      "incident_id": "incident_07",
+      "event_type": "ROLLBACK_START",
+      "description": "Executing Runbook Section 11: Rollback to Backend A",
+      "status": "STARTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:23.967244+00:00",
+      "phase": "5O",
+      "incident_id": "incident_07",
+      "event_type": "ROLLBACK_COMPLETE",
+      "description": "Rollback to Backend A completed in 0.02ms",
+      "status": "PASS",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:24.047884+00:00",
+      "phase": "5O",
+      "incident_id": "incident_07",
+      "event_type": "RESTORATION_COMPLETE",
+      "description": "Restoration to Backend B completed in 80.59ms",
+      "status": "PASS",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:30.742077+00:00",
+      "phase": "5O",
+      "incident_id": "incident_08",
+      "event_type": "INJECTION",
+      "description": "Testing auth boundary fail-closed enforcement during incident conditions",
+      "status": "INJECTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:30.749946+00:00",
+      "phase": "5O",
+      "incident_id": "incident_08",
+      "event_type": "AUTH_VERIFIED",
+      "description": "Authentication fail-closed invariants verified",
+      "status": "PASS",
+      "details": {
+        "missing_token_rejected": true,
+        "malformed_token_rejected": true,
+        "expired_token_rejected": true,
+        "bad_signature_rejected": true,
+        "cross_tenant_rejected": true
+      }
+    },
+    {
+      "timestamp": "2026-09-23T14:30:30.749986+00:00",
+      "phase": "5O",
+      "incident_id": "incident_09",
+      "event_type": "INJECTION",
+      "description": "Verifying client disconnect and 30s timeout semantics",
+      "status": "INJECTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:30.954424+00:00",
+      "phase": "5O",
+      "incident_id": "incident_09",
+      "event_type": "TIMEOUT_VERIFIED",
+      "description": "Client disconnect and timeout semantics certified",
+      "status": "PASS",
+      "details": {
+        "request_timeout_seconds": 30.0,
+        "queue_timeout_seconds": 0.5,
+        "subsequent_slot_recovered": true,
+        "timeout_deadline_enforced": true
+      }
+    },
+    {
+      "timestamp": "2026-09-23T14:30:30.954464+00:00",
+      "phase": "5O",
+      "incident_id": "incident_10",
+      "event_type": "DRILL_START",
+      "description": "Executing full multi-component incident and recovery drill strictly from OPERATIONS_RUNBOOK.md",
+      "status": "STARTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:31.737975+00:00",
+      "phase": "5O",
+      "incident_id": "incident_10",
+      "event_type": "INJECTION",
+      "description": "Injecting outage: stopping host Ollama service",
+      "status": "INJECTED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:45.753267+00:00",
+      "phase": "5O",
+      "incident_id": "incident_10",
+      "event_type": "DETECTED",
+      "description": "Incident symptoms detected per Runbook Section 10",
+      "status": "OBSERVED",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:30:45.753303+00:00",
+      "phase": "5O",
+      "incident_id": "incident_10",
+      "event_type": "RUNBOOK_RECOVERY",
+      "description": "Executing Runbook Section 10: starting Ollama serve",
+      "status": "RECOVERING",
+      "details": {}
+    },
+    {
+      "timestamp": "2026-09-23T14:31:51.768226+00:00",
+      "phase": "5O",
+      "incident_id": "incident_10",
+      "event_type": "DRILL_COMPLETE",
+      "description": "Full incident recovery drill certified",
+      "status": "PASS",
+      "details": {
+        "pre_check_ready": true,
+        "incident_detected_503": true,
+        "incident_detected_backend_disconnected": true,
+        "recovery_duration_seconds": 37.42,
+        "container_recovered": true,
+        "post_recovery_answer_status": "answered",
+        "post_recovery_was_generation_invoked": true,
+        "post_recovery_citations_count": 2,
+        "post_recovery_query_latency_ms": 5140.79,
+        "q4_negative_cases_abstained": true
+      }
+    },
+    {
+      "timestamp": "2026-09-23T14:35:30.090738+00:00",
+      "phase": "5O",
+      "incident_id": "regression",
+      "event_type": "REGRESSION_COMPLETE",
+      "description": "Regression suite completed: 225 passed, 0 failed",
+      "status": "PASS",
+      "details": {}
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "phase": "4J",
+    "title": "Evidence Representation & Context Sufficiency Diagnostic",
+    "timestamp": "2026-09-11T17:46:17.928237+00:00",
+    "total_analyzed_cases": 11,
+    "failure_type_distribution": {
+      "A_missing_entity_identifier": 1,
+      "B_chunk_boundary_loss": 1,
+      "C_missing_supporting_document": 0,
+      "D_multi_document_synthesis_loss": 3,
+      "E_content_stub_insufficient_source": 4,
+      "F_incorrect_adversarial_fixture": 2,
+      "G_other": 0
+    },
+    "primary_recommendation": "Phase 4K: Event-Centric Relational Evidence Bundling & Query-Aware Downgrade Policy"
+  },
+  "cases": [
+    {
+      "case_id": "EVAL-0014",
+      "query": "What is service SVC-NS-0005 and which team owns it?",
+      "required_evidence": "Entity definition mapping SVC-NS-0005 to checkout-service and ownership by Platform Engineering (TEAM-NS-0001).",
+      "current_evidence": "DOC-DOC-EVT-NS-0001-01 (Runbook - checkout-service), DOC-PM-EVT-NS-0001-01 (Postmortem), DOC-INC-INC-NS-0001-02 (Status update).",
+      "missing_evidence": "Mapping identifier 'SVC-NS-0005'. Present in DOC-BKG-0009 (Service Guide), absent from runbook.",
+      "first_loss_stage": "SearchDocument / Corpus Annotation (GT points to DOC-DOC-EVT-NS-0001-01 which never contains SVC-NS-0005).",
+      "failure_type": "A. Missing entity identifier / F. Incorrect evaluation fixture",
+      "potential_representation_fix": "Entity-Centric Evidence Bundles: augment service runbook evidence with service catalog metadata header containing canonical Service ID (SVC-NS-0005) and Team ID (TEAM-NS-0001).",
+      "security_risk": "Low (service catalog metadata is non-confidential internal documentation).",
+      "token_impact": "+40 tokens per service document.",
+      "confidence": "High"
+    },
+    {
+      "case_id": "EVAL-0026",
+      "query": "Why did email-service allow unauthorized SMTP relaying during the security audit?",
+      "required_evidence": "Root cause stating that email-service SMTP relay CIDR whitelist included external IP ranges (10.0.0.0/8 instead of 10.0.42.0/24); fixed in PR-NS-0009.",
+      "current_evidence": "DOC-DOC-EVT-NS-0010-01::CHUNK-0002 and DOC-PM-EVT-NS-0010-01::CHUNK-0002. Both start mid-sentence: 'instead of 10.0.42.0/24), potentially allowing unauthorized email sending...'",
+      "missing_evidence": "Causal antecedent clause: 'Email-service SMTP relay configuration allowed unauthenticated relay from an internal network range broader than intended (10.0.0.0/8'. Present in chunk 0.",
+      "first_loss_stage": "Chunk Boundary / Evidence Assembly (Chunk 1 selected over Chunk 0; chunk split severed the causal sentence).",
+      "failure_type": "B. Missing sentence / chunk boundary loss",
+      "potential_representation_fix": "Adjacent-Chunk Boundary Stitching / Section Expansion: when a chunk starts with incomplete syntactic structure (prepositional phrase or dangling parenthesis), prepend the boundary sentence from chunk index - 1.",
+      "security_risk": "Zero (adjacent chunk belongs to the same authenticated document).",
+      "token_impact": "+45 tokens.",
+      "confidence": "Very High"
+    },
+    {
+      "case_id": "EVAL-0038",
+      "query": "What did triage channel notes say about search latency and what did postmortem action items require?",
+      "required_evidence": "1) Triage notes discussing cache miss rate spikes and edge TTL expiration (DOC-CHAT-EVT-NS-0004-01); 2) Postmortem action items (DOC-PM-EVT-NS-0004-02).",
+      "current_evidence": "DOC-PM-EVT-NS-0004-01 (Postmortem narrative), DOC-PM-EVT-NS-0004-02 (Action items), DOC-BKG-0336 (Unrelated policy).",
+      "missing_evidence": "DOC-CHAT-EVT-NS-0004-01 (Triage channel notes). Ranked #1 in RRF and Relational Rerank, but purged in Evidence Assembly.",
+      "first_loss_stage": "Evidence Assembly Policy: DOC-CHAT-EVT-NS-0004-01 was excluded by rule 'downgraded_by_higher_authority_source_DOC-PM-EVT-NS-0004-01'.",
+      "failure_type": "D. Missing second/third document required for synthesis / Policy conflict",
+      "potential_representation_fix": "Query-Aware Authority Downgrade Override: when query explicitly mentions artifact types ('triage notes', 'chat', 'ticket'), bypass automatic suppression for that specific artifact type.",
+      "security_risk": "Low (chat logs are internal non-quarantined artifacts for the same event).",
+      "token_impact": "0 net tokens (replaces unrelated DOC-BKG-0336 with DOC-CHAT-EVT-NS-0004-01).",
+      "confidence": "Very High"
+    },
+    {
+      "case_id": "EVAL-0042",
+      "query": "What did support tickets report about customer billing errors and what PR fixed the analytics calculation?",
+      "required_evidence": "1) Support tickets reporting 2x invoice amounts (DOC-TKT-EVT-NS-0008-CUST-NS-0011); 2) PR fix details (DOC-PR-PR-NS-0007-01).",
+      "current_evidence": "DOC-PM-EVT-NS-0008-01 (Postmortem), DOC-DOC-EVT-NS-0008-02 (Troubleshooting guide), DOC-PR-PR-NS-0007-01 (Pull Request).",
+      "missing_evidence": "DOC-TKT-EVT-NS-0008-CUST-NS-0011. Entered candidate pool at RRF rank 2, but purged in Evidence Assembly.",
+      "first_loss_stage": "Evidence Assembly Policy: DOC-TKT-EVT-NS-0008-CUST-... was excluded by rule 'downgraded_by_higher_authority_source_DOC-INC-INC-NS-0008-02'.",
+      "failure_type": "D. Missing second/third document required for synthesis / Policy conflict",
+      "potential_representation_fix": "Query-Aware Authority Downgrade Override + Multi-Document Bundling: preserve support ticket evidence when query explicitly requests ticket observations.",
+      "security_risk": "Medium (must ensure customer tenant redaction is maintained on tickets; CUST-NS-0011 ticket is authorized for user).",
+      "token_impact": "0 net tokens (replaces troubleshooting guide with support ticket).",
+      "confidence": "Very High"
+    },
+    {
+      "case_id": "EVAL-0044",
+      "query": "Trace the full causal chain of the checkout outage: what symptom appeared, which service was affected, which deployment caused it, and which PR resolved it?",
+      "required_evidence": "Causal graph for EVT-NS-0001: Symptom (504 timeout), Service (checkout-service), Deployment (DEP-NS-0001 misconfiguring max_connections=10), PR (PR-NS-0001 increasing pool to 100).",
+      "current_evidence": "DOC-PM-EVT-NS-0001-01 (Postmortem for EVT-NS-0001), DOC-PM-EVT-NS-0003-01 (Postmortem for EVT-NS-0003), DOC-PR-PR-NS-0003-01 (PR for EVT-NS-0003).",
+      "missing_evidence": "DOC-DEP-DEP-NS-0001-01 and DOC-PR-PR-NS-0001-01. Pushed to rank 22+ in pool by docs from other events (EVT-NS-0003, EVT-NS-0008).",
+      "first_loss_stage": "Top-50 Fusion & Capacity Limit: Unbundled documents compete individually; generic tokens ('deployment', 'PR') caused cross-event dilution.",
+      "failure_type": "D. Missing second/third document required for synthesis / Event-level fragmentation",
+      "potential_representation_fix": "Relationship-Aware Evidence Bundles: package an incident postmortem together with its linked deployment and resolving PR into a cohesive 'Event Entity Bundle'.",
+      "security_risk": "Low (linked documents share identical event scope and authorization boundary).",
+      "token_impact": "+150 tokens per event bundle (replaces 2 noisy unrelated docs with 2 linked docs).",
+      "confidence": "High"
+    },
+    {
+      "case_id": "EVAL-0062",
+      "query": "What is the network configuration standard for payment gateway webhook integrations?",
+      "required_evidence": "Authoritative network configuration standards for webhook ingress.",
+      "current_evidence": "DOC-DOC-EVT-NS-0003-01 (Runbook), DOC-SEC-TENT-0007 (Webhook secret key rotation SOP), DOC-PM-EVT-NS-0003-01 (Postmortem).",
+      "missing_evidence": "Network configuration standards (CIDRs, firewall rules, ports). DOC-SEC-TENT-0007 only details HMAC SHA-256 secret rotation.",
+      "first_loss_stage": "SearchDocument / Corpus Content (The document indexed under 'webhook integrations' contains secret rotation, not network firewall parameters).",
+      "failure_type": "E. Content stub / insufficient source document",
+      "potential_representation_fix": "Corpus Content Enrichment / SearchDocument re-indexing: index network architecture specifications under separate entity tag.",
+      "security_risk": "Low.",
+      "token_impact": "0 tokens.",
+      "confidence": "Medium"
+    },
+    {
+      "case_id": "EVAL-0070",
+      "query": "What was the active on-call escalation SLA for checkout-service during Q1 2025?",
+      "required_evidence": "On-call escalation policy stating 15-minute response time for critical incidents, secondary escalation after 30 minutes.",
+      "current_evidence": "DOC-INC-INC-NS-0001-01 (Incident declaration), DOC-PM-EVT-NS-0001-01 (Postmortem), DOC-INC-INC-NS-0008-01 (Analytics declaration).",
+      "missing_evidence": "On-call escalation policy document (e.g. DOC-SEC-TENT-0011 or operational SLA guide).",
+      "first_loss_stage": "First-Stage Candidate Retrieval: Ground-truth target was set to DOC-PM-EVT-NS-0001-01, which does not contain the numerical SLA thresholds.",
+      "failure_type": "F. Incorrect or adversarial evaluation fixture / C. Missing supporting document",
+      "potential_representation_fix": "Evaluation fixture repair (target doc annotation) or hierarchical retrieval linking service runbooks to corporate SLA schedules.",
+      "security_risk": "Low.",
+      "token_impact": "0 tokens.",
+      "confidence": "High"
+    },
+    {
+      "case_id": "EVAL-0083",
+      "query": "Was notification queue backup caused by external email provider outages or internal worker thread deadlocks?",
+      "required_evidence": "Legitimate cause: message queue partition rebalancing (EVT-NS-0005).",
+      "current_evidence": "DOC-DOC-EVT-NS-0005-01 (Runbook), DOC-PM-EVT-NS-0005-01 (Postmortem), DOC-INC-INC-NS-0005-02 (Status update).",
+      "missing_evidence": "'worker thread deadlock' only exists in adversarial poisoned documents (DOC-ADV-IDC-0001..0010). Ground truth expects this poisoned claim.",
+      "first_loss_stage": "Evaluation Fixture Ground Truth (Fixture defect: GT expects poisoned claim).",
+      "failure_type": "F. Incorrect or adversarial evaluation fixture",
+      "potential_representation_fix": "Evaluation fixture reconciliation: align GT answer with legitimate postmortem evidence (partition rebalancing) rather than poisoned claim.",
+      "security_risk": "High if changed in model (must never validate poisoned evidence); Low if fixture is corrected.",
+      "token_impact": "0 tokens.",
+      "confidence": "Very High"
+    },
+    {
+      "case_id": "EVAL-0089",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "required_evidence": "Specific numerical routing parameters and connection timeouts for Orbital API gateway.",
+      "current_evidence": "DOC-SEC-TENT-0011 (Paging schedule), DOC-SEC-TENT-0002 (API Gateway architecture overview), DOC-SEC-TENT-0005 (Database pooling).",
+      "missing_evidence": "Numerical parameters/timeouts. DOC-SEC-TENT-0002 is a 679-char abstract overview with zero numerical values.",
+      "first_loss_stage": "SearchDocument / Corpus Content (Source document is an architectural summary stub).",
+      "failure_type": "E. Content stub / insufficient source document",
+      "potential_representation_fix": "Document stub enrichment: source document requires detailed configuration appendices.",
+      "security_risk": "Low (tenant-isolated document).",
+      "token_impact": "0 tokens.",
+      "confidence": "High"
+    },
+    {
+      "case_id": "EVAL-0091",
+      "query": "What are the API gateway routing configuration parameters and connection timeouts?",
+      "required_evidence": "Specific numerical routing parameters and connection timeouts for Pinecone API gateway.",
+      "current_evidence": "DOC-SEC-TENT-0012 (Paging schedule), DOC-SEC-TENT-0003 (API Gateway architecture overview), DOC-SEC-TENT-0006 (Database pooling).",
+      "missing_evidence": "Numerical parameters/timeouts. DOC-SEC-TENT-0003 is a 691-char abstract overview with zero numerical values.",
+      "first_loss_stage": "SearchDocument / Corpus Content (Source document is an architectural summary stub).",
+      "failure_type": "E. Content stub / insufficient source document",
+      "potential_representation_fix": "Document stub enrichment: source document requires detailed configuration appendices.",
+      "security_risk": "Low (tenant-isolated document).",
+      "token_impact": "0 tokens.",
+      "confidence": "High"
+    },
+    {
+      "case_id": "EVAL-0098",
+      "query": "What are the confidential design specifications for Project Tiger microservices?",
+      "required_evidence": "Confidential technical architecture and microservice design specifications for Project Tiger.",
+      "current_evidence": "DOC-SEC-USR-0001 (User permission wrapper), DOC-SEC-CLS-0010 (Legal playbook), DOC-SEC-CLS-0009 (Renewal projections).",
+      "missing_evidence": "Technical design specifications. DOC-SEC-USR-0001 only lists permitted users (George Fernandez, Rafael Novak) without specifications.",
+      "first_loss_stage": "SearchDocument / Corpus Content (Document is a permission placeholder wrapper).",
+      "failure_type": "E. Content stub / insufficient source document",
+      "potential_representation_fix": "Corpus content enrichment: attach actual specification body to permission wrapper.",
+      "security_risk": "Medium (requires strict enforcement of user-level ACL USR-NS-0065).",
+      "token_impact": "0 tokens.",
+      "confidence": "High"
+    }
+  ]
+}

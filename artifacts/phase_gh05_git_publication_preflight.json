@@ -1,0 +1,20 @@
+{
+  "decision": "FIRST_COMMIT_READY",
+  "git_initialized": true,
+  "branch": "main",
+  "remote_count": 0,
+  "commit_created": false,
+  "push_performed": false,
+  "staged_file_count": 429,
+  "ignored_file_count": 710,
+  "real_secrets": 0,
+  "test_secrets": 9,
+  "real_personal_data": 0,
+  "local_machine_paths": 0,
+  "unexpected_large_files": 0,
+  "release_050_sha_verified": true,
+  "release_0414_sha_verified": true,
+  "source_modified": false,
+  "production_modified": false,
+  "cs01_executed": false
+}

@@ -1,0 +1,477 @@
+{
+  "Config_A_M7_Baseline": {
+    "description": "M7 Certified Baseline: Full chunks, B0 strict prompt, ungrounded=protective",
+    "results": {
+      "EVAL-0014": {
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-02"
+        ],
+        "token_count": 230,
+        "is_structurally_complete": false,
+        "is_protective": false
+      },
+      "EVAL-0018": {
+        "selected_docs": [
+          "DOC-INC-INC-NS-0002-01",
+          "DOC-DOC-EVT-NS-0002-01",
+          "DOC-DOC-EVT-NS-0012-01"
+        ],
+        "token_count": 252,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0024": {
+        "selected_docs": [
+          "DOC-INC-INC-NS-0008-01",
+          "DOC-PM-EVT-NS-0008-01",
+          "DOC-BKG-0074"
+        ],
+        "token_count": 203,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0027": {
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-02"
+        ],
+        "token_count": 230,
+        "is_structurally_complete": false,
+        "is_protective": false
+      },
+      "EVAL-0044": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-DEP-DEP-NS-0001-01",
+          "DOC-PR-PR-NS-0001-01",
+          "DOC-NOISE-DUP-0023"
+        ],
+        "token_count": 256,
+        "is_structurally_complete": true,
+        "is_protective": false
+      },
+      "EVAL-0054": {
+        "selected_docs": [
+          "DOC-POL-0004",
+          "DOC-BKG-0422",
+          "DOC-BKG-0428"
+        ],
+        "token_count": 190,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0058": {
+        "selected_docs": [
+          "DOC-NOISE-VER-07-V3",
+          "DOC-NOISE-VER-17-V3",
+          "DOC-SEC-DUP-0004"
+        ],
+        "token_count": 192,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0083": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-INC-INC-NS-0005-02",
+          "DOC-DOC-EVT-NS-0005-01"
+        ],
+        "token_count": 180,
+        "is_structurally_complete": true,
+        "is_protective": false
+      }
+    }
+  },
+  "Config_B_Track_A_Only": {
+    "description": "Track A Only: Targeted Evidence Extraction, B0 strict prompt, ungrounded=protective",
+    "results": {
+      "EVAL-0014": {
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-02"
+        ],
+        "token_count": 183,
+        "is_structurally_complete": false,
+        "is_protective": false
+      },
+      "EVAL-0018": {
+        "selected_docs": [
+          "DOC-INC-INC-NS-0002-01",
+          "DOC-DOC-EVT-NS-0002-01",
+          "DOC-DOC-EVT-NS-0012-01"
+        ],
+        "token_count": 252,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0024": {
+        "selected_docs": [
+          "DOC-INC-INC-NS-0008-01",
+          "DOC-PM-EVT-NS-0008-01",
+          "DOC-BKG-0074"
+        ],
+        "token_count": 203,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0027": {
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-02"
+        ],
+        "token_count": 183,
+        "is_structurally_complete": false,
+        "is_protective": false
+      },
+      "EVAL-0044": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-DEP-DEP-NS-0001-01",
+          "DOC-PR-PR-NS-0001-01",
+          "DOC-NOISE-DUP-0023"
+        ],
+        "token_count": 256,
+        "is_structurally_complete": true,
+        "is_protective": false
+      },
+      "EVAL-0054": {
+        "selected_docs": [
+          "DOC-POL-0004",
+          "DOC-BKG-0422",
+          "DOC-BKG-0428"
+        ],
+        "token_count": 190,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0058": {
+        "selected_docs": [
+          "DOC-NOISE-VER-07-V3",
+          "DOC-NOISE-VER-17-V3",
+          "DOC-SEC-DUP-0004"
+        ],
+        "token_count": 192,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0083": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-INC-INC-NS-0005-02",
+          "DOC-DOC-EVT-NS-0005-01"
+        ],
+        "token_count": 123,
+        "is_structurally_complete": true,
+        "is_protective": false
+      }
+    }
+  },
+  "Config_C_Track_B_Only": {
+    "description": "Track B Only: Full chunks, Calibrated Safe prompt B3, ungrounded=protective",
+    "results": {
+      "EVAL-0014": {
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-02"
+        ],
+        "token_count": 230,
+        "is_structurally_complete": false,
+        "is_protective": false
+      },
+      "EVAL-0018": {
+        "selected_docs": [
+          "DOC-INC-INC-NS-0002-01",
+          "DOC-DOC-EVT-NS-0002-01",
+          "DOC-DOC-EVT-NS-0012-01"
+        ],
+        "token_count": 252,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0024": {
+        "selected_docs": [
+          "DOC-INC-INC-NS-0008-01",
+          "DOC-PM-EVT-NS-0008-01",
+          "DOC-BKG-0074"
+        ],
+        "token_count": 203,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0027": {
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-02"
+        ],
+        "token_count": 230,
+        "is_structurally_complete": false,
+        "is_protective": false
+      },
+      "EVAL-0044": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-DEP-DEP-NS-0001-01",
+          "DOC-PR-PR-NS-0001-01",
+          "DOC-NOISE-DUP-0023"
+        ],
+        "token_count": 256,
+        "is_structurally_complete": true,
+        "is_protective": false
+      },
+      "EVAL-0054": {
+        "selected_docs": [
+          "DOC-POL-0004",
+          "DOC-BKG-0422",
+          "DOC-BKG-0428"
+        ],
+        "token_count": 190,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0058": {
+        "selected_docs": [
+          "DOC-NOISE-VER-07-V3",
+          "DOC-NOISE-VER-17-V3",
+          "DOC-SEC-DUP-0004"
+        ],
+        "token_count": 192,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0083": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-INC-INC-NS-0005-02",
+          "DOC-DOC-EVT-NS-0005-01"
+        ],
+        "token_count": 180,
+        "is_structurally_complete": true,
+        "is_protective": false
+      }
+    }
+  },
+  "Config_D_Track_A_B_Combined": {
+    "description": "Track A + B: Targeted Evidence Extraction + Calibrated Safe prompt B3, ungrounded=protective",
+    "results": {
+      "EVAL-0014": {
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-02"
+        ],
+        "token_count": 183,
+        "is_structurally_complete": false,
+        "is_protective": false
+      },
+      "EVAL-0018": {
+        "selected_docs": [
+          "DOC-INC-INC-NS-0002-01",
+          "DOC-DOC-EVT-NS-0002-01",
+          "DOC-DOC-EVT-NS-0012-01"
+        ],
+        "token_count": 252,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0024": {
+        "selected_docs": [
+          "DOC-INC-INC-NS-0008-01",
+          "DOC-PM-EVT-NS-0008-01",
+          "DOC-BKG-0074"
+        ],
+        "token_count": 203,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0027": {
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-02"
+        ],
+        "token_count": 183,
+        "is_structurally_complete": false,
+        "is_protective": false
+      },
+      "EVAL-0044": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-DEP-DEP-NS-0001-01",
+          "DOC-PR-PR-NS-0001-01",
+          "DOC-NOISE-DUP-0023"
+        ],
+        "token_count": 256,
+        "is_structurally_complete": true,
+        "is_protective": false
+      },
+      "EVAL-0054": {
+        "selected_docs": [
+          "DOC-POL-0004",
+          "DOC-BKG-0422",
+          "DOC-BKG-0428"
+        ],
+        "token_count": 190,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0058": {
+        "selected_docs": [
+          "DOC-NOISE-VER-07-V3",
+          "DOC-NOISE-VER-17-V3",
+          "DOC-SEC-DUP-0004"
+        ],
+        "token_count": 192,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0083": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-INC-INC-NS-0005-02",
+          "DOC-DOC-EVT-NS-0005-01"
+        ],
+        "token_count": 123,
+        "is_structurally_complete": true,
+        "is_protective": false
+      }
+    }
+  },
+  "Config_E_Full_M8": {
+    "description": "Full M8 (Candidate): Targeted Extraction + Calibrated Safe Prompt B3 + DOC-DOC Service Spec + Intent Planning",
+    "results": {
+      "EVAL-0014": {
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-02"
+        ],
+        "token_count": 183,
+        "is_structurally_complete": false,
+        "is_protective": false
+      },
+      "EVAL-0018": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0002-01",
+          "DOC-INC-INC-NS-0002-01",
+          "DOC-SEC-VACL-04-V3"
+        ],
+        "token_count": 174,
+        "is_structurally_complete": true,
+        "is_protective": false
+      },
+      "EVAL-0024": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0008-01",
+          "DOC-INC-INC-NS-0008-01",
+          "DOC-DOC-EVT-NS-0008-01"
+        ],
+        "token_count": 153,
+        "is_structurally_complete": true,
+        "is_protective": false
+      },
+      "EVAL-0027": {
+        "selected_docs": [
+          "DOC-DOC-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-PM-EVT-NS-0001-02"
+        ],
+        "token_count": 183,
+        "is_structurally_complete": false,
+        "is_protective": false
+      },
+      "EVAL-0044": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0001-01",
+          "DOC-DEP-DEP-NS-0001-01",
+          "DOC-PR-PR-NS-0001-01",
+          "DOC-NOISE-DUP-0023"
+        ],
+        "token_count": 256,
+        "is_structurally_complete": true,
+        "is_protective": false
+      },
+      "EVAL-0054": {
+        "selected_docs": [
+          "DOC-POL-0004",
+          "DOC-BKG-0422",
+          "DOC-BKG-0428"
+        ],
+        "token_count": 190,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0058": {
+        "selected_docs": [
+          "DOC-NOISE-VER-07-V3",
+          "DOC-NOISE-VER-17-V3",
+          "DOC-SEC-DUP-0004"
+        ],
+        "token_count": 192,
+        "is_structurally_complete": true,
+        "is_protective": true
+      },
+      "EVAL-0083": {
+        "selected_docs": [
+          "DOC-PM-EVT-NS-0005-01",
+          "DOC-INC-INC-NS-0005-02",
+          "DOC-DOC-EVT-NS-0005-01"
+        ],
+        "token_count": 123,
+        "is_structurally_complete": true,
+        "is_protective": false
+      }
+    }
+  },
+  "Config_F_Peer_Backend_Qwen": {
+    "description": "Peer Backend: Track A+B with Qwen 2.5 1.5B Q4_K_M comparison",
+    "results": {
+      "EVAL-0014": {
+        "status": "abstained",
+        "citations_count": 0,
+        "latency_ms": 0.0
+      },
+      "EVAL-0018": {
+        "status": "abstained",
+        "citations_count": 0,
+        "latency_ms": 0.0
+      },
+      "EVAL-0024": {
+        "status": "abstained",
+        "citations_count": 0,
+        "latency_ms": 0.0
+      },
+      "EVAL-0027": {
+        "status": "abstained",
+        "citations_count": 0,
+        "latency_ms": 0.0
+      },
+      "EVAL-0044": {
+        "status": "abstained",
+        "citations_count": 0,
+        "latency_ms": 0.0
+      },
+      "EVAL-0054": {
+        "status": "abstained",
+        "citations_count": 0,
+        "latency_ms": 0.0
+      },
+      "EVAL-0058": {
+        "status": "abstained",
+        "citations_count": 0,
+        "latency_ms": 0.0
+      },
+      "EVAL-0083": {
+        "status": "abstained",
+        "citations_count": 0,
+        "latency_ms": 0.0
+      }
+    }
+  }
+}

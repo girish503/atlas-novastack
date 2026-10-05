@@ -1,0 +1,91 @@
+﻿{
+  "timestamp": "2026-09-19T12:42:00Z",
+  "phase": "5D_ENVIRONMENT_PREPARATION",
+  "preparation_status": "READY",
+  "system": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.13.5",
+    "processor": "Intel64 Family 6 Model 190 Stepping 0, GenuineIntel"
+  },
+  "host_telemetry": {
+    "python_rss_mb": 20.52,
+    "available_sys_ram_mb": 790.02,
+    "total_sys_ram_mb": 7813.07,
+    "ollama_processes": [
+      {
+        "pid": 18572,
+        "name": "ollama.exe",
+        "rss_mb": 80.75
+      },
+      {
+        "pid": 6148,
+        "name": "ollama app.exe",
+        "rss_mb": 77.56
+      }
+    ]
+  },
+  "environment_detection": {
+    "docker": {
+      "condition": "DOCKER_CLI_MISSING",
+      "docker_binary": null,
+      "cli_available": false,
+      "daemon_available": false,
+      "detail": "docker binary not found in PATH or standard install paths"
+    },
+    "ollama": {
+      "condition": "OLLAMA_REACHABLE",
+      "reachable": true,
+      "endpoint_url": "http://127.0.0.1:11434",
+      "target_model": "gemma3:1b",
+      "model_available": true,
+      "detail": "Ollama reachable with gemma3:1b ready"
+    }
+  },
+  "verified": {
+    "repository_harness_readiness": true,
+    "static_contracts": {
+      "total_tests": 819,
+      "passed_tests": 819,
+      "phase_5c_container_static_tests": "20/20 PASS",
+      "phase_5c_service_tests": "15/15 PASS",
+      "phase_5c_contract_tests": "15/15 PASS",
+      "phase_5c_security_tests": "11/11 PASS",
+      "phase_5b_provider_regression": "17/17 PASS",
+      "phase_5a_provider_regression": "23/23 PASS",
+      "fast_unit_regression": "718/718 PASS"
+    },
+    "production_default_preserved": {
+      "pipeline_default": "LocalHuggingFaceProvider",
+      "app_default": "LocalHuggingFaceProvider",
+      "model": "google/gemma-3-1b-it",
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "unchanged": true
+    },
+    "security_invariants": {
+      "zero_auth_leakage": true,
+      "upstream_jwt_enforcement": true,
+      "upstream_tenant_isolation": true,
+      "c2_citation_authority_internal": true
+    }
+  },
+  "blocked": {
+    "docker_runtime_execution": "Docker CLI and daemon unavailable on current Windows host"
+  },
+  "not_verified": {
+    "actual_container_build": "Requires Docker daemon",
+    "actual_container_startup": "Requires Docker daemon",
+    "container_to_ollama_networking": "Requires running container and bridge route",
+    "container_generate": "Requires running container",
+    "containerized_atlas_to_c2": "Requires running container",
+    "runtime_failure_isolation": "Requires container lifecycle control",
+    "runtime_restart_recovery": "Requires container lifecycle control"
+  },
+  "operational_readiness": {
+    "checklist_document": "docs/PHASE_5D_RUNTIME_CHECKLIST.md",
+    "harness_script": "scripts/phase_5d_container_runtime.py",
+    "configurable_backend_url": "Supported via ATLAS_INFERENCE_BACKEND_URL or INFERENCE_BACKEND_URL in InferenceServiceConfig.from_env()",
+    "container_specification": "Dockerfile.inference",
+    "next_action": "Execute 17-step checklist on Docker-capable machine"
+  }
+}

@@ -1,0 +1,4 @@
+# ATLAS — Phase 1C Milestone 1
+# No external dependencies required for this milestone.
+# All code uses Python standard library only.
+pytest>=7.0

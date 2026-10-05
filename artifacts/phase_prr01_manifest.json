@@ -1,0 +1,86 @@
+{
+  "manifest_version": "1.0.0",
+  "review": "PRR-01",
+  "release_candidate": "0.5.0-rc1",
+  "base_version": "0.4.14",
+  "governing_milestone": "ATLAS 0.5 Milestone M8",
+  "status": "PROMOTION_READY",
+  "created_at": "2026-10-04T10:50:00Z",
+  "operating_envelope": {
+    "target_platform": "single_node_containerized",
+    "cpu_architecture": "x86_64",
+    "recommended_ram_gb": 8,
+    "gpu_required": false,
+    "max_concurrent_inferences": 1,
+    "request_timeout_seconds": 30.0,
+    "queue_timeout_seconds": 0.5,
+    "circuit_breaker": {
+      "failure_threshold": 3,
+      "cooldown_seconds": 10
+    }
+  },
+  "runtime_components": {
+    "production_backend": {
+      "provider": "InferenceServiceAdapter",
+      "model": "gemma3:1b",
+      "format": "GGUF",
+      "quantization": "Q4_K_M",
+      "model_size_mb": 815.0,
+      "container_port": 8001,
+      "runtime": "Ollama / llama.cpp containerized",
+      "non_root_user": "appuser:1000"
+    },
+    "rollback_backend": {
+      "provider": "LocalHuggingFaceProvider",
+      "model": "google/gemma-3-1b-it",
+      "precision": "torch.float32",
+      "device": "cpu",
+      "activation_mechanism": "Environment variable ATLAS_INFERENCE_PROVIDER=local_huggingface OR constructor injection"
+    }
+  },
+  "candidate_configuration": {
+    "selector_config": {
+      "enable_adaptive_depth": true,
+      "adaptive_budget_simple": 3,
+      "adaptive_budget_multihop": 4,
+      "require_entity_overlap_for_fill": true,
+      "enable_alias_context_notes": true,
+      "enable_contrastive_disambiguation": true,
+      "enable_targeted_missing_role_recovery": true,
+      "enable_targeted_evidence_extraction": true,
+      "max_extracted_sentences_per_chunk": 3,
+      "treat_ungrounded_as_protective": false
+    },
+    "context_strategy": "m8_targeted_extraction",
+    "prompt_strategy": "config_b_calibrated_safe",
+    "citation_resolver": "c2"
+  },
+  "benchmark_summary": {
+    "total_cases": 120,
+    "positive_success": "74/101 (73.27%)",
+    "negative_safety": "19/19 (100.0%)",
+    "citation_precision": "122/122 (100.0%)",
+    "citation_completeness": "69/74 (93.24%)",
+    "multi_hop_slice": "14/18 (77.78%)",
+    "timeouts": 0,
+    "security_violations": 0,
+    "mean_positive_latency_s": 14.89967
+  },
+  "gate_summary": {
+    "total_gates": 20,
+    "passed_gates": 20,
+    "failed_gates": 0
+  },
+  "security_certification": {
+    "11_stage_pipeline_boundary": "CERTIFIED_SAFE",
+    "tenant_isolation": "ZERO_LEAKAGE",
+    "rbac_clearance": "FAIL_CLOSED",
+    "adversarial_quarantine": "VERIFIED_ACTIVE",
+    "hardcoded_secrets": 0
+  },
+  "immutable_baseline": {
+    "version": "0.4.14-rc1",
+    "archive_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "status": "UNTOUCHED_IMMUTABLE"
+  }
+}

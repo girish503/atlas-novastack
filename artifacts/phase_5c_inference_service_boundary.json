@@ -1,0 +1,135 @@
+{
+  "timestamp": "2026-09-19T09:49:52Z",
+  "phase": "5C",
+  "system": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.13.5",
+    "processor": "Intel64 Family 6 Model 190 Stepping 0, GenuineIntel"
+  },
+  "initial_telemetry": {
+    "python_rss_mb": 83.38,
+    "available_sys_ram_mb": 978.98,
+    "total_sys_ram_mb": 7813.07,
+    "ollama_processes": [
+      {
+        "pid": 2780,
+        "name": "llama-server.exe",
+        "rss_mb": 856.69
+      },
+      {
+        "pid": 20116,
+        "name": "ollama app.exe",
+        "rss_mb": 10.14
+      },
+      {
+        "pid": 20320,
+        "name": "ollama.exe",
+        "rss_mb": 32.67
+      }
+    ]
+  },
+  "stages": {
+    "service_endpoints": {
+      "healthz": {
+        "status_code": 200,
+        "data": {
+          "status": "ok",
+          "service": "atlas-inference-service"
+        },
+        "latency_ms": 12.67
+      },
+      "ready": {
+        "status_code": 200,
+        "data": {
+          "status": "ready",
+          "service": "atlas-inference-service",
+          "backend": "ollama",
+          "backend_connected": true,
+          "model_name": "gemma3:1b",
+          "model_available": true,
+          "detail": null
+        },
+        "latency_ms": 764.81
+      }
+    },
+    "direct_generation": {
+      "status_code": 200,
+      "prompt_tokens": 26,
+      "output_tokens": 21,
+      "service_latency_ms": 1855.15,
+      "engine_telemetry": {
+        "total_duration_ms": 1825.09,
+        "load_duration_ms": 10.0,
+        "prompt_eval_count": 26,
+        "prompt_eval_duration_ms": 234.31,
+        "eval_count": 21,
+        "eval_duration_ms": 1563.26
+      }
+    },
+    "end_to_end_query": {
+      "status_code": 200,
+      "answer_status": "answered",
+      "answer_text": "The root cause of incident INC-NS-0001 was a database connection pool leak in checkout-service under sustained peak load. [EVD-002]",
+      "citations": [
+        {
+          "raw_tag": "[EVD-002]",
+          "evidence_id": "EVD-TEST-5C-E2E-001-002-DOC-INC-001",
+          "document_id": "DOC-INC-001",
+          "chunk_id": "DOC-INC-001::CHUNK-0001",
+          "title": "Incident INC-NS-0001 Postmortem",
+          "status": "VALID",
+          "reasons": [
+            "verified_selected_authorized_evidence"
+          ],
+          "phrase_match_detected": true,
+          "evidence_status": "accepted",
+          "authority_level": "canonical",
+          "is_adversarial": false
+        }
+      ],
+      "latency_ms": 2285.5
+    },
+    "security_verification": {
+      "unauthenticated_status": 401,
+      "tenant_mismatch_status": 403,
+      "intentional_abstention_status": "abstained"
+    },
+    "container_specification": {
+      "base_image_python_311_slim": true,
+      "non_root_user_appuser": true,
+      "healthcheck_configured": true,
+      "port_8001_exposed": true,
+      "entrypoint_uvicorn_service": true,
+      "no_hardcoded_secrets": true
+    },
+    "production_default": {
+      "pipeline_default_provider": "local_huggingface",
+      "app_default_provider": "local_huggingface",
+      "production_default_changed": false,
+      "production_promotion": false
+    }
+  },
+  "final_telemetry": {
+    "python_rss_mb": 134.89,
+    "available_sys_ram_mb": 974.33,
+    "total_sys_ram_mb": 7813.07,
+    "ollama_processes": [
+      {
+        "pid": 2780,
+        "name": "llama-server.exe",
+        "rss_mb": 856.76
+      },
+      {
+        "pid": 20116,
+        "name": "ollama app.exe",
+        "rss_mb": 10.14
+      },
+      {
+        "pid": 20320,
+        "name": "ollama.exe",
+        "rss_mb": 33.02
+      }
+    ]
+  },
+  "status": "PASS"
+}

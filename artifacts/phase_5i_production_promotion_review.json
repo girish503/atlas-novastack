@@ -1,0 +1,231 @@
+{
+  "phase": "5I",
+  "status": "PROMOTION-READY",
+  "candidate_backend": "InferenceServiceAdapter",
+  "candidate_model": "gemma3:1b Q4_K_M",
+  "control_backend": "LocalHuggingFaceProvider",
+  "production_default_changed": false,
+  "production_changes": [],
+  "phase_5h_verified": true,
+  "gates": {
+    "phase_5h_integrity": {
+      "passed": true,
+      "checks": {
+        "json_exists": true,
+        "report_exists": true,
+        "doc_exists": true,
+        "json_parseable": true,
+        "status_is_candidate_eligible": true,
+        "candidate_eligible_flag": true,
+        "production_changes_empty": true,
+        "all_9_gates_present": true,
+        "all_9_gates_pass": true,
+        "version_is_0_4_14": true,
+        "backend_a_is_default": true,
+        "backend_a_model": true
+      },
+      "phase_5h_status": "CANDIDATE ELIGIBLE",
+      "g3_negative_abstention": "19/19 (100.0%)",
+      "g1_completeness": "93.65%",
+      "g2_precision": "100.0%"
+    },
+    "switchability": {
+      "passed": true,
+      "checks": {
+        "backend_a_provider": true,
+        "backend_b_provider": true,
+        "retrieval_identical": true,
+        "evidence_resolver_identical": true,
+        "qu_extractor_identical": true,
+        "switch_back_to_a": true,
+        "no_restart_required_for_dependency_injection": true,
+        "configuration_switch_operational_mode": "Environment/Constructor DI supported; process restart required for global ASGI app reload."
+      }
+    },
+    "runtime": {
+      "passed": true,
+      "checks": {
+        "container_healthz_200": true,
+        "container_ready_200": true,
+        "container_backend_connected": true,
+        "api_healthz_200": true,
+        "api_ready_200": true,
+        "query_status_200": true,
+        "answer_produced": true,
+        "answer_status_valid": true,
+        "citations_structured": true,
+        "request_id_propagated": true
+      },
+      "latency_ms": 68392.75,
+      "answer_status": "answered",
+      "citations_count": 2,
+      "was_generation_invoked": true
+    },
+    "failure_behavior": {
+      "passed": true,
+      "checks": {
+        "unreachable_service_error_raised": true,
+        "malformed_response_handled": true,
+        "timeout_504_translated_to_atlas_timeout": true,
+        "unavailable_503_translated_to_model_unavailable": true,
+        "live_service_currently_ready": true,
+        "no_fabricated_answer_on_error": true,
+        "no_crash_leakage_on_error": true
+      }
+    },
+    "resilience": {
+      "passed": true,
+      "checks": {
+        "request_timeout_30s": true,
+        "max_concurrency_1": true,
+        "queue_timeout_0_5s": true,
+        "circuit_breaker_enabled": true,
+        "circuit_threshold_3": true,
+        "circuit_cooldown_10s": true,
+        "cb_initial_closed": true,
+        "cb_transitions_to_open_on_3_failures": true,
+        "cb_blocks_calls_when_open": true,
+        "cb_transitions_to_half_open_after_cooldown": true,
+        "cb_transitions_to_closed_on_success": true,
+        "limiter_acquire_first_slot": true,
+        "limiter_saturates_second_slot": true,
+        "limiter_releases_slot_cleanly": true,
+        "worker_lifetime_characterization": "HTTP request timeout terminates the client connection cleanly at 30s. Downstream Ollama/llama.cpp inference workers complete the active context evaluation asynchronously unless explicit process cancellation is dispatched. Operational mitigation: Concurrency is strictly bounded to 1 (max_concurrent_inferences=1), preventing runaway thread accumulation under client disconnects."
+      },
+      "resilience_config": {
+        "request_timeout_seconds": 30.0,
+        "max_concurrent_inferences": 1,
+        "queue_timeout_seconds": 0.5,
+        "circuit_failure_threshold": 3,
+        "circuit_cooldown_seconds": 10.0
+      },
+      "operational_characterization": "HTTP request timeout terminates the client connection cleanly at 30s. Downstream Ollama/llama.cpp inference workers complete the active context evaluation asynchronously unless explicit process cancellation is dispatched. Operational mitigation: Concurrency is strictly bounded to 1 (max_concurrent_inferences=1), preventing runaway thread accumulation under client disconnects."
+    },
+    "security": {
+      "passed": true,
+      "checks": {
+        "missing_jwt_rejected_401": true,
+        "invalid_jwt_rejected_401": true,
+        "expired_jwt_rejected_401": true,
+        "tenant_mismatch_rejected_403": true,
+        "user_mismatch_rejected_403": true,
+        "inference_service_receives_no_secrets": true,
+        "payload_contains_only_generation_contract": true
+      },
+      "security_violations": 0
+    },
+    "layer1s": {
+      "passed": true,
+      "checks": {
+        "EVAL-0088_abstained": true,
+        "EVAL-0088_gated_layer1s": true,
+        "EVAL-0088_provider_not_invoked": true,
+        "EVAL-0088_sub_millisecond": true,
+        "EVAL-0090_abstained": true,
+        "EVAL-0090_gated_layer1s": true,
+        "EVAL-0090_provider_not_invoked": true,
+        "EVAL-0090_sub_millisecond": true,
+        "EVAL-0092_abstained": true,
+        "EVAL-0092_gated_layer1s": true,
+        "EVAL-0092_provider_not_invoked": true,
+        "EVAL-0092_sub_millisecond": true,
+        "EVAL-0096_abstained": true,
+        "EVAL-0096_gated_layer1s": true,
+        "EVAL-0096_provider_not_invoked": true,
+        "EVAL-0096_sub_millisecond": true,
+        "all_19_negative_cases_abstained_in_5h": true
+      },
+      "four_failures_recovered": 4
+    },
+    "observability": {
+      "passed": true,
+      "checks": {
+        "forbidden_label_keys_prohibit_unbounded_text": true,
+        "prohibited_logging_keys_configured": true,
+        "passwords_redacted_in_log_messages": true,
+        "raw_secret_not_in_log_message": true,
+        "request_id_in_response_header": true
+      }
+    },
+    "configuration": {
+      "passed": true,
+      "checks": {
+        "dockerfile_inference_exists": true,
+        "port_8001_exposed": true,
+        "non_root_user_used": true,
+        "inference_service_configurable_via_env": true,
+        "no_hardcoded_secrets_in_dockerfile": true
+      },
+      "topology": {
+        "tier_1_core": "ATLAS Core Service (FastAPI, Port 8000, JWT Identity, Retrieval, EvidenceResolver, C2)",
+        "tier_2_inference": "ATLAS Inference Service Container (FastAPI/Uvicorn, Port 8001, Container atlas-inference-5d)",
+        "tier_3_backend": "Ollama Host Daemon (Port 11434, gemma3:1b Q4_K_M)",
+        "network_link": "Docker bridge / host networking on localhost:8001 -> host.docker.internal:11434"
+      }
+    },
+    "resource_characterization": {
+      "passed": true,
+      "measurements": {
+        "container_memory_usage": "34.04MiB / 3.64GiB",
+        "container_cpu_perc": "0.34%",
+        "ollama_process_rss_mb": 29.54,
+        "mean_latency_ms": 14414.56,
+        "p50_latency_ms": 15964.29,
+        "p95_latency_ms": 23738.58,
+        "max_latency_ms": 25361.88,
+        "deterministic_abstention_mean_ms": 0.01,
+        "generation_only_mean_ms": 16165.86,
+        "concurrency_limit": 1
+      }
+    },
+    "rollback": {
+      "passed": true,
+      "checks": {
+        "step1_backend_a_active": true,
+        "step2_switch_to_b_succeeds": true,
+        "step3_rollback_to_a_succeeds": true,
+        "step4_backend_a_ready_after_rollback": true,
+        "step5_backend_a_query_succeeds_after_rollback": true,
+        "step6_production_provider_still_backend_a": true
+      }
+    },
+    "restart_recovery": {
+      "passed": true,
+      "checks": {
+        "initial_inference_service_healthy": true,
+        "initial_inference_service_ready": true,
+        "container_readiness_recovered_after_restart": true,
+        "backend_b_serves_traffic_after_restart": true
+      }
+    },
+    "ci_regression": {
+      "passed": true,
+      "checks": {
+        "exit_code_zero": true,
+        "114_tests_passed": true
+      },
+      "summary": "114 passed, 1 warning in 57.56s",
+      "duration_seconds": 63.45,
+      "command": "C:\\Users\\<LOCAL_USER>\\anaconda3\\python.exe -m pytest tests/test_phase_5g_abstention_safety.py tests/test_phase_5b_quantized_provider.py tests/test_phase_5a_provider_boundary.py tests/test_security_corpus.py tests/test_phase_4t_identity_boundary.py tests/test_phase_4m_auth_fail_closed.py -q"
+    },
+    "production_default": {
+      "passed": true,
+      "checks": {
+        "production_provider_is_local_huggingface": true,
+        "production_model_is_gemma_3_1b_it": true,
+        "version_is_0_4_14": true,
+        "production_changes_list_is_empty": true,
+        "backend_b_remains_candidate_only": true
+      }
+    }
+  },
+  "security_violations": 0,
+  "unresolved_high_risks": [],
+  "promotion_blockers": [],
+  "limitations": [
+    "Hardware environment constraints: Host platform operates on Intel Core i3-N305 with 8GB RAM without dedicated GPU acceleration.",
+    "Sequential execution profile: In-tree concurrency is intentionally bounded to 1 (max_concurrent_inferences=1) under CPU-only inference service.",
+    "Asynchronous HTTP disconnect semantics: When client disconnects or hits HTTP deadline at 30s, active Ollama worker completes context evaluation asynchronously."
+  ],
+  "recommendation": "Backend B (InferenceServiceAdapter / gemma3:1b Q4_K_M) has successfully passed all 14 Phase 5I readiness review gates with zero security violations, zero regressions, and verified rollback capability. Backend B is PROMOTION-READY \u2014 requires explicit CTO promotion approval."
+}

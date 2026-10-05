@@ -1,0 +1,72 @@
+{
+  "manifest_version": "1.0.0",
+  "review": "CR-01",
+  "target_candidate": "0.5.0-rc1",
+  "base_version": "0.4.14",
+  "status": "CANARY_READY",
+  "created_at": "2026-10-04T12:25:00Z",
+  "release_candidate_bundle": {
+    "archive_name": "atlas-novastack-0.5.0-rc1.tar.gz",
+    "sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+    "size_bytes": 3476740,
+    "location": "dist/atlas-novastack-0.5.0-rc1.tar.gz"
+  },
+  "rollback_control_bundle": {
+    "archive_name": "atlas-novastack-0.4.14-rc1.tar.gz",
+    "sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "size_bytes": 3475452,
+    "location": "dist/atlas-novastack-0.4.14-rc1.tar.gz",
+    "status": "IMMUTABLE_FROZEN"
+  },
+  "canary_operating_envelope": {
+    "deployment_mode": "isolated_process_and_port",
+    "canary_listen_port": 8002,
+    "production_port": 8000,
+    "inference_port": 8001,
+    "cpu_cores": 8,
+    "memory_rss_mb": 128,
+    "max_concurrent_inferences": 1,
+    "request_timeout_seconds": 30.0,
+    "queue_timeout_seconds": 0.5,
+    "circuit_breaker_failure_threshold": 3,
+    "circuit_breaker_cooldown_seconds": 10.0
+  },
+  "runtime_components": {
+    "backend_primary": {
+      "provider": "InferenceServiceAdapter",
+      "model": "gemma3:1b",
+      "format": "GGUF",
+      "quantization": "Q4_K_M",
+      "endpoint": "http://127.0.0.1:8001",
+      "non_root_user": "appuser:1000"
+    },
+    "backend_rollback": {
+      "provider": "LocalHuggingFaceProvider",
+      "model": "google/gemma-3-1b-it",
+      "precision": "torch.float32",
+      "device": "cpu"
+    }
+  },
+  "candidate_configuration": {
+    "selector_config": {
+      "enable_adaptive_depth": true,
+      "adaptive_budget_simple": 3,
+      "adaptive_budget_multihop": 4,
+      "require_entity_overlap_for_fill": true,
+      "enable_alias_context_notes": true,
+      "enable_contrastive_disambiguation": true,
+      "enable_targeted_missing_role_recovery": true,
+      "enable_targeted_evidence_extraction": true,
+      "max_extracted_sentences_per_chunk": 3,
+      "treat_ungrounded_as_protective": false
+    },
+    "context_strategy": "m8_targeted_extraction",
+    "prompt_strategy": "config_b_calibrated_safe",
+    "citation_resolver": "c2"
+  },
+  "governance": {
+    "real_user_traffic_allowed": false,
+    "production_state_modified": false,
+    "automatic_deployment_blocked": true
+  }
+}

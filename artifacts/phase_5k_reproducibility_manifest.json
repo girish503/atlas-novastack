@@ -1,0 +1,29 @@
+{
+  "title": "ATLAS Release Candidate 0.4.14-rc1 Reproducibility Instructions",
+  "description": "Step-by-step instructions for an independent engineer to reconstruct and verify the exact release candidate.",
+  "prerequisites": {
+    "os": "Windows 11 / Linux x86_64",
+    "python": ">=3.10, <3.14 (Certified: 3.13.5 host, 3.11.16 container)",
+    "docker": "Docker Desktop / Docker Engine >= 20.10",
+    "ollama": "Ollama >= 0.3.0 (Certified: 0.34.3)",
+    "model": "gemma3:1b (Q4_K_M GGUF, digest: 8648f39daa8fbf5b18c7b4e6a8fb4990c692751d49917417b8842ca5758e7ffc)"
+  },
+  "required_environment_variables": [
+    "ATLAS_AUTH_ISSUER=https://identity.atlas.example/issuer",
+    "ATLAS_AUTH_AUDIENCE=atlas-query-api",
+    "ATLAS_AUTH_HS256_SECRET=<configured_32_byte_secret>",
+    "ATLAS_INFERENCE_PROVIDER=inference_service  # optional, default",
+    "ATLAS_INFERENCE_BACKEND_URL=http://127.0.0.1:8001  # optional, default"
+  ],
+  "startup_sequence": [
+    "1. Start host Ollama daemon: `ollama serve` (default port 11434)",
+    "2. Pull certified model: `ollama pull gemma3:1b`",
+    "3. Build container: `docker build -f Dockerfile.inference -t atlas-inference:5d .`",
+    "4. Run container: `docker run -d --name atlas-inference-5d -p 8001:8001 -e INFERENCE_BACKEND_URL=http://host.docker.internal:11434 atlas-inference:5d`",
+    "5. Verify health: `curl -f http://127.0.0.1:8001/healthz` (200 OK)",
+    "6. Verify readiness: `curl -f http://127.0.0.1:8001/ready` (200 OK)",
+    "7. Start ATLAS API service: `uvicorn novastack.service.api:app --host 0.0.0.0 --port 8000`"
+  ],
+  "regression_verification_command": "pytest tests/test_phase_5k_release_freeze.py tests/test_phase_5j_production_promotion.py tests/test_phase_5i_production_promotion.py tests/test_phase_5g_abstention_safety.py tests/test_phase_5b_quantized_provider.py tests/test_phase_5a_provider_boundary.py tests/test_security_corpus.py tests/test_phase_4t_identity_boundary.py tests/test_phase_4m_auth_fail_closed.py -q",
+  "rollback_command": "export ATLAS_INFERENCE_PROVIDER=local_huggingface"
+}

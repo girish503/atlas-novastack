@@ -1,0 +1,461 @@
+{
+  "phase": "4X-R1",
+  "title": "Controlled Performance Revalidation",
+  "timestamp": "2026-09-19T05:53:53Z",
+  "verdict": "HOLD",
+  "verdict_reason": "Available RAM 0.48 GB < 3.0 GB target. Environmental contamination persists. Measurements recorded but target_not_met=true. CTO should treat figures as lower-bound estimates.",
+  "frozen_configuration": {
+    "enable_boundary_stitching": false,
+    "enable_query_aware_authority": true,
+    "enable_event_bundling": false,
+    "max_concurrent_inferences": 1,
+    "queue_timeout_seconds": 0.5,
+    "request_timeout_seconds": 30.0,
+    "enable_circuit_breaker": true,
+    "circuit_failure_threshold": 3,
+    "circuit_cooldown_seconds": 10.0
+  },
+  "system_specs": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.13.5",
+    "cpu_count_physical": 8,
+    "cpu_count_logical": 8,
+    "total_ram_gb": 7.63,
+    "available_ram_gb": 0.48,
+    "target_available_ram_gb": 3.0,
+    "target_not_met": true,
+    "torch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "device": "cpu",
+    "pytorch_thread_count": 8,
+    "initial_rss_mb": 222.56,
+    "initial_thread_count": 1
+  },
+  "model_dtype": "torch.float32",
+  "model_load_seconds": 29.29,
+  "memory_checkpoints": [
+    {
+      "label": "M0_startup",
+      "timestamp_utc": "2026-09-19T05:49:28Z",
+      "rss_mb": 222.56,
+      "available_ram_gb": 0.47,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 7.16,
+      "thread_count": 1,
+      "pytorch_threads": 8
+    },
+    {
+      "label": "M1_pipeline_loaded",
+      "timestamp_utc": "2026-09-19T05:49:30Z",
+      "rss_mb": 269.11,
+      "available_ram_gb": 0.44,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 7.19,
+      "thread_count": 1,
+      "pytorch_threads": 8
+    },
+    {
+      "label": "M2_model_loaded",
+      "timestamp_utc": "2026-09-19T05:50:46Z",
+      "rss_mb": 511.81,
+      "available_ram_gb": 0.08,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 7.55,
+      "thread_count": 3,
+      "pytorch_threads": 8
+    },
+    {
+      "label": "M3_pre_gen_1",
+      "timestamp_utc": "2026-09-19T05:51:42Z",
+      "rss_mb": 4007.32,
+      "available_ram_gb": 0.45,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 7.18,
+      "thread_count": 4,
+      "pytorch_threads": 8
+    },
+    {
+      "label": "M4_post_gen_1",
+      "timestamp_utc": "2026-09-19T05:51:58Z",
+      "rss_mb": 3851.74,
+      "available_ram_gb": 0.29,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 7.34,
+      "thread_count": 4,
+      "pytorch_threads": 8
+    },
+    {
+      "label": "M5_pre_gen_2",
+      "timestamp_utc": "2026-09-19T05:52:03Z",
+      "rss_mb": 3851.8,
+      "available_ram_gb": 0.36,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 7.27,
+      "thread_count": 4,
+      "pytorch_threads": 8
+    },
+    {
+      "label": "M6_post_gen_2",
+      "timestamp_utc": "2026-09-19T05:52:34Z",
+      "rss_mb": 1076.55,
+      "available_ram_gb": 0.38,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 7.25,
+      "thread_count": 4,
+      "pytorch_threads": 8
+    },
+    {
+      "label": "M7_pre_gen_3",
+      "timestamp_utc": "2026-09-19T05:52:39Z",
+      "rss_mb": 3869.52,
+      "available_ram_gb": 0.59,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 7.04,
+      "thread_count": 4,
+      "pytorch_threads": 8
+    },
+    {
+      "label": "M8_post_gen_3",
+      "timestamp_utc": "2026-09-19T05:52:52Z",
+      "rss_mb": 4063.98,
+      "available_ram_gb": 0.55,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 7.08,
+      "thread_count": 5,
+      "pytorch_threads": 8
+    },
+    {
+      "label": "M9_after_gc",
+      "timestamp_utc": "2026-09-19T05:53:05Z",
+      "rss_mb": 3446.33,
+      "available_ram_gb": 0.41,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 7.22,
+      "thread_count": 5,
+      "pytorch_threads": 8
+    },
+    {
+      "label": "M10_after_idle",
+      "timestamp_utc": "2026-09-19T05:53:15Z",
+      "rss_mb": 3446.52,
+      "available_ram_gb": 0.83,
+      "total_ram_gb": 7.63,
+      "used_ram_gb": 6.8,
+      "thread_count": 5,
+      "pytorch_threads": 8
+    }
+  ],
+  "retrieval_controls": [
+    {
+      "query": "What is the network topology of core-gateway?",
+      "query_understanding_ms": 13.22,
+      "bm25_ms": 5.78,
+      "dense_ms": 46354.96,
+      "relational_retrieval_ms": 0.78,
+      "fusion_ms": 1.04,
+      "metadata_ranking_ms": 0.68,
+      "evidence_resolution_ms": 5.79,
+      "total_retrieval_ms": 46382.27,
+      "was_generation_invoked": false
+    },
+    {
+      "query": "Authentication policy version 1.0 requirements",
+      "query_understanding_ms": 8.86,
+      "bm25_ms": 9.23,
+      "dense_ms": 116.21,
+      "relational_retrieval_ms": 0.23,
+      "fusion_ms": 0.82,
+      "metadata_ranking_ms": 0.76,
+      "evidence_resolution_ms": 2.06,
+      "total_retrieval_ms": 138.17,
+      "was_generation_invoked": false
+    },
+    {
+      "query": "Database failover runbook and replica sync lag",
+      "query_understanding_ms": 0.71,
+      "bm25_ms": 3.99,
+      "dense_ms": 196.11,
+      "relational_retrieval_ms": 0.34,
+      "fusion_ms": 1.45,
+      "metadata_ranking_ms": 0.87,
+      "evidence_resolution_ms": 3.75,
+      "total_retrieval_ms": 207.22,
+      "was_generation_invoked": false
+    }
+  ],
+  "retrieval_avg_ms": 15575.89,
+  "abstention_controls": [
+    {
+      "eval_id": "ABS-1",
+      "query": "xk9_nonexistent_unique_token_with_no_match_in_corpus_zq7",
+      "http_status": 504,
+      "answer_status": "timeout",
+      "was_generation_invoked": false,
+      "total_latency_ms": 30914.1,
+      "available_ram_gb": 0.68,
+      "rss_mb": 3881.85
+    },
+    {
+      "eval_id": "ABS-2",
+      "query": "zzz_fabricated_query_guaranteed_zero_retrieval_results_abc",
+      "http_status": 200,
+      "answer_status": "abstained",
+      "was_generation_invoked": true,
+      "total_latency_ms": 24829.25,
+      "available_ram_gb": 0.45,
+      "rss_mb": 4007.3
+    }
+  ],
+  "generation_measurements": [
+    {
+      "eval_id": "GEN-R1-001",
+      "request_id": "R1-60cc434e",
+      "query": "What is the primary network topology and failover configuration of core-gateway?",
+      "http_status": 200,
+      "answer_status": "abstained",
+      "executor_submitted": true,
+      "worker_entered": true,
+      "model_call_started": true,
+      "model_call_returned": true,
+      "generation_completed_in_worker": true,
+      "generation_timed_out_in_worker": false,
+      "generation_timed_out_at_service": false,
+      "total_latency_ms": 16501.44,
+      "deadline_ms": 30000.0,
+      "deadline_headroom_ms": 13498.56,
+      "model_call_duration_ms": 15918.08,
+      "worker_total_duration_ms": 16086.7,
+      "generation_latency_ms_service": 15922.09,
+      "worker_inference_duration_ms": 15922.09,
+      "memory_before_mb": 4007.36,
+      "memory_after_mb": 3851.62,
+      "memory_delta_mb": -155.74,
+      "available_ram_before_gb": 0.45,
+      "available_ram_after_gb": 0.28,
+      "threads_before": 4,
+      "threads_after": 4,
+      "index_generation_id": "GEN-20260919054929-a9cfb4",
+      "worker_diagnostics": {
+        "layer": "model_inference",
+        "answer_status": "abstained",
+        "generation_latency_ms": 16054.0390999995,
+        "inference_duration_ms": 15922.09
+      },
+      "timeline": {
+        "T0_request_offset_msent_offset_ms": 0.0,
+        "T4_executor_offset_msubmitted_offset_ms": 0.02,
+        "T5_worker_entered_offset_ms": 225.27,
+        "T5_worker_entered_utc": "2026-09-19T05:51:42Z",
+        "T6_model_call_offset_mstarted_offset_ms": 357.42,
+        "T6_model_call_started_utc": "2026-09-19T05:51:42Z",
+        "T7_model_call_returned_offset_ms": 16275.5,
+        "T7_model_call_returned_utc": "2026-09-19T05:51:58Z",
+        "T_worker_returned_offset_ms": 16311.97,
+        "worker_result_layer": "model_inference",
+        "worker_result_answer_status": "abstained",
+        "worker_generation_latency_ms": 16054.0390999995,
+        "worker_inference_duration_ms": 15922.09,
+        "generation_completed_in_worker": true,
+        "T10_response_received_offset_ms": 16501.44
+      },
+      "timeline_annotations": {
+        "T0_request_sent": "OBSERVED",
+        "T4_executor_submitted": "OBSERVED",
+        "T5_worker_entered": "OBSERVED",
+        "T6_model_call_started": "OBSERVED",
+        "T7_model_call_returned": "OBSERVED",
+        "T_worker_returned": "OBSERVED",
+        "T10_response_received": "OBSERVED"
+      }
+    },
+    {
+      "eval_id": "GEN-R1-002",
+      "request_id": "R1-8848de40",
+      "query": "Authentication policy version 1.0 requirements and enforcement mechanism",
+      "http_status": 504,
+      "answer_status": "timeout",
+      "executor_submitted": true,
+      "worker_entered": true,
+      "model_call_started": true,
+      "model_call_returned": false,
+      "generation_completed_in_worker": false,
+      "generation_timed_out_in_worker": false,
+      "generation_timed_out_at_service": true,
+      "total_latency_ms": 30442.96,
+      "deadline_ms": 30000.0,
+      "deadline_headroom_ms": -442.96,
+      "model_call_duration_ms": null,
+      "worker_total_duration_ms": null,
+      "generation_latency_ms_service": 0.0,
+      "worker_inference_duration_ms": null,
+      "memory_before_mb": 3852.0,
+      "memory_after_mb": 1073.8,
+      "memory_delta_mb": -2778.2,
+      "available_ram_before_gb": 0.36,
+      "available_ram_after_gb": 0.38,
+      "threads_before": 4,
+      "threads_after": 4,
+      "index_generation_id": null,
+      "worker_diagnostics": {
+        "layer": "NOT_OBSERVED",
+        "answer_status": "NOT_OBSERVED",
+        "generation_latency_ms": "NOT_OBSERVED",
+        "inference_duration_ms": "NOT_OBSERVED"
+      },
+      "timeline": {
+        "T0_request_offset_msent_offset_ms": 0.0,
+        "T4_executor_offset_msubmitted_offset_ms": 0.0,
+        "T5_worker_entered_offset_ms": 847.48,
+        "T5_worker_entered_utc": "2026-09-19T05:52:04Z",
+        "T6_model_call_offset_mstarted_offset_ms": 1176.98,
+        "T6_model_call_started_utc": "2026-09-19T05:52:05Z",
+        "T10_response_received_offset_ms": 30442.96
+      },
+      "timeline_annotations": {
+        "T0_request_sent": "OBSERVED",
+        "T4_executor_submitted": "OBSERVED",
+        "T5_worker_entered": "OBSERVED",
+        "T6_model_call_started": "OBSERVED",
+        "T7_model_call_returned": "NOT_OBSERVED",
+        "T_worker_returned": "NOT_OBSERVED",
+        "T10_response_received": "OBSERVED"
+      }
+    },
+    {
+      "eval_id": "GEN-R1-003",
+      "request_id": "R1-c608ee35",
+      "query": "Database replica sync lag thresholds and failover runbook procedure",
+      "http_status": 200,
+      "answer_status": "abstained",
+      "executor_submitted": true,
+      "worker_entered": true,
+      "model_call_started": true,
+      "model_call_returned": true,
+      "generation_completed_in_worker": true,
+      "generation_timed_out_in_worker": false,
+      "generation_timed_out_at_service": false,
+      "total_latency_ms": 13384.6,
+      "deadline_ms": 30000.0,
+      "deadline_headroom_ms": 16615.4,
+      "model_call_duration_ms": 12090.83,
+      "worker_total_duration_ms": 12295.78,
+      "generation_latency_ms_service": 12090.96,
+      "worker_inference_duration_ms": 12090.96,
+      "memory_before_mb": 3871.06,
+      "memory_after_mb": 4063.97,
+      "memory_delta_mb": 192.91,
+      "available_ram_before_gb": 0.58,
+      "available_ram_after_gb": 0.55,
+      "threads_before": 4,
+      "threads_after": 5,
+      "index_generation_id": "GEN-20260919054929-a9cfb4",
+      "worker_diagnostics": {
+        "layer": "model_inference",
+        "answer_status": "abstained",
+        "generation_latency_ms": 12295.218400000522,
+        "inference_duration_ms": 12090.96
+      },
+      "timeline": {
+        "T0_request_offset_msent_offset_ms": 0.0,
+        "T4_executor_offset_msubmitted_offset_ms": 0.0,
+        "T5_worker_entered_offset_ms": 1067.94,
+        "T5_worker_entered_utc": "2026-09-19T05:52:40Z",
+        "T6_model_call_offset_mstarted_offset_ms": 1272.43,
+        "T6_model_call_started_utc": "2026-09-19T05:52:40Z",
+        "T7_model_call_returned_offset_ms": 13363.26,
+        "T7_model_call_returned_utc": "2026-09-19T05:52:52Z",
+        "T_worker_returned_offset_ms": 13363.72,
+        "worker_result_layer": "model_inference",
+        "worker_result_answer_status": "abstained",
+        "worker_generation_latency_ms": 12295.218400000522,
+        "worker_inference_duration_ms": 12090.96,
+        "generation_completed_in_worker": true,
+        "T10_response_received_offset_ms": 13384.6
+      },
+      "timeline_annotations": {
+        "T0_request_sent": "OBSERVED",
+        "T4_executor_submitted": "OBSERVED",
+        "T5_worker_entered": "OBSERVED",
+        "T6_model_call_started": "OBSERVED",
+        "T7_model_call_returned": "OBSERVED",
+        "T_worker_returned": "OBSERVED",
+        "T10_response_received": "OBSERVED"
+      }
+    }
+  ],
+  "security_check": {
+    "missing_auth_http_status": 401,
+    "missing_auth_latency_ms": 199.59,
+    "missing_auth_fails_closed": true,
+    "authorized_http_status": 504,
+    "authorized_latency_ms": 37596.54
+  },
+  "comparison_4x_vs_4x_r1": {
+    "available_ram_gb": {
+      "4X": 0.51,
+      "4X_R1": 0.48,
+      "target_not_met_r1": true
+    },
+    "retrieval_latency_ms": {
+      "4X": 44.71,
+      "4X_R1": 15575.89
+    },
+    "abstention_latency_ms": {
+      "4X": 30326.02,
+      "4X_R1_abs1": 30914.1,
+      "4X_R1_abs2": 24829.25
+    },
+    "generation_1_total_ms": {
+      "4X": 30745.18,
+      "4X_R1": 16501.44
+    },
+    "generation_2_total_ms": {
+      "4X": "NOT_MEASURED",
+      "4X_R1": 30442.96
+    },
+    "generation_3_total_ms": {
+      "4X": "NOT_MEASURED",
+      "4X_R1": 13384.6
+    },
+    "model_call_started_gen1": {
+      "4X": "NOT_OBSERVED (instrumentation ambiguity)",
+      "4X_R1": true
+    },
+    "model_call_started_gen2": {
+      "4X": "NOT_OBSERVED (instrumentation ambiguity)",
+      "4X_R1": true
+    },
+    "model_call_started_gen3": {
+      "4X": "NOT_OBSERVED (instrumentation ambiguity)",
+      "4X_R1": true
+    },
+    "generation_completed_gen1": {
+      "4X": false,
+      "4X_R1": true
+    },
+    "generation_completed_gen2": {
+      "4X": false,
+      "4X_R1": false
+    },
+    "generation_completed_gen3": {
+      "4X": false,
+      "4X_R1": true
+    },
+    "peak_rss_mb": {
+      "4X": 1535.54,
+      "4X_R1": 4063.97
+    },
+    "memory_after_gc_mb": {
+      "4X": 1594.06,
+      "4X_R1": 3446.33
+    },
+    "http_status_gen1": {
+      "4X": 504,
+      "4X_R1": 200
+    },
+    "deadline_headroom_ms_gen1": {
+      "4X": -745.18,
+      "4X_R1": 13498.56
+    }
+  }
+}

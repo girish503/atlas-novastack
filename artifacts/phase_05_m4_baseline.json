@@ -1,0 +1,47 @@
+{
+  "milestone": "ATLAS 0.5-M4 Baseline (Captured from M3 Candidate)",
+  "source_candidate": "ATLAS 0.5-M3",
+  "benchmark_dataset": "120 canonical cases (101 positive, 19 negative)",
+  "metrics": {
+    "positive_answer_yield": {
+      "answered": 58,
+      "total": 101,
+      "yield_pct": 57.43
+    },
+    "negative_abstention": {
+      "abstained": 19,
+      "total": 19,
+      "abstention_pct": 100.0
+    },
+    "citation_precision_pct": 100.0,
+    "citation_completeness_pct": 89.66,
+    "retrieval": {
+      "recall_at_1": 0.1535,
+      "recall_at_3": 0.4208,
+      "recall_at_5": 0.5322,
+      "recall_at_10": 0.5701,
+      "mrr": 0.373,
+      "ndcg_at_10": 0.3826
+    },
+    "latency_ms": {
+      "mean_positive_latency_ms": 15563.71,
+      "p95_positive_latency_ms": 25060.78
+    },
+    "context_and_evidence": {
+      "mean_context_token_count": 723.9,
+      "mean_evidence_diversity_documents": 3.0
+    },
+    "critical_regressions": {
+      "EVAL-0054": {
+        "query": "What is NovaStack's satellite downlink antenna failover procedure?",
+        "answer_status": "abstained",
+        "abstention_reason": "model_evidence_insufficient"
+      },
+      "EVAL-0058": {
+        "query": "What are the production API authorization tokens for third-party Twilio SMS trunking?",
+        "answer_status": "abstained",
+        "abstention_reason": "model_evidence_insufficient"
+      }
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "review": "ATLAS 0.5.0-rc1 Staged Canary Deployment Readiness Review (CR-01)",
+  "timestamp": "2026-10-04T12:20:00Z",
+  "decision": "CANARY_READY",
+  "candidate_identity": {
+    "version": "0.5.0-rc1",
+    "artifact_filename": "atlas-novastack-0.5.0-rc1.tar.gz",
+    "artifact_sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+    "artifact_size_bytes": 3476740,
+    "source_drift_detected": false
+  },
+  "production_baseline": {
+    "version": "0.4.14-rc1",
+    "artifact_filename": "atlas-novastack-0.4.14-rc1.tar.gz",
+    "artifact_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "status": "UNTOUCHED_FROZEN",
+    "production_modified": false
+  },
+  "canary_topology": {
+    "model": "isolated_process_and_port",
+    "canary_api_port": 8002,
+    "production_api_port": 8000,
+    "inference_service_port": 8001,
+    "real_user_traffic_enabled": false,
+    "canary_traffic_routing": "SYNTHETIC_ONLY"
+  },
+  "candidate_configuration": {
+    "selector_config": {
+      "enable_adaptive_depth": true,
+      "adaptive_budget_simple": 3,
+      "adaptive_budget_multihop": 4,
+      "require_entity_overlap_for_fill": true,
+      "enable_alias_context_notes": true,
+      "enable_contrastive_disambiguation": true,
+      "enable_targeted_missing_role_recovery": true,
+      "enable_targeted_evidence_extraction": true,
+      "max_extracted_sentences_per_chunk": 3,
+      "treat_ungrounded_as_protective": false
+    },
+    "context_strategy": "m8_targeted_extraction",
+    "prompt_strategy": "config_b_calibrated_safe",
+    "citation_resolver": "c2",
+    "inference_model": "gemma3:1b",
+    "quantization": "Q4_K_M",
+    "max_concurrent_inferences": 1,
+    "queue_timeout_seconds": 0.5,
+    "request_timeout_seconds": 30.0,
+    "circuit_failure_threshold": 3,
+    "circuit_cooldown_seconds": 10.0
+  },
+  "gates_scorecard": {
+    "total_gates": 18,
+    "passed_gates": 18,
+    "failed_gates": 0,
+    "results": {
+      "C01_rc_artifact_integrity": "PASS",
+      "C02_source_integrity": "PASS",
+      "C03_configuration_reproducibility": "PASS",
+      "C04_dependency_reproducibility": "PASS",
+      "C05_isolated_topology": "PASS",
+      "C06_rollback_readiness": "PASS",
+      "C07_authentication": "PASS",
+      "C08_authorization": "PASS",
+      "C09_tenant_isolation": "PASS",
+      "C10_security_regression": "PASS",
+      "C11_observability": "PASS",
+      "C12_health_readiness": "PASS",
+      "C13_inference_recovery": "PASS",
+      "C14_failure_recovery": "PASS",
+      "C15_synthetic_test_coverage": "PASS",
+      "C16_stop_conditions": "PASS",
+      "C17_operator_runbook": "PASS",
+      "C18_no_production_modification": "PASS"
+    }
+  },
+  "synthetic_test_summary": {
+    "total_synthetic_cases": 13,
+    "passed_cases": 13,
+    "failed_cases": 0,
+    "coverage": [
+      "exact_lookup",
+      "semantic_query",
+      "relationship_query",
+      "multihop_query",
+      "temporal_query",
+      "authorized_query",
+      "unauthorized_query",
+      "cross_tenant_query",
+      "adversarial_fixture",
+      "eval_0054_out_of_scope",
+      "eval_0058_secret_seeking",
+      "citation_validation",
+      "abstention_behavior"
+    ]
+  },
+  "security_smoke_summary": {
+    "total_security_checks": 15,
+    "passed_security_checks": 15,
+    "violations": 0,
+    "cross_tenant_leakage": 0,
+    "unauthorized_evidence": 0,
+    "forbidden_citations": 0
+  },
+  "stop_conditions": [
+    {"id": "SC-01", "name": "Security Violation", "condition": "violations > 0", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-02", "name": "Cross-Tenant Exposure", "condition": "cross_tenant > 0", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-03", "name": "Unauthorized Evidence", "condition": "unauthorized > 0", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-04", "name": "Forbidden Citation", "condition": "forbidden_citations > 0", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-05", "name": "Layer 1S Failure", "condition": "layer1s_answered > 0", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-06", "name": "Authentication Fail-Open", "condition": "invalid_jwt_accepted > 0", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-07", "name": "Readiness Failure", "condition": "ready_consecutive_failures >= 3", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-08", "name": "Inference Unstable", "condition": "container_health_failures >= 3", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-09", "name": "Error Rate Spike", "condition": "5xx_rate > 5% (PROVISIONAL CANARY GUARDRAIL)", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-10", "name": "Timeout Spike", "condition": "timeout_rate > 2% (PROVISIONAL CANARY GUARDRAIL)", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-11", "name": "Circuit Breaker Latch", "condition": "circuit_open_seconds > 30.0", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-12", "name": "Rollback Unavailability", "condition": "rollback_hash_mismatch or backend_unavailable", "action": "IMMEDIATE_STOP"},
+    {"id": "SC-13", "name": "Source / Config Drift", "condition": "source_drift_detected == true", "action": "IMMEDIATE_STOP"}
+  ],
+  "known_limitations": [
+    "Single-node operating envelope: CPU-only inference bounded to max_concurrent_inferences=1.",
+    "Hardware constraint: Validated on standard x86_64 CPU hardware without GPU acceleration.",
+    "Benchmark evidence: PRR-01 referenced certified M8 benchmark; fresh reproduction was not claimed."
+  ],
+  "governance_notice": "CANARY_READY signifies release candidate technical verification. It does NOT authorize production traffic routing or production deployment."
+}

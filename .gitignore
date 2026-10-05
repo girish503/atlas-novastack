@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Generated data (tracked separately or regenerated)
+data/raw/
+data/processed/
+data/evaluation/
+
+# Local scratch and diagnostic logs (GH-02 remediation)
+scratch/
+*.stdout.log
+*.log
+dist/clean_deployment_test/
+dist/runbook_extract_test/

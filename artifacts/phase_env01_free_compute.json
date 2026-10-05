@@ -1,0 +1,111 @@
+{
+  "phase": "ENV-01",
+  "review": "Free Canary Execution Environment Discovery",
+  "timestamp": "2026-10-05T08:00:00Z",
+  "decision": "FREE_ENVIRONMENT_FOUND",
+  "release_candidate": {
+    "version": "0.5.0-rc1",
+    "artifact_filename": "atlas-novastack-0.5.0-rc1.tar.gz",
+    "sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+    "status": "VERIFIED_IMMUTABLE"
+  },
+  "atlas_execution_envelope": {
+    "minimum_free_ram_gb": 2.5,
+    "model_storage_mb": 815.0,
+    "observed_live_model_ram_gb": 0.83,
+    "atlas_service_ram_mb": 500.0,
+    "container_runtime_overhead_mb": 400.0,
+    "safety_buffer_mb": 1000.0
+  },
+  "best_candidate": {
+    "name": "GitHub Actions Hosted Linux Runner (ubuntu-latest)",
+    "provider": "GitHub / Microsoft",
+    "cost": "$0.00 (Zero Cost)",
+    "eligibility": "Included with standard GitHub account (2,000 free minutes/month for private repos; unlimited for public repos)",
+    "payment_verification_required": false,
+    "ram_total_gb": 7.0,
+    "ram_free_at_start_gb": 6.3,
+    "cpu_cores": 2,
+    "os": "Ubuntu 22.04 / 24.04 LTS (Linux x86_64)",
+    "docker_available": true,
+    "ollama_supported": true,
+    "gemma3_1b_supported": true,
+    "headroom_gb": 3.8,
+    "why_best": "Matches existing ATLAS CI architecture, provides native Docker daemon with root privileges, pre-installed Python 3.11, ~6.3 GB free unallocated memory (exceeds 2.5 GB envelope by 2.5x), automated artifact capture, and requires zero payment credentials."
+  },
+  "top_candidates": [
+    {
+      "rank": 1,
+      "name": "GitHub Actions Hosted Runner (ubuntu-latest)",
+      "provider": "GitHub / Microsoft",
+      "ram_total_gb": 7.0,
+      "ram_free_gb": 6.3,
+      "cpu_cores": 2,
+      "docker": "Native pre-installed Docker 24+ with root daemon",
+      "ollama": "Installable in ~10s via standard script (curl -fsSL https://ollama.com/install.sh | sh)",
+      "gemma3_1b": "Downloadable via ollama pull in ~15s over runner gigabit network",
+      "cost": "$0.00",
+      "payment_verification": "None required",
+      "persistence": "Ephemeral VM per job; artifacts retained via actions/upload-artifact",
+      "limitations": "Requires git repository remote and workflow definition dispatch",
+      "security": "Isolated ephemeral Azure microVM, zero cross-tenant leakage, teardown on completion"
+    },
+    {
+      "rank": 2,
+      "name": "Google Colab (Free CPU Tier)",
+      "provider": "Google",
+      "ram_total_gb": 12.7,
+      "ram_free_gb": 11.5,
+      "cpu_cores": 2,
+      "docker": "Restricted (unprivileged container environment; no native Docker daemon)",
+      "ollama": "Runs standalone native Linux daemon as user process",
+      "gemma3_1b": "Supported via standalone Ollama process",
+      "cost": "$0.00",
+      "payment_verification": "None required (standard Google account)",
+      "persistence": "Ephemeral session (up to 12h timeout)",
+      "limitations": "Interactive notebook format; lacks native Docker daemon for containerized inference adapter",
+      "security": "Isolated Google cloud container, session-scoped"
+    },
+    {
+      "rank": 3,
+      "name": "Hugging Face Spaces (CPU Basic Tier)",
+      "provider": "Hugging Face",
+      "ram_total_gb": 16.0,
+      "ram_free_gb": 15.0,
+      "cpu_cores": 2,
+      "docker": "Native Docker Space support (runs custom Dockerfile directly)",
+      "ollama": "Can be packaged inside the space container",
+      "gemma3_1b": "Supported inside space container",
+      "cost": "$0.00",
+      "payment_verification": "None required (standard HF account)",
+      "persistence": "Persistent container image with ephemeral state between restarts",
+      "limitations": "Designed for ongoing web applications rather than one-shot CI test runs; public by default unless set private",
+      "security": "Requires setting space visibility to Private to prevent unauthorized traffic"
+    }
+  ],
+  "rejected_options": [
+    {
+      "name": "Existing Local Laptop",
+      "reason": "Host RAM 7.63 GB, idle free RAM 1.31 GB (< 1.5 GB RED threshold); memory pressure causes OOM/swapping"
+    },
+    {
+      "name": "Oracle Cloud Always Free Tier",
+      "reason": "Requires credit card verification and billing identity registration"
+    },
+    {
+      "name": "GitLab CI/CD Free Tier",
+      "reason": "Mandates credit card verification for free pipeline minutes"
+    }
+  ],
+  "recommended_next_action": "Configure a dedicated one-shot workflow dispatch job in GitHub Actions or initialize remote repository sync to execute the bounded CS-01 canary on a fresh ubuntu-latest runner.",
+  "invariants_maintained": {
+    "source_modified": false,
+    "production_modified": false,
+    "release_artifact_modified": false,
+    "m8_rerun": false,
+    "prr_rerun": false,
+    "cr01_rerun": false,
+    "cs01_executed": false,
+    "paid_resources_created": false
+  }
+}

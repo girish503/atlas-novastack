@@ -1,0 +1,56 @@
+{
+  "phase": "4Y",
+  "title": "Performance Architecture Decision Memo",
+  "timestamp": "2026-09-19T06:45:00Z",
+  "status": "COMPLETE \u2014 DECISION MEMO ONLY",
+  "frozen_configuration": {
+    "enable_boundary_stitching": false,
+    "enable_query_aware_authority": true,
+    "enable_event_bundling": false,
+    "max_concurrent_inferences": 1,
+    "queue_timeout_seconds": 0.5,
+    "request_timeout_seconds": 30.0,
+    "circuit_breaker": "enabled",
+    "circuit_failure_threshold": 3,
+    "circuit_cooldown_seconds": 10.0,
+    "model": "google/gemma-3-1b-it",
+    "precision": "torch.float32",
+    "execution": "CPU"
+  },
+  "established_facts_evaluation": {
+    "A_retrieval_faster_than_generation": "SUPPORTED [MEASURED FACT]",
+    "B_generation_observed_to_start": "SUPPORTED [MEASURED FACT]",
+    "C_completed_generation_12_to_16s": "SUPPORTED [MEASURED FACT]",
+    "D_one_generation_crossed_deadline": "SUPPORTED [MEASURED FACT]",
+    "E_model_process_3_85_to_4_06gb_rss": "SUPPORTED [MEASURED FACT]",
+    "F_development_host_7_63gb_ram": "SUPPORTED [MEASURED FACT]",
+    "G_host_failed_3gb_gate": "SUPPORTED [MEASURED FACT]",
+    "H_deadline_does_not_preempt_worker": "SUPPORTED [MEASURED FACT]",
+    "I_clean_memory_throughput_uncertified": "SUPPORTED [MEASURED FACT]",
+    "J_production_qps_uncertified": "SUPPORTED [MEASURED FACT]",
+    "K_long_run_memory_uncertified": "SUPPORTED [MEASURED FACT]"
+  },
+  "corrections_to_overclaims": [
+    {
+      "previous_claim": "minimum host RAM must be >= 16 GB",
+      "classification": "ARCHITECTURAL HYPOTHESIS",
+      "correction": "Unmeasured sizing hypothesis. Measured data proves only that 7.63 GB is insufficient under Windows 11 with IDE active."
+    },
+    {
+      "previous_claim": "OS memory management inevitably reclaims working set pages",
+      "classification": "INFERENCE / OBSERVATION ON THIS HOST",
+      "correction": "Host-specific Windows virtual memory management behavior under severe memory starvation, not an invariant cross-platform law."
+    }
+  ],
+  "architecture_options_considered": [
+    "Option A (Gemma 1B float32 CPU)",
+    "Option B (Smaller/Faster Model)",
+    "Option C (Quantized Inference)",
+    "Option D (GPU Inference)",
+    "Option E (Separate Inference Service)",
+    "Option F (Hybrid Retrieval + Dedicated Tier)"
+  ],
+  "missing_capability": "Inference Provider & Engine Abstraction Boundary",
+  "proposed_next_phase": "PHASE 5A \u2014 INFERENCE PROVIDER & ENGINE DECOUPLING",
+  "verdict": "PHASE 4Y STATUS: COMPLETE \u2014 DECISION MEMO ONLY"
+}

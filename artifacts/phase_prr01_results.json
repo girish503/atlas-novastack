@@ -1,0 +1,122 @@
+{
+  "review": "ATLAS 0.5 — PRR-01 Promotion & Release Readiness Review",
+  "timestamp": "2026-10-04T10:45:00Z",
+  "decision": "PROMOTION_READY",
+  "candidate_version": "0.5.0-rc1",
+  "production_baseline": "0.4.14-rc1",
+  "production_baseline_modified": false,
+  "production_baseline_archive_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+  "production_baseline_archive_verified": true,
+  "benchmark_status": "PREVIOUSLY_CERTIFIED",
+  "benchmark_artifact_sha256": "6AEA9BEF65A87EB8C91EB768CC3A71026AE167CA965A92DE85ACBB86B339C38A",
+  "benchmark_metrics": {
+    "total_cases": 120,
+    "positive_cases": 101,
+    "negative_cases": 19,
+    "positive_answered": 74,
+    "positive_yield_pct": 73.27,
+    "negative_abstained": 19,
+    "negative_abstention_pct": 100.0,
+    "citation_precision_pct": 100.0,
+    "citation_precision_count": "122/122",
+    "citation_completeness_pct": 93.24,
+    "citation_completeness_count": "69/74",
+    "security_violations": 0,
+    "cross_tenant_leakage": 0,
+    "unauthorized_evidence_exposure": 0,
+    "forbidden_citations": 0,
+    "mean_positive_latency_ms": 14899.67,
+    "mean_positive_latency_s": 14.89967,
+    "multihop_total": 18,
+    "multihop_answered": 14,
+    "multihop_yield_pct": 77.78,
+    "timeouts": 0
+  },
+  "candidate_configuration": {
+    "selector_config": {
+      "enable_adaptive_depth": true,
+      "adaptive_budget_simple": 3,
+      "adaptive_budget_multihop": 4,
+      "require_entity_overlap_for_fill": true,
+      "enable_alias_context_notes": true,
+      "enable_contrastive_disambiguation": true,
+      "enable_targeted_missing_role_recovery": true,
+      "enable_targeted_evidence_extraction": true,
+      "max_extracted_sentences_per_chunk": 3,
+      "treat_ungrounded_as_protective": false
+    },
+    "context_strategy": "m8_targeted_extraction",
+    "prompt_strategy": "config_b_calibrated_safe",
+    "citation_resolver": "c2",
+    "inference_model": "gemma3:1b",
+    "quantization": "Q4_K_M",
+    "inference_service_url": "http://127.0.0.1:8001"
+  },
+  "regression_suites": [
+    {
+      "suite": "Phase 05 Milestone Regression (M1-M8)",
+      "files": [
+        "tests/test_phase_05_m1_multihop_temporal.py",
+        "tests/test_phase_05_m2_compaction_delta.py",
+        "tests/test_phase_05_m3_entity_grounding.py",
+        "tests/test_phase_05_m4_hierarchical_budgeting.py",
+        "tests/test_phase_05_m5_evidence_selection.py",
+        "tests/test_phase_05_m6_entity_anchored_retrieval.py",
+        "tests/test_phase_05_m7_adaptive_depth.py",
+        "tests/test_phase_05_m8_answerability.py"
+      ],
+      "tests": 143,
+      "passed": 143,
+      "failed": 0,
+      "duration_seconds": 11.05
+    },
+    {
+      "suite": "Operations Runbook & Incident Recovery (Phase 5N + 5O)",
+      "files": [
+        "tests/test_phase_5n_operational_runbook.py",
+        "tests/test_phase_5o_incident_recovery.py"
+      ],
+      "tests": 32,
+      "passed": 32,
+      "failed": 0,
+      "duration_seconds": 7.36
+    },
+    {
+      "suite": "Inference Container & Boundary Contracts (Phase 5C)",
+      "files": [
+        "tests/test_phase_5c_inference_container.py",
+        "tests/test_phase_5c_inference_contract.py",
+        "tests/test_phase_5c_inference_security.py",
+        "tests/test_phase_5c_inference_service.py"
+      ],
+      "tests": 61,
+      "passed": 61,
+      "failed": 0,
+      "duration_seconds": 1.37
+    }
+  ],
+  "total_regression_tests": 236,
+  "total_regression_passed": 236,
+  "total_regression_failed": 0,
+  "security_review": {
+    "tenant_isolation": "VERIFIED_SAFE",
+    "rbac_clearance": "VERIFIED_SAFE",
+    "adversarial_quarantine": "VERIFIED_SAFE",
+    "layer_1s_deterministic_refusal": "VERIFIED_SAFE",
+    "eval_0054_out_of_scope": "ABSTAINED",
+    "eval_0058_secret_seeking": "ABSTAINED",
+    "unauthorized_evidence": 0,
+    "forbidden_citations": 0,
+    "fail_closed_enforced": true
+  },
+  "secret_scan": {
+    "files_scanned": "all source, scripts, configs, docs",
+    "hardcoded_secrets_found": 0,
+    "status": "CLEAN"
+  },
+  "source_integrity": {
+    "total_source_files_hashed": 48,
+    "unapproved_source_drift": 0,
+    "status": "VERIFIED_INTEGRITY"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "phase": "4P",
+  "title": "Structured Logging & Observability",
+  "timestamp": "2026-09-12T11:04:00Z",
+  "production_configuration": {
+    "enable_boundary_stitching": false,
+    "enable_query_aware_authority": true,
+    "enable_event_bundling": false
+  },
+  "logging_architecture": {
+    "module": "novastack.observability.logging",
+    "format": "JSON (machine-readable)",
+    "mandatory_fields": [
+      "timestamp",
+      "level",
+      "event",
+      "request_id",
+      "endpoint",
+      "status_code",
+      "answer_status",
+      "latency_ms"
+    ],
+    "optional_safe_fields": [
+      "tenant_id",
+      "evaluation_id",
+      "error_type"
+    ],
+    "redaction_rules": {
+      "passwords": "REDACTED",
+      "bearer_tokens": "REDACTED",
+      "api_keys": "REDACTED",
+      "raw_queries": "EXCLUDED",
+      "prompts": "EXCLUDED",
+      "documents": "EXCLUDED",
+      "answer_texts": "EXCLUDED"
+    }
+  },
+  "request_correlation": {
+    "header": "X-Request-ID",
+    "generation": "UUID4",
+    "propagation": "contextvars.ContextVar across async and thread boundaries",
+    "validation": "Alphanumeric, underscores, hyphens; max 64 chars; secret and path rejection"
+  },
+  "metric_catalog": {
+    "endpoint": "GET /metrics",
+    "content_type": "text/plain; version=0.0.4; charset=utf-8",
+    "metrics": [
+      "atlas_requests_total",
+      "atlas_request_errors_total",
+      "atlas_request_latency_seconds",
+      "atlas_query_answers_total",
+      "atlas_query_abstentions_total",
+      "atlas_query_timeouts_total",
+      "atlas_capacity_exhausted_total",
+      "atlas_model_errors_total",
+      "atlas_stage_latency_seconds"
+    ],
+    "allowed_stage_labels": [
+      "query_understanding",
+      "bm25",
+      "dense",
+      "fusion",
+      "metadata_ranking",
+      "relational_retrieval",
+      "evidence_resolution",
+      "generation",
+      "citation_resolution",
+      "total"
+    ],
+    "cardinality_enforcement": "Strict whitelist. No unbounded queries, user IDs, or arbitrary tenant IDs."
+  },
+  "tracing_evaluation": {
+    "decision": "In-process OpenTelemetry-compatible tracer without heavy external network dependencies",
+    "spans_per_request": 6,
+    "pipeline_boundaries": [
+      "request",
+      "retrieval",
+      "reranking",
+      "evidence_resolution",
+      "generation",
+      "citation_resolution"
+    ],
+    "attribute_sanitization": "Zero prompts, documents, or credentials"
+  },
+  "test_results": {
+    "phase_4p_observability_tests": {
+      "total": 18,
+      "passed": 18,
+      "failed": 0
+    },
+    "full_regression_suite": {
+      "total": 86,
+      "passed": 86,
+      "failed": 0,
+      "regressions": 0,
+      "breakdown": {
+        "tests/test_phase_4p_observability.py": 18,
+        "tests/test_phase_4o_resilience.py": 15,
+        "tests/test_phase_4n_packaging.py": 8,
+        "tests/test_phase_4m_api_service.py": 16,
+        "tests/test_phase_4m_auth_fail_closed.py": 11,
+        "tests/test_phase_4k_g_b_promotion.py": 3,
+        "tests/test_phase_4k_f_b_security_redteam.py": 5,
+        "tests/test_phase_4k_e_b_only.py": 5,
+        "tests/test_canonical_baseline.py": 5
+      }
+    }
+  },
+  "performance_overhead": {
+    "iterations": 50,
+    "successful_queries": 50,
+    "with_observability_mean_ms": 2.67,
+    "with_observability_p95_ms": 4.22,
+    "raw_pipeline_mean_ms": 0.71,
+    "raw_pipeline_p95_ms": 0.94,
+    "absolute_overhead_ms": 1.96,
+    "impact_on_model_inference": "< 0.4%"
+  },
+  "overall_verdict": "PASS"
+}
