@@ -1,0 +1,50 @@
+{
+  "phase": "CS-01-GHA-FIX-01",
+  "timestamp": "2026-10-06T10:07:00Z",
+  "original_run_id": "37441579408",
+  "original_decision": "CANARY_FAIL",
+  "failure_classification": "CANARY_HARNESS_FIXTURE_MISMATCH",
+  "failing_location": ".github/workflows/canary.yml:190 (dict_to_evidence_pkg)",
+  "failing_exception": "TypeError: RecordPermissions.__init__() got an unexpected keyword argument 'required_clearance'",
+  "root_cause": "The inline Python test harness in .github/workflows/canary.yml incorrectly attempted to pass required_clearance to RecordPermissions. Under the authoritative ATLAS model (novastack.models.RecordPermissions), permissions model access control lists (allowed_roles, allowed_departments, allowed_teams, allowed_user_ids), while data clearance/classification is tracked separately via classification on EvidenceItem and SourceRecord. Furthermore, the inline conversion helper dict_to_evidence_pkg and inline synthetic fixtures in Probes 4 and 5 did not supply all required positional arguments for EvidenceItem and EvidencePackage, creating secondary fixture failure hazards.",
+  "production_source_modified": false,
+  "canary_workflow_modified": true,
+  "minimal_fix_applied": true,
+  "remediation_details": {
+    "files_modified": [
+      ".github/workflows/canary.yml"
+    ],
+    "record_permissions_contract": "RecordPermissions(allowed_roles, allowed_departments, allowed_teams, allowed_user_ids)",
+    "evidence_item_contract": "Standardized on full 24-attribute signature matching scripts/run_phase_05_m8_experiment.py and novastack.evidence.EvidenceItem",
+    "evidence_package_contract": "Supplied required package_id, evaluation_id, query, tenant_id, user_context, selected_evidence, excluded_evidence, conflicts, provenance_graph, resolution_decisions, statistics",
+    "probe_4_and_5_helpers": "Introduced make_evidence_item inline factory in canary.yml to cleanly generate synthetic multi-tenant and adversarial test items"
+  },
+  "focused_tests_passed": true,
+  "focused_test_results": {
+    "ast_syntax_validation": "PASS",
+    "fixture_conversion_eval_0001": "PASS (10 items)",
+    "fixture_conversion_eval_0058": "PASS (10 items)",
+    "fixture_conversion_eval_0054": "PASS (10 items)",
+    "probe_04_fixtures": "PASS (1 selected, 1 excluded)",
+    "probe_05_fixtures": "PASS (1 selected)",
+    "pytest_regression_summary": "38 passed, 0 failed, 1 warning (tests/test_phase_4m_auth_fail_closed.py, tests/test_phase_05_m8_answerability.py)"
+  },
+  "release_artifacts_unchanged": true,
+  "release_artifacts": {
+    "atlas_novastack_0_5_0_rc1_sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+    "atlas_novastack_0_5_0_rc1_verified": true,
+    "atlas_novastack_0_4_14_rc1_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "atlas_novastack_0_4_14_rc1_verified": true
+  },
+  "git_diff_summary": {
+    "changed_files": [
+      ".github/workflows/canary.yml"
+    ],
+    "insertions": 75,
+    "deletions": 9,
+    "src_novastack_diff_lines": 0
+  },
+  "canary_reexecuted": false,
+  "new_canary_run_created": false,
+  "decision": "FIX_READY_FOR_REVIEW"
+}
