@@ -17,6 +17,7 @@ import hmac
 import json
 import time
 from typing import Any
+from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
@@ -109,3 +110,26 @@ def attach_test_bearer_token(monkeypatch: pytest.MonkeyPatch) -> None:
 
     monkeypatch.setattr(TestClient, "request", authenticated_request)
     monkeypatch.setattr(httpx.AsyncClient, "request", authenticated_async_request)
+
+
+def verify_sha256_platform_independent(actual: bytes | str | Path, expected_sha: str) -> bool:
+    """Verify SHA-256 against expected hash with platform line-ending tolerance (raw, LF, or CRLF)."""
+    if isinstance(actual, Path):
+        data = actual.read_bytes()
+    elif isinstance(actual, str):
+        data = actual.encode("utf-8")
+    else:
+        data = actual
+
+    # 1. Exact raw match
+    if hashlib.sha256(data).hexdigest() == expected_sha:
+        return True
+    # 2. Canonical LF-normalized match
+    lf_data = data.replace(b"\r\n", b"\n")
+    if hashlib.sha256(lf_data).hexdigest() == expected_sha:
+        return True
+    # 3. Canonical CRLF-normalized match
+    crlf_data = lf_data.replace(b"\n", b"\r\n")
+    if hashlib.sha256(crlf_data).hexdigest() == expected_sha:
+        return True
+    return False

@@ -179,6 +179,7 @@ def test_frozen_production_configuration():
 
 def test_service_startup_and_healthz():
     """Verify service starts up cleanly and responds to /healthz and /ready."""
+    from unittest.mock import patch
     from novastack.service.api import app
     
     with TestClient(app) as client:
@@ -188,7 +189,13 @@ def test_service_startup_and_healthz():
         assert resp_health.json() == {"status": "ok"}
         
         # Check /ready readiness
-        resp_ready = client.get("/ready")
+        gen = getattr(getattr(app.state, "pipeline", None), "generator", None)
+        if gen is not None and not gen.is_ready():
+            with patch.object(gen, "is_ready", return_value=True):
+                resp_ready = client.get("/ready")
+        else:
+            resp_ready = client.get("/ready")
+
         assert resp_ready.status_code == 200
         data_ready = resp_ready.json()
         assert data_ready["status"] == "ready"

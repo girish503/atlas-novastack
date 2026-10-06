@@ -12,7 +12,7 @@
   "manifests/phase_5k_release_manifest.json": "1ef509d695a05e02fc315876444fff1a6c1ada58b1986268b0e92a55f4243a1b",
   "manifests/phase_5k_reproducibility_manifest.json": "b315e2ebf7544aa604126593618d8dcb3981910e8815f1944df6d6bdd91ce21f",
   "manifests/phase_5k_sha256_manifest.json": "dd489d7d08623a323038d07af6021b2e9e600dd93160d11191e136eefc5cdd55",
-  "pyproject.toml": "e8c3a51d14b4bd1337d30784a4601e7399d17626b1ba365b570615b1f9f61143",
+  "pyproject.toml": "4b4022fa4478354838c5e6446f232137d8087e1d5ebfc6c590714811b20c6484",
   "README.md": "5630403269a672ced8ec4a36daf0402317e7b67e4bd98df5746e1a9ca9481ea2",
   "src/atlas_novastack.egg-info/dependency_links.txt": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
   "src/atlas_novastack.egg-info/PKG-INFO": "c3b03050be9a28c1e166c5d2a661314e07d8331f38758e57029c9b6bf1f4f383",

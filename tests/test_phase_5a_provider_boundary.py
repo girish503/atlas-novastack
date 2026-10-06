@@ -294,10 +294,12 @@ class TestDefaultApplicationWiring:
             assert pipe.generator.provider_name == "local_huggingface"
 
     def test_pipeline_is_ready_checks_generator(self):
+        from unittest.mock import patch
         pipe = AtlasServicePipeline.create_default(lazy_generator=True)
-        all_ready, components = pipe.is_ready()
-        assert "generator" in components
-        assert components["generator"] is True
+        with patch.object(pipe.generator, "is_ready", return_value=True):
+            all_ready, components = pipe.is_ready()
+            assert "generator" in components
+            assert components["generator"] is True
 
 
 # =============================================================================

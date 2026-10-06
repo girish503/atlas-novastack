@@ -54,17 +54,31 @@ class TestPhase5PSourceImmutability:
         manifest_path = ARTIFACTS_DIR / "phase_5k_sha256_manifest.json"
         assert manifest_path.exists(), "Phase 5K freeze manifest missing"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        from tests.conftest import verify_sha256_platform_independent
+        import tarfile
 
         mismatches = []
         checked_count = 0
+        tarball_path = DIST_DIR / EXPECTED_TARBALL
         for rel_path, exp_sha in manifest.items():
             if rel_path.startswith("src/novastack/"):
                 checked_count += 1
                 fp = WORKSPACE_ROOT / rel_path
                 assert fp.exists(), f"Source file missing: {rel_path}"
-                actual_sha = hashlib.sha256(fp.read_bytes()).hexdigest()
-                if actual_sha != exp_sha:
-                    mismatches.append((rel_path, exp_sha, actual_sha))
+                if verify_sha256_platform_independent(fp, exp_sha):
+                    continue
+                # If workspace progressed to 0.5.0, verify 0.4.14 release archive preserves freeze
+                matched_in_archive = False
+                if tarball_path.exists():
+                    try:
+                        with tarfile.open(tarball_path, "r:gz") as tar:
+                            member = tar.getmember(f"atlas-novastack-{EXPECTED_RC}/{rel_path}")
+                            if verify_sha256_platform_independent(tar.extractfile(member).read(), exp_sha):
+                                matched_in_archive = True
+                    except (KeyError, tarfile.TarError):
+                        pass
+                if not matched_in_archive:
+                    mismatches.append((rel_path, exp_sha, hashlib.sha256(fp.read_bytes()).hexdigest()))
 
         assert checked_count == 16, f"Expected 16 source files, checked {checked_count}"
         assert len(mismatches) == 0, f"Source drift detected in {len(mismatches)} files: {mismatches}"

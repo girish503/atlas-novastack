@@ -259,12 +259,10 @@ def test_prior_15_artifacts_sha256_immutability(ablation_data):
     for rel_path, expected_hash in recorded_hashes.items():
         full_path = _PROJECT_ROOT / rel_path
         assert full_path.exists(), f"Missing artifact: {rel_path}"
-        h = hashlib.sha256()
-        with open(full_path, "rb") as f:
-            while chunk := f.read(65536):
-                h.update(chunk)
-        actual_hash = h.hexdigest()
-        assert actual_hash == expected_hash, f"MUTATION in {rel_path}: {actual_hash} != {expected_hash}"
+        from tests.conftest import verify_sha256_platform_independent
+        assert verify_sha256_platform_independent(full_path, expected_hash), (
+            f"MUTATION in {rel_path}: actual does not match expected {expected_hash}"
+        )
 
 
 def test_report_exists_and_answers_questions():

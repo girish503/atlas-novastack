@@ -109,9 +109,12 @@ class MockDelayedGenerator:
 
 
 def build_test_pipeline(generator: Any = None) -> AtlasServicePipeline:
+    from tests.test_phase_4s_live_index_hotswap import DeterministicEncoder
     gen = generator or MockDelayedGenerator(delay_seconds=0.01)
     pipe = AtlasServicePipeline.create_default(lazy_generator=True)
     pipe.generator = gen
+    if hasattr(pipe, "dense_index") and pipe.dense_index and hasattr(pipe.dense_index, "encoder"):
+        pipe.dense_index.encoder = DeterministicEncoder()
     return pipe
 
 

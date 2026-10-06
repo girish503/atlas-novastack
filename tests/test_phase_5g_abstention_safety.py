@@ -131,13 +131,15 @@ def _make_provider_with_mock_generator() -> QuantizedLocalProvider:
     mock_validator.validate_citations = MagicMock(return_value=([mock_citation], "valid", []))
     mock_gen.validator = mock_validator
 
-    return QuantizedLocalProvider(
+    provider = QuantizedLocalProvider(
         endpoint_url="http://127.0.0.1:11434",
         model_name="gemma3:1b",
         generator=mock_gen,
         corpus_doc_ids={"DOC-001"},
         corpus_chunk_ids={"DOC-001::CHUNK-0000"},
     )
+    provider._call_ollama = MagicMock(return_value="Test answer based on evidence [EVD-DOC-001-000].")
+    return provider
 
 
 # ---------------------------------------------------------------------------

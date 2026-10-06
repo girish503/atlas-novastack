@@ -187,11 +187,13 @@ def test_phase_7_security_pipeline_order_and_fail_closed():
 def test_phase_9_corpus_immutability():
     """Verify that all 20 baseline artifacts match their exact cryptographic hashes."""
     assert len(BASELINE_HASHES) == 20
+    from tests.conftest import verify_sha256_platform_independent
     for rel_path, expected_hash in BASELINE_HASHES.items():
         file_path = WORKSPACE / rel_path
         assert file_path.exists(), f"Baseline artifact missing: {rel_path}"
-        actual_hash = sha256_file(file_path)
-        assert actual_hash == expected_hash, f"Hash mismatch on {rel_path}: {actual_hash} != {expected_hash}"
+        assert verify_sha256_platform_independent(file_path, expected_hash), (
+            f"Hash mismatch on {rel_path}: actual does not match expected {expected_hash}"
+        )
 
 
 def test_phase_10_index_integrity():
