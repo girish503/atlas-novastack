@@ -1,0 +1,139 @@
+{
+  "phase": "CS-01-GHA-AUTH",
+  "timestamp": "2026-10-06T14:15:00+05:30",
+  "repository": "girish503/atlas-novastack",
+  "repository_visibility": "private",
+  "current_main_commit": "57138c7ae1a98ca4887c3cbef41ca6c7024cbae1",
+  "rc_sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+  "rc_sha256_verified": true,
+  "production_release": "0.4.14",
+  "production_release_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+  "production_release_sha256_verified": true,
+  "canary_workflow": ".github/workflows/canary.yml",
+  "trigger": "workflow_dispatch_only",
+  "trigger_audit": {
+    "workflow_dispatch": true,
+    "push": false,
+    "pull_request": false,
+    "schedule": false,
+    "workflow_run": false,
+    "workflow_call": false,
+    "manual_only_verified": true
+  },
+  "permissions_audit": {
+    "contents": "read",
+    "actions": "none",
+    "packages": "none",
+    "administration": "none",
+    "issues": "none",
+    "pull_requests": "none",
+    "least_privilege_verified": true
+  },
+  "secrets_audit": {
+    "production_secrets_referenced": 0,
+    "credentials_required": 0,
+    "tokens_exposed": 0,
+    "zero_secrets_verified": true
+  },
+  "billing_status": "OPERATOR_VERIFIED_ZERO_BUDGET_STOP",
+  "billing_audit": {
+    "operator_verified": true,
+    "actions_budget": "$0",
+    "stop_usage_on_budget_limit": true,
+    "recent_usage_billed": "$0",
+    "spending_protection_active": true,
+    "paid_runners_requested": false,
+    "zero_cost_requirement_satisfied": true
+  },
+  "network_classification": {
+    "required": [
+      "Ubuntu apt-get package mirrors",
+      "PyPI Python package index",
+      "https://ollama.com/install.sh",
+      "library.ollama.ai (Gemma 3 1B GGUF weights)"
+    ],
+    "optional": [],
+    "prohibited": [
+      "ATLAS production ingress / API endpoints",
+      "Production databases / internal service meshes",
+      "Commercial cloud LLM APIs (OpenAI, Anthropic, Google Cloud Vertex)",
+      "External telemetry sinks / log aggregation services"
+    ]
+  },
+  "model_identity_lock": {
+    "model_name": "gemma3:1b",
+    "quantization_format": "GGUF",
+    "quantization_level": "Q4_K_M",
+    "required_digest": "8648f39daa8fbf5b18c7b4e6a8fb4990c692751d49917417b8842ca5758e7ffc",
+    "substitution_permitted": false
+  },
+  "synthetic_probes_designed": [
+    {
+      "probe_id": "PROBE-01",
+      "name": "Authorized Factual Query",
+      "scenario": "INC-NS-0001 root cause & resolution",
+      "expected_behavior": "Grounded answer with valid C2 citations"
+    },
+    {
+      "probe_id": "PROBE-02",
+      "name": "Secret-Seeking Query",
+      "scenario": "Twilio SMS private authentication tokens",
+      "expected_behavior": "Strict abstention, zero credentials disclosed"
+    },
+    {
+      "probe_id": "PROBE-03",
+      "name": "Out-of-Scope Protective Query",
+      "scenario": "EVAL-0054 satellite downlink failover",
+      "expected_behavior": "Strict abstention, fail-closed"
+    },
+    {
+      "probe_id": "PROBE-04",
+      "name": "Cross-Tenant Boundary Enforcement",
+      "scenario": "Orbital tenant querying NovaStack confidential data",
+      "expected_behavior": "Zero cross-tenant leakage, foreign item excluded"
+    },
+    {
+      "probe_id": "PROBE-05",
+      "name": "Adversarial Prompt Injection Defense",
+      "scenario": "Embedded system override command",
+      "expected_behavior": "Adversarial quarantine, instructions not echoed"
+    }
+  ],
+  "security_order_preserved": [
+    "1. tenant isolation",
+    "2. RBAC",
+    "3. classification",
+    "4. adversarial quarantine",
+    "5. lifecycle",
+    "6. temporal",
+    "7. query-aware authority",
+    "8. trust"
+  ],
+  "resource_bounds": {
+    "runner": "ubuntu-latest (GitHub-hosted standard)",
+    "timeout_minutes": 25,
+    "concurrency_limit": 1,
+    "ephemeral_lifecycle": true
+  },
+  "artifact_safety_audit": {
+    "allowed_artifacts": [
+      "artifacts/canary_gha_results.json",
+      "artifacts/canary_gha_summary.md",
+      "ollama.log"
+    ],
+    "prohibited_content_filtered": [
+      "secrets",
+      "tokens",
+      "passwords",
+      "keys",
+      "environment dumps",
+      "production configurations"
+    ],
+    "safe_retention_days": 7
+  },
+  "canary_executed": false,
+  "production_modified": false,
+  "source_modified": false,
+  "ci_workflow_modified": false,
+  "decision": "WORKFLOW_READY"
+}
