@@ -544,11 +544,24 @@ class TestSecurityInvariants:
         assert result1.abstention_reason == "security_policy_abstention"
 
         # Same query but positive case → gate does NOT fire
-        result2 = provider.generate_answer(
-            package=pkg1,
-            expected_doc_ids=["DOC-EXPECTED"],
-            forbidden_doc_ids=["DOC-FORBIDDEN"],
-        )
+        # Unit test intentionally mocks the inference boundary because this test validates Layer 1S routing/security behavior, not the Ollama runtime.
+        mock_response = MagicMock()
+        mock_response.status = 200
+        mock_response.read = MagicMock(return_value=json.dumps({
+            "response": "The weather is sunny. [EVD-001]",
+            "done": True, "prompt_eval_count": 100, "eval_count": 15,
+            "total_duration": 1000000000, "load_duration": 0,
+            "prompt_eval_duration": 50000000, "eval_duration": 900000000,
+        }).encode("utf-8"))
+        mock_response.__enter__ = MagicMock(return_value=mock_response)
+        mock_response.__exit__ = MagicMock(return_value=False)
+
+        with patch("urllib.request.urlopen", return_value=mock_response):
+            result2 = provider.generate_answer(
+                package=pkg1,
+                expected_doc_ids=["DOC-EXPECTED"],
+                forbidden_doc_ids=["DOC-FORBIDDEN"],
+            )
         # Not a security abstention (it's a positive case, may reach model or Layer 1b)
         assert result2.abstention_reason != "security_policy_abstention"
 

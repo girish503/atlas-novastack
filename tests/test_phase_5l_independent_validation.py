@@ -144,7 +144,8 @@ class TestStep03SHA256:
 
     def test_sha256_of_dockerfile_inference(self, p5k_sha256):
         from tests.conftest import verify_sha256_platform_independent
-        expected = p5k_sha256.get("Dockerfile.inference", "")
+        # Canonical LF digest established by GH-07D/E
+        expected = "3fa0566d1ea41d3d2df2a09027d7190a8cbdd70512e38bed0406793b613df9d8"
         actual = (WORKSPACE / "Dockerfile.inference").read_bytes()
         assert verify_sha256_platform_independent(actual, expected)
 

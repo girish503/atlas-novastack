@@ -1,0 +1,42 @@
+{
+  "phase": "GH-07F",
+  "decision": "REMEDIATION_COMMITTED",
+  "repository": "girish503/atlas-novastack",
+  "branch": "main",
+  "previous_remote_head": "bce7465060b6c76cda9629fdeab19c9447a87d3a",
+  "latest_github_actions_run_id": 37421957467,
+  "exact_files_changed": [
+    "tests/test_phase_5g_abstention_safety.py",
+    "tests/test_phase_5l_independent_validation.py"
+  ],
+  "failure_1_analysis": {
+    "test": "tests/test_phase_5g_abstention_safety.py::TestSecurityInvariants::test_layer1s_does_not_use_query_keywords",
+    "root_cause": "Positive-case test call reached real QuantizedLocalProvider inference path which made direct urllib.request.urlopen call to localhost:11434 rather than using the mocked _call_ollama method, failing with ConnectionRefusedError on headless CI runner.",
+    "remediation": "Hermetically mocked urllib.request.urlopen for positive-path generation call only, preserving actual unmocked Layer 1S decision logic and negative-path assertions.",
+    "proof_no_ollama_or_network_used": "Test passed in 0.44s without starting Ollama daemon or performing network socket calls."
+  },
+  "failure_2_analysis": {
+    "test": "tests/test_phase_5l_independent_validation.py::TestStep03SHA256::test_sha256_of_dockerfile_inference",
+    "root_cause": "Expected digest 55cc42... represented historical mixed-line-ending representation (1 CRLF + 34 LF). Under gitattributes canonical LF normalization, all 35 lines became LF, producing digest 3fa0566d1ea41d3d2df2a09027d7190a8cbdd70512e38bed0406793b613df9d8.",
+    "old_digest": "55cc4255c4d78eafedd4006cfb9188a6aaa9002c787cbf97d9f598d29b2da546",
+    "canonical_lf_digest": "3fa0566d1ea41d3d2df2a09027d7190a8cbdd70512e38bed0406793b613df9d8",
+    "remediation": "Updated expected digest to canonical LF digest 3fa0566d1ea41d3d2df2a09027d7190a8cbdd70512e38bed0406793b613df9d8."
+  },
+  "targeted_test_results": {
+    "test_layer1s_does_not_use_query_keywords": "PASS (0.44s)",
+    "test_sha256_of_dockerfile_inference": "PASS (0.29s)",
+    "full_affected_files": "64/64 PASS in 4.80s (100%)"
+  },
+  "security_regression_result": "120/120 PASS in 19.18s (100%)",
+  "fast_test_result": "1043 passed, 114 deselected, 0 failures (100%)",
+  "source_integrity_result": "PASS (0 files modified in src/novastack/)",
+  "production_modified": false,
+  "release_archives_modified": false,
+  "rc_archive_hashes": {
+    "0.5.0-rc1": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+    "0.4.14-rc1": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3"
+  },
+  "push_performed": false,
+  "github_actions_ran": false,
+  "cs01_executed": false
+}
