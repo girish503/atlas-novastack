@@ -1,0 +1,73 @@
+{
+  "phase": "GH-08",
+  "decision": "PUBLISHED",
+  "repository": "girish503/atlas-novastack",
+  "visibility": "private",
+  "previous_head": "57138c7ae1a98ca4887c3cbef41ca6c7024cbae1",
+  "new_commit_sha": "081ef224499f319c9bf4cd35331a1773f70b88ed",
+  "remote_head": "081ef224499f319c9bf4cd35331a1773f70b88ed",
+  "publication_commit_files": [
+    ".github/workflows/canary.yml",
+    "artifacts/phase_cs01_gha_auth.json",
+    "docs/ATLAS_CS01_GHA_AUTH.md"
+  ],
+  "canary_workflow_published": true,
+  "canary_execution": false,
+  "canary_runs_found": 0,
+  "production_modified": false,
+  "source_modified": false,
+  "ci_workflow_modified": false,
+  "billing_modified": false,
+  "workflow_trigger_verification": {
+    "workflow_dispatch": true,
+    "push": false,
+    "pull_request": false,
+    "schedule": false,
+    "workflow_run": false,
+    "workflow_call": false,
+    "manual_only_verified": true
+  },
+  "permissions_verification": {
+    "contents": "read",
+    "least_privilege_verified": true
+  },
+  "release_sha_verification": {
+    "rc_050_sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+    "rc_050_verified": true,
+    "frozen_0414_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "frozen_0414_verified": true
+  },
+  "security_scan_result": {
+    "secrets_found": 0,
+    "tokens_exposed": 0,
+    "credentials_exposed": 0,
+    "clean": true
+  },
+  "remote_ci_verification": {
+    "run_id": 37439391031,
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 112189072006,
+        "name": "Container Build",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 112189072174,
+        "name": "Security Regression Gate",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 112189072247,
+        "name": "Fast Tests",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "production_side_effects": "NONE (Production 0.4.14 baseline frozen and untouched)"
+}
