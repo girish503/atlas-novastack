@@ -93,6 +93,14 @@ class QueryResponse(BaseModel):
         None,
         description="Validated index generation used consistently for this request",
     )
+    canary_variant: Optional[str] = Field(
+        "baseline",
+        description="Routed canary variant (baseline or h5_1)",
+    )
+    canary_bucket: Optional[int] = Field(
+        -1,
+        description="Deterministic canary hash bucket (0-99, or -1 if disabled)",
+    )
 
 
 class HealthResponse(BaseModel):

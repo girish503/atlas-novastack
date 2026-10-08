@@ -1,0 +1,106 @@
+{
+  "sample_size": 120,
+  "positive_queries": 101,
+  "negative_queries": 19,
+  "entity_labeled_queries": 64,
+  "metrics": {
+    "recall_at_10": {
+      "baseline": 0.671617,
+      "h5_1": 0.727723,
+      "delta": 0.056106,
+      "relative_pct": 8.35
+    },
+    "mrr": {
+      "baseline": 0.48043,
+      "h5_1": 0.552457,
+      "delta": 0.072027,
+      "relative_pct": 14.99
+    },
+    "expected_entity_recall": {
+      "baseline": 0.518229,
+      "h5_1": 0.782031,
+      "delta": 0.263802,
+      "relative_pct": 50.9
+    },
+    "wrong_entities": {
+      "baseline": 57,
+      "h5_1": 104,
+      "delta": 47
+    },
+    "missing_entities": {
+      "baseline": 85,
+      "h5_1": 37,
+      "delta": -48
+    },
+    "positive_recall_regressions": 0,
+    "security_violations": {
+      "baseline": 0,
+      "h5_1": 0
+    }
+  },
+  "latencies": {
+    "resolver_latency_ms": {
+      "baseline": {
+        "p50": 0.0,
+        "p90": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "h5_1": {
+        "p50": 0.0,
+        "p90": 0.0,
+        "p95": 0.0,
+        "p99": 0.0,
+        "mean": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "delta_mean_ms": 0.0
+    },
+    "total_retrieval_latency_ms": {
+      "baseline": {
+        "p50": 83.982,
+        "p90": 222.03,
+        "p95": 270.26,
+        "p99": 430.774,
+        "mean": 113.951,
+        "min": 51.916,
+        "max": 511.022
+      },
+      "h5_1": {
+        "p50": 87.836,
+        "p90": 162.54,
+        "p95": 196.996,
+        "p99": 416.002,
+        "mean": 106.209,
+        "min": 40.648,
+        "max": 465.684
+      },
+      "delta_mean_ms": -7.742
+    }
+  },
+  "canary_distribution": {
+    "total_queries": 120,
+    "h5_1_routed_count": 8,
+    "baseline_routed_count": 112,
+    "h5_1_routed_percentage": 6.67,
+    "h5_1_query_ids": [
+      "EVAL-0002",
+      "EVAL-0004",
+      "EVAL-0029",
+      "EVAL-0030",
+      "EVAL-0048",
+      "EVAL-0095",
+      "EVAL-0099",
+      "EVAL-0117"
+    ]
+  },
+  "rollback_verification": {
+    "verified": true,
+    "cases_tested": 8,
+    "stale_state_detected": false
+  }
+}

@@ -202,40 +202,18 @@ def stop_host_ollama():
 
 
 def start_host_ollama():
-    """Starts host Ollama service as detached background daemon bound to 0.0.0.0:11434."""
-    env = os.environ.copy()
-    env["OLLAMA_HOST"] = "0.0.0.0:11434"
-    # On Windows, use DETACHED_PROCESS | CREATE_NEW_PROCESS_GROUP so the Ollama
-    # child process survives when the parent Python process exits.
-    creation_flags = 0
-    if sys.platform == "win32":
-        creation_flags = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
-    subprocess.Popen(
-        ["ollama", "serve"],
-        env=env,
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-        creationflags=creation_flags,
-    )
-    # Poll for Ollama port 11434 readiness (up to 60s for cold start on CPU)
-    for _ in range(60):
-        try:
-            r = httpx.get("http://127.0.0.1:11434/api/tags", timeout=2.0)
-            if r.status_code == 200:
-                break
-        except Exception:
-            pass
-        time.sleep(1.0)
+    """Fail closed instead of starting an Ollama daemon with a public bind.
 
-    # Pre-warm Ollama model so CPU execution stays well within the 25.0s container deadline
-    try:
-        httpx.post(
-            "http://127.0.0.1:11434/api/generate",
-            json={"model": "gemma3:1b", "prompt": "warmup", "stream": False},
-            timeout=60.0,
-        )
-    except Exception:
-        pass
+    This historical recovery harness previously launched Ollama on
+    ``0.0.0.0:11434``. SEC-OPS-02 requires an operator-managed, platform-
+    verified containment policy before Ollama may be used by the inference
+    container. Existing securely contained Ollama instances remain supported.
+    """
+    raise RuntimeError(
+        "SEC-OPS-02 READINESS BLOCKED: automatic Ollama startup is disabled. "
+        "Start an operator-managed Ollama endpoint only after verifying "
+        "Docker Desktop host privacy or Linux loopback/Docker-bridge firewall containment."
+    )
 
 
 def wait_for_inference_container_ready(timeout_seconds: int = 35) -> bool:

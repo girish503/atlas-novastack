@@ -1,0 +1,58 @@
+[
+  {
+    "evaluation_id": "EVAL-0002",
+    "canary_variant": "h5_1",
+    "rolled_back_variant": "baseline",
+    "rolled_back_bucket": -1,
+    "verified_identical_to_baseline": true
+  },
+  {
+    "evaluation_id": "EVAL-0004",
+    "canary_variant": "h5_1",
+    "rolled_back_variant": "baseline",
+    "rolled_back_bucket": -1,
+    "verified_identical_to_baseline": true
+  },
+  {
+    "evaluation_id": "EVAL-0029",
+    "canary_variant": "h5_1",
+    "rolled_back_variant": "baseline",
+    "rolled_back_bucket": -1,
+    "verified_identical_to_baseline": true
+  },
+  {
+    "evaluation_id": "EVAL-0030",
+    "canary_variant": "h5_1",
+    "rolled_back_variant": "baseline",
+    "rolled_back_bucket": -1,
+    "verified_identical_to_baseline": true
+  },
+  {
+    "evaluation_id": "EVAL-0048",
+    "canary_variant": "h5_1",
+    "rolled_back_variant": "baseline",
+    "rolled_back_bucket": -1,
+    "verified_identical_to_baseline": true
+  },
+  {
+    "evaluation_id": "EVAL-0095",
+    "canary_variant": "h5_1",
+    "rolled_back_variant": "baseline",
+    "rolled_back_bucket": -1,
+    "verified_identical_to_baseline": true
+  },
+  {
+    "evaluation_id": "EVAL-0099",
+    "canary_variant": "h5_1",
+    "rolled_back_variant": "baseline",
+    "rolled_back_bucket": -1,
+    "verified_identical_to_baseline": true
+  },
+  {
+    "evaluation_id": "EVAL-0117",
+    "canary_variant": "h5_1",
+    "rolled_back_variant": "baseline",
+    "rolled_back_bucket": -1,
+    "verified_identical_to_baseline": true
+  }
+]

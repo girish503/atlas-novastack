@@ -1,0 +1,37 @@
+{
+  "phase": "GH-07G",
+  "final_decision": "CI_GREEN_BASELINE",
+  "repository": "girish503/atlas-novastack",
+  "branch": "main",
+  "pre_push_head": "57138c7ae1a98ca4887c3cbef41ca6c7024cbae1",
+  "previous_remote_head": "bce7465060b6c76cda9629fdeab19c9447a87d3a",
+  "pushed_commit_sha": "57138c7ae1a98ca4887c3cbef41ca6c7024cbae1",
+  "push_result": "SUCCESS",
+  "workflow_run_id": 37428964549,
+  "workflow_url": "https://github.com/girish503/atlas-novastack/actions/runs/37428964549",
+  "runner_environment": "ubuntu-latest",
+  "container_build_result": "SUCCESS",
+  "container_build_job_id": 112155066225,
+  "container_build_summary": "Docker build smoke test succeeded. COPY data/ ./data/ verified. Image naming succeeded (Job 112155066225).",
+  "security_regression_result": "120/120 PASS",
+  "security_regression_job_id": 112155066333,
+  "security_regression_summary": "120 passed, 0 failed in 7.75s (100% PASS). All 9 security suites verified.",
+  "fast_tests_result": "1028 passed, 15 skipped, 114 deselected, 0 failed",
+  "fast_tests_job_id": 112155066300,
+  "fast_tests_summary": "1028 passed, 15 skipped, 114 deselected, 0 failed in 35.04s. 100% green.",
+  "exact_critical_gh07f_test_results": {
+    "test_layer1s_does_not_use_query_keywords": "PASSED (No Ollama daemon required, hermetic mock verified)",
+    "test_sha256_of_dockerfile_inference": "PASSED (Canonical LF SHA-256 3fa0566d... verified)"
+  },
+  "source_integrity_result": "PASS",
+  "production_source_changes": 0,
+  "release_archive_hashes": {
+    "0.5.0-rc1": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+    "0.5.0-rc1_verified": true,
+    "0.4.14-rc1": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "0.4.14-rc1_verified": true
+  },
+  "security_scan_result": "PASS (0 secrets, 0 credentials, 0 machine paths)",
+  "cs01_status": "NOT EXECUTED",
+  "cs01_hard_block_enforced": true
+}

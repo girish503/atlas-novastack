@@ -1,0 +1,49 @@
+{
+  "status_code": 200,
+  "latency_ms": 41643.173899999965,
+  "response": {
+    "answer_id": "ANS-EVAL-0001",
+    "query": "What was the root cause and resolution of incident INC-NS-0001?",
+    "answer_text": "The root cause was a misconfigured maximum connections parameter in the checkout-service, specifically set to 10 instead of 100, which resulted in connection pool exhaustion. Zara Reyes coordinated remediation steps, including increasing the maximum connections to 100 and reducing the connection timeout to 30s. [EVD-001] [EVD-003]",
+    "answer_status": "answered",
+    "citations": [
+      {
+        "raw_tag": "[EVD-001]",
+        "evidence_id": "EVD-EVAL-0001-001-DOC-INC-INC-NS-0001-02",
+        "document_id": "DOC-INC-INC-NS-0001-02",
+        "chunk_id": "DOC-INC-INC-NS-0001-02::CHUNK-0001",
+        "title": "[UPDATE] Triage & Mitigation Progress for INC-NS-0001",
+        "status": "VALID",
+        "reasons": [
+          "verified_selected_authorized_evidence"
+        ],
+        "phrase_match_detected": true,
+        "evidence_status": "accepted",
+        "authority_level": "high",
+        "is_adversarial": false
+      },
+      {
+        "raw_tag": "[EVD-003]",
+        "evidence_id": "EVD-EVAL-0001-007-DOC-PM-EVT-NS-0001-01",
+        "document_id": "DOC-PM-EVT-NS-0001-01",
+        "chunk_id": "DOC-PM-EVT-NS-0001-01::CHUNK-0001",
+        "title": "Postmortem: Checkout timeout outage (EVT-NS-0001)",
+        "status": "VALID",
+        "reasons": [
+          "verified_selected_authorized_evidence"
+        ],
+        "phrase_match_detected": true,
+        "evidence_status": "accepted",
+        "authority_level": "high",
+        "is_adversarial": false
+      }
+    ],
+    "abstention_reason": null,
+    "latency_ms": 41461.42,
+    "request_id": "757036cd-8a0a-4c10-ad50-1825303748cd",
+    "was_generation_invoked": true,
+    "generation_latency_ms": 41368.32,
+    "index_generation_id": "GEN-20261008070425-7cb653"
+  },
+  "provider_readiness": true
+}

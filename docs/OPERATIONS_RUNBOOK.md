@@ -83,8 +83,17 @@ The certified deployment topology consists of three interacting services on a si
 ```
 
 ### Network Connectivity
-- **ATLAS Service** $\to$ **Inference Service**: Connected via `http://127.0.0.1:8001` (Host loopback) or Docker bridge network.
+- **ATLAS Service** $\to$ **Inference Service**: The supported deployment contract is a host API process connected to `http://127.0.0.1:8001`. Docker publishes that host-loopback port into the inference container's internal port `8001`.
 - **Inference Service Container** $\to$ **Host Ollama**: Inside the container, host Ollama is accessed via `http://host.docker.internal:11434` (supported natively on Docker Desktop; on Linux Docker, requires `--add-host=host.docker.internal:host-gateway`).
+
+> [!CAUTION]
+> **SEC-OPS-02 network boundary**: The inference container must be published only with `-p 127.0.0.1:8001:8001`. Never use an unqualified `-p 8001:8001`, `-p 0.0.0.0:8001:8001`, `--network host`, or a public ingress for inference endpoints. This host-process API contract must be explicitly redesigned and re-reviewed before the API itself is containerized.
+
+### Ollama Containment Requirement
+
+- **Docker Desktop**: Keep Ollama private to the host and verify that the inference container can reach the configured backend through `host.docker.internal` before declaring readiness.
+- **Linux Docker bridge**: This repository does not implement a universal host firewall. The deployment operator must verify that TCP/11434 is not publicly reachable and that only loopback and required Docker-bridge traffic are permitted. Without that platform verification, deployment readiness is **BLOCKED**.
+- No Docker port publication for `11434` is part of the ATLAS deployment contract.
 
 ---
 
@@ -106,8 +115,8 @@ Before starting deployment, verify that all host prerequisites are satisfied:
 
 ### Network Requirements
 - [ ] Port `8000` available for ATLAS API service.
-- [ ] Port `8001` available for Inference Service container.
-- [ ] Port `11434` available for Ollama daemon.
+- [ ] Host loopback port `127.0.0.1:8001` available for Inference Service container; it must not be publicly published.
+- [ ] Port `11434` is contained according to the platform policy above; it must not be publicly reachable.
 
 ### Security Credentials
 - [ ] Configured JWT Issuer URL (e.g. `https://identity.atlas.example/issuer`).
@@ -255,7 +264,7 @@ On Linux:
 docker run -d \
   --name atlas-inference-5d \
   --restart unless-stopped \
-  -p 8001:8001 \
+  -p 127.0.0.1:8001:8001 \
   --add-host=host.docker.internal:host-gateway \
   -e INFERENCE_BACKEND_URL=http://host.docker.internal:11434 \
   -e INFERENCE_MODEL_NAME=gemma3:1b \
@@ -267,7 +276,7 @@ On Windows (PowerShell with Docker Desktop):
 docker run -d `
   --name atlas-inference-5d `
   --restart unless-stopped `
-  -p 8001:8001 `
+  -p 127.0.0.1:8001:8001 `
   -e INFERENCE_BACKEND_URL=http://host.docker.internal:11434 `
   -e INFERENCE_MODEL_NAME=gemma3:1b `
   atlas-inference:5d

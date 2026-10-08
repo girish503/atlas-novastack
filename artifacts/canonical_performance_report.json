@@ -1,0 +1,50 @@
+{
+  "benchmark_name": "ATLAS Canonical Latency & Performance Benchmark",
+  "evaluation_scope": {
+    "query_understanding": "IN_PROCESS_WARM",
+    "retrieval": "IN_PROCESS_WARM",
+    "reranking": "IN_PROCESS_WARM",
+    "generation": "OFFLINE_INFERENCE_ARTIFACT",
+    "http_production_path": "NOT_MEASURED"
+  },
+  "sample_size": 20,
+  "query_understanding_ms": {
+    "mean": 1.2476150004658848,
+    "p50": 1.143400000728434,
+    "p95": 1.2940999986312818,
+    "p99": 3.1964000008883886,
+    "max": 3.1964000008883886
+  },
+  "retrieval_ms": {
+    "mean": 47.34430500011513,
+    "p50": 41.36170000128914,
+    "p95": 57.71219999951427,
+    "p99": 123.23070000275038,
+    "max": 123.23070000275038
+  },
+  "reranking_ms": {
+    "mean": 0.32835999973030994,
+    "p50": 0.31909999961499125,
+    "p95": 0.3756000005523674,
+    "p99": 0.40860000081011094,
+    "max": 0.40860000081011094
+  },
+  "generation_ms": {
+    "mean": 13361.674374166681,
+    "p50": 13919.516499999872,
+    "p95": 21840.571199999886,
+    "p99": 31637.029699999857,
+    "max": 36954.34780000005
+  },
+  "cold_start_characteristics": {
+    "dense_search_after_index_load_ms": 741.82,
+    "historical_dense_cold_page_in_s": 35.27,
+    "historical_note": "Prior operations notes recorded ~35s dense page-in and 12-16s warm GGUF inference."
+  },
+  "gate_evaluation": {
+    "pass": true,
+    "warm_retrieval_p95_le_250ms": true,
+    "warm_query_understanding_p95_le_250ms": true,
+    "http_e2e_latency": "NOT_MEASURED"
+  }
+}

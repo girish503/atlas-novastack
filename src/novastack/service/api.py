@@ -108,6 +108,8 @@ class AtlasServicePipeline:
         structured_retriever: Optional[StructuredRetriever] = None,
         metadata_snapshot_index: Optional[dict[str, Any]] = None,
         index_manager: Optional[IndexManager] = None,
+        canary_router: Optional[Any] = None,
+        h5_1_qu_extractor: Optional[Any] = None,
     ):
         self.bm25_index = bm25_index
         self.dense_index = dense_index
@@ -122,6 +124,28 @@ class AtlasServicePipeline:
         # legacy fields above remain constructor-compatible for static/test
         # pipelines, but live requests never reread them when a manager exists.
         self.index_manager = index_manager
+        # Explicit canary dependencies (RET-EVAL-09)
+        from novastack.canary import CanaryConfig, CanaryRouter
+        self.canary_router = canary_router or CanaryRouter(CanaryConfig.from_env())
+        self.h5_1_qu_extractor = h5_1_qu_extractor
+
+    @property
+    def h5_1_extractor(self) -> Any:
+        if self.h5_1_qu_extractor is None and self.catalog is not None and self.qu_extractor is not None:
+            try:
+                from scripts.ret_eval_08_h5_1_experiment import (
+                    H5_1EntityResolver,
+                    H5_1QueryUnderstandingOverlay,
+                )
+                h5_1_res = H5_1EntityResolver(self.catalog)
+                self.h5_1_qu_extractor = H5_1QueryUnderstandingOverlay(
+                    base_extractor=self.qu_extractor,
+                    resolver=h5_1_res,
+                    catalog=self.catalog,
+                )
+            except Exception as e:
+                logger.warning("Failed to initialize H5.1 entity extractor: %s", e)
+        return self.h5_1_qu_extractor
 
     def get_active_generation_id(self) -> Optional[str]:
         """Return the generation currently visible to *new* requests."""
@@ -268,9 +292,35 @@ class AtlasServicePipeline:
         if t_deadline and time.perf_counter() >= t_deadline:
             raise AtlasTimeoutError(f"Request processing exceeded configured deadline of {timeout_seconds}s")
 
-        # 1. Query Understanding
+        # 1. Canary Routing (strictly after verified tenant/identity and deadline check)
+        routing_key = request.evaluation_id or query
+        variant = "baseline"
+        canary_bucket = -1
+        if self.canary_router is not None:
+            try:
+                variant, canary_bucket = self.canary_router.route_request(
+                    tenant_id=tenant_id,
+                    routing_key=routing_key,
+                )
+            except Exception as e:
+                logger.warning("Canary routing encountered exception; failing closed to baseline: %s", e)
+                variant = "baseline"
+                canary_bucket = -1
+
+        # 2. Query Understanding & Entity Resolution
         t_qu_start = time.perf_counter()
-        qu = self.qu_extractor.extract(eval_id, query) if self.qu_extractor else None
+        extractor = self.h5_1_extractor if (variant == "h5_1" and self.h5_1_extractor is not None) else self.qu_extractor
+        qu = None
+        if extractor is not None:
+            if hasattr(extractor, "resolver"):
+                qu_res = extractor.extract(query=query, tenant_id=tenant_id)
+                if isinstance(qu_res, tuple):
+                    qu, _ = qu_res
+                else:
+                    qu = qu_res
+            else:
+                qu = extractor.extract(eval_id, query)
+
         expanded_q = qu.expanded_query if qu else query
         metrics.record_stage_latency("query_understanding", time.perf_counter() - t_qu_start)
 
@@ -423,6 +473,8 @@ class AtlasServicePipeline:
             was_generation_invoked=bool(was_gen),
             generation_latency_ms=round(float(gen_lat), 2),
             index_generation_id=generation_id,
+            canary_variant=variant,
+            canary_bucket=canary_bucket,
         )
 
     @classmethod
@@ -502,6 +554,23 @@ class AtlasServicePipeline:
                 corpus_chunk_ids=chunk_ids,
             )
 
+        from novastack.canary import CanaryConfig, CanaryRouter
+        canary_router = CanaryRouter(CanaryConfig.from_env())
+        h5_1_qu_extractor = None
+        try:
+            from scripts.ret_eval_08_h5_1_experiment import (
+                H5_1EntityResolver,
+                H5_1QueryUnderstandingOverlay,
+            )
+            h5_1_res = H5_1EntityResolver(catalog)
+            h5_1_qu_extractor = H5_1QueryUnderstandingOverlay(
+                base_extractor=qu_extractor,
+                resolver=h5_1_res,
+                catalog=catalog,
+            )
+        except Exception as e:
+            logger.warning("H5.1 extractor initialization deferred in create_default: %s", e)
+
         return cls(
             bm25_index=bm25_index,
             dense_index=dense_index,
@@ -513,6 +582,8 @@ class AtlasServicePipeline:
             structured_retriever=structured_retriever,
             metadata_snapshot_index=metadata_snapshot_index,
             index_manager=index_manager,
+            canary_router=canary_router,
+            h5_1_qu_extractor=h5_1_qu_extractor,
         )
 
 
@@ -918,6 +989,10 @@ def create_app(
                     response.headers["x-generation-invoked"] = str(resp.was_generation_invoked).lower()
                 if hasattr(resp, "generation_latency_ms"):
                     response.headers["x-generation-latency-ms"] = str(resp.generation_latency_ms)
+                if hasattr(resp, "canary_variant"):
+                    response.headers["x-canary-variant"] = str(resp.canary_variant)
+                if hasattr(resp, "canary_bucket"):
+                    response.headers["x-canary-bucket"] = str(resp.canary_bucket)
 
                 duration_s = time.perf_counter() - t_req_start
                 metrics.record_request(endpoint="/query", method="POST", status=200, duration_seconds=duration_s)
@@ -933,6 +1008,11 @@ def create_app(
                     latency_ms=duration_s * 1000.0,
                     tenant_id=req.user_context.tenant_id,
                     evaluation_id=req.evaluation_id,
+                    canary_variant=getattr(resp, "canary_variant", "baseline"),
+                    canary_bucket=getattr(resp, "canary_bucket", -1),
+                    candidate_version="0.4.14-rc1+h5.1" if getattr(resp, "canary_variant", "baseline") == "h5_1" else "0.4.14-rc1",
+                    routing_key_type="evaluation_id" if req.evaluation_id else "query",
+                    retrieval_configuration="B4+H1(H5.1)+H3" if getattr(resp, "canary_variant", "baseline") == "h5_1" else "B4+H1(H5)+H3",
                 )
                 return resp
             except (asyncio.TimeoutError, TimeoutError):

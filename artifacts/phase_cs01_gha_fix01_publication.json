@@ -1,0 +1,54 @@
+{
+  "phase": "CS-01-GHA-FIX-01-PUBLISH",
+  "timestamp": "2026-10-06T10:39:00Z",
+  "repository": "girish503/atlas-novastack",
+  "repository_private": true,
+  "previous_remote_head": "77c3c6b1ca48d10a99413fe3f3e03c696133e2f1",
+  "publication_commit": "d325e5a251ea7a6593414995be9d023f03b57d07",
+  "publication_commit_short": "d325e5a",
+  "publication_commit_message": "fix: remediate canary harness fixture contracts",
+  "current_remote_head": "d325e5a82681456ebaca57f2f27c1900f17bd415",
+  "changed_files": [
+    ".github/workflows/canary.yml",
+    "artifacts/phase_cs01_gha_fix01.json",
+    "artifacts/phase_cs01_gha_fix01_review.json",
+    "docs/ATLAS_CS01_GHA_FIX01.md",
+    "docs/ATLAS_CS01_GHA_FIX01_REVIEW.md"
+  ],
+  "production_source_drift": {
+    "src_novastack_files_changed": 0,
+    "src_novastack_lines_changed": 0
+  },
+  "release_artifacts_verification": {
+    "atlas_novastack_0_5_0_rc1_sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+    "atlas_novastack_0_5_0_rc1_verified": true,
+    "atlas_novastack_0_4_14_rc1_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+    "atlas_novastack_0_4_14_rc1_verified": true
+  },
+  "remote_ci_workflow": {
+    "ci_run_id": "37450382208",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "Security Regression Gate",
+        "conclusion": "success"
+      },
+      {
+        "name": "Fast Tests",
+        "conclusion": "success"
+      },
+      {
+        "name": "Container Build",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "canary_workflow_state": {
+    "canary_runs_created": 0,
+    "workflow_dispatch_called": false,
+    "run_02_initiated": false
+  },
+  "final_decision": "PUBLISHED_READY_FOR_CANARY_AUTHORIZATION"
+}

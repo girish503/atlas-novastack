@@ -1,0 +1,131 @@
+{
+  "benchmark_name": "ATLAS Canonical Security & Red-Team Audit",
+  "evaluation_scope": "IN_PROCESS_DETERMINISTIC",
+  "not_claimed": [
+    "SEC-OPS-03 remote LAN ingress remains UNVERIFIED",
+    "This harness is not production traffic"
+  ],
+  "total_categories_tested": 9,
+  "categories_passed": 9,
+  "overall_security_verdict": "PASS",
+  "gate_evaluation": {
+    "pass": true
+  },
+  "results": [
+    {
+      "category": "7.1 Authentication",
+      "passed": true,
+      "attacks": [
+        {
+          "passed": true,
+          "detail": "Fail closed on missing token"
+        },
+        {
+          "passed": true,
+          "detail": "Fail closed on forged signature"
+        },
+        {
+          "passed": true,
+          "detail": "Fail closed on expired token"
+        },
+        {
+          "passed": true,
+          "detail": "Fail closed on malformed token"
+        }
+      ]
+    },
+    {
+      "category": "7.2 Authorization & Context",
+      "passed": true,
+      "attacks": [
+        {
+          "passed": true,
+          "detail": "Rejected spoofed tenant"
+        },
+        {
+          "passed": true,
+          "detail": "Rejected role escalation"
+        }
+      ]
+    },
+    {
+      "category": "7.3 Cross-Tenant Isolation",
+      "passed": true,
+      "attacks": [
+        {
+          "passed": true,
+          "detail": "Indexed cross-tenant chunk excluded from selected evidence"
+        },
+        {
+          "passed": true,
+          "detail": "Unknown-lineage foreign tenant candidate fail-closed"
+        }
+      ],
+      "selected_document_ids": []
+    },
+    {
+      "category": "7.4 Direct Prompt Injection",
+      "passed": true,
+      "attacks": [
+        {
+          "passed": true,
+          "detail": "Injection string treated as ordinary query text"
+        }
+      ]
+    },
+    {
+      "category": "7.5 Indirect Prompt Injection",
+      "passed": true,
+      "attacks": [
+        {
+          "passed": true,
+          "detail": "Document instructions wrapped in untrusted evidence_data markers"
+        }
+      ]
+    },
+    {
+      "category": "7.6 Retrieval Poisoning",
+      "passed": true,
+      "attacks": [
+        {
+          "passed": true,
+          "detail": "Self-declared canonical text did not change trusted metadata authority"
+        }
+      ]
+    },
+    {
+      "category": "7.7 Citation Leakage",
+      "passed": true,
+      "attacks": [
+        {
+          "passed": true,
+          "detail": "Fabricated citation tag rejected by C2 validator"
+        }
+      ]
+    },
+    {
+      "category": "7.8 Secret Exfiltration",
+      "passed": true,
+      "attacks": [
+        {
+          "passed": true,
+          "detail": "Telemetry sanitizer detects credential assignment patterns"
+        },
+        {
+          "passed": true,
+          "detail": "Processed chunk corpus has no private-key/JWT-secret markers"
+        }
+      ]
+    },
+    {
+      "category": "7.9 Metadata Attacks",
+      "passed": true,
+      "attacks": [
+        {
+          "passed": true,
+          "detail": "Caller context derived from verified JWT claims"
+        }
+      ]
+    }
+  ]
+}

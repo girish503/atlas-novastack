@@ -63,15 +63,21 @@ docker inspect atlas-inference:5d --format '{{json .Config}}'
 ---
 
 ### Step 5: Run Container Non-Root
-Launch the container bound to host port 8001.
+
+> [!WARNING]
+> **Historical/reference checklist; SEC-OPS-02 supersedes its former broad host-port publication.** The approved operational command below publishes inference only to host loopback. Do not use `--network host`, `-p 8001:8001`, or `-p 0.0.0.0:8001:8001`.
+
+Launch the container bound only to host loopback port 8001.
 
 *Note on Network Topology*:
-- On Linux hosts with local Ollama: use `--network host` or bridge with host IP.
-- On Windows / macOS hosts with Docker Desktop: use `-e INFERENCE_BACKEND_URL=http://host.docker.internal:11434`.
+- Do not use `--network host` for the inference container.
+- On Windows / macOS hosts with Docker Desktop: use `-e INFERENCE_BACKEND_URL=http://host.docker.internal:11434` and verify that Ollama remains private to the host.
+- On Linux bridge deployments: use `--add-host=host.docker.internal:host-gateway` and verify host firewall containment for TCP/11434 before proceeding. This repository cannot verify that firewall universally; absence of verification is a readiness block.
 ```bash
 docker run -d \
   --name atlas-inference-5d \
-  -p 8001:8001 \
+  -p 127.0.0.1:8001:8001 \
+  --add-host=host.docker.internal:host-gateway \
   -e INFERENCE_BACKEND_URL="http://host.docker.internal:11434" \
   atlas-inference:5d
 ```

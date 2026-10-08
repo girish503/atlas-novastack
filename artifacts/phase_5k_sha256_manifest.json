@@ -7,7 +7,7 @@
   "src/novastack/provider.py": "fb873cd7c0b1d46869b6155b651074ab3c05978043317c66ce5235e5111e389b",
   "src/novastack/quantized_provider.py": "02b13beb6b3a605ad48b7e464730238385ca50434f575093c219a776f62f334a",
   "src/novastack/inference_client.py": "890f5a34d4fe120e1388f9c903ebaae622ff8df2a948bf6fa258dd6a7c7546c2",
-  "src/novastack/service/api.py": "044fafd50058977a65138747f2e4a9b0684d60035722e211c868a94cf495affb",
+  "src/novastack/service/api.py": "ea2b10cc7fd5c20f874b9c5ac7922c4d1707745bd4ef9870ab8b4fdbdb417ab6",
   "src/novastack/service/identity.py": "0ce1cf45110e62763dbff928762c1cec9f21d81b0a3abc827d6f950233e29ffb",
   "src/novastack/service/resilience.py": "c9bc42b492279df678a87ad087afdd98967d08e13b0ef5b339896522c95a9883",
   "src/novastack/service/schemas.py": "eb58b8dd3a6d91a78126163095f71e1e26edc65a9eb1676c10c733f1fe0a7782",

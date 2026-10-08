@@ -1,0 +1,113 @@
+{
+  "phase": "RLS-00",
+  "verification_date": "2026-10-06",
+  "decision": "RELEASE_IDENTITY_REVIEW_REQUIRED",
+  "scope": "Release identity reconciliation only; no product, source, retrieval, inference, frontend, workflow, or canary action was performed.",
+  "directive_values": {
+    "provided_0414_authoritative_value": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539239208a9d4",
+    "provided_0414_length": 65,
+    "provided_0414_is_valid_sha256": false,
+    "provided_050_authoritative_value": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+    "provided_050_length": 64,
+    "provided_050_is_valid_sha256": true,
+    "directive_labeled_erroneous_0414_value": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3"
+  },
+  "independent_archive_verification": [
+    {
+      "release": "0.4.14-rc1",
+      "archive": "dist/atlas-novastack-0.4.14-rc1.tar.gz",
+      "size_bytes": 3475452,
+      "computed_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+      "matches_provided_0414_authoritative_value": false,
+      "matches_directive_labeled_erroneous_value": true
+    },
+    {
+      "release": "0.5.0-rc1",
+      "archive": "dist/atlas-novastack-0.5.0-rc1.tar.gz",
+      "size_bytes": 3476740,
+      "computed_sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+      "matches_provided_050_authoritative_value": true
+    }
+  ],
+  "manifest_comparison": {
+    "artifacts/phase_5k_release_manifest.json": {
+      "release_candidate_version": "0.4.14-rc1",
+      "package_version": "0.4.14",
+      "archive_sha256_present": false,
+      "classification": "release identity metadata; no conflicting archive checksum"
+    },
+    "artifacts/phase_5m_sha256_manifest.json": {
+      "archive_filename": "atlas-novastack-0.4.14-rc1.tar.gz",
+      "recorded_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+      "matches_archive_bytes": true,
+      "classification": "internally consistent, but inconsistent with the supplied 65-character value"
+    },
+    "artifacts/phase_5m_release_artifact_manifest.json": {
+      "archive_filename": "atlas-novastack-0.4.14-rc1.tar.gz",
+      "recorded_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+      "recorded_size_bytes": 3475452,
+      "matches_archive_bytes": true,
+      "classification": "internally consistent, but inconsistent with the supplied 65-character value"
+    },
+    "artifacts/phase_gh08_publication.json": {
+      "0.4.14_recorded_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+      "0.5.0_recorded_sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+      "classification": "later publication record; both values match their local archive verification results"
+    },
+    "artifacts/phase_cs01_gha_fix01_publication.json": {
+      "0.4.14_recorded_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+      "0.5.0_recorded_sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+      "classification": "later publication record; both values match their local archive verification results"
+    },
+    ".github/workflows/canary.yml": {
+      "0.4.14_expected_sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+      "0.5.0_expected_sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+      "classification": "manual-only verification configuration; not executed during RLS-00"
+    }
+  },
+  "checksum_search": {
+    "provided_65_character_0414_value": {
+      "matching_lines": 0,
+      "matching_files": 0,
+      "classification": "absent from repository-controlled records"
+    },
+    "directive_labeled_erroneous_0414_value": {
+      "matching_lines": 104,
+      "matching_files": 69,
+      "file_categories": {
+        "artifacts": 31,
+        "docs": 30,
+        "workflow": 1,
+        "tests": 3,
+        "scripts": 3,
+        "root": 1
+      },
+      "classification": "all occurrences are the repository's current certified 64-character baseline reference and match the independently computed 0.4.14 archive hash"
+    },
+    "provided_050_value": {
+      "matching_lines": 49,
+      "matching_files": 42,
+      "file_categories": {
+        "artifacts": 18,
+        "docs": 23,
+        "workflow": 1
+      },
+      "classification": "all occurrences are consistent with the independently computed 0.5.0 archive hash"
+    }
+  },
+  "repository_state": {
+    "head": "d325e5a82681456ebaca57f2f27c1900f17bd415",
+    "head_subject": "fix: remediate canary harness fixture contracts",
+    "remote": "https://github.com/girish503/atlas-novastack.git",
+    "tracked_changes_under_src_github_dist": false,
+    "production_source_changes_introduced_by_rls00": false,
+    "release_archive_changes_introduced_by_rls00": false,
+    "workflow_changes_introduced_by_rls00": false,
+    "canary_triggered_by_rls00": false
+  },
+  "files_modified_by_rls00": [
+    "artifacts/phase_rls00_release_identity.json",
+    "docs/ATLAS_RLS00_RELEASE_IDENTITY.md"
+  ],
+  "required_governance_action": "Supply a valid 64-character authoritative SHA-256 for 0.4.14-rc1, or explicitly affirm that 382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3 is the authoritative value. Do not change certified records or artifacts before that decision."
+}

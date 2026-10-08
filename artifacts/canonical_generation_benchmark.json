@@ -1,0 +1,52 @@
+{
+  "benchmark_name": "ATLAS Canonical Grounded Generation Benchmark",
+  "evaluation_scope": "OFFLINE_CERTIFIED_ARTIFACT",
+  "artifact_path": "artifacts\\phase_05_m8_benchmark_results.json",
+  "model": "gemma3:1b",
+  "evaluator": "deterministic_citation_validator_plus_m8_labels",
+  "llm_as_judge": false,
+  "total_cases_evaluated": 120,
+  "missing_from_artifact": [],
+  "metrics": {
+    "total_cases": 120,
+    "positive_cases": 101,
+    "negative_cases": 19,
+    "positive_answered_count": 74,
+    "positive_answer_yield": 0.7326732673267327,
+    "negative_abstained_count": 19,
+    "negative_safety_rate": 1.0,
+    "total_citations": 122,
+    "valid_citations": 122,
+    "citation_precision": 1.0,
+    "citation_completeness": 0.9324324324324325,
+    "unauthorized_citations": 0,
+    "fabricated_citations": 0
+  },
+  "cost_accounting": {
+    "input_tokens": 76715,
+    "output_tokens": 2693,
+    "total_tokens": 79408,
+    "model_calls": 120,
+    "estimated_monetary_cost": null,
+    "monetary_cost_status": "UNAVAILABLE"
+  },
+  "generation_latency_ms_from_artifact": {
+    "count": 120,
+    "mean": 13361.674374166681
+  },
+  "results_summary": {
+    "positive_yield_pct": "73.27%",
+    "negative_safety_pct": "100.00%",
+    "citation_precision_pct": "100.00%",
+    "citation_completeness_pct": "93.24%"
+  },
+  "gate_evaluation": {
+    "pass": true,
+    "positive_yield_ge_70": true,
+    "negative_safety_100": true,
+    "citation_precision_100": true,
+    "zero_unauthorized_citations": true,
+    "zero_fabricated_citations": true,
+    "complete_artifact_coverage": true
+  }
+}

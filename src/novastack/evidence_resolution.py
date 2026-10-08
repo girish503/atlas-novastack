@@ -287,23 +287,26 @@ class EvidenceResolver:
                     retrieval_channels=channels,
                 )
             else:
-                # Minimal fallback if chunk not in index
+                # Fail closed: never inherit the caller's tenant for unknown lineage.
+                candidate_tenant = getattr(cand, "tenant_id", None) or "UNKNOWN-TENANT"
                 item = EvidenceItem(
                     evidence_id=f"EVD-{eval_id}-{rank:03d}-{did}",
                     chunk_id=cid,
                     document_id=did,
-                    tenant_id=user_tenant,
-                    source_type="documentation",
+                    tenant_id=candidate_tenant,
+                    source_type=getattr(cand, "source_type", "documentation") or "documentation",
                     title=title or did,
                     text="",
                     source_entity_id=None,
                     source_entity_type=None,
                     related_entity_ids=[],
-                    authority_level="medium",
-                    classification="internal",
-                    permissions=SearchDocument(did, user_tenant, "doc", title, "", "", "", "").permissions,
-                    status="published",
-                    version="1.0",
+                    authority_level=getattr(cand, "authority_level", "medium") or "medium",
+                    classification=getattr(cand, "classification", "internal") or "internal",
+                    permissions=SearchDocument(
+                        did, candidate_tenant, "doc", title, "", "", "", ""
+                    ).permissions,
+                    status=getattr(cand, "status", "published") or "published",
+                    version=getattr(cand, "version", "1.0") or "1.0",
                     created_at="2026-01-01T00:00:00",
                     updated_at=None,
                     valid_from=None,
@@ -313,6 +316,10 @@ class EvidenceResolver:
                     retrieval_rank=rank,
                     retrieval_score=score,
                     retrieval_channels=channels,
+                    evidence_status=EvidenceStatus.UNAUTHORIZED.value
+                    if candidate_tenant != user_tenant
+                    else EvidenceStatus.EXCLUDED.value,
+                    evidence_reasons=["unknown_lineage_fail_closed"],
                 )
             raw_items.append(item)
         latencies["ingestion_ms"] = (time.perf_counter() - t0) * 1000.0
@@ -337,6 +344,10 @@ class EvidenceResolver:
             if item.tenant_id != user_tenant:
                 is_auth = False
                 auth_reasons.append(f"cross_tenant_violation:{item.tenant_id}!={user_tenant}")
+
+            if "unknown_lineage_fail_closed" in (item.evidence_reasons or []):
+                is_auth = False
+                auth_reasons.append("unknown_lineage_fail_closed")
 
             # 3. Role Restriction Check (Fail-Closed)
             perms = item.permissions

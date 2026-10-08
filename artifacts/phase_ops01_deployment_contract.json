@@ -1,0 +1,109 @@
+{
+  "phase": "OPS-01",
+  "date": "2026-10-06",
+  "repository": "girish503/atlas-novastack",
+  "head_commit": "d325e5a82681456ebaca57f2f27c1900f17bd415",
+  "release_identity": {
+    "0.4.14-rc1": {
+      "archive": "dist/atlas-novastack-0.4.14-rc1.tar.gz",
+      "sha256": "382cde6c9385acb8f06b80c07895af498b98347a16f1f124bf16539208a9d4a3",
+      "verified_by_ops01": false,
+      "rls00_canonical_value": true
+    },
+    "0.5.0-rc1": {
+      "archive": "dist/atlas-novastack-0.5.0-rc1.tar.gz",
+      "sha256": "f9fe791595282bdd6e961e1383de69ee1a63cc52cb16ccdfed9645677b914936",
+      "verified_by_ops01": false,
+      "rls00_canonical_value": true
+    }
+  },
+  "configuration_inventory": [
+    {"variable":"ATLAS_AUTH_ISSUER","canonical":true,"required":true,"default":null,"secret":false,"classification":["security-sensitive"],"used_by":"API identity verifier","meaning":"Expected HS256 JWT issuer; missing configuration fails closed."},
+    {"variable":"ATLAS_AUTH_AUDIENCE","canonical":true,"required":true,"default":null,"secret":false,"classification":["security-sensitive"],"used_by":"API identity verifier","meaning":"Expected JWT audience; missing configuration fails closed."},
+    {"variable":"ATLAS_AUTH_HS256_SECRET","canonical":true,"required":true,"default":null,"secret":true,"classification":["security-sensitive"],"used_by":"API identity verifier","meaning":"HS256 verification key; must be at least 32 bytes and must never be logged, placed in a client, or sent to inference."},
+    {"variable":"ATLAS_AUTH_CLOCK_SKEW_SECONDS","canonical":true,"required":false,"default":"30","secret":false,"classification":["security-sensitive","operational"],"used_by":"API identity verifier","meaning":"Allowed JWT clock skew; accepted range is 0 through 300 seconds."},
+    {"variable":"ATLAS_INFERENCE_SERVICE_URL","canonical":true,"required":false,"default":"http://127.0.0.1:8001","secret":false,"classification":["operational","security-sensitive"],"used_by":"API provider factory and inference adapter","meaning":"API-to-inference service URL. It must resolve only to a private or loopback endpoint."},
+    {"variable":"ATLAS_INFERENCE_PROVIDER","canonical":true,"required":false,"default":"inference_service","secret":false,"classification":["operational"],"used_by":"API provider factory","meaning":"Generation provider selection; certified default is the inference service adapter."},
+    {"variable":"ATLAS_MAX_CONCURRENT_QUERIES","canonical":true,"required":false,"default":"1","secret":false,"classification":["operational"],"used_by":"ResilienceConfig","meaning":"Actual runtime environment key for the single inference/concurrency limiter. The field is named max_concurrent_inferences, but this is the source-read key."},
+    {"variable":"ATLAS_REQUEST_TIMEOUT_SECONDS","canonical":true,"required":false,"default":"30.0","secret":false,"classification":["operational"],"used_by":"ResilienceConfig","meaning":"API request deadline."},
+    {"variable":"ATLAS_QUEUE_TIMEOUT_SECONDS","canonical":true,"required":false,"default":"0.5","secret":false,"classification":["operational"],"used_by":"ResilienceConfig","meaning":"Maximum queue wait before HTTP 429 capacity shedding."},
+    {"variable":"ATLAS_ENABLE_CIRCUIT_BREAKER","canonical":true,"required":false,"default":"true","secret":false,"classification":["operational"],"used_by":"ResilienceConfig","meaning":"Enables the local inference failure circuit breaker."},
+    {"variable":"ATLAS_CIRCUIT_FAILURE_THRESHOLD","canonical":true,"required":false,"default":"3","secret":false,"classification":["operational"],"used_by":"ResilienceConfig","meaning":"Consecutive failures before circuit-open."},
+    {"variable":"ATLAS_CIRCUIT_COOLDOWN_SECONDS","canonical":true,"required":false,"default":"10.0","secret":false,"classification":["operational"],"used_by":"ResilienceConfig","meaning":"Circuit-open cooldown duration."},
+    {"variable":"ATLAS_WORKSPACE_ROOT","canonical":true,"required":false,"default":"auto-discovered working tree","secret":false,"classification":["operational"],"used_by":"API pipeline factory","meaning":"Workspace root containing certified data assets."},
+    {"variable":"ATLAS_INFERENCE_BACKEND_URL","canonical":true,"required":false,"default":"http://127.0.0.1:11434","secret":false,"classification":["operational","inference-service-only"],"used_by":"InferenceServiceConfig","meaning":"Inference-service-to-Ollama backend URL, not the API-to-inference-service URL."},
+    {"variable":"ATLAS_INFERENCE_MODEL_NAME","canonical":true,"required":false,"default":"gemma3:1b","secret":false,"classification":["operational","inference-service-only"],"used_by":"InferenceServiceConfig","meaning":"Configured Ollama model name."},
+    {"variable":"ATLAS_INFERENCE_CONNECT_TIMEOUT_SECONDS","canonical":true,"required":false,"default":"2.0","secret":false,"classification":["operational","inference-service-only"],"used_by":"InferenceServiceConfig","meaning":"Inference-service-to-Ollama connect/readiness timeout."},
+    {"variable":"ATLAS_INFERENCE_READ_TIMEOUT_SECONDS","canonical":true,"required":false,"default":"25.0","secret":false,"classification":["operational","inference-service-only"],"used_by":"InferenceServiceConfig","meaning":"Inference-service-to-Ollama generate timeout."},
+    {"variable":"ATLAS_INFERENCE_SERVICE_HOST","canonical":false,"required":false,"default":"0.0.0.0","secret":false,"classification":["deprecated-for-container-launch"],"used_by":"InferenceServiceConfig only","meaning":"Not honored by Dockerfile.inference, whose uvicorn CMD fixes --host 0.0.0.0."},
+    {"variable":"ATLAS_INFERENCE_SERVICE_PORT","canonical":false,"required":false,"default":"8001","secret":false,"classification":["deprecated-for-container-launch"],"used_by":"InferenceServiceConfig only","meaning":"Not honored by Dockerfile.inference, whose uvicorn CMD fixes --port 8001."},
+    {"variable":"INFERENCE_BACKEND_URL, INFERENCE_MODEL_NAME, INFERENCE_CONNECT_TIMEOUT_SECONDS, INFERENCE_READ_TIMEOUT_SECONDS, INFERENCE_SERVICE_HOST, INFERENCE_SERVICE_PORT","canonical":false,"required":false,"default":"corresponding ATLAS_* value or built-in default","secret":false,"classification":["legacy-aliases"],"used_by":"InferenceServiceConfig","meaning":"Backward-compatible fallback names only; do not use in new deployment material."},
+    {"variable":"ATLAS_MAX_CONCURRENT_INFERENCES","canonical":false,"required":false,"default":"n/a","secret":false,"classification":["documented-but-inert"],"used_by":"none at runtime","meaning":"Appears in current runbooks/manifests but is not read by ResilienceConfig."},
+    {"variable":"ATLAS_JWT_SECRET, ATLAS_JWT_ISSUER, ATLAS_JWT_AUDIENCE","canonical":false,"required":false,"default":"n/a","secret":true,"classification":["stale-documentation"],"used_by":"none at runtime","meaning":"Historical names; current API recognizes only ATLAS_AUTH_* identity variables."}
+  ],
+  "endpoint_inventory": [
+    {"service":"API","endpoint":"GET /healthz","actual_authentication":"none","contract_exposure":"local or private liveness probe only","internet_facing":false,"operator_or_internal":true,"notes":"Returns process liveness only."},
+    {"service":"API","endpoint":"GET /ready","actual_authentication":"none","contract_exposure":"private operator/orchestrator only","internet_facing":false,"operator_or_internal":true,"notes":"Returns component state and active generation ID."},
+    {"service":"API","endpoint":"GET /metrics","actual_authentication":"none","contract_exposure":"private metrics collector/operator only","internet_facing":false,"operator_or_internal":true,"notes":"No application access gate exists; deployment must restrict it."},
+    {"service":"API","endpoint":"POST /query","actual_authentication":"required HS256 Bearer JWT","contract_exposure":"authenticated user-facing API only, behind an approved TLS/ingress boundary","internet_facing":true,"operator_or_internal":false,"notes":"Verified identity overwrites client-supplied context before retrieval."},
+    {"service":"Inference","endpoint":"GET /healthz, GET /ready","actual_authentication":"none","contract_exposure":"private API/operator network only","internet_facing":false,"operator_or_internal":true,"notes":"Readiness exposes backend and model state."},
+    {"service":"Inference","endpoint":"POST /generate","actual_authentication":"none by deliberate design","contract_exposure":"strictly private API-to-inference network only","internet_facing":false,"operator_or_internal":true,"notes":"Must never be published through an internet-facing port or ingress."}
+  ],
+  "network_boundary": {
+    "actual_implementation": "Both Dockerfiles start uvicorn on 0.0.0.0; EXPOSE documents container ports but does not itself publish a host port. No compose topology exists in the repository.",
+    "documented_exposure_risk": "docs/OPERATIONS_RUNBOOK.md publishes inference with -p 8001:8001. Docker's unqualified publish binds all host interfaces by default; access from another machine then depends on host firewall/network policy.",
+    "safe_supported_local_topology": "Host API on 127.0.0.1:8000 or a separately governed ingress; inference container published only as -p 127.0.0.1:8001:8001; API uses ATLAS_INFERENCE_SERVICE_URL=http://127.0.0.1:8001; Ollama remains loopback/private at 11434.",
+    "safe_supported_container_topology": "API and inference containers may use a private user-defined Docker bridge with no published inference port, and API may use an internal DNS/service URL at port 8001. A compose file is not supplied, so this is a supported HTTP topology rather than a repository-provided deployment artifact.",
+    "exposure_truth_table": {
+      "127.0.0.1:8001": "Host-local only when Docker uses -p 127.0.0.1:8001:8001 or a host process binds loopback.",
+      "0.0.0.0:8001": "Listens on all interfaces in the relevant network namespace; externally reachable when host-published/firewall-permitted.",
+      "docker_bridge_without_publish": "Reachable only by containers attached to the same bridge, not directly from the host/external network.",
+      "host_networking": "Container shares host network; an 0.0.0.0 bind is host-wide and is not an acceptable inference default without restrictive host firewall policy.",
+      "docker_publish_8001_8001": "Publishes to all host interfaces by default; unsafe for unauthenticated /generate."
+    }
+  },
+  "inference_boundary": {
+    "authorization_boundary":"API only: JWT validation, token-derived tenant/user/role context, tenant-filtered retrieval, and EvidenceResolver authorization occur before prompt construction.",
+    "inference_payload":"Rendered evidence-grounded prompt, request_id, max_new_tokens, temperature, and optional model name. No JWT, bearer token, caller context, tenant database record, or raw retrieval set is included by the defined schema.",
+    "inference_service_authentication":"None; the tested contract intentionally ignores Authorization headers. Network isolation is therefore mandatory.",
+    "service_to_service_auth_requirement":"Not required only if private network/loopback isolation is demonstrably enforced. If that invariant cannot be enforced operationally, a separately approved service-authentication design is required before exposure.",
+    "classification":"UNRESOLVED_PENDING_SECURITY_REVIEW"
+  },
+  "secret_inventory": [
+    {"name":"ATLAS_AUTH_HS256_SECRET","supplied_by":"deployment secret injection; no repository value","consumed_by":"API JWT verifier","logged":"prohibited/redacted","frontend_exposure":"prohibited","passed_to_inference":"no","diagnostics_or_ci":"no value found in inspected records; canary does not configure API identity","docker_environment":"must be injected only into API runtime when used"}
+  ],
+  "fail_closed_behavior": {
+    "missing_auth_configuration":"/ready returns 503 and /query returns 503 before retrieval.",
+    "invalid_jwt":"/query returns 401 before pipeline execution.",
+    "tenant_or_context_mismatch":"/query returns 403 before pipeline execution; verified JWT claims replace client context.",
+    "unavailable_inference_or_model":"Readiness is false and API returns bounded 503 behavior; repeated failures are protected by the configured circuit breaker.",
+    "inference_timeout":"Bounded timeout returns 504; queue saturation returns 429.",
+    "invalid_inference_response":"The client validates the response schema; malformed output becomes an error and is not returned as a grounded answer. C2 validation remains after generation.",
+    "misconfigured_inference_url":"A nonempty bad URL yields failed readiness/unavailable behavior rather than an external fallback. An empty value falls back only to loopback http://127.0.0.1:8001."
+  },
+  "canary_compatibility": {
+    "workflow":".github/workflows/canary.yml",
+    "trigger":"workflow_dispatch only",
+    "executed_by_ops01":false,
+    "configuration_scope":"The canary verifies release hashes and starts isolated loopback Ollama at 127.0.0.1:11434 with QuantizedLocalProvider. It does not start the FastAPI API or the standalone inference-service container.",
+    "assessment":"Compatible with the release identities and private-loopback principle, but it does not validate the API/inference network boundary, endpoint policy, or deployment variable contract."
+  },
+  "resource_envelope": {
+    "evidence_source":"artifacts/phase_5p_final_commissioning_report.md; historical, not re-executed by OPS-01",
+    "validated_scope":"single-node CPU deployment, Intel Core i3-N305 class with approximately 8 GB RAM, Gemma 3 1B Q4_K_M via Ollama, one concurrent inference, 0.5 second queue timeout, 30 second request deadline, 25 second inference-service read timeout, circuit breaker threshold 3 and 10 second cooldown",
+    "not_certified":"internet deployment without an approved TLS/ingress boundary, high-QPS or multi-replica operation, Kubernetes/multi-node deployment, GPU, or public inference service exposure"
+  },
+  "findings": [
+    {"id":"OPS01-P1-NETWORK","severity":"P1","classification":"SECURITY_REVIEW_REQUIRED","evidence":"Dockerfile.inference binds 0.0.0.0:8001, /generate has no authentication by design, and docs/OPERATIONS_RUNBOOK.md lines 255-270 use -p 8001:8001.","impact":"The documented command can make unauthenticated generation and its readiness endpoints host-network reachable.","required_action":"Approve and enforce private/loopback-only inference exposure; decide whether network isolation is the formal control or whether an approved service-authentication design is needed."},
+    {"id":"OPS01-P1-CONFIG","severity":"P1","classification":"DOCUMENTATION_DRIFT_FOUND","evidence":"src/novastack/service/resilience.py line 99 reads ATLAS_MAX_CONCURRENT_QUERIES, while docs/OPERATIONS_RUNBOOK.md line 186 and Phase 5K records state ATLAS_MAX_CONCURRENT_INFERENCES.","impact":"The documented value is ignored at runtime; the certified default remains 1, but an operational override silently fails.","required_action":"Reconcile deployment documentation and generated release-record templates to source canonical names, or approve a backwards-compatible source alias in a later controlled phase."},
+    {"id":"OPS01-P1-URL-CONFIG","severity":"P1","classification":"DOCUMENTATION_DRIFT_FOUND","evidence":"The API reads ATLAS_INFERENCE_SERVICE_URL for port 8001; InferenceServiceConfig reads ATLAS_INFERENCE_BACKEND_URL for Ollama, normally port 11434. Phase 5K material uses BACKEND_URL=http://127.0.0.1:8001.","impact":"A copied historical configuration can point the wrong component at the wrong service.","required_action":"Publish a single current configuration table and preserve historical manifests as immutable provenance; do not edit certified artifact records."},
+    {"id":"OPS01-P2-ENDPOINT-POLICY","severity":"P2","classification":"DOCUMENTATION_DRIFT_FOUND","evidence":"The API defines no route-level access restriction for /healthz, /ready, or /metrics; existing runbook treats them as directly curlable.","impact":"Operational state may be exposed if API port 8000 is broadly published.","required_action":"Document ingress/firewall policy: /query authenticated user-facing only; health, readiness, and metrics local/private/operator-only."},
+    {"id":"OPS01-P2-STALE-IDENTITY-NAMES","severity":"P2","classification":"DOCUMENTATION_DRIFT_FOUND","evidence":"docs/ATLAS_0.5_ARCHITECTURE_REVIEW.md line 198 and historical scripts use ATLAS_JWT_*; runtime reads only ATLAS_AUTH_*.","impact":"Operators could supply inert names and obtain a fail-closed unconfigured API.","required_action":"Mark ATLAS_JWT_* as historical/inert in active operator material."}
+  ],
+  "required_changes": [
+    "Security governance decision for the inference network boundary before any deployment using the current runbook command.",
+    "Documentation-only reconciliation of active runbook/configuration guidance; exact drift locations are recorded in OPS-01 findings.",
+    "No production source change was made or automatically authorized by OPS-01. A future service-authentication change requires separate design approval if private-network enforcement is not assured."
+  ],
+  "decision": "SECURITY_REVIEW_REQUIRED"
+}
