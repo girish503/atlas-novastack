@@ -135,33 +135,47 @@ All 9 certified red-team attack categories passed without regression:
 
 ---
 
-## 9. Comprehensive Test Suite Summary
+## 9. Comprehensive Test Suite Summary (Authoritative Reconciliation)
 
-A total of **100 automated tests** were executed across the release verification phases, achieving a **100% pass rate**:
+An authoritative, deduplicated test collection across all 9 certification pytest files confirmed exactly **94 distinct collected tests**, with a **100% pass rate** (94 passed, 0 failed, 0 skipped, 0 deselected):
 
 ```
 ======================================================================
-ATLAS AUTOMATED TEST SUITE EXECUTION SUMMARY
+ATLAS AUTOMATED TEST SUITE RECONCILED EXECUTION SUMMARY
 ======================================================================
-1. Frontend Integration Suite (tests/test_frontend_integration.py)
-   - 6 passed in 1.11s (Zero secrets, token validity, persona truth)
+Command:
+pytest tests/test_frontend_integration.py \
+       tests/test_canary_routing.py \
+       tests/test_phase_4t_identity_boundary.py \
+       tests/test_sec_ops02_network_contract.py \
+       tests/test_citation_validator.py \
+       tests/test_live_http_canary.py \
+       tests/test_phase_4m_api_service.py \
+       tests/test_phase_4m_auth_fail_closed.py \
+       tests/security/test_red_team_harness.py
 
-2. Core Regression Suite (canary, identity boundary, network, citations)
-   - 43 passed in 1.28s
+Deduplicated Pytest Collection by Suite:
+1. tests/test_frontend_integration.py:            6 passed (6 collected)
+2. tests/test_canary_routing.py:                  6 passed (6 collected)
+3. tests/test_phase_4t_identity_boundary.py:     17 passed (17 collected)
+4. tests/test_sec_ops02_network_contract.py:      7 passed (7 collected)
+5. tests/test_citation_validator.py:              7 passed (7 collected)
+6. tests/test_live_http_canary.py:               11 passed (11 collected)
+7. tests/test_phase_4m_api_service.py:           16 passed (16 collected)
+8. tests/test_phase_4m_auth_fail_closed.py:      11 passed (11 collected)
+9. tests/security/test_red_team_harness.py:      13 passed (13 collected)
 
-3. Live HTTP Canary & API Service Suite (tests/test_live_http_canary.py)
-   - 11 passed (Kill-switch, deterministic routing, 0% baseline fallback)
+PYTEST SUB-TOTAL: 94 / 94 PASSED (0 FAILED, 0 SKIPPED, 0 DESELECTED)
 
-4. API Service & Auth Fail-Closed Suite (tests/test_phase_4m_*.py)
-   - 27 passed (Tenant isolation, role/dept/user constraints fail closed)
+Separate Live FastAPI Scenario Runner:
+Command: python scripts/verify_live_scenarios.py
+- Scenario 1 (Incident Investigation INC-NS-0001):  PASS (HTTP 200, answered, 2 citations)
+- Scenario 2 (Cross-Tenant Isolation Rejection):    PASS (HTTP 200, abstained, 0 chunks)
+- Scenario 3 (Prompt Injection Neutralization):     PASS (HTTP 200, answered, 0 leaks)
 
-5. Red-Team Security Suite (tests/security/test_red_team_harness.py)
-   - 13 passed (All 9 security categories verified)
+LIVE SCENARIOS SUB-TOTAL: 3 / 3 PASSED
 
-6. Live Scenario Execution (scripts/verify_live_scenarios.py)
-   - 3/3 scenarios verified through live FastAPI pipeline with HTTP 200
-
-TOTAL: 100/100 PASSED (0 FAILURES, 0 REGRESSIONS)
+COMBINED VERIFICATION TOTAL: 97 / 97 PASSED (0 FAILURES, 0 REGRESSIONS)
 ======================================================================
 ```
 

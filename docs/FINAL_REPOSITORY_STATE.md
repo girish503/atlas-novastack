@@ -12,10 +12,9 @@
 
 | Property | Value | Audit Verification |
 | :--- | :--- | :--- |
-| **Previous Certified Baseline SHA** | `d325e5a82681456ebaca57f2f27c1900f17bd415` | Confirmed via Git history |
-| **Current Working HEAD SHA** | `d325e5a82681456ebaca57f2f27c1900f17bd415` | `git rev-parse HEAD` |
+| **Certified Baseline SHA** | `d325e5a82681456ebaca57f2f27c1900f17bd415` | Confirmed via Git history |
+| **Demonstration Suite SHA** | `d213288990f65e36d7993b3300eeecf7355bee02` | `release: finalize ATLAS production-grade demonstration suite` |
 | **Active Branch** | `main` | `git branch` |
-| **Commit Message** | `fix: remediate canary harness fixture contracts` | `git log -1 --oneline` |
 | **Candidate Version** | `0.4.14-rc1+h5.1` | Aligned with architecture spec |
 | **Certified Baseline Version** | `0.4.14-rc1` | Frozen immutable baseline |
 
@@ -25,7 +24,7 @@
 
 ```text
 ## Active Branch: main
-## Current HEAD: d325e5a82681456ebaca57f2f27c1900f17bd415
+## Base Release Commit: d213288990f65e36d7993b3300eeecf7355bee02
 ```
 
 ### 2.1 Tracked Modified Files (9 files)
