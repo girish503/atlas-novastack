@@ -13,6 +13,11 @@ venv/
 .venv/
 env/
 
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
 # IDE
 .vscode/
 .idea/

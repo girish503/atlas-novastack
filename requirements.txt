@@ -1,4 +1,5 @@
-# ATLAS — Phase 1C Milestone 1
-# No external dependencies required for this milestone.
-# All code uses Python standard library only.
-pytest>=7.0
+# ATLAS Enterprise Grounded Search Platform
+# Install local package and dependencies from pyproject.toml
+-e .
+pytest>=7.4.0,<9.0.0
+psutil>=5.9.0,<7.0.0
