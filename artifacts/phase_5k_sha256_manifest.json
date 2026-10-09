@@ -3,7 +3,7 @@
   "README.md": "5630403269a672ced8ec4a36daf0402317e7b67e4bd98df5746e1a9ca9481ea2",
   "Dockerfile": "f8063b88816778cf5f88d1f2e72a540106f3ac30f72dfe141f2489f6ed2b0437",
   "Dockerfile.inference": "55cc4255c4d78eafedd4006cfb9188a6aaa9002c787cbf97d9f598d29b2da546",
-  ".github/workflows/ci.yml": "55d24db31a5207385b17381f7f5e478c69a6af9b836ca42da0e3497a39bec578",
+  ".github/workflows/ci.yml": "b4d0c00bc8a03922a0c2b9346ae68bdd33ad90a1b4dc2da3e8c029fbbf41df5e",
   "src/novastack/provider.py": "fb873cd7c0b1d46869b6155b651074ab3c05978043317c66ce5235e5111e389b",
   "src/novastack/quantized_provider.py": "02b13beb6b3a605ad48b7e464730238385ca50434f575093c219a776f62f334a",
   "src/novastack/inference_client.py": "890f5a34d4fe120e1388f9c903ebaae622ff8df2a948bf6fa258dd6a7c7546c2",

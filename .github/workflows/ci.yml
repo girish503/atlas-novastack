@@ -31,13 +31,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/huggingface
-          key: hf-models-${{ runner.os }}-all-MiniLM-L6-v2
+          key: hf-models-${{ runner.os }}-embeddings-v1
           restore-keys: |
             hf-models-${{ runner.os }}-
 
-      - name: Pre-populate MiniLM model cache
+      - name: Pre-populate embeddings model cache
         run: |
-          python -c "from huggingface_hub import snapshot_download; snapshot_download('sentence-transformers/all-MiniLM-L6-v2')"
+          python -c "from huggingface_hub import snapshot_download; snapshot_download('BAAI/bge-small-en-v1.5'); snapshot_download('sentence-transformers/all-MiniLM-L6-v2')"
 
       - name: Run fast test suite
         run: |
